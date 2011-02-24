@@ -1,42 +1,39 @@
 #include <stdio.h>
 #include <math.h>
-#include "phis.h"
+#include "effsource.h"
 
 int main(int argc, char* argv[])
 {
-  double val;
+  struct coordinate x, xp;
   
   const double a = 0.5;
   const double M = 1.0;
 
-  const double r1     = 9.;
-  const double theta1 = M_PI_2;
-  const double phi1   = 0.;
+  /* The particle's coordinate location */
+  xp.r     = 9.;
+  xp.theta = M_PI_2;
+  xp.phi   = 0.0;
+  xp.t     = 0.0;
 
-  phis_init(M, a, r1);
-  
-  double theta = M_PI_2;
+  /* The field point */
+  x.theta   = M_PI_2;
+  x.t       = 0.;
 
-//   for(double r=4.0; r<=14.0; r+=0.1)
-//   {
-//     for(double phi=-M_PI; phi<=M_PI; phi+=0.1)
-//     {
-//       val = phis(r, r1, theta, theta1, phi, phi1);
-//       
-//       printf("%g\t%g\t%g\t%g\n", r, theta, phi, val);
-//     }
-//   }
+  /* Initialize the coefficients */
+  effsource_init(M, a, &xp);
 
-  double r = 10.0;
-  double phi = 0.0;
-  double vall = 0.;
-  for(int i=0; i<10000000; i++)
+  for(double r=4.0; r<=14.0; r+=0.1)
   {
-    val = phis(r, r1, theta, theta1, phi, phi1);
-    vall += val;
+    x.r = r;
+    for(double phi=-M_PI; phi<=M_PI; phi+=0.1)
+    {
+      double phis, dphis_dr, dphis_dtheta, dphis_dphi, dphis_dt, src;
+      x.phi     = phi;
+      effsource_calc(M, a, &x, &xp, &phis, &dphis_dr, &dphis_dtheta, &dphis_dphi, &dphis_dt, &src);
+      
+      printf("%g\t%g\t%g\t%g\t%g\n", x.r, x.theta, x.phi, phis, src);
+    }
   }
-  
-  printf("%g\n", vall);
 
   return 0;
 }

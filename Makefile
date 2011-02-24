@@ -1,5 +1,5 @@
-effsource: main.c phis.c
-	CC --std=c99 -O3 -lm -o effsource main.c phis.c
+effsource: main.c effsource.c
+	CC -Wall --std=c99 -O3 -lm -o effsource main.c effsource.c
 
 .PHONY : clean
 clean :
