@@ -1,4 +1,3 @@
-int Initialize_phis();
-void Uninitialize_phis();
-int phis(double r_p, double a, double M, double dr, double dth, double dph, double *Res);
+void   phis_init(double M, double a, double r1);
+double phis(double r, double r1, double theta, double theta1, double phi, double phi1);
 
