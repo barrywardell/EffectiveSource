@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[])
 {
-  struct coordinate x, xp;
+  struct coordinate x, xp, up;
   
   const double a = 0.5;
   const double M = 1.0;
@@ -19,8 +19,11 @@ int main(int argc, char* argv[])
   x.theta   = M_PI_2;
   x.t       = 0.;
 
-  /* Initialize the coefficients */
-  effsource_init(M, a, &xp);
+  /* Initialize the background parameters */
+  effsource_init(M, a);
+  
+  /* Set particle's position and 4-velocity */
+  effsource_set_particle(&xp, &up);
 
   for(double r=4.0; r<=14.0; r+=0.1)
   {
@@ -29,7 +32,7 @@ int main(int argc, char* argv[])
     {
       double phis, dphis_dr, dphis_dtheta, dphis_dphi, dphis_dt, src;
       x.phi     = phi;
-      effsource_calc(M, a, &x, &xp, &phis, &dphis_dr, &dphis_dtheta, &dphis_dphi, &dphis_dt, &src);
+      effsource_calc(&x, &phis, &dphis_dr, &dphis_dtheta, &dphis_dphi, &dphis_dt, &src);
       
       printf("%g\t%g\t%g\t%g\t%g\n", x.r, x.theta, x.phi, phis, src);
     }

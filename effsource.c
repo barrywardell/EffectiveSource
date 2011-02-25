@@ -33,7 +33,7 @@
  *
  *        effsource_phis(x, x_p) returns the value of the singular field.
  *
- *        effsource_calc(M, a, x, x_p, *phis, *dphis_dr, *dphis_dth, *dphis_dph, *box_phis)
+ *        effsource_calc(x, phis, dphis_dr, dphis_dth, dphis_dph, box_phis)
  *        computes the singular field, its spatial derivatives and its
  *        d'Alembertian and stores them in the variables phis, dphis_dr,
  *        dphis_dth, dphis_dph and box_phis.
@@ -51,18 +51,24 @@
 /* Whether to enforce periodicity in phi. 1=yes, 0=no */
 static int periodic = 1;
 
+/* The particle's coordinate location and 4-velocity */
+static struct coordinate xp, up;
+
+/* Mass and spin of the Kerr black hole */
+static double M, a;
+
 /* Static variables used to store the coefficients of the series expansions */
 static double A_0_0_2, A_0_0_4, A_0_2_0, A_0_2_2, A_0_4_0, A_1_0_2, A_1_0_4, A_1_2_0, A_1_2_2, A_1_4_0, A_2_0_0, A_2_0_2, A_2_2_0, A_3_0_0, A_3_0_2, A_3_2_0, A_4_0_0, A_5_0_0;
 static double s2_0_0_2, s2_0_0_4, s2_0_2_0, s2_0_2_2, s2_0_4_0, s2_1_0_2, s2_1_0_4, s2_1_2_0, s2_1_2_2, s2_1_4_0, s2_2_0_0, s2_2_0_2, s2_2_2_0, s2_3_0_0, s2_3_0_2, s2_3_2_0, s2_4_0_0, s2_5_0_0;
 
 /* Compute the singular field at the point x for the particle at xp */
-void effsource_phis(struct coordinate * x, struct coordinate * xp, double * phis)
+void effsource_phis(struct coordinate * x, double * phis)
 {
   double A, s2;
 
-  double dr       = x->r - xp->r;
-  double dtheta   = x->theta - xp->theta;
-  double dphi     = x->phi - xp->phi;
+  double dr       = x->r - xp.r;
+  double dtheta   = x->theta - xp.theta;
+  double dphi     = x->phi - xp.phi;
   
   double dr2      = dr*dr;
   double dr3      = dr2*dr;
@@ -102,9 +108,8 @@ void effsource_phis(struct coordinate * x, struct coordinate * xp, double * phis
 }
 
 /* Compute the singular field, its derivatives and its d'Alembertian */
-void effsource_calc(double M, double a, struct coordinate  * x, struct coordinate * xp,
-                    double *phis, double *dphis_dr, double *dphis_dth,
-                    double *dphis_dph, double *dphis_dt, double *box_phis)
+void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
+      double *dphis_dth, double *dphis_dph, double *dphis_dt, double *box_phis)
 {
   double A, dA_dr, d2A_dr2, dA_dth, d2A_dth2, dA_dph, d2A_dph2;
   double s2, sqrts2, s2_15, s2_25, s2_35, ds2_dr, d2s2_dr2, ds2_dth, d2s2_dth2, ds2_dph, d2s2_dph2;
@@ -113,9 +118,9 @@ void effsource_calc(double M, double a, struct coordinate  * x, struct coordinat
   double r      = x->r;
   double theta  = x->theta;
   double phi    = x->phi;
-  double rp     = xp->r;
-  double thetap = xp->theta;
-  double phip   = xp->phi;
+  double rp     = xp.r;
+  double thetap = xp.theta;
+  double phip   = xp.phi;
   
   double dr     = r-rp;
   double dtheta = theta - thetap;
@@ -260,9 +265,17 @@ void effsource_calc(double M, double a, struct coordinate  * x, struct coordinat
 }
 
 /* Initialize array of coefficients of powers of dr, dtheta and dphi. */
-void effsource_init(double M, double a, struct coordinate * xp)
+void effsource_init(double mass, double spin)
 {
-  double r1 = xp->r;
+  M = mass;
+  a = spin;
+}
+
+void effsource_set_particle(struct coordinate * x_p, struct coordinate * u_p)
+{
+  xp = *x_p;
+  up = *u_p;
+  double r1 = xp.r;
 
   /* Compute A ccoefficients */
   {
