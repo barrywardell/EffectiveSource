@@ -77,19 +77,23 @@ void effsource_phis(struct coordinate * x, double * phis)
   double dtheta2  = dtheta*dtheta;
   double dtheta4  = dtheta2*dtheta2;
   double dphi2, dphi4;
-  
+
   if(periodic)
   {
     double cosdphi  = cos(dphi);
-    double cos2dphi = cos(2*dphi);
+    double sindphi  = sin(dphi);
+    double sindphi4 = sindphi*sindphi*sindphi*sindphi;
+    double sinhdphi = sin(dphi/2.);
     
-    dphi2 = 2.5 - (8*cosdphi)/3. + cos2dphi/6.;
-    dphi4 = 6 - 8*cosdphi + 2*cos2dphi;
+    dphi2 = (-2*(-7 + cosdphi)*sinhdphi*sinhdphi)/3.;
+    dphi4 = sindphi4;
   } else {
+    /* dphi must be between -pi and pi */
+    dphi  = fmod(dphi + M_PI, 2*M_PI) - M_PI;
     dphi2 = dphi*dphi;
     dphi4 = dphi2*dphi2;
   }
-  
+
   A = A_0_0_2*dphi2 + A_0_0_4*dphi4 + A_0_2_0*dtheta2
     + A_0_2_2*dphi2*dtheta2 + A_0_4_0*dtheta4 + A_1_0_2*dr*dphi2
     + A_1_0_4*dr*dphi4 + A_1_2_0*dr*dtheta2 + A_1_2_2*dr*dtheta2*dphi2 
@@ -121,7 +125,7 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
   double rp     = xp.r;
   double thetap = xp.theta;
   double phip   = xp.phi;
-  
+
   double dr     = r-rp;
   double dtheta = theta - thetap;
   double dphi   = phi - phip;
@@ -144,23 +148,29 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
     double cosdphi  = cos(dphi);
     double cos2dphi = cos(2*dphi);
     double sindphi  = sin(dphi);
-    double sin2dphi = sin(2*dphi);
-    
-    dphi2 = 2.5 - (8*cosdphi)/3. + cos2dphi/6.;
-    dphi4 = 6 - 8*cosdphi + 2*cos2dphi;
+    double sindphi2 = sindphi*sindphi;
+    double sindphi3 = sindphi2*sindphi;
+    double sindphi4 = sindphi2*sindphi2;
+    double sinhdphi = sin(dphi/2.);
 
-    dphi2_d   = (8*sindphi)/3. - sin2dphi/3.;
-    dphi4_d   = 8*sindphi - 4*sin2dphi;
+    dphi2 = (-2*(-7 + cosdphi)*sinhdphi*sinhdphi)/3.;
+    dphi4 = sindphi4;
 
-    dphi2_d_d = (8*cosdphi)/3. - (2*cos2dphi)/3.;
-    dphi4_d_d = 8*cosdphi - 8*cos2dphi;
+    dphi2_d = (8*sindphi - 2*cosdphi*sindphi)/3.;
+    dphi4_d = 4*cosdphi*sindphi3;
+
+    dphi2_d_d = (-2*(-4*cosdphi + cos2dphi))/3.;
+    dphi4_d_d = 4*(1 + 2*cos2dphi)*sindphi2;
   } else {
-    dphi2     = dphi*dphi;
-    dphi2_d   = 2.0*dphi;
+    /* dphi must be between -pi and pi */
+    dphi  = fmod(dphi + M_PI, 2*M_PI) - M_PI;
+    dphi2 = dphi*dphi;
+    dphi4 = dphi2*dphi2;
+
+    dphi2_d = 2.0*dphi;
+    dphi4_d = 4.0*dphi2*dphi;
+
     dphi2_d_d = 2.0;
-    
-    dphi4     = dphi2*dphi2;
-    dphi4_d   = 4.0*dphi2*dphi;
     dphi4_d_d = 12.0*dphi2;
   }
 
