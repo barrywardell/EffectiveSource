@@ -27,6 +27,7 @@ struct coordinate {
 
 void effsource_init(double M, double a);
 void effsource_set_particle(struct coordinate * x_p, struct coordinate * u_p);
+void effsource_set_particle_el(struct coordinate * x_p, double e, double l, double ur_p);
 void effsource_phis(struct coordinate * x, double * phis);
 void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr, double *dphis_dth,
                     double *dphis_dph, double *dphis_dt, double *box_phis);

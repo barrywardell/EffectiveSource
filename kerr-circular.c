@@ -427,3 +427,10 @@ void effsource_set_particle(struct coordinate * x_p, struct coordinate * u_p)
     s2_5_0_0 = ((4*M - 9*r1)*v15 - M*v20*(v12 + r1*v16 + 6*v20) + r1*v18*(3*v12 - 5*v19 + 12*v20))/(12.*pow(v40,4));
   }
 }
+
+/* Initialize array of coefficients of pows of dr, dtheta and dphi. */
+/* FIXME: implement this */
+void effsource_set_particle_el(struct coordinate * x_p, double e, double l, double ur_p)
+{
+
+}
