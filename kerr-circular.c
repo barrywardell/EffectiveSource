@@ -52,7 +52,7 @@
 static int periodic = 1;
 
 /* The particle's coordinate location and 4-velocity */
-static struct coordinate xp, up;
+static struct coordinate xp;
 
 /* Mass and spin of the Kerr black hole */
 static double M, a;
@@ -277,7 +277,6 @@ void effsource_init(double mass, double spin)
 void effsource_set_particle(struct coordinate * x_p, struct coordinate * u_p)
 {
   xp = *x_p;
-  up = *u_p;
   double r1 = xp.r;
 
   /* Compute A ccoefficients */
@@ -432,8 +431,7 @@ void effsource_set_particle(struct coordinate * x_p, struct coordinate * u_p)
 }
 
 /* Initialize array of coefficients of pows of dr, dtheta and dphi. */
-/* FIXME: implement this */
 void effsource_set_particle_el(struct coordinate * x_p, double e, double l, double ur_p)
 {
-
+  effsource_set_particle(x_p, 0);
 }

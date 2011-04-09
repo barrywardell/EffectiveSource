@@ -54,7 +54,7 @@
 static int periodic = 1;
 
 /* The particle's coordinate location and 4-velocity */
-static struct coordinate xp, up;
+static struct coordinate xp;
 
 /* Mass and spin of the Kerr black hole */
 static double M, a;
@@ -286,11 +286,10 @@ void effsource_init(double mass, double spin)
 void effsource_set_particle(struct coordinate * x_p, struct coordinate * u_p)
 {
   xp = *x_p;
-  up = *u_p;
   double r1   = xp.r;
-  double ut1  = up.t;
-  double ur1  = up.r;
-  double uph1 = up.phi;
+  double ut1  = u_p->t;
+  double ur1  = u_p->r;
+  double uph1 = u_p->phi;
 
   /* Compute A coefficients */
   {
