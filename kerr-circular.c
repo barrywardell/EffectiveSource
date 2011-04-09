@@ -265,13 +265,6 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
         + (-2*M + r)/(sinth*sinth))))/(a2 + r*(-2*M + r))
       ) / (r2 + a2*costh*costh);
 
-  /* We can't currently get an accurate result for dx < 0.1.
-   * Just fudge it for now and set the source to 0 in this case.
-   */
-  if (sqrt(dr*dr + dtheta*dtheta + dphi*dphi) < 0.1)
-  {
-    *box_phis = 0.;
-  }
 }
 
 /* Initialize array of coefficients of powers of dr, dtheta and dphi. */
