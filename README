@@ -1,0 +1,53 @@
+EffectiveSource
+------------------------------------------------------------------------------
+Numerical code for the effective source for a point particle moving in a
+curved background spacetime
+
+Getting the code
+----------------
+To get the code, run
+
+git clone git://github.com/barrywardell/EffectiveSource
+
+Compiling
+---------
+This code has no requirements other than a C compiler.
+
+Usage
+-----
+The code parameters for the geodesic are currently hardcoded
+into the main function in main.cc. There are no command line
+arguments available.
+
+Changelog
+---------
+31 Jan 2012	Initial version made public
+
+License
+-------
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Authors
+-------
+
+Barry Wardell
+
+CASL
+University College Dublin
+8 Belfield Office Park
+Clonskeagh
+Dublin 4
+
+http://www.barrywardell.net
+
