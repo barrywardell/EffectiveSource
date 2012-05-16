@@ -17,7 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston MA 02110-1301, USA.
  *
- * Version 3.0 alpha 2 - 10 May 2012
+ * Version 3.0 alpha 3 - 16 May 2012
  *
  * This code compute the singular field and effective source for a point scalar
  * particle following an equatorial geodesic orbit in Kerr.
@@ -244,13 +244,12 @@ void effsource_phis_m(int m, struct coordinate * x, double * phis)
   *phis = 4.0/(beta*C3*pow(alpha+beta, 2.5));
 }
 
-/* TODO: This function is just copied from the old version and needs to be updated.
-   Compute the singular field, its derivatives and its d'Alembertian */
+/* Compute the singular field, its derivatives and its d'Alembertian */
 void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
       double *dphis_dth, double *dphis_dph, double *dphis_dt, double *box_phis)
 {
-  double A, dA_dr, d2A_dr2, dA_dth, d2A_dth2, dA_dQ, dA_dR, dA_dph, d2A_dQ2, d2A_dR2, d2A_dQdR, d2A_dph2, dA_dt, d2A_dt2, d2A_dQdt, d2A_dRdt, d2A_dphdt;
-  double s2, sqrts2, s2_15, s2_25, s2_35, ds2_dr, d2s2_dr2, ds2_dth, d2s2_dth2, ds2_dQ, ds2_dR, ds2_dph, d2s2_dQ2, d2s2_dR2, d2s2_dQdR, d2s2_dph2, ds2_dt, d2s2_dt2, d2s2_dQdt, d2s2_dRdt, d2s2_dphdt;
+  double A, dA_dr, d2A_dr2, dA_dth, d2A_dth2, dA_dR, dA_dph,  d2A_dR2,  d2A_dph2, dA_dt, d2A_dt2, d2A_dphdt;
+  double s2, sqrts2, s2_15, s2_25, s2_35, ds2_dr, d2s2_dr2, ds2_dth, d2s2_dth2, ds2_dR, ds2_dph, d2s2_dR2, d2s2_dph2, ds2_dt, d2s2_dt2, d2s2_dphdt;
   double d2phis_dr2, d2phis_dth2, d2phis_dph2, d2phis_dt2, d2phis_dphdt;
 
   double r      = x->r;
@@ -264,43 +263,60 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
   double dtheta = theta - thetap;
   double dphi   = phi - phip;
 
+  double dr2      = dr*dr;
+  double dr3      = dr2*dr;
+  double dr4      = dr2*dr2;
+  double dr5      = dr3*dr2;
+  double dr6      = dr3*dr3;
+  double dr7      = dr4*dr3;
+  double dr8      = dr4*dr4;
+
+  double dtheta2  = dtheta*dtheta;
+  double dtheta3  = dtheta2*dtheta;
+  double dtheta4  = dtheta2*dtheta2;
+  double dtheta5  = dtheta3*dtheta2;
+  double dtheta6  = dtheta3*dtheta3;
+  double dtheta7  = dtheta4*dtheta3;
+  double dtheta8  = dtheta4*dtheta4;
+
+  double R        = sin(dphi);
+  double R2       = R*R;
+  double R3       = R2*R;
+  double R4       = R2*R2;
+  double R5       = R3*R2;
+  double R6       = R3*R3;
+  double R7       = R4*R3;
+  double R8       = R4*R4;
+  double dR       = cos(dphi);
+
+  double om       = M / (a*M + sqrt(M*pow(rp,3)));
+
   /* A, dA/dx, d^2A/dx^2 */
-  A         = 0*dr + 0*dtheta + 0*dphi;
-  dA_dr     = 0;
-  dA_dth    = 0;
-  dA_dQ     = 0;
-  dA_dR     = 0;
-  dA_dph    = 0;
-  dA_dt     = 0;
-  d2A_dr2   = 0;
-  d2A_dth2  = 0;
-  d2A_dQ2   = 0;
-  d2A_dR2   = 0;
-  d2A_dQdR  = 0;
-  d2A_dph2  = 0;
-  d2A_dt2   = 0;
-  d2A_dQdt  = 0;
-  d2A_dRdt  = 0;
-  d2A_dphdt = 0;
+  A         = dr6*(A600 + A700*dr) + dr8*(A800 + A900*dr) + dr4*(A420 + A520*dr + dr2*(A620 + A720*dr))*dtheta2 + (A080 + A180*dr)*dtheta8 + dtheta4*(dr2*(A240 + A340*dr) + dr4*(A440 + A540*dr) + (A060 + A160*dr + dr2*(A260 + A360*dr))*dtheta2) + (dr4*(A402 + A502*dr + dr2*(A602 + A702*dr)) + (dr2*(A222 + A322*dr) + dr4*(A422 + A522*dr))*dtheta2 + dtheta4*(A042 + A142*dr + dr2*(A242 + A342*dr) + (A062 + A162*dr)*dtheta2))*R2 + (A008 + A108*dr)*R8 + R4*(dr2*(A204 + A304*dr) + dr4*(A404 + A504*dr) + (A024 + A124*dr + dr2*(A224 + A324*dr))*dtheta2 + (A044 + A144*dr)*dtheta4 + (A006 + A106*dr + dr2*(A206 + A306*dr) + (A026 + A126*dr)*dtheta2)*R2);;
+  dA_dr     = 6*(A600 + A700*dr)*dr5 + A700*dr6 + 8*(A800 + A900*dr)*dr7 + A900*dr8 + 4*(A420 + A520*dr + (A620 + A720*dr)*dr2)*dr3*dtheta2 + (A520 + 2*dr*(A620 + A720*dr) + A720*dr2)*dr4*dtheta2 + (2*dr*(A240 + A340*dr) + A340*dr2 + 4*(A440 + A540*dr)*dr3 + A540*dr4 + (A160 + 2*dr*(A260 + A360*dr) + A360*dr2)*dtheta2)*dtheta4 + A180*dtheta8 + (4*(A402 + A502*dr + (A602 + A702*dr)*dr2)*dr3 + (A502 + 2*dr*(A602 + A702*dr) + A702*dr2)*dr4 + (2*dr*(A222 + A322*dr) + A322*dr2 + 4*(A422 + A522*dr)*dr3 + A522*dr4)* dtheta2 + (A142 + 2*dr*(A242 + A342*dr) + A342*dr2 + A162*dtheta2)* dtheta4)*R2 + (2*dr*(A204 + A304*dr) + A304*dr2 + 4*(A404 + A504*dr)*dr3 + A504*dr4 + (A124 + 2*dr*(A224 + A324*dr) + A324*dr2)*dtheta2 + A144*dtheta4 + (A106 + 2*dr*(A206 + A306*dr) + A306*dr2 + A126*dtheta2)*R2)* R4 + A108*R8;
+  dA_dth    = 2*(A420 + A520*dr + (A620 + A720*dr)*dr2)*dr4*dtheta + 4*((A240 + A340*dr)*dr2 + (A440 + A540*dr)*dr4 + (A060 + A160*dr + (A260 + A360*dr)*dr2)*dtheta2)*dtheta3 + 2*(A060 + A160*dr + (A260 + A360*dr)*dr2)*dtheta5 + 8*(A080 + A180*dr)*dtheta7 + (2*((A222 + A322*dr)*dr2 + (A422 + A522*dr)*dr4)*dtheta + 4*(A042 + A142*dr + (A242 + A342*dr)*dr2 + (A062 + A162*dr)*dtheta2)* dtheta3 + 2*(A062 + A162*dr)*dtheta5)*R2 + (2*(A024 + A124*dr + (A224 + A324*dr)*dr2)*dtheta + 4*(A044 + A144*dr)*dtheta3 + 2*(A026 + A126*dr)*dtheta*R2)* R4;
+  dA_dR     = 2*((A402 + A502*dr + (A602 + A702*dr)*dr2)*dr4 + ((A222 + A322*dr)*dr2 + (A422 + A522*dr)*dr4)*dtheta2 + (A042 + A142*dr + (A242 + A342*dr)*dr2 + (A062 + A162*dr)*dtheta2)* dtheta4)*R + 4*((A204 + A304*dr)*dr2 + (A404 + A504*dr)*dr4 + (A024 + A124*dr + (A224 + A324*dr)*dr2)*dtheta2 + (A044 + A144*dr)*dtheta4 + (A006 + A106*dr + (A206 + A306*dr)*dr2 + (A026 + A126*dr)*dtheta2)* R2)*R3 + 2*(A006 + A106*dr + (A206 + A306*dr)*dr2 + (A026 + A126*dr)*dtheta2)*R5 + 8*(A008 + A108*dr)*R7;
+  dA_dph    = dA_dR*dR;
+  dA_dt     = -om*dA_dph;
+  d2A_dr2   = 30*(A600 + A700*dr)*dr4 + 12*A700*dr5 + 56*(A800 + A900*dr)*dr6 + 16*A900*dr7 + 12*dr2*(A420 + A520*dr + (A620 + A720*dr)*dr2)*dtheta2 + 8*(A520 + 2*dr*(A620 + A720*dr) + A720*dr2)*dr3*dtheta2 + (4*A720*dr + 2*(A620 + A720*dr))*dr4*dtheta2 + (4*A340*dr + 2*(A240 + A340*dr) + 12*(A440 + A540*dr)*dr2 + 8*A540*dr3 + (4*A360*dr + 2*(A260 + A360*dr))*dtheta2)*dtheta4 + (12*dr2*(A402 + A502*dr + (A602 + A702*dr)*dr2) + 8*(A502 + 2*dr*(A602 + A702*dr) + A702*dr2)*dr3 + (4*A702*dr + 2*(A602 + A702*dr))*dr4 + (4*A322*dr + 2*(A222 + A322*dr) + 12*(A422 + A522*dr)*dr2 + 8*A522*dr3)*dtheta2 + (4*A342*dr + 2*(A242 + A342*dr))*dtheta4)* R2 + (4*A304*dr + 2*(A204 + A304*dr) + 12*(A404 + A504*dr)*dr2 + 8*A504*dr3 + (4*A324*dr + 2*(A224 + A324*dr))*dtheta2 + (4*A306*dr + 2*(A206 + A306*dr))*R2)*R4;
+  d2A_dth2  = 2*(A420 + A520*dr + (A620 + A720*dr)*dr2)*dr4 + 12*dtheta2*((A240 + A340*dr)*dr2 + (A440 + A540*dr)*dr4 + (A060 + A160*dr + (A260 + A360*dr)*dr2)*dtheta2) + 18*(A060 + A160*dr + (A260 + A360*dr)*dr2)*dtheta4 + 56*(A080 + A180*dr)*dtheta6 + (2*((A222 + A322*dr)*dr2 + (A422 + A522*dr)*dr4) + 12*dtheta2*(A042 + A142*dr + (A242 + A342*dr)*dr2 +  (A062 + A162*dr)*dtheta2) + 18*(A062 + A162*dr)*dtheta4)*R2 + (2*(A024 + A124*dr + (A224 + A324*dr)*dr2) + 12*(A044 + A144*dr)*dtheta2 + 2*(A026 + A126*dr)*R2)*R4; d2A_dR2 = 2*((A402 + A502*dr + (A602 + A702*dr)*dr2)*dr4 + ((A222 + A322*dr)*dr2 + (A422 + A522*dr)*dr4)*dtheta2 + (A042 + A142*dr + (A242 + A342*dr)*dr2 + (A062 + A162*dr)*dtheta2)* dtheta4) + 12*R2*((A204 + A304*dr)*dr2 + (A404 + A504*dr)*dr4 + (A024 + A124*dr + (A224 + A324*dr)*dr2)*dtheta2 + (A044 + A144*dr)*dtheta4 + (A006 + A106*dr + (A206 + A306*dr)*dr2 + (A026 + A126*dr)*dtheta2)* R2) + 18*(A006 + A106*dr + (A206 + A306*dr)*dr2 + (A026 + A126*dr)*dtheta2)*R4 + 56*(A008 + A108*dr)*R6;
+  d2A_dph2  = - R*dA_dR + dR*dR*d2A_dR2;
+  d2A_dt2   = om*om*d2A_dph2;
+  d2A_dphdt = -om*d2A_dph2;
 
   /* s, ds/dr, d^2s/dr^2 */
-  s2         = 0;
-  ds2_dr     = 0;
-  ds2_dth    = 0;
-  ds2_dQ     = 0;
-  ds2_dR     = 0;
-  ds2_dph    = 0;
-  ds2_dt     = 0;
-  d2s2_dr2   = 0;
-  d2s2_dth2  = 0;
-  d2s2_dQ2   = 0;
-  d2s2_dR2   = 0;
-  d2s2_dQdR  = 0;
-  d2s2_dph2  = 0;
-  d2s2_dt2   = 0;
-  d2s2_dQdt  = 0;
-  d2s2_dRdt  = 0;
-  d2s2_dphdt = 0;
+  s2         = alpha20*dr2 + alpha02*dtheta2 + beta*R2;
+  ds2_dr     = 2*alpha20*dr;
+  ds2_dth    = 2*alpha02*dtheta;
+  ds2_dR     = 2*beta*R;
+  ds2_dph    = ds2_dR*dR;
+  ds2_dt     = -om*ds2_dph;
+  d2s2_dr2   = 2*alpha20;
+  d2s2_dth2  = 2*alpha02;
+  d2s2_dR2   = 2*beta;
+  d2s2_dph2  = - R*ds2_dR + dR*dR*d2s2_dR2;
+  d2s2_dt2   = om*om*d2s2_dph2;
+  d2s2_dphdt = -om*d2s2_dph2;
   sqrts2     = sqrt(s2);
   s2_15      = s2*sqrts2;
   s2_25      = s2*s2_15;
