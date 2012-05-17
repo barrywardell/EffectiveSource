@@ -1,6 +1,6 @@
-CFLAGS  = -g -O0 -Wall -std=c99 -I/opt/local/include
+CFLAGS  = -g -O0 -Wall -std=gnu99 -I/opt/local/include
 LDFLAGS = -L/opt/local/lib
-LIBS = -lm -lgsl
+LIBS = -lm -lgsl -lgslcblas
 
 DEPS    = effsource.h
 OBJECTS = main.o
