@@ -389,7 +389,7 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
       double *dphis_dth, double *dphis_dph, double *dphis_dt, double *box_phis)
 {
   double A, dA_dr, d2A_dr2, dA_dth, d2A_dth2, dA_dR, dA_dph,  d2A_dR2,  d2A_dph2, dA_dt, d2A_dt2, d2A_dphdt;
-  double s2, sqrts2, s2_15, s2_25, s2_35, ds2_dr, d2s2_dr2, ds2_dth, d2s2_dth2, ds2_dR, ds2_dph, d2s2_dR2, d2s2_dph2, ds2_dt, d2s2_dt2, d2s2_dphdt;
+  double s2, sqrts2, s2_15, s2_25, s2_35, s2_45, s2_55, ds2_dr, d2s2_dr2, ds2_dth, d2s2_dth2, ds2_dR, ds2_dph, d2s2_dR2, d2s2_dph2, ds2_dt, d2s2_dt2, d2s2_dphdt;
   double d2phis_dr2, d2phis_dth2, d2phis_dph2, d2phis_dt2, d2phis_dphdt;
 
   double r      = x->r;
@@ -461,27 +461,29 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
   s2_15      = s2*sqrts2;
   s2_25      = s2*s2_15;
   s2_35      = s2*s2_25;
+  s2_45      = s2*s2_35;
+  s2_55      = s2*s2_45;
 
   /* phis */
-  *phis = A/(24.*s2_15);
+  *phis = A/(24.*s2_35);
 
   /* First derivatives of phis */
-  *dphis_dr  = (-3*ds2_dr*A + 2*dA_dr*s2) /(48.*s2_25);
-  *dphis_dth = (-3*ds2_dth*A + 2*dA_dth*s2)/(48.*s2_25);
-  *dphis_dph = (-3*ds2_dph*A + 2*dA_dph*s2)/(48.*s2_25);
-  *dphis_dt  = (-3*ds2_dt*A + 2*dA_dt*s2)/(48.*s2_25);
+  *dphis_dr  = (-7*ds2_dr*A + 2*dA_dr*s2) /(48.*s2_45);
+  *dphis_dth = (-7*ds2_dth*A + 2*dA_dth*s2)/(48.*s2_45);
+  *dphis_dph = (-7*ds2_dph*A + 2*dA_dph*s2)/(48.*s2_45);
+  *dphis_dt  = (-7*ds2_dt*A + 2*dA_dt*s2)/(48.*s2_45);
   
   /* Second derivatives of phis */
   d2phis_dr2 =
-    (15*ds2_dr*ds2_dr*A - 6*s2*(2*dA_dr*ds2_dr + d2s2_dr2*A) + 4*d2A_dr2*s2*s2)/(96.*s2_35);
+    (63*ds2_dr*ds2_dr*A - 14*s2*(2*dA_dr*ds2_dr + d2s2_dr2*A) + 4*d2A_dr2*s2*s2)/(96.*s2_55);
   d2phis_dth2 =
-    (15*ds2_dth*ds2_dth*A - 6*s2*(2*dA_dth*ds2_dth + d2s2_dth2*A) + 4*d2A_dth2*s2*s2)/(96.*s2_35);
+    (63*ds2_dth*ds2_dth*A - 14*s2*(2*dA_dth*ds2_dth + d2s2_dth2*A) + 4*d2A_dth2*s2*s2)/(96.*s2_55);
   d2phis_dph2 =
-    (15*ds2_dph*ds2_dph*A - 6*s2*(2*dA_dph*ds2_dph + d2s2_dph2*A) + 4*d2A_dph2*s2*s2)/(96.*s2_35);
+    (63*ds2_dph*ds2_dph*A - 14*s2*(2*dA_dph*ds2_dph + d2s2_dph2*A) + 4*d2A_dph2*s2*s2)/(96.*s2_55);
   d2phis_dt2 =
-    (15*ds2_dt*ds2_dt*A - 6*s2*(2*dA_dt*ds2_dt + d2s2_dt2*A) + 4*d2A_dt2*s2*s2)/(96.*s2_35);
+    (63*ds2_dt*ds2_dt*A - 14*s2*(2*dA_dt*ds2_dt + d2s2_dt2*A) + 4*d2A_dt2*s2*s2)/(96.*s2_55);
   d2phis_dphdt =
-    (15*ds2_dph*ds2_dt*A - 6*s2*(dA_dt*ds2_dph + dA_dph*ds2_dt + d2s2_dphdt*A) + 4*d2A_dphdt*s2*s2)/(96.*s2_35);
+    (63*ds2_dph*ds2_dt*A - 14*s2*(dA_dt*ds2_dph + dA_dph*ds2_dt + d2s2_dphdt*A) + 4*d2A_dphdt*s2*s2)/(96.*s2_55);
   
   
   /* Box[phis] */
