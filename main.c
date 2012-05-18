@@ -54,11 +54,11 @@ int main(int argc, char* argv[])
   for(double r=8.0; r<=12.0; r+=0.1)
   {
     x.r = r;
-    for(double phi=-M_PI; phi<=M_PI; phi+=0.1)
+    for(double theta=M_PI_2-0.5; theta<=M_PI_2+0.5; theta+=0.011)
     {
       double phis, dphis_dr, dphis_dtheta, dphis_dphi, dphis_dt, src;
-      x.phi     = phi;
-      effsource_calc(&x, &phis, &dphis_dr, &dphis_dtheta, &dphis_dphi, &dphis_dt, &src);
+      x.theta     = theta;
+      effsource_calc_m(10, &x, &phis, &dphis_dr, &dphis_dtheta, &dphis_dphi, &dphis_dt, &src);
       
       printf("%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\n",
         x.r-xp.r, x.theta-xp.theta, x.phi-xp.phi,
