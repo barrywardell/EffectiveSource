@@ -342,8 +342,9 @@ void effsource_phis_m(int m, struct coordinate * x, double * phis)
   const double C1 = alpha / beta;
 
   double C[17];
-  C[0] = 1;
-  C[1] = C1;
+  C[0]  = 1;
+  C[1]  = C1;
+  C[2]  = C[1]*C[1];
   C[3]  = C[2]*C[1];
   C[4]  = C[2]*C[2];
   C[5]  = C[3]*C[2];
