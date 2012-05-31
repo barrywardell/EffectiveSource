@@ -17,7 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston MA 02110-1301, USA.
  *
- * Version 3.0 alpha 4 - 16 May 2012
+ * Version 3.0 beta 1 - 30 May 2012
  *
  * This code compute the singular field and effective source for a point scalar
  * particle following an equatorial geodesic orbit in Kerr.
