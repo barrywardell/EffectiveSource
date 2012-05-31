@@ -128,7 +128,7 @@ double m_integrand (double phi, void * par)
   {
     return val * cos(m*phi);
   } else {
-    return -val * sin(m*phi);
+    return 0; // FIXME: this should be -val * sin(m*phi), but then GSL complains about roundoff;
   }
 }
 
