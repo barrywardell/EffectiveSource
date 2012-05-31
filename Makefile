@@ -16,6 +16,9 @@ kerr-circular : kerr-circular.o $(OBJECTS) $(DEPS)
 kerr-circular-2D : kerr-circular-2D.o $(OBJECTS) $(DEPS)
 	gcc -o kerr-circular-2D kerr-circular-2D.o $(OBJECTS) $(LDFLAGS) $(LIBS)
 
+kerr-circular-2D-num : kerr-circular-2D.o main2.o decompose.o $(DEPS)
+	gcc -o kerr-circular-2D-num kerr-circular-2D.o main2.o decompose.o $(LDFLAGS) $(LIBS)
+
 .PHONY : clean
 clean :
 	-rm -rf kerr-equatorial kerr-equatorial.dSYM kerr-circular kerr-circular.dSYM kerr-circular-2D kerr-circular-2D.dSYM
