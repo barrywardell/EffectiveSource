@@ -16,8 +16,14 @@ kerr-circular : kerr-circular.o $(OBJECTS) $(DEPS)
 kerr-circular-2D : kerr-circular-2D.o $(OBJECTS) $(DEPS)
 	gcc -o kerr-circular-2D kerr-circular-2D.o $(OBJECTS) $(LDFLAGS) $(LIBS)
 
+kerr-circular-2D-dphi2 : kerr-circular-2D-dphi2.o $(OBJECTS) $(DEPS)
+	gcc -o kerr-circular-2D-dphi2 kerr-circular-2D-dphi2.o $(OBJECTS) $(LDFLAGS) $(LIBS)
+
 kerr-circular-2D-num : kerr-circular-2D.o main2.o decompose.o $(DEPS)
 	gcc -o kerr-circular-2D-num kerr-circular-2D.o main2.o decompose.o $(LDFLAGS) $(LIBS)
+
+kerr-circular-2D-num-dphi2 : kerr-circular-2D-dphi2.o main2.o decompose.o $(DEPS)
+	gcc -o kerr-circular-2D-num-dphi2 kerr-circular-2D-dphi2.o main2.o decompose.o $(LDFLAGS) $(LIBS)
 
 .PHONY : clean
 clean :
