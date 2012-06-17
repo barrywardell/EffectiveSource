@@ -5,7 +5,7 @@ LIBS = -lm -lgsl -lgslcblas
 DEPS    = effsource.h
 OBJECTS = main.o
 
-all : kerr-equatorial kerr-circular kerr-circular-2D
+all : kerr-equatorial kerr-circular kerr-circular-2D kerr-circular-2D-dphi2 kerr-equatorial-2D-dphi2
 
 kerr-equatorial : kerr-equatorial.o $(OBJECTS) $(DEPS)
 	gcc -o kerr-equatorial kerr-equatorial.o $(OBJECTS) $(LDFLAGS) $(LIBS)
@@ -19,11 +19,17 @@ kerr-circular-2D : kerr-circular-2D.o $(OBJECTS) $(DEPS)
 kerr-circular-2D-dphi2 : kerr-circular-2D-dphi2.o $(OBJECTS) $(DEPS)
 	gcc -o kerr-circular-2D-dphi2 kerr-circular-2D-dphi2.o $(OBJECTS) $(LDFLAGS) $(LIBS)
 
+kerr-equatorial-2D-dphi2 : kerr-equatorial-2D-dphi2.o $(OBJECTS) $(DEPS)
+	gcc -o kerr-equatorial-2D-dphi2 kerr-equatorial-2D-dphi2.o $(OBJECTS) $(LDFLAGS) $(LIBS)
+
 kerr-circular-2D-num : kerr-circular-2D.o main2.o decompose.o $(DEPS)
 	gcc -o kerr-circular-2D-num kerr-circular-2D.o main2.o decompose.o $(LDFLAGS) $(LIBS)
 
 kerr-circular-2D-num-dphi2 : kerr-circular-2D-dphi2.o main2.o decompose.o $(DEPS)
 	gcc -o kerr-circular-2D-num-dphi2 kerr-circular-2D-dphi2.o main2.o decompose.o $(LDFLAGS) $(LIBS)
+
+kerr-equatorial-2D-num-dphi2 : kerr-equatorial-2D-dphi2.o main2.o decompose.o $(DEPS)
+	gcc -o kerr-equatorial-2D-num-dphi2 kerr-equatorial-2D-dphi2.o main2.o decompose.o $(LDFLAGS) $(LIBS)
 
 .PHONY : clean
 clean :

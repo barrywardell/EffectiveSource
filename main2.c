@@ -43,11 +43,12 @@ int main(int argc, char* argv[])
   up.phi = (2*a*e*M - 2*l*M + l*rp)/(a2*rp - 2*M*rp2 + rp3);
   up.r   = ur2 > 0.0 ? -sqrt(ur2) : 0.0;
 
-  up.t   = (rp*sqrt(M*rp)+a*M)/(sqrt(M*rp)*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
-  up.phi = sqrt(M*rp)/(rp*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
-  up.r   = 0;
-  e = ((rp-2.0*M)*sqrt(M*rp)+a*M)/(sqrt(M*rp)*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
-  l = (M*(a2+rp2-2.0*a*sqrt(M*rp)))/(sqrt(M*rp)*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
+  /* Circular orbit */
+//   up.t   = (rp*sqrt(M*rp)+a*M)/(sqrt(M*rp)*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
+//   up.phi = sqrt(M*rp)/(rp*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
+//   up.r   = 0;
+//   e = ((rp-2.0*M)*sqrt(M*rp)+a*M)/(sqrt(M*rp)*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
+//   l = (M*(a2+rp2-2.0*a*sqrt(M*rp)))/(sqrt(M*rp)*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
 
   xp.t = 0;
   xp.r = rp;
@@ -71,7 +72,7 @@ int main(int argc, char* argv[])
     effsource_set_particle(&xp, &up);
   }
 
-  int m = 0;
+  int m = 2;
   for(double r=9.9; r<=10.1; r+=0.01)
   {
     x.r = r;
@@ -80,7 +81,7 @@ int main(int argc, char* argv[])
       double phis, dphis_dr, dphis_dtheta, dphis_dphi, dphis_dt, src, phis_num_re, phis_num_im;
       x.theta     = theta;
       effsource_calc_m(m, &x, &phis, &dphis_dr, &dphis_dtheta, &dphis_dphi, &dphis_dt, &src);
-      m_decompose(m, x, src_calc, &phis_num_re, &phis_num_im);
+      m_decompose(m, x, phis_calc, &phis_num_re, &phis_num_im);
       
       printf("%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\n",
         x.r-xp.r, x.theta-xp.theta, x.phi-xp.phi,
