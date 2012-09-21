@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
+#include <gsl/gsl_errno.h>
 #include "effsource.h"
+#include "decompose.h"
 
 double phis_calc(struct coordinate * x)
 {
@@ -71,6 +73,8 @@ int main(int argc, char* argv[])
   } else {
     effsource_set_particle(&xp, &up);
   }
+
+  gsl_set_error_handler_off ();
 
   int m = 2;
   for(double r=9.9; r<=10.1; r+=0.01)
