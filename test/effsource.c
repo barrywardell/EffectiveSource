@@ -22,64 +22,54 @@ double src_calc(struct coordinate * x)
 
 int main(int argc, char* argv[])
 {
-  struct coordinate x, xp, up;
+  int orbit;
+
+  if(argc != 1)
+  {
+    printf( "usage: %s orbit", argv[0] );
+    return(0);
+  } else {
+    orbit = atoi(argv[1]);
+  }
 
   /* Mass and spin of the central black hole */
   const double a = 0.5;
-  const double a2  = a*a;
-  const double a3  = a2*a;
-  const double a4  = a2*a2;
   const double M = 1.0;
+  effsource_init(M, a);
 
-  /* Energy an angular momentum for an elliptic orbit between r=9 and r=11 (M=1) */
-  double e  = sqrt((-434070 + 2471*a2 + 6*sqrt(110)*a*sqrt(6237 + 162*a2 + a4))/(-474721 + 3960*a2));
-  double l  = ((261*a + a3 - 3*sqrt(110)*sqrt(6237 + 162*a2 + a4))*
-              sqrt((-434070 + 2471*a2 + 6*sqrt(110)*a*sqrt(6237 + 162*a2 + a4))/(-474721 + 3960*a2)))/(-630 + a2);
+  /* Orbital parameters */
+  double r_p  = 10.0;
+  double e, l, ur;
+  struct coordinate xp;
 
-  /* 4-velocity for the elliptic orbit - choose ingoing motion */
-  double rp  = 10.0;
-  double rp2 = rp*rp;
-  double rp3 = rp2*rp;
-  double e2  = e*e;
-  double ur2 = -1 + e2 - 2*(-(l-a*e)*(l-a*e)*M/rp3 + (l*l-a2*(e2-1))/(2.*rp2) - M/rp);
-
-  up.t   = (-2*a*l*M + e*rp3 + a2*e*(2*M + rp))/(rp*a2 + rp*(-2*M + rp));
-  up.phi = (2*a*e*M - 2*l*M + l*rp)/(a2*rp - 2*M*rp2 + rp3);
-  up.r   = ur2 > 0.0 ? -sqrt(ur2) : 0.0;
-
-  /* Circular orbit */
-//   up.t   = (rp*sqrt(M*rp)+a*M)/(sqrt(M*rp)*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
-//   up.phi = sqrt(M*rp)/(rp*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
-//   up.r   = 0;
-//   e = ((rp-2.0*M)*sqrt(M*rp)+a*M)/(sqrt(M*rp)*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
-//   l = (M*(a2+rp2-2.0*a*sqrt(M*rp)))/(sqrt(M*rp)*sqrt(rp*rp-3.0*M*rp+2.0*a*sqrt(M*rp)));
+  if(atoi(argv[1]) == 0)
+  {
+    /* Energy an angular momentum for an elliptic orbit between r=9 and r=11 (M=1) */
+    e = sqrt((-434070 + 2471*a*a + 6*sqrt(110)*a*sqrt(6237 + 162*a*a + a*a*a*a))/(-474721 + 3960*a*a));
+    l = ((261*a + a*a*a - 3*sqrt(110)*sqrt(6237 + 162*a*a + a*a*a*a))*
+        sqrt((-434070 + 2471*a*a + 6*sqrt(110)*a*sqrt(6237 + 162*a*a + a*a*a*a))/(-474721 + 3960*a*a)))/(-630 + a*a);
+    ur = -sqrt(-1 + e*e - 2*(-(l-a*e)*(l-a*e)*M/r_p*r_p*r_p + (l*l-a*a*(e*e-1))/(2.*r_p*r_p) - M/r_p));
+  } else {
+    /* Circular orbit of radius 10M */
+    e = ((r_p-2.0*M)*sqrt(M*r_p)+a*M)/(sqrt(M*r_p)*sqrt(r_p*r_p-3.0*M*r_p+2.0*a*sqrt(M*r_p)));
+    l = (M*(a*a+r_p*r_p-2.0*a*sqrt(M*r_p)))/(sqrt(M*r_p)*sqrt(r_p*r_p-3.0*M*r_p+2.0*a*sqrt(M*r_p)));
+    ur = 0;
+  }
 
   xp.t = 0;
-  xp.r = rp;
+  xp.r = r_p;
   xp.theta = M_PI_2;
   xp.phi = 0;
 
-  /* The point where we measure the effective source */
-  x.t     = 0.0;
-  x.r     = rp;
-  x.theta = M_PI_2;
-  x.phi   = 0.0;
+  effsource_set_particle_el(&xp, e, l, ur);
 
-  /* Initialize the background parameters */
-  effsource_init(M, a);
-
-  /* Set the particle's orbital parameters */
-  int use_el = 1;
-  if( use_el )
-  {
-    effsource_set_particle_el(&xp, e, l, up.r);
-  } else {
-    effsource_set_particle(&xp, &up);
-  }
+  /* The point where we measure the singular field/effective source */
+  struct coordinate x = {0.0, r_p, M_PI_2, 0.0};
 
   /* Disable the GSL error handler so that it doesn't abort due to roundoff errors */
-  gsl_set_error_handler_off ();
+  gsl_set_error_handler_off();
 
+  /* Output the singular field for the m=2 mode in the r-theta plane */
   int m = 2;
   for(double r=9.9; r<=10.1; r+=0.01)
   {
@@ -90,7 +80,7 @@ int main(int argc, char* argv[])
       x.theta     = theta;
       effsource_calc_m(m, &x, &phis, &dphis_dr, &dphis_dtheta, &dphis_dphi, &dphis_dt, &src);
       m_decompose(m, x, phis_calc, &phis_num_re, &phis_num_im);
-      
+
       printf("%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\n",
         x.r-xp.r, x.theta-xp.theta, x.phi-xp.phi,
         phis, dphis_dr, dphis_dtheta, dphis_dphi, dphis_dt, src, phis_num_re, phis_num_im);
