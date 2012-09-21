@@ -5,7 +5,7 @@ LIBS = -lm -lgsl -lgslcblas
 DEPS    = ../effsource.h
 OBJECTS = effsource.o decompose.o
 
-all : kerr-equatorial kerr-circular kerr-circular-m-mode kerr-equatorial-m-mode
+all : kerr-equatorial kerr-circular
 
 kerr-equatorial : kerr-equatorial.o $(OBJECTS) $(DEPS)
 	gcc $(CFLAGS) -o kerr-equatorial kerr-equatorial.o $(OBJECTS) $(LDFLAGS) $(LIBS)
