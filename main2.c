@@ -4,6 +4,7 @@
 #include "effsource.h"
 #include "decompose.h"
 
+/* Return the value of the singular field at the point x */
 double phis_calc(struct coordinate * x)
 {
   double res;
@@ -11,6 +12,7 @@ double phis_calc(struct coordinate * x)
   return res;
 }
 
+/* Return the value of the effective source at the point x */
 double src_calc(struct coordinate * x)
 {
   double res1, res2, res3, res4, res5, res6;
@@ -66,6 +68,7 @@ int main(int argc, char* argv[])
   /* Initialize the background parameters */
   effsource_init(M, a);
 
+  /* Set the particle's orbital parameters */
   int use_el = 1;
   if( use_el )
   {
@@ -74,6 +77,7 @@ int main(int argc, char* argv[])
     effsource_set_particle(&xp, &up);
   }
 
+  /* Disable the GSL error handler so that it doesn't abort due to roundoff errors */
   gsl_set_error_handler_off ();
 
   int m = 2;
