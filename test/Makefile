@@ -7,14 +7,17 @@ OBJECTS = effsource.o decompose.o
 
 all : kerr-equatorial kerr-circular
 
-kerr-equatorial : kerr-equatorial.o $(OBJECTS) $(DEPS)
-	gcc $(CFLAGS) -o kerr-equatorial kerr-equatorial.o $(OBJECTS) $(LDFLAGS) $(LIBS)
+kerr-equatorial : kerr-equatorial.o kerr-equatorial-coeffs.o $(OBJECTS) $(DEPS)
+	gcc $(CFLAGS) -o kerr-equatorial kerr-equatorial-coeffs.o kerr-equatorial.o $(OBJECTS) $(LDFLAGS) $(LIBS)
 
 kerr-circular : kerr-circular.o $(OBJECTS) $(DEPS)
 	gcc $(CFLAGS) -o kerr-circular kerr-circular.o $(OBJECTS) $(LDFLAGS) $(LIBS)
 
 kerr-equatorial.o : ../kerr-equatorial.c
 	gcc $(CFLAGS) -c -o kerr-equatorial.o ../kerr-equatorial.c
+
+kerr-equatorial-coeffs.o : ../kerr-equatorial-coeffs.c
+	gcc $(CFLAGS) -c -o kerr-equatorial-coeffs.o ../kerr-equatorial-coeffs.c
 
 kerr-circular.o : ../kerr-circular.c
 	gcc $(CFLAGS) -c -o kerr-circular.o ../kerr-circular.c
