@@ -77,14 +77,14 @@ int main(int argc, char* argv[])
     x.r = r;
     for(double theta=M_PI_2-0.1; theta<=M_PI_2+0.1; theta+=0.011)
     {
-      double phis, dphis_dr, dphis_dtheta, dphis_dphi, dphis_dt, src, phis_num_re, phis_num_im;
+      double phis_re, phis_im, phis_num_re, phis_num_im;
       x.theta     = theta;
-      effsource_calc_m(m, &x, &phis, &dphis_dr, &dphis_dtheta, &dphis_dphi, &dphis_dt, &src);
+      effsource_phis_m(m, &x, &phis_re, &phis_im);
       m_decompose(m, x, phis_calc, &phis_num_re, &phis_num_im);
 
-      printf("%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\t%g\n",
+      printf("%g\t%g\t%g\t%g\t%g\t%g\t%g\n",
         x.r-xp.r, x.theta-xp.theta, x.phi-xp.phi,
-        phis, dphis_dr, dphis_dtheta, dphis_dphi, dphis_dt, src, phis_num_re, phis_num_im);
+        phis_re, phis_im, phis_num_re, phis_num_im);
     }
   }
 
