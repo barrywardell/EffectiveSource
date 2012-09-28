@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 {
   int orbit;
 
-  if(argc != 1)
+  if(argc != 2)
   {
     printf( "usage: %s orbit", argv[0] );
     return(0);
