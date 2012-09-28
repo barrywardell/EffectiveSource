@@ -55,7 +55,7 @@ extern struct coordinate xp;
 extern double M, a;
 
 /* Static variables used to store the coefficients of the series expansions */
-extern double A006, A007, A008, A009, A024, A025, A026, A027, A042, A043, A044, A045, A060, A061, A062, A063, A080, A081, A106, A107, A108, A124, A125, A126, A142, A143, A144, A160, A161, A162, A180, A204, A205, A206, A207, A222, A223, A224, A225, A240, A241, A242, A243, A260, A261, A304, A305, A306, A322, A323, A324, A340, A341, A342, A360, A402, A403, A404, A405, A420, A421, A422, A423, A440, A441, A502, A503, A504, A520, A521, A522, A540, A600, A601, A602, A603, A620, A621, A700, A701, A702, A720, A800, A801, A900;
+extern double A0060, A0061, A0080, A0081, A0240, A0241, A0260, A0261, A0420, A0421, A0440, A0441, A0600, A0601, A0620, A0621, A0800, A0801, A1060, A1061, A1080, A1240, A1241, A1260, A1420, A1421, A1440, A1600, A1601, A1620, A1800, A2040, A2041, A2060, A2061, A2220, A2221, A2240, A2241, A2400, A2401, A2420, A2421, A2600, A2601, A3040, A3041, A3060, A3220, A3221, A3240, A3400, A3401, A3420, A3600, A4020, A4021, A4040, A4041, A4200, A4201, A4220, A4221, A4400, A4401, A5020, A5021, A5040, A5200, A5201, A5220, A5400, A6000, A6001, A6020, A6021, A6200, A6201, A7000, A7001, A7020, A7200, A8000, A8001, A9000;
 extern double alpha20, alpha02, beta;
 
 /* Numerical coefficients appearing in the elliptic integrals expressions. The
@@ -264,7 +264,6 @@ static const double EI[11][2][5][17] =
 /* Compute the singular field at the point x for the particle at xp */
 void effsource_phis(struct coordinate * x, double * phis)
 {
-
   double A, alpha, rho2;
 
   double r      = x->r;
@@ -279,29 +278,40 @@ void effsource_phis(struct coordinate * x, double * phis)
   double dphi   = phi - phip;
 
   double dr2 = dr*dr;
+  double dr4 = dr2*dr2;
+  double dr6 = dr4*dr2;
+  double dr8 = dr4*dr4;
 
   double dtheta2  = dtheta*dtheta;
-  
-  double sindphi  = sin(0.5*dphi);
-  double sindphi2 = sindphi*sindphi;
+  double dtheta4  = dtheta2*dtheta2;
+  double dtheta8  = dtheta4*dtheta4;
 
-  A = pow(dr,6)*(A600 + A700*dr) + pow(dr,8)*(A800 + A900*dr) + pow(dr,4)*(A420 + A520*dr + pow(dr,2)*(A620 + A720*dr))*pow(dtheta,2) + 
-   (A080 + A180*dr)*pow(dtheta,8) + pow(dtheta,4)*(pow(dr,2)*(A240 + A340*dr) + pow(dr,4)*(A440 + A540*dr) + 
-      (A060 + A160*dr + pow(dr,2)*(A260 + A360*dr))*pow(dtheta,2)) + 
-   (A801*pow(dr,8) + pow(dr,6)*(A601 + A701*dr) + pow(dr,4)*(A421 + A521*dr + A621*pow(dr,2))*pow(dtheta,2) + A081*pow(dtheta,8) + 
-      pow(dtheta,4)*(A441*pow(dr,4) + pow(dr,2)*(A241 + A341*dr) + (A061 + A161*dr + A261*pow(dr,2))*pow(dtheta,2)))*sindphi + 
-   pow(sindphi,8)*(A008 + A108*dr + A009*sindphi) + pow(sindphi,2)*
-    (pow(dr,4)*(A402 + A502*dr + pow(dr,2)*(A602 + A702*dr)) + (pow(dr,2)*(A222 + A322*dr) + pow(dr,4)*(A422 + A522*dr))*pow(dtheta,2) + 
-      pow(dtheta,4)*(A042 + A142*dr + pow(dr,2)*(A242 + A342*dr) + (A062 + A162*dr)*pow(dtheta,2)) + 
-      (pow(dr,4)*(A403 + A503*dr + A603*pow(dr,2)) + (A423*pow(dr,4) + pow(dr,2)*(A223 + A323*dr))*pow(dtheta,2) + 
-         pow(dtheta,4)*(A043 + A143*dr + A243*pow(dr,2) + A063*pow(dtheta,2)))*sindphi) + 
-   pow(sindphi,4)*(pow(dr,2)*(A204 + A304*dr) + pow(dr,4)*(A404 + A504*dr) + (A024 + A124*dr + pow(dr,2)*(A224 + A324*dr))*pow(dtheta,2) + 
-      (A044 + A144*dr)*pow(dtheta,4) + (A405*pow(dr,4) + pow(dr,2)*(A205 + A305*dr) + (A025 + A125*dr + A225*pow(dr,2))*pow(dtheta,2) + 
-         A045*pow(dtheta,4))*sindphi + pow(sindphi,2)*(A006 + A106*dr + pow(dr,2)*(A206 + A306*dr) + (A026 + A126*dr)*pow(dtheta,2) + 
-         (A007 + A107*dr + A207*pow(dr,2) + A027*pow(dtheta,2))*sindphi));
+  double dQ  = sin(0.5*dphi);
+  double dQ2 = dQ*dQ;
+  double dQ4 = dQ2*dQ2;
+  double dQ8 = dQ4*dQ4;
+
+  double dR  = sin(dphi);
+
+  A = dQ8*(A0080 + A1080*dr) + (A6000 + A7000*dr)*dr6 + (A8000 + A9000*dr)*dr8 +
+   (A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4*dtheta2 +
+   ((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 + (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2)*
+    dtheta4 + dQ4*((A2040 + A3040*dr)*dr2 + (A4040 + A5040*dr)*dr4 +
+      (A0240 + dr*(A1240 + dr*(A2240 + A3240*dr)))*dtheta2 +
+      dQ2*(A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2) + (A0440 + A1440*dr)*dtheta4) +
+   dQ2*((A4020 + dr*(A5020 + dr*(A6020 + A7020*dr)))*dr4 +
+      (A2220 + dr*(A3220 + dr*(A4220 + A5220*dr)))*dr2*dtheta2 +
+      (A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2)*dtheta4) +
+   (A0800 + A1800*dr)*dtheta8 + dR*(A0081*dQ8 + (A6001 + A7001*dr)*dr6 + A8001*dr8 +
+      (A4201 + dr*(A5201 + A6201*dr))*dr4*dtheta2 +
+      ((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2)*dtheta4 +
+      dQ4*((A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 +
+         dQ2*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) + A0441*dtheta4) +
+      dQ2*((A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 +
+         (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4) + A0801*dtheta8);
 
   alpha = alpha20*dr2 + alpha02*dtheta2;
-  rho2 = alpha + beta*sindphi2;
+  rho2 = alpha + beta*dQ2;
 
   *phis = A/pow(rho2, 3.5);
 }
@@ -322,16 +332,16 @@ void effsource_phis_m(int m, struct coordinate * x, double * phis)
   const double dr2 = dr*dr;
 
   const double dtheta2  = dtheta*dtheta;
-  
-  A[0] = pow(dr,6)*(A600 + A700*dr) + pow(dr,8)*(A800 + A900*dr) + pow(dr,4)*(A420 + A520*dr + pow(dr,2)*(A620 + A720*dr))*pow(dtheta,2) + (A080 + A180*dr)*pow(dtheta,8) + pow(dtheta,4)*(pow(dr,2)*(A240 + A340*dr) + pow(dr,4)*(A440 + A540*dr) + (A060 + A160*dr + pow(dr,2)*(A260 + A360*dr))*pow(dtheta,2));
+
+  A[0] = 0;
   // Skip A801*pow(dr,8) + pow(dr,6)*(A601 + A701*dr) + pow(dr,4)*(A421 + A521*dr + A621*pow(dr,2))*pow(dtheta,2) + A081*pow(dtheta,8) + pow(dtheta,4)*(A441*pow(dr,4) + pow(dr,2)*(A241 + A341*dr) + (A061 + A161*dr + A261*pow(dr,2))*pow(dtheta,2));
-  A[1] = pow(dr,4)*(A402 + A502*dr + pow(dr,2)*(A602 + A702*dr)) + (pow(dr,2)*(A222 + A322*dr) + pow(dr,4)*(A422 + A522*dr))*pow(dtheta,2) + pow(dtheta,4)*(A042 + A142*dr + pow(dr,2)*(A242 + A342*dr) + (A062 + A162*dr)*pow(dtheta,2));
+  A[1] = 0;
   // Skip pow(dr,4)*(A403 + A503*dr + A603*pow(dr,2)) + (A423*pow(dr,4) + pow(dr,2)*(A223 + A323*dr))*pow(dtheta,2) + pow(dtheta,4)*(A043 + A143*dr + A243*pow(dr,2) + A063*pow(dtheta,2));
-  A[2] = pow(dr,2)*(A204 + A304*dr) + pow(dr,4)*(A404 + A504*dr) + (A024 + A124*dr + pow(dr,2)*(A224 + A324*dr))*pow(dtheta,2) + (A044 + A144*dr)*pow(dtheta,4);
+  A[2] = 0;
   // Skip A405*pow(dr,4) + pow(dr,2)*(A205 + A305*dr) + (A025 + A125*dr + A225*pow(dr,2))*pow(dtheta,2) + A045*pow(dtheta,4);
-  A[3] = A006 + A106*dr + pow(dr,2)*(A206 + A306*dr) + (A026 + A126*dr)*pow(dtheta,2);
+  A[3] = 0;
   // Skip A007 + A107*dr + A207*pow(dr,2) + A027*pow(dtheta,2);
-  A[4] = A008 + A108*dr;
+  A[4] = 0;
   // Skip A009;
 
   alpha = alpha20*dr2 + alpha02*dtheta2;
@@ -395,60 +405,48 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
   double dtheta = theta - thetap;
   double dphi   = phi - phip;
 
-  double dr2      = dr*dr;
-  double dr3      = dr2*dr;
-  double dr4      = dr2*dr2;
-  double dr5      = dr3*dr2;
-  double dr6      = dr3*dr3;
-  double dr7      = dr4*dr3;
-  double dr8      = dr4*dr4;
+  double dr2 = dr*dr;
+  double dr4 = dr2*dr2;
+  double dr6 = dr4*dr2;
+  double dr8 = dr4*dr4;
 
   double dtheta2  = dtheta*dtheta;
-  double dtheta3  = dtheta2*dtheta;
   double dtheta4  = dtheta2*dtheta2;
-  double dtheta5  = dtheta3*dtheta2;
-  double dtheta6  = dtheta3*dtheta3;
-  double dtheta7  = dtheta4*dtheta3;
   double dtheta8  = dtheta4*dtheta4;
 
-  double R        = sin(0.5*dphi);
-  double R2       = R*R;
-  double R3       = R2*R;
-  double R4       = R2*R2;
-  double R5       = R3*R2;
-  double R6       = R3*R3;
-  double R7       = R4*R3;
-  double R8       = R4*R4;
-  double dR       = 0.5*cos(0.5*dphi);
+  double dQ  = sin(0.5*dphi);
+  double dQ2 = dQ*dQ;
+  double dQ4 = dQ2*dQ2;
+  double dQ8 = dQ4*dQ4;
 
-  double om       = M / (a*M + sqrt(M*pow(rp,3)));
+  double dR  = sin(dphi);
 
   /* A, dA/dx, d^2A/dx^2 */
-  A         = dr6*(A600 + A700*dr) + dr8*(A800 + A900*dr) + dr4*(A420 + A520*dr + dr2*(A620 + A720*dr))*dtheta2 + (A080 + A180*dr)*dtheta8 + dtheta4*(dr2*(A240 + A340*dr) + dr4*(A440 + A540*dr) + (A060 + A160*dr + dr2*(A260 + A360*dr))*dtheta2) + (dr4*(A402 + A502*dr + dr2*(A602 + A702*dr)) + (dr2*(A222 + A322*dr) + dr4*(A422 + A522*dr))*dtheta2 + dtheta4*(A042 + A142*dr + dr2*(A242 + A342*dr) + (A062 + A162*dr)*dtheta2))*R2 + (A008 + A108*dr)*R8 + R4*(dr2*(A204 + A304*dr) + dr4*(A404 + A504*dr) + (A024 + A124*dr + dr2*(A224 + A324*dr))*dtheta2 + (A044 + A144*dr)*dtheta4 + (A006 + A106*dr + dr2*(A206 + A306*dr) + (A026 + A126*dr)*dtheta2)*R2);;
-  dA_dr     = 6*(A600 + A700*dr)*dr5 + A700*dr6 + 8*(A800 + A900*dr)*dr7 + A900*dr8 + 4*(A420 + A520*dr + (A620 + A720*dr)*dr2)*dr3*dtheta2 + (A520 + 2*dr*(A620 + A720*dr) + A720*dr2)*dr4*dtheta2 + (2*dr*(A240 + A340*dr) + A340*dr2 + 4*(A440 + A540*dr)*dr3 + A540*dr4 + (A160 + 2*dr*(A260 + A360*dr) + A360*dr2)*dtheta2)*dtheta4 + A180*dtheta8 + (4*(A402 + A502*dr + (A602 + A702*dr)*dr2)*dr3 + (A502 + 2*dr*(A602 + A702*dr) + A702*dr2)*dr4 + (2*dr*(A222 + A322*dr) + A322*dr2 + 4*(A422 + A522*dr)*dr3 + A522*dr4)* dtheta2 + (A142 + 2*dr*(A242 + A342*dr) + A342*dr2 + A162*dtheta2)* dtheta4)*R2 + (2*dr*(A204 + A304*dr) + A304*dr2 + 4*(A404 + A504*dr)*dr3 + A504*dr4 + (A124 + 2*dr*(A224 + A324*dr) + A324*dr2)*dtheta2 + A144*dtheta4 + (A106 + 2*dr*(A206 + A306*dr) + A306*dr2 + A126*dtheta2)*R2)* R4 + A108*R8;
-  dA_dth    = 2*(A420 + A520*dr + (A620 + A720*dr)*dr2)*dr4*dtheta + 4*((A240 + A340*dr)*dr2 + (A440 + A540*dr)*dr4 + (A060 + A160*dr + (A260 + A360*dr)*dr2)*dtheta2)*dtheta3 + 2*(A060 + A160*dr + (A260 + A360*dr)*dr2)*dtheta5 + 8*(A080 + A180*dr)*dtheta7 + (2*((A222 + A322*dr)*dr2 + (A422 + A522*dr)*dr4)*dtheta + 4*(A042 + A142*dr + (A242 + A342*dr)*dr2 + (A062 + A162*dr)*dtheta2)* dtheta3 + 2*(A062 + A162*dr)*dtheta5)*R2 + (2*(A024 + A124*dr + (A224 + A324*dr)*dr2)*dtheta + 4*(A044 + A144*dr)*dtheta3 + 2*(A026 + A126*dr)*dtheta*R2)* R4;
-  dA_dR     = 2*((A402 + A502*dr + (A602 + A702*dr)*dr2)*dr4 + ((A222 + A322*dr)*dr2 + (A422 + A522*dr)*dr4)*dtheta2 + (A042 + A142*dr + (A242 + A342*dr)*dr2 + (A062 + A162*dr)*dtheta2)* dtheta4)*R + 4*((A204 + A304*dr)*dr2 + (A404 + A504*dr)*dr4 + (A024 + A124*dr + (A224 + A324*dr)*dr2)*dtheta2 + (A044 + A144*dr)*dtheta4 + (A006 + A106*dr + (A206 + A306*dr)*dr2 + (A026 + A126*dr)*dtheta2)* R2)*R3 + 2*(A006 + A106*dr + (A206 + A306*dr)*dr2 + (A026 + A126*dr)*dtheta2)*R5 + 8*(A008 + A108*dr)*R7;
-  dA_dph    = dA_dR*dR;
-  dA_dt     = -om*dA_dph;
-  d2A_dr2   = 30*(A600 + A700*dr)*dr4 + 12*A700*dr5 + 56*(A800 + A900*dr)*dr6 + 16*A900*dr7 + 12*dr2*(A420 + A520*dr + (A620 + A720*dr)*dr2)*dtheta2 + 8*(A520 + 2*dr*(A620 + A720*dr) + A720*dr2)*dr3*dtheta2 + (4*A720*dr + 2*(A620 + A720*dr))*dr4*dtheta2 + (4*A340*dr + 2*(A240 + A340*dr) + 12*(A440 + A540*dr)*dr2 + 8*A540*dr3 + (4*A360*dr + 2*(A260 + A360*dr))*dtheta2)*dtheta4 + (12*dr2*(A402 + A502*dr + (A602 + A702*dr)*dr2) + 8*(A502 + 2*dr*(A602 + A702*dr) + A702*dr2)*dr3 + (4*A702*dr + 2*(A602 + A702*dr))*dr4 + (4*A322*dr + 2*(A222 + A322*dr) + 12*(A422 + A522*dr)*dr2 + 8*A522*dr3)*dtheta2 + (4*A342*dr + 2*(A242 + A342*dr))*dtheta4)* R2 + (4*A304*dr + 2*(A204 + A304*dr) + 12*(A404 + A504*dr)*dr2 + 8*A504*dr3 + (4*A324*dr + 2*(A224 + A324*dr))*dtheta2 + (4*A306*dr + 2*(A206 + A306*dr))*R2)*R4;
-  d2A_dth2  = 2*(A420 + A520*dr + (A620 + A720*dr)*dr2)*dr4 + 12*dtheta2*((A240 + A340*dr)*dr2 + (A440 + A540*dr)*dr4 + (A060 + A160*dr + (A260 + A360*dr)*dr2)*dtheta2) + 18*(A060 + A160*dr + (A260 + A360*dr)*dr2)*dtheta4 + 56*(A080 + A180*dr)*dtheta6 + (2*((A222 + A322*dr)*dr2 + (A422 + A522*dr)*dr4) + 12*dtheta2*(A042 + A142*dr + (A242 + A342*dr)*dr2 +  (A062 + A162*dr)*dtheta2) + 18*(A062 + A162*dr)*dtheta4)*R2 + (2*(A024 + A124*dr + (A224 + A324*dr)*dr2) + 12*(A044 + A144*dr)*dtheta2 + 2*(A026 + A126*dr)*R2)*R4; d2A_dR2 = 2*((A402 + A502*dr + (A602 + A702*dr)*dr2)*dr4 + ((A222 + A322*dr)*dr2 + (A422 + A522*dr)*dr4)*dtheta2 + (A042 + A142*dr + (A242 + A342*dr)*dr2 + (A062 + A162*dr)*dtheta2)* dtheta4) + 12*R2*((A204 + A304*dr)*dr2 + (A404 + A504*dr)*dr4 + (A024 + A124*dr + (A224 + A324*dr)*dr2)*dtheta2 + (A044 + A144*dr)*dtheta4 + (A006 + A106*dr + (A206 + A306*dr)*dr2 + (A026 + A126*dr)*dtheta2)* R2) + 18*(A006 + A106*dr + (A206 + A306*dr)*dr2 + (A026 + A126*dr)*dtheta2)*R4 + 56*(A008 + A108*dr)*R6;
-  d2A_dph2  = - 0.25*R*dA_dR + dR*dR*d2A_dR2;
-  d2A_dt2   = om*om*d2A_dph2;
-  d2A_dphdt = -om*d2A_dph2;
+  A         = 0;
+  dA_dr     = 0;
+  dA_dth    = 0;
+  dA_dR     = 0;
+  dA_dph    = 0;
+  dA_dt     = 0;
+  d2A_dr2   = 0;
+  d2A_dth2  = 0;
+  d2A_dph2  = 0;
+  d2A_dt2   = 0;
+  d2A_dphdt = 0;
 
   /* s, ds/dr, d^2s/dr^2 */
-  s2         = alpha20*dr2 + alpha02*dtheta2 + beta*R2;
+  s2         = alpha20*dr2 + alpha02*dtheta2 + beta*dQ2;
   ds2_dr     = 2*alpha20*dr;
   ds2_dth    = 2*alpha02*dtheta;
-  ds2_dR     = 2*beta*R;
-  ds2_dph    = ds2_dR*dR;
-  ds2_dt     = -om*ds2_dph;
-  d2s2_dr2   = 2*alpha20;
-  d2s2_dth2  = 2*alpha02;
-  d2s2_dR2   = 2*beta;
-  d2s2_dph2  = - 0.25*R*ds2_dR + dR*dR*d2s2_dR2;
-  d2s2_dt2   = om*om*d2s2_dph2;
-  d2s2_dphdt = -om*d2s2_dph2;
+  ds2_dR     = 0;
+  ds2_dph    = 0;
+  ds2_dt     = 0;
+  d2s2_dr2   = 0;
+  d2s2_dth2  = 0;
+  d2s2_dR2   = 0;
+  d2s2_dph2  = 0;
+  d2s2_dt2   = 0;
+  d2s2_dphdt = 0;
   sqrts2     = sqrt(s2);
   s2_15      = s2*sqrts2;
   s2_25      = s2*s2_15;
@@ -539,38 +537,38 @@ void effsource_calc_m(int m, struct coordinate * x, double *phis, double *dphis_
   const double dtheta8  = dtheta4*dtheta4;
 
   /* Coefficients of sin(dphi) in the numerator */
-  A[0] = dr6*(A600 + A700*dr) + dr8*(A800 + A900*dr) + dr4*(A420 + A520*dr + dr2*(A620 + A720*dr))*dtheta2 + (A080 + A180*dr)*dtheta8 + dtheta4*(dr2*(A240 + A340*dr) + dr4*(A440 + A540*dr) + (A060 + A160*dr + dr2*(A260 + A360*dr))*dtheta2);
-  A[1] = dr4*(A402 + A502*dr + dr2*(A602 + A702*dr)) + (dr2*(A222 + A322*dr) + dr4*(A422 + A522*dr))*dtheta2 + dtheta4*(A042 + A142*dr + dr2*(A242 + A342*dr) + (A062 + A162*dr)*dtheta2);
-  A[2] = dr2*(A204 + A304*dr) + dr4*(A404 + A504*dr) + (A024 + A124*dr + dr2*(A224 + A324*dr))*dtheta2 + (A044 + A144*dr)*dtheta4;
-  A[3] = A006 + A106*dr + dr2*(A206 + A306*dr) + (A026 + A126*dr)*dtheta2;
-  A[4] = A008 + A108*dr;
+  A[0] = 0;
+  A[1] = 0;
+  A[2] = 0;
+  A[3] = 0;
+  A[4] = 0;
 
   /* r derivatives of coefficients */
-  dA_dr[0] = 6*A600*dr5 + 7*A700*dr6 + 8*A800*dr7 + 9*A900*dr8 + 4*A420*dr3*dtheta2 + 5*A520*dr4*dtheta2 + 6*A620*dr5*dtheta2 + 7*A720*dr6*dtheta2 + 2*A240*dr*dtheta4 + 3*A340*dr2*dtheta4 + 4*A440*dr3*dtheta4 + 5*A540*dr4*dtheta4 + A160*dtheta6 + 2*A260*dr*dtheta6 + 3*A360*dr2*dtheta6 + A180*dtheta8;
-  dA_dr[1] = 4*A402*dr3 + 5*A502*dr4 + 6*A602*dr5 + 7*A702*dr6 + 2*A222*dr*dtheta2 + 3*A322*dr2*dtheta2 + 4*A422*dr3*dtheta2 + 5*A522*dr4*dtheta2 + A142*dtheta4 + 2*A242*dr*dtheta4 + 3*A342*dr2*dtheta4 + A162*dtheta6;
-  dA_dr[2] = 2*A204*dr + 3*A304*dr2 + 4*A404*dr3 + 5*A504*dr4 + A124*dtheta2 + 2*A224*dr*dtheta2 + 3*A324*dr2*dtheta2 + A144*dtheta4;
-  dA_dr[3] = A106 + 2*A206*dr + 3*A306*dr2 + A126*dtheta2;
-  dA_dr[4] = A108;
+  dA_dr[0] = 0;
+  dA_dr[1] = 0;
+  dA_dr[2] = 0;
+  dA_dr[3] = 0;
+  dA_dr[4] = 0;
 
   /* r,r derivatives of coefficients */
-  d2A_dr2[0] = 2*(15*A600*dr4 + 21*A700*dr5 + 28*A800*dr6 + 36*A900*dr7 + 6*A420*dr2*dtheta2 + 10*A520*dr3*dtheta2 + 15*A620*dr4*dtheta2 + 21*A720*dr5*dtheta2 + A240*dtheta4 + 3*A340*dr*dtheta4 + 6*A440*dr2*dtheta4 + 10*A540*dr3*dtheta4 + A260*dtheta6 + 3*A360*dr*dtheta6);
-  d2A_dr2[1] = 2*(6*A402*dr2 + 10*A502*dr3 + 15*A602*dr4 + 21*A702*dr5 + A222*dtheta2 + 3*A322*dr*dtheta2 + 6*A422*dr2*dtheta2 + 10*A522*dr3*dtheta2 + A242*dtheta4 + 3*A342*dr*dtheta4);
-  d2A_dr2[2] = 2*(A204 + 3*A304*dr + 6*A404*dr2 + 10*A504*dr3 + A224*dtheta2 + 3*A324*dr*dtheta2);
-  d2A_dr2[3] = 2*(A206 + 3*A306*dr);
+  d2A_dr2[0] = 0;
+  d2A_dr2[1] = 0;
+  d2A_dr2[2] = 0;
+  d2A_dr2[3] = 0;
   d2A_dr2[4] = 0;
 
   /* theta derivatives of coefficients */
-  dA_dtheta[0] = 2*(A420 + dr*(A520 + dr*(A620 + A720*dr)))*dr4*dtheta + 4*((A240 + A340*dr)*dr2 + (A440 + A540*dr)*dr4 + (A060 + dr*(A160 + dr*(A260 + A360*dr)))*dtheta2)*dtheta3 + 2*(A060 + dr*(A160 + dr*(A260 + A360*dr)))*dtheta5 + 8*(A080 + A180*dr)*dtheta7;
-  dA_dtheta[1] = 2*dtheta*((A222 + A322*dr)*dr2 + (A422 + A522*dr)*dr4 + 2*dtheta2*(A042 + A142*dr + (A242 + A342*dr)*dr2 + (A062 + A162*dr)*dtheta2) + (A062 + A162*dr)*dtheta4);
-  dA_dtheta[2] = 2*dtheta*(A024 + A124*dr + (A224 + A324*dr)*dr2 + 2*(A044 + A144*dr)*dtheta2);
-  dA_dtheta[3] = 2*(A026 + A126*dr)*dtheta;
+  dA_dtheta[0] = 0;
+  dA_dtheta[1] = 0;
+  dA_dtheta[2] = 0;
+  dA_dtheta[3] = 0;
   dA_dtheta[4] = 0;
 
   /* theta,theta derivatives of coefficients */
-  d2A_dtheta2[0] = 2*((A420 + dr*(A520 + dr*(A620 + A720*dr)))*dr4 + 6*dtheta2*((A240 + A340*dr)*dr2 + (A440 + A540*dr)*dr4 + (A060 + dr*(A160 + dr*(A260 + A360*dr)))*dtheta2) + 9*(A060 + dr*(A160 + dr*(A260 + A360*dr)))*dtheta4 + 28*(A080 + A180*dr)*dtheta6);
-  d2A_dtheta2[1] = 2*((A222 + A322*dr)*dr2 + (A422 + A522*dr)*dr4 + 6*dtheta2*(A042 + A142*dr + (A242 + A342*dr)*dr2 + (A062 + A162*dr)*dtheta2) + 9*(A062 + A162*dr)*dtheta4);
-  d2A_dtheta2[2] = 2*(A024 + A124*dr + (A224 + A324*dr)*dr2 + 6*(A044 + A144*dr)*dtheta2);
-  d2A_dtheta2[3] = 2*(A026 + A126*dr);
+  d2A_dtheta2[0] = 0;
+  d2A_dtheta2[1] = 0;
+  d2A_dtheta2[2] = 0;
+  d2A_dtheta2[3] = 0;
   d2A_dtheta2[4] = 0;
 
   /* alpha term appearing in the denominator */
