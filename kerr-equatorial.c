@@ -167,9 +167,9 @@ void effsource_phis(struct coordinate * x, double * phis)
 }
 
 /* Compute the singular field at the point x for the particle at xp */
-void effsource_phis_m(int m, struct coordinate * x, double * phis)
+void effsource_phis_m(int m, struct coordinate * x, double * phis_re, double * phis_im)
 {
-  double A[5], num, alpha, ellE, ellK;
+  double A_re[5], A_im[5], num_re, num_im;
 
   double r      = x->r;
   const double theta  = x->theta;
@@ -179,26 +179,31 @@ void effsource_phis_m(int m, struct coordinate * x, double * phis)
   const double dr     = r - rp;
   const double dtheta = theta - thetap;
 
-  const double dr2 = dr*dr;
+  double dr2 = dr*dr;
+  double dr4 = dr2*dr2;
+  double dr6 = dr4*dr2;
+  double dr8 = dr4*dr4;
 
-  const double dtheta2  = dtheta*dtheta;
+  double dtheta2  = dtheta*dtheta;
+  double dtheta4  = dtheta2*dtheta2;
+  double dtheta8  = dtheta4*dtheta4;
 
-  A[0] = 0;
-  // Skip A801*pow(dr,8) + pow(dr,6)*(A601 + A701*dr) + pow(dr,4)*(A421 + A521*dr + A621*pow(dr,2))*pow(dtheta,2) + A081*pow(dtheta,8) + pow(dtheta,4)*(A441*pow(dr,4) + pow(dr,2)*(A241 + A341*dr) + (A061 + A161*dr + A261*pow(dr,2))*pow(dtheta,2));
-  A[1] = 0;
-  // Skip pow(dr,4)*(A403 + A503*dr + A603*pow(dr,2)) + (A423*pow(dr,4) + pow(dr,2)*(A223 + A323*dr))*pow(dtheta,2) + pow(dtheta,4)*(A043 + A143*dr + A243*pow(dr,2) + A063*pow(dtheta,2));
-  A[2] = 0;
-  // Skip A405*pow(dr,4) + pow(dr,2)*(A205 + A305*dr) + (A025 + A125*dr + A225*pow(dr,2))*pow(dtheta,2) + A045*pow(dtheta,4);
-  A[3] = 0;
-  // Skip A007 + A107*dr + A207*pow(dr,2) + A027*pow(dtheta,2);
-  A[4] = 0;
-  // Skip A009;
+  /* Compute coefficients of powers of dQ and dR */
+  A_re[0] = (A6000 + A7000*dr)*dr6 + (A8000 + A9000*dr)*dr8 + (A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4*dtheta2 + ((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 + (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2)*dtheta4 + (A0800 + A1800*dr)*dtheta8;
+  A_im[0] = (A6001 + A7001*dr)*dr6 + A8001*dr8 + (A4201 + dr*(A5201 + A6201*dr))*dr4*dtheta2 + ((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2)*dtheta4 + A0801*dtheta8;
+  A_re[1] = (A4020 + dr*(A5020 + dr*(A6020 + A7020*dr)))*dr4 + (A2220 + dr*(A3220 + dr*(A4220 + A5220*dr)))*dr2*dtheta2 + (A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2)*dtheta4;
+  A_im[1] = (A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 + (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4;
+  A_re[2] = (A2040 + A3040*dr)*dr2 + (A4040 + A5040*dr)*dr4 + (A0240 + dr*(A1240 + dr*(A2240 + A3240*dr)))*dtheta2 + (A0440 + A1440*dr)*dtheta4;
+  A_im[2] = (A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + A0441*dtheta4;
+  A_re[3] = A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2;
+  A_im[3] = A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2;
+  A_re[4] = A0080 + A1080*dr;
+  A_im[4] = A0081;
 
-  alpha = alpha20*dr2 + alpha02*dtheta2;
-
+  /* Compute the argument of the elliptic integrals */
+  const double alpha = alpha20*dr2 + alpha02*dtheta2;
   const double C1 = alpha / beta;
-
-  double C[17];
+  double C[27];
   C[0]  = 1;
   C[1]  = C1;
   C[2]  = C[1]*C[1];
@@ -216,24 +221,39 @@ void effsource_phis_m(int m, struct coordinate * x, double * phis)
   C[14] = C[7]*C[7];
   C[15] = C[8]*C[7];
   C[16] = C[8]*C[8];
+  C[17] = C[9]*C[8];
+  C[18] = C[9]*C[9];
+  C[19] = C[10]*C[9];
+  C[20] = C[10]*C[10];
+  C[21] = C[11]*C[10];
+  C[22] = C[11]*C[11];
+  C[23] = C[12]*C[11];
+  C[24] = C[12]*C[12];
+  C[25] = C[13]*C[12];
+  C[26] = C[13]*C[13];
 
-  ellE = gsl_sf_ellint_Ecomp(sqrt(1.0/(1.0+C1)), GSL_PREC_DOUBLE);
-  ellK = gsl_sf_ellint_Kcomp(sqrt(1.0/(1.0+C1)), GSL_PREC_DOUBLE);
+  const double ellE = gsl_sf_ellint_Ecomp(sqrt(1.0/(1.0+C1)), GSL_PREC_DOUBLE);
+  const double ellK = gsl_sf_ellint_Kcomp(sqrt(1.0/(1.0+C1)), GSL_PREC_DOUBLE);
   const double ellip[2] = {ellK, ellE};
 
-  if(m>10)
+  if(m>20)
   {
     printf("Support for computing mode %d has not yet been added.\n", m);
     return;
   }
 
-  num = 0;
+  num_re = 0;
+  num_im = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<17; k++)
-        num += ReEI[m][i][j][k]*ellip[i]*A[j]*C[k];
+      for(int k=0; k<27; k++)
+      {
+        num_re += ReEI[m][i][j][k]*ellip[i]*A_re[j]*C[k];
+        num_im += ImEI[m][i][j][k]*ellip[i]*A_im[j]*C[k];
+      }
 
-  *phis = 4.0*num/(beta*C[3]*pow(alpha+beta, 2.5));
+  *phis_re = 4.0*num_re/(beta*C[3]*pow(alpha+beta, 2.5));
+  *phis_im = -32.0*num_im/(beta*beta*C[2]*pow(alpha+beta, 1.5));
 }
 
 /* Compute the singular field, its derivatives and its d'Alembertian */

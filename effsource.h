@@ -31,7 +31,7 @@ void effsource_set_particle_el(struct coordinate * x_p, double e, double l, doub
 void effsource_phis(struct coordinate * x, double * phis);
 void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr, double *dphis_dth,
                     double *dphis_dph, double *dphis_dt, double *box_phis);
-void effsource_phis_m(int m, struct coordinate * x, double * phis);
+void effsource_phis_m(int m, struct coordinate * x, double * phis_re, double * phis_im);
 void effsource_calc_m(int m, struct coordinate * x, double *phis, double *dphis_dr, double *dphis_dth,
                     double *dphis_dph, double *dphis_dt, double *box_phis);
 double phis_calc(struct coordinate * x);
