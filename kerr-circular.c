@@ -309,7 +309,7 @@ void effsource_phis(struct coordinate * x, double * phis)
 }
 
 /* Compute the singular field at the point x for the particle at xp */
-void effsource_phis_m(int m, struct coordinate * x, double * phis)
+void effsource_phis_m(int m, struct coordinate * x, double * phis_re, double * phis_im)
 {
   double A[5], num, alpha, ellE, ellK;
 
@@ -376,7 +376,8 @@ void effsource_phis_m(int m, struct coordinate * x, double * phis)
       for(int k=0; k<17; k++)
         num += EI[m][i][j][k]*ellip[i]*A[j]*C[k];
 
-  *phis = 4.0*num/(beta*C[3]*pow(alpha+beta, 2.5));
+  *phis_re = 4.0*num/(beta*C[3]*pow(alpha+beta, 2.5));
+  *phis_im = 0;
 }
 
 /* Compute the singular field, its derivatives and its d'Alembertian */
