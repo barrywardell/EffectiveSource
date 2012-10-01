@@ -8,17 +8,17 @@
 /* Return the value of the singular field at the point x */
 double phis_calc(struct coordinate * x)
 {
-  double res;
-  effsource_phis(x, &res);
-  return res;
+  double phis;
+  effsource_phis(x, &phis);
+  return phis;
 }
 
 /* Return the value of the effective source at the point x */
 double src_calc(struct coordinate * x)
 {
-  double res1, res2, res3, res4, res5, res6;
-  effsource_calc(x, &res1, &res2, &res3, &res4, &res5, &res6);
-  return res6;
+  double phis, dphis_dx[4], d2phis_dx2[10], src;
+  effsource_calc(x, &phis, dphis_dx, d2phis_dx2, &src);
+  return src;
 }
 
 int main(int argc, char* argv[])
@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
   xp.theta = M_PI_2;
   xp.phi = 0;
 
-  effsource_set_particle_el(&xp, e, l, ur);
+  effsource_set_particle(&xp, e, l, ur);
 
   /* The point where we measure the singular field/effective source */
   struct coordinate x = {0.0, r_p, M_PI_2, 0.0};
@@ -77,14 +77,14 @@ int main(int argc, char* argv[])
     x.r = r;
     for(double theta=M_PI_2-0.1; theta<=M_PI_2+0.1; theta+=0.011)
     {
-      double phis_re, phis_im, phis_num_re, phis_num_im;
+      double phis[2], phis_num[2];
       x.theta     = theta;
-      effsource_phis_m(m, &x, &phis_re, &phis_im);
-      m_decompose(m, x, phis_calc, &phis_num_re, &phis_num_im);
+      effsource_phis_m(m, &x, phis);
+      m_decompose(m, x, phis_calc, phis_num);
 
       printf("%g\t%g\t%g\t%g\t%g\t%g\t%g\n",
         x.r-xp.r, x.theta-xp.theta, x.phi-xp.phi,
-        phis_re, phis_im, phis_num_re, phis_num_im);
+        phis[0], phis[1], phis_num[0], phis_num[1]);
     }
   }
 

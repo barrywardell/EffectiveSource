@@ -40,7 +40,7 @@ void effsource_init(double mass, double spin)
 }
 
 /* Initialize array of coefficients of pows of dr, dtheta, sin(dphi) and sin(dphi/2) */
-void effsource_set_particle_el(struct coordinate * x_p, double E, double L, double ur)
+void effsource_set_particle(struct coordinate * x_p, double E, double L, double ur)
 {
   xp = *x_p;
   const double r = xp.r;

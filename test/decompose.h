@@ -21,4 +21,4 @@
  ******************************************************************************/
 
 void m_decompose(int m, struct coordinate x,
-  double (*func)(struct coordinate * x), double * res_re, double * res_im);
+  double (*func)(struct coordinate * x), double * res);

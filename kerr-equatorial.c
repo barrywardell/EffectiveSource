@@ -169,7 +169,7 @@ void effsource_phis(struct coordinate * x, double * phis)
 }
 
 /* Compute the singular field at the point x for the particle at xp */
-void effsource_phis_m(int m, struct coordinate * x, double * phis_re, double * phis_im)
+void effsource_phis_m(int m, struct coordinate * x, double * phis)
 {
   double A_re[5], A_im[5], num_re, num_im;
 
@@ -259,19 +259,21 @@ void effsource_phis_m(int m, struct coordinate * x, double * phis_re, double * p
   const double phisb_im = -32.0*num_im/(beta*beta*C[2]*pow(alpha+beta, 1.5));
 
   /* m-modes for the regular Boyer-Lindquist phi coordinate */
-  *phis_re = phisb_re*cos(c*m*dr) + phisb_im*sin(c*m*dr);
-  *phis_im = phisb_im*cos(c*m*dr) - phisb_re*sin(c*m*dr);
+  phis[0] = phisb_re*cos(c*m*dr) + phisb_im*sin(c*m*dr);
+  phis[1] = phisb_im*cos(c*m*dr) - phisb_re*sin(c*m*dr);
 }
 
 /* Compute the singular field, its derivatives and its d'Alembertian */
-void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
-      double *dphis_dth, double *dphis_dph, double *dphis_dt, double *box_phis)
+void effsource_calc(struct coordinate * x,
+  double *phis, double *dphis_dx, double *d2phis_dx2, double *box_phis)
 {
   double A, dA_dr, d2A_dr2, dA_dth, d2A_dth2, dA_dQ, dA_dR, dA_dph;
-  double d2A_dQ2, d2A_dQR, d2A_dQr, d2A_dRr, d2A_dph2, dA_dt, d2A_dt2, d2A_dphdt;
+  double d2A_dQ2, d2A_dQR, d2A_dQr, d2A_dRr, d2A_dph2, dA_dt, d2A_dt2, d2A_dtph;
   double s2, sqrts2, s2_15, s2_25, s2_35, s2_45, s2_55, ds2_dr, d2s2_dr2, ds2_dth;
-  double d2s2_dth2, ds2_dQ, ds2_dph, d2s2_dQ2, d2s2_dph2, ds2_dt, d2s2_dt2, d2s2_dphdt;
-  double d2phis_dr2, d2phis_dth2, d2phis_dph2, d2phis_dt2, d2phis_dphdt;
+  double d2s2_dth2, ds2_dQ, ds2_dph, d2s2_dQ2, d2s2_dph2, ds2_dt, d2s2_dt2, d2s2_dtph;
+
+  double dphis_dt, dphis_dr, dphis_dth, dphis_dph, d2phis_dt2, d2phis_dtr, d2phis_dtth;
+  double d2phis_dtph, d2phis_dr2, d2phis_drth, d2phis_drph, d2phis_dth2, d2phis_dthph, d2phis_dph2;
 
   double r      = x->r;
   double theta  = x->theta;
@@ -337,7 +339,7 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
   d2A_dRr   = 6*(A6001 + A7001*dr)*dr5 + A7001*dr6 + 8*A8001*dr7 + 4*(A4201 + dr*(A5201 + A6201*dr))*dr3*dtheta2 + (A5201 + 2*A6201*dr)*dr4*dtheta2 + dQ4*(dQ2*(A1061 + 2*A2061*dr) + 2*dr*(A2041 + A3041*dr) + A3041*dr2 + 4*A4041*dr3 + (A1241 + 2*A2241*dr)*dtheta2) + (2*A2401*dr + 3*A3401*dr2 + 4*A4401*dr3 + A1601*dtheta2 + 2*A2601*dr*dtheta2)*dtheta4 + dQ2*(4*A4021*dr3 + 5*A5021*dr4 + 6*A6021*dr5 + 2*A2221*dr*dtheta2 + 3*A3221*dr2*dtheta2 + 4*A4221*dr3*dtheta2 + A1421*dtheta4 + 2*A2421*dr*dtheta4);
   d2A_dph2  = dA_dR*d2R_dph2 + dA_dQ*d2Q_dph2 + 2*dQ_dph*dR_dph*d2A_dQR + dQ_dph*dQ_dph*d2A_dQ2;
   d2A_dt2   = 0; /* FIXME */
-  d2A_dphdt = 0; /* FIXME */
+  d2A_dtph  = 0; /* FIXME */
 
   /* Correct for rotation of phi coordinate */
   d2A_dr2   = d2A_dr2 + d2Q_dr2*dA_dQ + d2R_dr2*dA_dR + 2.0*d2A_dQr*dQ_dr + d2A_dQ2*dQ_dr*dQ_dr + 2.0*(d2A_dRr + d2A_dQR*dQ_dr)*dR_dr;
@@ -359,7 +361,7 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
   d2s2_dQ2   = beta;
   d2s2_dph2  = d2s2_dQ2*dQ_dph*dQ_dph + ds2_dQ*d2Q_dph2;
   d2s2_dt2   = 0; /* FIXME */
-  d2s2_dphdt = 0; /* FIXME */
+  d2s2_dtph  = 0; /* FIXME */
   sqrts2     = sqrt(s2);
   s2_15      = s2*sqrts2;
   s2_25      = s2*s2_15;
@@ -368,13 +370,13 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
   s2_55      = s2*s2_45;
 
   /* phis */
-  *phis = A/s2_35;
+  double phi_s = A/s2_35;
 
   /* First derivatives of phis */
-  *dphis_dr  = (-7*ds2_dr*A + 2*dA_dr*s2) /(2.*s2_45);
-  *dphis_dth = (-7*ds2_dth*A + 2*dA_dth*s2)/(2.*s2_45);
-  *dphis_dph = (-7*ds2_dph*A + 2*dA_dph*s2)/(2.*s2_45);
-  *dphis_dt  = (-7*ds2_dt*A + 2*dA_dt*s2)/(2.*s2_45);
+  dphis_dt  = (-7*ds2_dt*A + 2*dA_dt*s2)/(2.*s2_45);
+  dphis_dr = (-7*ds2_dr*A + 2*dA_dr*s2) /(2.*s2_45);
+  dphis_dth = (-7*ds2_dth*A + 2*dA_dth*s2)/(2.*s2_45);
+  dphis_dph = (-7*ds2_dph*A + 2*dA_dph*s2)/(2.*s2_45);
   
   /* Second derivatives of phis */
   d2phis_dr2 =
@@ -385,9 +387,8 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
     (63*ds2_dph*ds2_dph*A - 14*s2*(2*dA_dph*ds2_dph + d2s2_dph2*A) + 4*d2A_dph2*s2*s2)/(4.*s2_55);
   d2phis_dt2 =
     (63*ds2_dt*ds2_dt*A - 14*s2*(2*dA_dt*ds2_dt + d2s2_dt2*A) + 4*d2A_dt2*s2*s2)/(4.*s2_55);
-  d2phis_dphdt =
-    (63*ds2_dph*ds2_dt*A - 14*s2*(dA_dt*ds2_dph + dA_dph*ds2_dt + d2s2_dphdt*A) + 4*d2A_dphdt*s2*s2)/(4.*s2_55);
-  
+  d2phis_dtph =
+    (63*ds2_dph*ds2_dt*A - 14*s2*(dA_dt*ds2_dph + dA_dph*ds2_dt + d2s2_dtph*A) + 4*d2A_dtph*s2*s2)/(4.*s2_55);
   
   /* Box[phis] */
   double sinth  = sin(theta);
@@ -400,19 +401,37 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
   double a2 = a*a;
   double a4 = a2*a2;
 
-  *box_phis = -((2*a2*(*dphis_dr) - a2*d2phis_dph2 - a4*d2phis_dr2 - a2*d2phis_dth2 - 4*(*dphis_dr)*r - 2*a2*(*dphis_dr)*r + 
-         4*d2phis_dph2*r + 2*a*d2phis_dphdt*r + 4*a2*d2phis_dr2*r + 2*d2phis_dth2*r + 6*(*dphis_dr)*r2 - 2*d2phis_dph2*r2 - 4*d2phis_dr2*r2 - 
-         2*a2*d2phis_dr2*r2 - d2phis_dth2*r2 - 2*(*dphis_dr)*r3 + 4*d2phis_dr2*r3 - d2phis_dr2*r4 + 
-         (a4*d2phis_dt2 + 4*a*d2phis_dphdt*r + 2*d2phis_dt2*r4 + a2*d2phis_dt2*r*(2 + 3*r))*sinth2 + 
-         cos2th*(a4*d2phis_dr2 - 2*a*d2phis_dphdt*r + (-2 + r)*r*(d2phis_dth2 + 2*(*dphis_dr)*(-1 + r) + d2phis_dr2*(-2 + r)*r) + 
-            a2*(-d2phis_dph2 + d2phis_dth2 + 2*(*dphis_dr)*(-1 + r) - 4*d2phis_dr2*r + 2*d2phis_dr2*r2) + 
-            a2*d2phis_dt2*(a2 + (-2 + r)*r)*sinth2) - a2*(*dphis_dth)*sin2th + 2*(*dphis_dth)*r*sin2th - 
-         (*dphis_dth)*r2*sin2th))/((sinth2*(a2 + (-2 + r)*r)*(a2 + 2*r2 + a2*cos2th)));
+  *box_phis = -((2*a2*dphis_dr - a2*d2phis_dph2 - a4*d2phis_dr2 - a2*d2phis_dth2 - 4*dphis_dr*r - 2*a2*dphis_dr*r +
+         4*d2phis_dph2*r + 2*a*d2phis_dtph*r + 4*a2*d2phis_dr2*r + 2*d2phis_dth2*r + 6*dphis_dr*r2 - 2*d2phis_dph2*r2 - 4*d2phis_dr2*r2 -
+         2*a2*d2phis_dr2*r2 - d2phis_dth2*r2 - 2*dphis_dr*r3 + 4*d2phis_dr2*r3 - d2phis_dr2*r4 +
+         (a4*d2phis_dt2 + 4*a*d2phis_dtph*r + 2*d2phis_dt2*r4 + a2*d2phis_dt2*r*(2 + 3*r))*sinth2 +
+         cos2th*(a4*d2phis_dr2 - 2*a*d2phis_dtph*r + (-2 + r)*r*(d2phis_dth2 + 2*dphis_dr*(-1 + r) + d2phis_dr2*(-2 + r)*r) +
+            a2*(-d2phis_dph2 + d2phis_dth2 + 2*dphis_dr*(-1 + r) - 4*d2phis_dr2*r + 2*d2phis_dr2*r2) +
+            a2*d2phis_dt2*(a2 + (-2 + r)*r)*sinth2) - a2*dphis_dth*sin2th + 2*dphis_dth*r*sin2th -
+         dphis_dth*r2*sin2th))/((sinth2*(a2 + (-2 + r)*r)*(a2 + 2*r2 + a2*cos2th)));
+
+  dphis_dx[0] = dphis_dt;
+  dphis_dx[1] = dphis_dr;
+  dphis_dx[2] = dphis_dth;
+  dphis_dx[3] = dphis_dph;
+
+  *phis = phi_s;
+
+  d2phis_dx2[0] = d2phis_dt2;
+  d2phis_dx2[1] = d2phis_dtr;
+  d2phis_dx2[2] = d2phis_dtth;
+  d2phis_dx2[3] = d2phis_dtph;
+  d2phis_dx2[4] = d2phis_dr2;
+  d2phis_dx2[5] = d2phis_drth;
+  d2phis_dx2[6] = d2phis_drph;
+  d2phis_dx2[7] = d2phis_dth2;
+  d2phis_dx2[8] = d2phis_dthph;
+  d2phis_dx2[9] = d2phis_dph2;
 }
 
 /* Compute the 2D singular field, its derivatives and its d'Alembertian */
-void effsource_calc_m(int m, struct coordinate * x, double *phis, double *dphis_dr,
-      double *dphis_dth, double *dphis_dph, double *dphis_dt, double *box_phis)
+void effsource_calc_m(int m, struct coordinate * x,
+  double *phis, double *dphis_dx, double *d2phis_dx2, double *box_phis)
 {
   double A[5], alpha, ellE, ellK;
   double dA_dr[5], dalpha_dr, dC1_dr, dellE_dC, dellK_dC, d2ellE_dC2, d2ellK_dC2, dellE_dr, dellK_dr;
@@ -422,7 +441,8 @@ void effsource_calc_m(int m, struct coordinate * x, double *phis, double *dphis_
 
   double s, ds_dr, d2s_dr2, ds_dtheta, d2s_dtheta2;
 
-  double d2phis_dr2, d2phis_dth2, d2phis_dph2, d2phis_dt2, d2phis_dphdt;
+  double dphis_dt, dphis_dr, dphis_dth, dphis_dph, d2phis_dt2, d2phis_dtr, d2phis_dtth;
+  double d2phis_dtph, d2phis_dr2, d2phis_drth, d2phis_drph, d2phis_dth2, d2phis_dthph, d2phis_dph2;
 
   const double r      = x->r;
   const double theta  = x->theta;
@@ -701,17 +721,17 @@ void effsource_calc_m(int m, struct coordinate * x, double *phis, double *dphis_
   *phis = 4.0*num/s;
 
   /* First derivatives of phis */
-  *dphis_dr  = 4.0*(-ds_dr*num + dnum_dr*s) /(s*s);
-  *dphis_dth = 4.0*(-ds_dtheta*num + dnum_dtheta*s)/(s*s);
-  *dphis_dt  = - m * om * (*phis); // This should be interpreted as pure-imaginary
-  *dphis_dph = m * (*phis); // This should be interpreted as pure-imaginary
+  dphis_dt = m * (*phis); // This should be interpreted as pure-imaginary
+  dphis_dr  = 4.0*(-ds_dr*num + dnum_dr*s) /(s*s);
+  dphis_dth = 4.0*(-ds_dtheta*num + dnum_dtheta*s)/(s*s);
+  dphis_dph  = - m * om * (*phis); // This should be interpreted as pure-imaginary
 
   /* Second derivatives of phis */
   d2phis_dr2   = 4.0*(2.0*ds_dr*ds_dr*num - s*(2*dnum_dr*ds_dr + d2s_dr2*num) + d2num_dr2*s*s)/(s*s*s);
   d2phis_dth2  = 4.0*(2.0*ds_dtheta*ds_dtheta*num - s*(2*dnum_dtheta*ds_dtheta + d2s_dtheta2*num) + d2num_dtheta2*s*s)/(s*s*s);
   d2phis_dph2  = - m*m*(*phis);
   d2phis_dt2   = - m*m*om*om*(*phis);
-  d2phis_dphdt = m*m*om*(*phis);
+  d2phis_dtph  = m*m*om*(*phis);
 
   /* Box[phis] */
   double sinth  = sin(theta);
@@ -724,12 +744,12 @@ void effsource_calc_m(int m, struct coordinate * x, double *phis, double *dphis_
   double a2 = a*a;
   double a4 = a2*a2;
 
-  *box_phis = -((2*a2*(*dphis_dr) - a2*d2phis_dph2 - a4*d2phis_dr2 - a2*d2phis_dth2 - 4*(*dphis_dr)*r - 2*a2*(*dphis_dr)*r + 
-         4*d2phis_dph2*r + 2*a*d2phis_dphdt*r + 4*a2*d2phis_dr2*r + 2*d2phis_dth2*r + 6*(*dphis_dr)*r2 - 2*d2phis_dph2*r2 - 4*d2phis_dr2*r2 - 
-         2*a2*d2phis_dr2*r2 - d2phis_dth2*r2 - 2*(*dphis_dr)*r3 + 4*d2phis_dr2*r3 - d2phis_dr2*r4 + 
-         (a4*d2phis_dt2 + 4*a*d2phis_dphdt*r + 2*d2phis_dt2*r4 + a2*d2phis_dt2*r*(2 + 3*r))*sinth2 + 
-         cos2th*(a4*d2phis_dr2 - 2*a*d2phis_dphdt*r + (-2 + r)*r*(d2phis_dth2 + 2*(*dphis_dr)*(-1 + r) + d2phis_dr2*(-2 + r)*r) + 
-            a2*(-d2phis_dph2 + d2phis_dth2 + 2*(*dphis_dr)*(-1 + r) - 4*d2phis_dr2*r + 2*d2phis_dr2*r2) + 
-            a2*d2phis_dt2*(a2 + (-2 + r)*r)*sinth2) - a2*(*dphis_dth)*sin2th + 2*(*dphis_dth)*r*sin2th - 
-         (*dphis_dth)*r2*sin2th))/((sinth2*(a2 + (-2 + r)*r)*(a2 + 2*r2 + a2*cos2th)));
+  *box_phis  = -((2*a2*dphis_dr - a2*d2phis_dph2 - a4*d2phis_dr2 - a2*d2phis_dth2 - 4*dphis_dr*r - 2*a2*dphis_dr*r +
+         4*d2phis_dph2*r + 2*a*d2phis_dtph*r + 4*a2*d2phis_dr2*r + 2*d2phis_dth2*r + 6*dphis_dr*r2 - 2*d2phis_dph2*r2 - 4*d2phis_dr2*r2 -
+         2*a2*d2phis_dr2*r2 - d2phis_dth2*r2 - 2*dphis_dr*r3 + 4*d2phis_dr2*r3 - d2phis_dr2*r4 +
+         (a4*d2phis_dt2 + 4*a*d2phis_dtph*r + 2*d2phis_dt2*r4 + a2*d2phis_dt2*r*(2 + 3*r))*sinth2 +
+         cos2th*(a4*d2phis_dr2 - 2*a*d2phis_dtph*r + (-2 + r)*r*(d2phis_dth2 + 2*dphis_dr*(-1 + r) + d2phis_dr2*(-2 + r)*r) +
+            a2*(-d2phis_dph2 + d2phis_dth2 + 2*dphis_dr*(-1 + r) - 4*d2phis_dr2*r + 2*d2phis_dr2*r2) +
+            a2*d2phis_dt2*(a2 + (-2 + r)*r)*sinth2) - a2*dphis_dth*sin2th + 2*dphis_dth*r*sin2th -
+         dphis_dth*r2*sin2th))/((sinth2*(a2 + (-2 + r)*r)*(a2 + 2*r2 + a2*cos2th)));
 }
