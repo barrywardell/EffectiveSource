@@ -267,8 +267,10 @@ void effsource_phis_m(int m, struct coordinate * x, double * phis_re, double * p
 void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
       double *dphis_dth, double *dphis_dph, double *dphis_dt, double *box_phis)
 {
-  double A, dA_dr, d2A_dr2, dA_dth, d2A_dth2, dA_dR, dA_dph,  d2A_dR2,  d2A_dph2, dA_dt, d2A_dt2, d2A_dphdt;
-  double s2, sqrts2, s2_15, s2_25, s2_35, s2_45, s2_55, ds2_dr, d2s2_dr2, ds2_dth, d2s2_dth2, ds2_dR, ds2_dph, d2s2_dR2, d2s2_dph2, ds2_dt, d2s2_dt2, d2s2_dphdt;
+  double A, dA_dr, d2A_dr2, dA_dth, d2A_dth2, dA_dQ, dA_dR, dA_dph;
+  double d2A_dQ2, d2A_dQR, d2A_dQr, d2A_dRr, d2A_dph2, dA_dt, d2A_dt2, d2A_dphdt;
+  double s2, sqrts2, s2_15, s2_25, s2_35, s2_45, s2_55, ds2_dr, d2s2_dr2, ds2_dth;
+  double d2s2_dth2, ds2_dQ, ds2_dph, d2s2_dQ2, d2s2_dph2, ds2_dt, d2s2_dt2, d2s2_dphdt;
   double d2phis_dr2, d2phis_dth2, d2phis_dph2, d2phis_dt2, d2phis_dphdt;
 
   double r      = x->r;
@@ -282,48 +284,82 @@ void effsource_calc(struct coordinate * x, double *phis, double *dphis_dr,
   double dtheta = theta - thetap;
   double dphi   = phi - phip;
 
+  double dphib  = dphi - c*dr;
+
   double dr2 = dr*dr;
+  double dr3 = dr2*dr;
   double dr4 = dr2*dr2;
+  double dr5 = dr3*dr2;
   double dr6 = dr4*dr2;
+  double dr7 = dr4*dr3;
   double dr8 = dr4*dr4;
 
   double dtheta2  = dtheta*dtheta;
   double dtheta4  = dtheta2*dtheta2;
+  double dtheta6  = dtheta4*dtheta2;
   double dtheta8  = dtheta4*dtheta4;
 
-  double dQ  = sin(0.5*dphi);
+  double dQ  = sin(0.5*dphib);
   double dQ2 = dQ*dQ;
   double dQ4 = dQ2*dQ2;
+  double dQ6 = dQ4*dQ2;
   double dQ8 = dQ4*dQ4;
 
-  double dR  = sin(dphi);
+  double dR  = sin(dphib);
 
-  /* A, dA/dx, d^2A/dx^2 */
-  A         = 0;
-  dA_dr     = 0;
-  dA_dth    = 0;
-  dA_dR     = 0;
-  dA_dph    = 0;
-  dA_dt     = 0;
-  d2A_dr2   = 0;
-  d2A_dth2  = 0;
-  d2A_dph2  = 0;
-  d2A_dt2   = 0;
-  d2A_dphdt = 0;
+  double dQ_dph = 0.5*cos(0.5*dphib);
+  double dQ_dr  = -c*dQ_dph;
+  double dR_dph = cos(dphib);
+  double dR_dr  = -c*dR_dph;
 
-  /* s, ds/dr, d^2s/dr^2 */
+  double d2Q_dph2 = -0.25*sin(0.5*dphib);
+  double d2Q_dr2  = c*c*d2Q_dph2;
+  double d2R_dph2 = -sin(dphib);
+  double d2R_dr2  = c*c*d2R_dph2;
+
+  /* A */
+  A         = dQ8*(A0080 + A1080*dr) + (A6000 + A7000*dr)*dr6 + (A8000 + A9000*dr)*dr8 + (A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4*dtheta2 + ((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 + (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2)* dtheta4 + dQ4*((A2040 + A3040*dr)*dr2 + (A4040 + A5040*dr)*dr4 + (A0240 + dr*(A1240 + dr*(A2240 + A3240*dr)))*dtheta2 + dQ2*(A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2) + (A0440 + A1440*dr)*dtheta4) + dQ2*((A4020 + dr*(A5020 + dr*(A6020 + A7020*dr)))*dr4 + (A2220 + dr*(A3220 + dr*(A4220 + A5220*dr)))*dr2*dtheta2 + (A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2)*dtheta4) + (A0800 + A1800*dr)*dtheta8 + dR*(A0081*dQ8 + (A6001 + A7001*dr)*dr6 + A8001*dr8 + (A4201 + dr*(A5201 + A6201*dr))*dr4*dtheta2 + ((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2)*dtheta4 + dQ4*((A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + dQ2*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) + A0441*dtheta4) + dQ2*((A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 + (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4) + A0801*dtheta8);
+
+  /* dA/dx */
+  dA_dr     = A1080*dQ8 + 6*(A6000 + A7000*dr)*dr5 + A7000*dr6 + 8*(A8000 + A9000*dr)*dr7 + A9000*dr8 +  4*(A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr3*dtheta2 + (A5200 + dr*(2*A6200 + 3*A7200*dr))*dr4*dtheta2 +  (2*A2400*dr + 3*A3400*dr2 + 4*A4400*dr3 + 5*A5400*dr4 + A1600*dtheta2 + 2*A2600*dr*dtheta2 + 3*A3600*dr2*dtheta2)*dtheta4 +  dQ4*(2*dr*(A2040 + A3040*dr) + A3040*dr2 + 4*(A4040 + A5040*dr)*dr3 + A5040*dr4 + (A1240 + dr*(2*A2240 + 3*A3240*dr))*dtheta2 +  dQ2*(A1060 + 2*A2060*dr + 3*A3060*dr2 + A1260*dtheta2) + A1440*dtheta4) +  dR*(6*(A6001 + A7001*dr)*dr5 + A7001*dr6 + 8*A8001*dr7 + 4*(A4201 + dr*(A5201 + A6201*dr))*dr3*dtheta2 + (A5201 + 2*A6201*dr)*dr4*dtheta2 +  dQ4*(dQ2*(A1061 + 2*A2061*dr) + 2*dr*(A2041 + A3041*dr) + A3041*dr2 + 4*A4041*dr3 + (A1241 + 2*A2241*dr)*dtheta2) +  (2*A2401*dr + 3*A3401*dr2 + 4*A4401*dr3 + A1601*dtheta2 + 2*A2601*dr*dtheta2)*dtheta4 +  dQ2*(4*A4021*dr3 + 5*A5021*dr4 + 6*A6021*dr5 + 2*A2221*dr*dtheta2 + 3*A3221*dr2*dtheta2 + 4*A4221*dr3*dtheta2 + A1421*dtheta4 +  2*A2421*dr*dtheta4)) + dQ2*(4*A4020*dr3 + 5*A5020*dr4 + 6*A6020*dr5 + 7*A7020*dr6 + 2*A2220*dr*dtheta2 + 3*A3220*dr2*dtheta2 +  4*A4220*dr3*dtheta2 + 5*A5220*dr4*dtheta2 + A1420*dtheta4 + 2*A2420*dr*dtheta4 + 3*A3420*dr2*dtheta4 + A1620*dtheta6) + A1800*dtheta8;
+  dA_dth    = 2*dtheta*((A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4 +  dQ4*(A0240 + A1240*dr + dQ2*(A0260 + A1260*dr) + (A2240 + A3240*dr)*dr2 + 2*(A0440 + A1440*dr)*dtheta2) +  2*dtheta2*((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 + (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2) +  (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta4 + dQ2* ((A2220 + A3220*dr)*dr2 + (A4220 + A5220*dr)*dr4 + 2*dtheta2*(A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2) +  (A0620 + A1620*dr)*dtheta4) + 4*(A0800 + A1800*dr)*dtheta6 +  dR*((A4201 + dr*(A5201 + A6201*dr))*dr4 + dQ4*(A0241 + A0261*dQ2 + A1241*dr + A2241*dr2 + 2*A0441*dtheta2) +  2*dtheta2*((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2) + (A0601 + dr*(A1601 + A2601*dr))*dtheta4 +  dQ2*((A2221 + A3221*dr)*dr2 + A4221*dr4 + 2*dtheta2*(A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2) + A0621*dtheta4) + 4*A0801*dtheta6));
+  dA_dQ     = 2*dQ*(4*dQ6*(A0080 + A1080*dr) + (A4020 + dr*(A5020 + dr*(A6020 + A7020*dr)))*dr4 + (A2220 + dr*(A3220 + dr*(A4220 + A5220*dr)))*dr2*dtheta2 +  dQ4*(A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2) +  (A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2)*dtheta4 +  2*dQ2*((A2040 + A3040*dr)*dr2 + (A4040 + A5040*dr)*dr4 + (A0240 + dr*(A1240 + dr*(A2240 + A3240*dr)))*dtheta2 +  dQ2*(A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2) + (A0440 + A1440*dr)*dtheta4) +  dR*(4*A0081*dQ6 + (A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 +  dQ4*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) + (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4 +  2*dQ2*((A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + dQ2*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) +  A0441*dtheta4)));
+  dA_dR     = A0081*dQ8 + (A6001 + A7001*dr)*dr6 + A8001*dr8 + (A4201 + dr*(A5201 + A6201*dr))*dr4*dtheta2 +  ((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2)*dtheta4 +  dQ4*((A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + dQ2*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) +  A0441*dtheta4) + dQ2*((A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 +  (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4) + A0801*dtheta8;
+  dA_dph    = dA_dQ*dQ_dph + dA_dR*dR_dph;
+  dA_dt     = 0; /* FIXME */
+
+  /* d^2A/dx^2 */
+  d2A_dr2   = 2*(A2040*dQ4 + A2060*dQ6 + 3*A3040*dQ4*dr + 3*A3060*dQ6*dr + A2041*dQ4*dR + A2061*dQ6*dR + 3*A3041*dQ4*dr*dR + 6*A4020*dQ2*dr2 + 6*A4040*dQ4*dr2 +  6*A4021*dQ2*dR*dr2 + 6*A4041*dQ4*dR*dr2 + 10*A5020*dQ2*dr3 + 10*A5040*dQ4*dr3 + 10*A5021*dQ2*dR*dr3 + 15*A6000*dr4 + 15*A6020*dQ2*dr4 +  15*A6001*dR*dr4 + 15*A6021*dQ2*dR*dr4 + 21*A7000*dr5 + 21*A7020*dQ2*dr5 + 21*A7001*dR*dr5 + 28*A8000*dr6 + 28*A8001*dR*dr6 + 36*A9000*dr7 +  A2220*dQ2*dtheta2 + A2240*dQ4*dtheta2 + 3*A3220*dQ2*dr*dtheta2 + 3*A3240*dQ4*dr*dtheta2 + A2221*dQ2*dR*dtheta2 + A2241*dQ4*dR*dtheta2 +  3*A3221*dQ2*dr*dR*dtheta2 + 6*A4200*dr2*dtheta2 + 6*A4220*dQ2*dr2*dtheta2 + 6*A4201*dR*dr2*dtheta2 + 6*A4221*dQ2*dR*dr2*dtheta2 +  10*A5200*dr3*dtheta2 + 10*A5220*dQ2*dr3*dtheta2 + 10*A5201*dR*dr3*dtheta2 + 15*A6200*dr4*dtheta2 + 15*A6201*dR*dr4*dtheta2 +  21*A7200*dr5*dtheta2 + A2400*dtheta4 + A2420*dQ2*dtheta4 + 3*A3400*dr*dtheta4 + 3*A3420*dQ2*dr*dtheta4 + A2401*dR*dtheta4 +  A2421*dQ2*dR*dtheta4 + 3*A3401*dr*dR*dtheta4 + 6*A4400*dr2*dtheta4 + 6*A4401*dR*dr2*dtheta4 + 10*A5400*dr3*dtheta4 + A2600*dtheta6 +  3*A3600*dr*dtheta6 + A2601*dR*dtheta6);
+  d2A_dth2  = 2*((A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4 + dQ4*(A0240 + A1240*dr + dQ2*(A0260 + A1260*dr) + (A2240 + A3240*dr)*dr2 +  6*(A0440 + A1440*dr)*dtheta2) + 6*dtheta2*((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 +  (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2) + 9*(A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta4 +  dQ2*((A2220 + A3220*dr)*dr2 + (A4220 + A5220*dr)*dr4 + 6*dtheta2*(A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2) +  9*(A0620 + A1620*dr)*dtheta4) + 28*(A0800 + A1800*dr)*dtheta6 +  dR*((A4201 + dr*(A5201 + A6201*dr))*dr4 + dQ4*(A0241 + A0261*dQ2 + A1241*dr + A2241*dr2 + 6*A0441*dtheta2) +  6*dtheta2*((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2) + 9*(A0601 + dr*(A1601 + A2601*dr))*dtheta4 +  dQ2*(A2221*dr2 + A3221*dr3 + A4221*dr4 + 6*A0421*dtheta2 + 6*A1421*dr*dtheta2 + 6*A2421*dr2*dtheta2 + 15*A0621*dtheta4) + 28*A0801*dtheta6));
+  d2A_dQ2   = 2*(28*dQ6*(A0080 + A1080*dr) + (A4020 + dr*(A5020 + dr*(A6020 + A7020*dr)))*dr4 + (A2220 + dr*(A3220 + dr*(A4220 + A5220*dr)))*dr2*dtheta2 +  9*dQ4*(A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2) +  (A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2)*dtheta4 +  6*dQ2*((A2040 + A3040*dr)*dr2 + (A4040 + A5040*dr)*dr4 + (A0240 + dr*(A1240 + dr*(A2240 + A3240*dr)))*dtheta2 +  dQ2*(A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2) + (A0440 + A1440*dr)*dtheta4) +  dR*(28*A0081*dQ6 + (A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 +  9*dQ4*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) + (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4 +  6*dQ2*((A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + dQ2*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) +  A0441*dtheta4)));
+  d2A_dQR   = 2*dQ*(4*A0081*dQ6 + (A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 +  dQ4*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) + (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4 +  2*dQ2*((A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + dQ2*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) +  A0441*dtheta4));
+  d2A_dQr   = 2*dQ*(3*A1060*dQ4 + 4*A1080*dQ6 + 4*A2040*dQ2*dr + 6*A2060*dQ4*dr + 3*A1061*dQ4*dR + 4*A2041*dQ2*dr*dR + 6*A2061*dQ4*dr*dR + 6*A3040*dQ2*dr2 + 9*A3060*dQ4*dr2 + 6*A3041*dQ2*dR*dr2 + 4*A4020*dr3 + 8*A4040*dQ2*dr3 + 4*A4021*dR*dr3 + 8*A4041*dQ2*dR*dr3 + 5*A5020*dr4 + 10*A5040*dQ2*dr4 + 5*A5021*dR*dr4 + 6*A6020*dr5 + 6*A6021*dR*dr5 + 7*A7020*dr6 + 2*A1240*dQ2*dtheta2 + 3*A1260*dQ4*dtheta2 + 2*A2220*dr*dtheta2 + 4*A2240*dQ2*dr*dtheta2 + 2*A1241*dQ2*dR*dtheta2 + 2*A2221*dr*dR*dtheta2 + 4*A2241*dQ2*dr*dR*dtheta2 + 3*A3220*dr2*dtheta2 + 6*A3240*dQ2*dr2*dtheta2 + 3*A3221*dR*dr2*dtheta2 + 4*A4220*dr3*dtheta2 + 4*A4221*dR*dr3*dtheta2 + 5*A5220*dr4*dtheta2 + A1420*dtheta4 + 2*A1440*dQ2*dtheta4 + 2*A2420*dr*dtheta4 + A1421*dR*dtheta4 + 2*A2421*dr*dR*dtheta4 + 3*A3420*dr2*dtheta4 + A1620*dtheta6);
+  d2A_dRr   = 6*(A6001 + A7001*dr)*dr5 + A7001*dr6 + 8*A8001*dr7 + 4*(A4201 + dr*(A5201 + A6201*dr))*dr3*dtheta2 + (A5201 + 2*A6201*dr)*dr4*dtheta2 + dQ4*(dQ2*(A1061 + 2*A2061*dr) + 2*dr*(A2041 + A3041*dr) + A3041*dr2 + 4*A4041*dr3 + (A1241 + 2*A2241*dr)*dtheta2) + (2*A2401*dr + 3*A3401*dr2 + 4*A4401*dr3 + A1601*dtheta2 + 2*A2601*dr*dtheta2)*dtheta4 + dQ2*(4*A4021*dr3 + 5*A5021*dr4 + 6*A6021*dr5 + 2*A2221*dr*dtheta2 + 3*A3221*dr2*dtheta2 + 4*A4221*dr3*dtheta2 + A1421*dtheta4 + 2*A2421*dr*dtheta4);
+  d2A_dph2  = dA_dR*d2R_dph2 + dA_dQ*d2Q_dph2 + 2*dQ_dph*dR_dph*d2A_dQR + dQ_dph*dQ_dph*d2A_dQ2;
+  d2A_dt2   = 0; /* FIXME */
+  d2A_dphdt = 0; /* FIXME */
+
+  /* Correct for rotation of phi coordinate */
+  d2A_dr2   = d2A_dr2 + d2Q_dr2*dA_dQ + d2R_dr2*dA_dR + 2.0*d2A_dQr*dQ_dr + d2A_dQ2*dQ_dr*dQ_dr + 2.0*(d2A_dRr + d2A_dQR*dQ_dr)*dR_dr;
+  dA_dr     = dA_dr + dA_dQ*dQ_dr + dA_dR*dR*dr;
+
+  /* s */
   s2         = alpha20*dr2 + alpha02*dtheta2 + beta*dQ2;
-  ds2_dr     = 2*alpha20*dr;
+
+  /* ds/dx */
+  ds2_dr     = 2*alpha20*dr + 2*beta*dQ*dQ_dr;
   ds2_dth    = 2*alpha02*dtheta;
-  ds2_dR     = 0;
-  ds2_dph    = 0;
-  ds2_dt     = 0;
-  d2s2_dr2   = 0;
-  d2s2_dth2  = 0;
-  d2s2_dR2   = 0;
-  d2s2_dph2  = 0;
-  d2s2_dt2   = 0;
-  d2s2_dphdt = 0;
+  ds2_dQ     = 2*beta*dQ;
+  ds2_dph    = ds2_dQ*dQ_dph;
+  ds2_dt     = 0; /* FIXME */
+
+  /* d^2s/dx^2 */
+  d2s2_dr2   = 2*alpha20 + 2*beta*dQ_dr*dQ_dr + 2*beta*dQ*d2Q_dr2;
+  d2s2_dth2  = 2*alpha02;
+  d2s2_dQ2   = beta;
+  d2s2_dph2  = d2s2_dQ2*dQ_dph*dQ_dph + ds2_dQ*d2Q_dph2;
+  d2s2_dt2   = 0; /* FIXME */
+  d2s2_dphdt = 0; /* FIXME */
   sqrts2     = sqrt(s2);
   s2_15      = s2*sqrts2;
   s2_25      = s2*s2_15;
