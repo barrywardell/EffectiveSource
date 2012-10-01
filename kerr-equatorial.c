@@ -56,7 +56,7 @@ extern double M, a;
 
 /* Static variables used to store the coefficients of the series expansions */
 extern double A0060, A0061, A0080, A0081, A0240, A0241, A0260, A0261, A0420, A0421, A0440, A0441, A0600, A0601, A0620, A0621, A0800, A0801, A1060, A1061, A1080, A1240, A1241, A1260, A1420, A1421, A1440, A1600, A1601, A1620, A1800, A2040, A2041, A2060, A2061, A2220, A2221, A2240, A2241, A2400, A2401, A2420, A2421, A2600, A2601, A3040, A3041, A3060, A3220, A3221, A3240, A3400, A3401, A3420, A3600, A4020, A4021, A4040, A4041, A4200, A4201, A4220, A4221, A4400, A4401, A5020, A5021, A5040, A5200, A5201, A5220, A5400, A6000, A6001, A6020, A6021, A6200, A6201, A7000, A7001, A7020, A7200, A8000, A8001, A9000;
-extern double alpha20, alpha02, beta;
+extern double c, alpha20, alpha02, beta;
 
 /* Numerical coefficients appearing in the elliptic integrals expressions. The
    indices here correspond to mode m, EllipticK/EllipticE, order in Sin[dphi]/Sin[dphi/2],
