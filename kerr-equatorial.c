@@ -127,6 +127,8 @@ void effsource_phis(struct coordinate * x, double * phis)
   double dtheta = theta - thetap;
   double dphi   = phi - phip;
 
+  double dphib  = dphi - c*dr;
+
   double dr2 = dr*dr;
   double dr4 = dr2*dr2;
   double dr6 = dr4*dr2;
@@ -136,12 +138,12 @@ void effsource_phis(struct coordinate * x, double * phis)
   double dtheta4  = dtheta2*dtheta2;
   double dtheta8  = dtheta4*dtheta4;
 
-  double dQ  = sin(0.5*dphi);
+  double dQ  = sin(0.5*dphib);
   double dQ2 = dQ*dQ;
   double dQ4 = dQ2*dQ2;
   double dQ8 = dQ4*dQ4;
 
-  double dR  = sin(dphi);
+  double dR  = sin(dphib);
 
   A = dQ8*(A0080 + A1080*dr) + (A6000 + A7000*dr)*dr6 + (A8000 + A9000*dr)*dr8 +
    (A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4*dtheta2 +
@@ -252,8 +254,13 @@ void effsource_phis_m(int m, struct coordinate * x, double * phis_re, double * p
         num_im += ImEI[m][i][j][k]*ellip[i]*A_im[j]*C[k];
       }
 
-  *phis_re = 4.0*num_re/(beta*C[3]*pow(alpha+beta, 2.5));
-  *phis_im = -32.0*num_im/(beta*beta*C[2]*pow(alpha+beta, 1.5));
+  /* m-modes for the rotated phi coordinate */
+  const double phisb_re = 4.0*num_re/(beta*C[3]*pow(alpha+beta, 2.5));
+  const double phisb_im = -32.0*num_im/(beta*beta*C[2]*pow(alpha+beta, 1.5));
+
+  /* m-modes for the regular Boyer-Lindquist phi coordinate */
+  *phis_re = phisb_re*cos(c*m*dr) + phisb_im*sin(c*m*dr);
+  *phis_im = phisb_im*cos(c*m*dr) - phisb_re*sin(c*m*dr);
 }
 
 /* Compute the singular field, its derivatives and its d'Alembertian */
