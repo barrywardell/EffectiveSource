@@ -1,4 +1,3 @@
-*.o
-kerr-circular
-kerr-circular-2D
-kerr-eccentric
+test/*.o
+test/kerr-circular
+test/kerr-equatorial
