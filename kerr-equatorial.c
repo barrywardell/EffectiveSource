@@ -389,7 +389,12 @@ void effsource_calc(struct coordinate * x,
     (63*ds2_dt*ds2_dt*A - 14*s2*(2*dA_dt*ds2_dt + d2s2_dt2*A) + 4*d2A_dt2*s2*s2)/(4.*s2_55);
   d2phis_dtph =
     (63*ds2_dph*ds2_dt*A - 14*s2*(dA_dt*ds2_dph + dA_dph*ds2_dt + d2s2_dtph*A) + 4*d2A_dtph*s2*s2)/(4.*s2_55);
-  
+  d2phis_dtr   = NAN;
+  d2phis_dtth  = NAN;
+  d2phis_drth  = NAN;
+  d2phis_drph  = NAN;
+  d2phis_dthph = NAN;
+
   /* Box[phis] */
   double sinth  = sin(theta);
   double sinth2 = sinth*sinth;
