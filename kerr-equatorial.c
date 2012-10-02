@@ -171,7 +171,7 @@ void effsource_phis(struct coordinate * x, double * phis)
 /* Compute the singular field at the point x for the particle at xp */
 void effsource_phis_m(int m, struct coordinate * x, double * phis)
 {
-  double A_re[5], A_im[5], num_re, num_im;
+  double ReA[5], ImA[5], num_re, num_im;
 
   double r      = x->r;
   const double theta  = x->theta;
@@ -191,16 +191,16 @@ void effsource_phis_m(int m, struct coordinate * x, double * phis)
   double dtheta8  = dtheta4*dtheta4;
 
   /* Compute coefficients of powers of dQ and dR */
-  A_re[0] = (A6000 + A7000*dr)*dr6 + (A8000 + A9000*dr)*dr8 + (A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4*dtheta2 + ((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 + (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2)*dtheta4 + (A0800 + A1800*dr)*dtheta8;
-  A_im[0] = (A6001 + A7001*dr)*dr6 + A8001*dr8 + (A4201 + dr*(A5201 + A6201*dr))*dr4*dtheta2 + ((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2)*dtheta4 + A0801*dtheta8;
-  A_re[1] = (A4020 + dr*(A5020 + dr*(A6020 + A7020*dr)))*dr4 + (A2220 + dr*(A3220 + dr*(A4220 + A5220*dr)))*dr2*dtheta2 + (A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2)*dtheta4;
-  A_im[1] = (A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 + (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4;
-  A_re[2] = (A2040 + A3040*dr)*dr2 + (A4040 + A5040*dr)*dr4 + (A0240 + dr*(A1240 + dr*(A2240 + A3240*dr)))*dtheta2 + (A0440 + A1440*dr)*dtheta4;
-  A_im[2] = (A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + A0441*dtheta4;
-  A_re[3] = A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2;
-  A_im[3] = A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2;
-  A_re[4] = A0080 + A1080*dr;
-  A_im[4] = A0081;
+  ReA[0] = (A6000 + A7000*dr)*dr6 + (A8000 + A9000*dr)*dr8 + (A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4*dtheta2 + ((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 + (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2)*dtheta4 + (A0800 + A1800*dr)*dtheta8;
+  ImA[0] = (A6001 + A7001*dr)*dr6 + A8001*dr8 + (A4201 + dr*(A5201 + A6201*dr))*dr4*dtheta2 + ((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2)*dtheta4 + A0801*dtheta8;
+  ReA[1] = (A4020 + dr*(A5020 + dr*(A6020 + A7020*dr)))*dr4 + (A2220 + dr*(A3220 + dr*(A4220 + A5220*dr)))*dr2*dtheta2 + (A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2)*dtheta4;
+  ImA[1] = (A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 + (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4;
+  ReA[2] = (A2040 + A3040*dr)*dr2 + (A4040 + A5040*dr)*dr4 + (A0240 + dr*(A1240 + dr*(A2240 + A3240*dr)))*dtheta2 + (A0440 + A1440*dr)*dtheta4;
+  ImA[2] = (A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + A0441*dtheta4;
+  ReA[3] = A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2;
+  ImA[3] = A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2;
+  ReA[4] = A0080 + A1080*dr;
+  ImA[4] = A0081;
 
   /* Compute the argument of the elliptic integrals */
   const double alpha = alpha20*dr2 + alpha02*dtheta2;
@@ -250,8 +250,8 @@ void effsource_phis_m(int m, struct coordinate * x, double * phis)
     for(int j=0; j<5; j++)
       for(int k=0; k<27; k++)
       {
-        num_re += ReEI[m][i][j][k]*ellip[i]*A_re[j]*C[k];
-        num_im += ImEI[m][i][j][k]*ellip[i]*A_im[j]*C[k];
+        num_re += ReEI[m][i][j][k]*ellip[i]*ReA[j]*C[k];
+        num_im += ImEI[m][i][j][k]*ellip[i]*ImA[j]*C[k];
       }
 
   /* m-modes for the rotated phi coordinate */
