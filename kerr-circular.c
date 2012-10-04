@@ -482,6 +482,11 @@ void effsource_calc(struct coordinate * x,
     (63*ds2_dt*ds2_dt*A - 14*s2*(2*dA_dt*ds2_dt + d2s2_dt2*A) + 4*d2A_dt2*s2*s2)/(4.*s2_55);
   d2PhiS_dtph =
     (63*ds2_dph*ds2_dt*A - 14*s2*(dA_dt*ds2_dph + dA_dph*ds2_dt + d2s2_dphdt*A) + 4*d2A_dphdt*s2*s2)/(4.*s2_55);
+  d2PhiS_dtr   = NAN;
+  d2PhiS_dtth  = NAN;
+  d2PhiS_drth  = NAN;
+  d2PhiS_drph  = NAN;
+  d2PhiS_dthph = NAN;
   
   
   /* Box[PhiS] */
@@ -503,6 +508,22 @@ void effsource_calc(struct coordinate * x,
             a2*(-d2PhiS_dph2 + d2PhiS_dth2 + 2*dPhiS_dr*(-1 + r) - 4*d2PhiS_dr2*r + 2*d2PhiS_dr2*r2) +
             a2*d2PhiS_dt2*(a2 + (-2 + r)*r)*sinth2) - a2*dPhiS_dth*sin2th + 2*dPhiS_dth*r*sin2th -
          dPhiS_dth*r2*sin2th))/((sinth2*(a2 + (-2 + r)*r)*(a2 + 2*r2 + a2*cos2th)));
+
+  dPhiS_dx[0] = dPhiS_dt;
+  dPhiS_dx[1] = dPhiS_dr;
+  dPhiS_dx[2] = dPhiS_dth;
+  dPhiS_dx[3] = dPhiS_dph;
+
+  d2PhiS_dx2[0] = d2PhiS_dt2;
+  d2PhiS_dx2[1] = d2PhiS_dtr;
+  d2PhiS_dx2[2] = d2PhiS_dtth;
+  d2PhiS_dx2[3] = d2PhiS_dtph;
+  d2PhiS_dx2[4] = d2PhiS_dr2;
+  d2PhiS_dx2[5] = d2PhiS_drth;
+  d2PhiS_dx2[6] = d2PhiS_drph;
+  d2PhiS_dx2[7] = d2PhiS_dth2;
+  d2PhiS_dx2[8] = d2PhiS_dthph;
+  d2PhiS_dx2[9] = d2PhiS_dph2;
 }
 
 /* Compute the 2D singular field, its derivatives and its d'Alembertian */
@@ -794,7 +815,7 @@ void effsource_calc_m(int m, struct coordinate * x,
                + C[3]*2.5*pow(alpha+beta, 1.5)*d2alpha_dtheta2);
 
   /* Singular field */
-  *PhiS = 4.0*num/s;
+  double RePhiS = 4.0*num/s;
 
   /* First derivatives of PhiS */
   dPhiS_dt  = - m * om * (*PhiS); // This should be interpreted as pure-imaginary
@@ -820,7 +841,7 @@ void effsource_calc_m(int m, struct coordinate * x,
   double a2 = a*a;
   double a4 = a2*a2;
 
-  *src = -((2*a2*dPhiS_dr - a2*d2PhiS_dph2 - a4*d2PhiS_dr2 - a2*d2PhiS_dth2 - 4*dPhiS_dr*r - 2*a2*dPhiS_dr*r +
+  double effsrc = -((2*a2*dPhiS_dr - a2*d2PhiS_dph2 - a4*d2PhiS_dr2 - a2*d2PhiS_dth2 - 4*dPhiS_dr*r - 2*a2*dPhiS_dr*r +
          4*d2PhiS_dph2*r + 2*a*d2PhiS_dtph*r + 4*a2*d2PhiS_dr2*r + 2*d2PhiS_dth2*r + 6*dPhiS_dr*r2 - 2*d2PhiS_dph2*r2 - 4*d2PhiS_dr2*r2 -
          2*a2*d2PhiS_dr2*r2 - d2PhiS_dth2*r2 - 2*dPhiS_dr*r3 + 4*d2PhiS_dr2*r3 - d2PhiS_dr2*r4 +
          (a4*d2PhiS_dt2 + 4*a*d2PhiS_dtph*r + 2*d2PhiS_dt2*r4 + a2*d2PhiS_dt2*r*(2 + 3*r))*sinth2 +
@@ -828,6 +849,43 @@ void effsource_calc_m(int m, struct coordinate * x,
             a2*(-d2PhiS_dph2 + d2PhiS_dth2 + 2*dPhiS_dr*(-1 + r) - 4*d2PhiS_dr2*r + 2*d2PhiS_dr2*r2) +
             a2*d2PhiS_dt2*(a2 + (-2 + r)*r)*sinth2) - a2*dPhiS_dth*sin2th + 2*dPhiS_dth*r*sin2th -
          dPhiS_dth*r2*sin2th))/((sinth2*(a2 + (-2 + r)*r)*(a2 + 2*r2 + a2*cos2th)));
+
+  /* Store calculated quantities into the arrays provided by the caller */
+  PhiS[0] = RePhiS;
+  PhiS[1] = 0;
+
+  dPhiS_dx[0] = dPhiS_dt;
+  dPhiS_dx[1] = 0;
+  dPhiS_dx[2] = dPhiS_dr;
+  dPhiS_dx[3] = 0;
+  dPhiS_dx[4] = dPhiS_dth;
+  dPhiS_dx[5] = 0;
+  dPhiS_dx[6] = dPhiS_dph;
+  dPhiS_dx[7] = 0;
+
+  d2PhiS_dx2[0]  = d2PhiS_dt2;
+  d2PhiS_dx2[1]  = 0;
+  d2PhiS_dx2[2]  = d2PhiS_dtr;
+  d2PhiS_dx2[3]  = 0;
+  d2PhiS_dx2[4]  = d2PhiS_dtth;
+  d2PhiS_dx2[5]  = 0;
+  d2PhiS_dx2[6]  = d2PhiS_dtph;
+  d2PhiS_dx2[7]  = 0;
+  d2PhiS_dx2[8]  = d2PhiS_dr2;
+  d2PhiS_dx2[9]  = 0;
+  d2PhiS_dx2[10] = d2PhiS_drth;
+  d2PhiS_dx2[11] = 0;
+  d2PhiS_dx2[12] = d2PhiS_drph;
+  d2PhiS_dx2[13] = 0;
+  d2PhiS_dx2[14] = d2PhiS_dth2;
+  d2PhiS_dx2[15] = 0;
+  d2PhiS_dx2[16] = d2PhiS_dthph;
+  d2PhiS_dx2[17] = 0;
+  d2PhiS_dx2[18] = d2PhiS_dph2;
+  d2PhiS_dx2[19] = 0;
+
+  src[0] = effsrc;
+  src[1] = 0;
 }
 
 /* Initialize array of coefficients of pows of dr, dtheta and dphi. */
