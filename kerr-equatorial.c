@@ -438,20 +438,6 @@ void effsource_calc(struct coordinate * x,
 void effsource_calc_m(int m, struct coordinate * x,
   double *PhiS, double *dPhiS_dx, double *d2PhiS_dx2, double *src)
 {
-  double ReA[5], ImA[5], dReA_dr[5], dImA_dr[5], dReA_dtheta[5], dImA_dtheta[5];
-  double d2ReA_dr2[5], d2ImA_dr2[5], d2ReA_dtheta2[5], d2ImA_dtheta2[5];
-  double alpha, dalpha_dr, d2alpha_dr2, dalpha_dtheta, d2alpha_dtheta2;
-  double ellE, ellK;
-  double dC1_dr, dellE_dC, dellK_dC, d2ellE_dC2, d2ellK_dC2, dellE_dr, dellK_dr;
-  double d2C1_dr2, d2ellE_dr2, d2ellK_dr2;
-  double dC1_dtheta, dellE_dtheta, dellK_dtheta;
-  double d2C1_dtheta2, d2ellE_dtheta2, d2ellK_dtheta2;
-
-  double s, ds_dr, d2s_dr2, ds_dtheta, d2s_dtheta2;
-
-  double dPhiS_dt, dPhiS_dr, dPhiS_dth, dPhiS_dph, d2PhiS_dt2, d2PhiS_dtr, d2PhiS_dtth;
-  double d2PhiS_dtph, d2PhiS_dr2, d2PhiS_drth, d2PhiS_drph, d2PhiS_dth2, d2PhiS_dthph, d2PhiS_dph2;
-
   const double r      = x->r;
   const double theta  = x->theta;
   const double rp     = xp.r;
@@ -477,6 +463,9 @@ void effsource_calc_m(int m, struct coordinate * x,
   const double dtheta8  = dtheta4*dtheta4;
 
   /* Coefficients of sin(dphi/2), sin(dphi) in the numerator */
+  double ReA[5], ImA[5], dReA_dr[5], dImA_dr[5], dReA_dtheta[5], dImA_dtheta[5];
+  double d2ReA_dr2[5], d2ImA_dr2[5], d2ReA_dtheta2[5], d2ImA_dtheta2[5];
+
   ReA[0] = (A6000 + A7000*dr)*dr6 + (A8000 + A9000*dr)*dr8 + (A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4*dtheta2 + ((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 + (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2)*dtheta4 + (A0800 + A1800*dr)*dtheta8;
   ImA[0] = (A6001 + A7001*dr)*dr6 + A8001*dr8 + (A4201 + dr*(A5201 + A6201*dr))*dr4*dtheta2 + ((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2)*dtheta4 + A0801*dtheta8;
   ReA[1] = (A4020 + dr*(A5020 + dr*(A6020 + A7020*dr)))*dr4 + (A2220 + dr*(A3220 + dr*(A4220 + A5220*dr)))*dr2*dtheta2 + (A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2)*dtheta4;
@@ -537,13 +526,13 @@ void effsource_calc_m(int m, struct coordinate * x,
   d2ImA_dtheta2[4] = 0;
 
   /* alpha term appearing in the denominator */
-  alpha = alpha20*dr2 + alpha02*dtheta2;
+  double alpha = alpha20*dr2 + alpha02*dtheta2;
 
   /* Derivatives of alpha */
-  dalpha_dr       = 2*alpha20*dr;
-  d2alpha_dr2     = 2*alpha20;
-  dalpha_dtheta   = 2*alpha02*dtheta;
-  d2alpha_dtheta2 = 2*alpha02;
+  double dalpha_dr       = 2*alpha20*dr;
+  double d2alpha_dr2     = 2*alpha20;
+  double dalpha_dtheta   = 2*alpha02*dtheta;
+  double d2alpha_dtheta2 = 2*alpha02;
 
   /* C term appearing in Elliptic integrals and related power series in numerator */
   const double C1 = alpha / beta;
@@ -577,10 +566,10 @@ void effsource_calc_m(int m, struct coordinate * x,
   C[25] = C[13]*C[12];
   C[26] = C[13]*C[13];
 
-  dC1_dr       = dalpha_dr / beta;
-  d2C1_dr2     = d2alpha_dr2 / beta;
-  dC1_dtheta   = dalpha_dtheta / beta;
-  d2C1_dtheta2 = d2alpha_dtheta2 / beta;
+  double dC1_dr       = dalpha_dr / beta;
+  double d2C1_dr2     = d2alpha_dr2 / beta;
+  double dC1_dtheta   = dalpha_dtheta / beta;
+  double d2C1_dtheta2 = d2alpha_dtheta2 / beta;
 
   double dC_dr[27];
   dC_dr[0]  = 0;
@@ -699,25 +688,25 @@ void effsource_calc_m(int m, struct coordinate * x,
   d2C_dtheta2[26] = 26*25*C[24]*dC1_dtheta*dC1_dtheta + 26*C[25]*d2C1_dtheta2;
 
   /* Elliptic integrals */
-  ellE = gsl_sf_ellint_Ecomp(sqrt(1.0/(1.0+C1)), GSL_PREC_DOUBLE);
-  ellK = gsl_sf_ellint_Kcomp(sqrt(1.0/(1.0+C1)), GSL_PREC_DOUBLE);
+  double ellE = gsl_sf_ellint_Ecomp(sqrt(1.0/(1.0+C1)), GSL_PREC_DOUBLE);
+  double ellK = gsl_sf_ellint_Kcomp(sqrt(1.0/(1.0+C1)), GSL_PREC_DOUBLE);
   const double ellip[2] = {ellK, ellE};
 
   /* Derivatives of elliptic integrals */
-  dellE_dC   = (ellK - ellE)/(2.*(1+C1));
-  dellK_dC   = (C1*ellK - (1+C1)*ellE)/(2.*C1*(1+C1));
-  d2ellE_dC2 = -(2*C1*ellK - (2*C1-1)*ellE)/(4.*C1*(1+C1)*(1+C1));
-  d2ellK_dC2 = -(C1*(1+2*C1)*ellK - 2*(1+C1)*(1+C1)*ellE)/(4.*C1*C1*(1+C1)*(1+C1));
+  double dellE_dC   = (ellK - ellE)/(2.*(1+C1));
+  double dellK_dC   = (C1*ellK - (1+C1)*ellE)/(2.*C1*(1+C1));
+  double d2ellE_dC2 = -(2*C1*ellK - (2*C1-1)*ellE)/(4.*C1*(1+C1)*(1+C1));
+  double d2ellK_dC2 = -(C1*(1+2*C1)*ellK - 2*(1+C1)*(1+C1)*ellE)/(4.*C1*C1*(1+C1)*(1+C1));
 
-  dellE_dr       = dellE_dC * dC1_dr;
-  dellE_dtheta   = dellE_dC * dC1_dtheta;
-  d2ellE_dr2     = d2ellE_dC2 * dC1_dr * dC1_dr + dellE_dC * d2C1_dr2;
-  d2ellE_dtheta2 = d2ellE_dC2 * dC1_dtheta * dC1_dtheta + dellE_dC * d2C1_dtheta2;
+  double dellE_dr       = dellE_dC * dC1_dr;
+  double dellE_dtheta   = dellE_dC * dC1_dtheta;
+  double d2ellE_dr2     = d2ellE_dC2 * dC1_dr * dC1_dr + dellE_dC * d2C1_dr2;
+  double d2ellE_dtheta2 = d2ellE_dC2 * dC1_dtheta * dC1_dtheta + dellE_dC * d2C1_dtheta2;
 
-  dellK_dr       = dellK_dC * dC1_dr;
-  dellK_dtheta   = dellK_dC * dC1_dtheta;
-  d2ellK_dr2     = d2ellK_dC2 * dC1_dr * dC1_dr + dellK_dC * d2C1_dr2;
-  d2ellK_dtheta2 = d2ellK_dC2 * dC1_dtheta * dC1_dtheta + dellK_dC * d2C1_dtheta2;
+  double dellK_dr       = dellK_dC * dC1_dr;
+  double dellK_dtheta   = dellK_dC * dC1_dtheta;
+  double d2ellK_dr2     = d2ellK_dC2 * dC1_dr * dC1_dr + dellK_dC * d2C1_dr2;
+  double d2ellK_dtheta2 = d2ellK_dC2 * dC1_dtheta * dC1_dtheta + dellK_dC * d2C1_dtheta2;
 
   const double dellip_dr[2] = {dellK_dr, dellE_dr};
   const double dellip_dtheta[2] = {dellK_dtheta, dellE_dtheta};
