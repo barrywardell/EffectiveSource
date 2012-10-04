@@ -818,17 +818,17 @@ void effsource_calc_m(int m, struct coordinate * x,
   double RePhiS = 4.0*num/s;
 
   /* First derivatives of PhiS */
-  dPhiS_dt  = - m * om * (*PhiS); // This should be interpreted as pure-imaginary
+  dPhiS_dt  = - m * om * (RePhiS); // This should be interpreted as pure-imaginary
   dPhiS_dr  = 4.0*(-ds_dr*num + dnum_dr*s) /(s*s);
   dPhiS_dth = 4.0*(-ds_dtheta*num + dnum_dtheta*s)/(s*s);
-  dPhiS_dph = m * (*PhiS); // This should be interpreted as pure-imaginary
+  dPhiS_dph = m * (RePhiS); // This should be interpreted as pure-imaginary
 
   /* Second derivatives of PhiS */
   d2PhiS_dr2   = 4.0*(2.0*ds_dr*ds_dr*num - s*(2*dnum_dr*ds_dr + d2s_dr2*num) + d2num_dr2*s*s)/(s*s*s);
   d2PhiS_dth2  = 4.0*(2.0*ds_dtheta*ds_dtheta*num - s*(2*dnum_dtheta*ds_dtheta + d2s_dtheta2*num) + d2num_dtheta2*s*s)/(s*s*s);
-  d2PhiS_dph2  = - m*m*(*PhiS);
-  d2PhiS_dt2   = - m*m*om*om*(*PhiS);
-  d2PhiS_dtph = m*m*om*(*PhiS);
+  d2PhiS_dph2  = - m*m*(RePhiS);
+  d2PhiS_dt2   = - m*m*om*om*(RePhiS);
+  d2PhiS_dtph = m*m*om*(RePhiS);
 
   /* Box[PhiS] */
   double sinth  = sin(theta);
@@ -854,14 +854,14 @@ void effsource_calc_m(int m, struct coordinate * x,
   PhiS[0] = RePhiS;
   PhiS[1] = 0;
 
-  dPhiS_dx[0] = dPhiS_dt;
-  dPhiS_dx[1] = 0;
+  dPhiS_dx[0] = 0;
+  dPhiS_dx[1] = dPhiS_dt;
   dPhiS_dx[2] = dPhiS_dr;
   dPhiS_dx[3] = 0;
   dPhiS_dx[4] = dPhiS_dth;
   dPhiS_dx[5] = 0;
-  dPhiS_dx[6] = dPhiS_dph;
-  dPhiS_dx[7] = 0;
+  dPhiS_dx[6] = 0;
+  dPhiS_dx[7] = dPhiS_dph;
 
   d2PhiS_dx2[0]  = d2PhiS_dt2;
   d2PhiS_dx2[1]  = 0;
