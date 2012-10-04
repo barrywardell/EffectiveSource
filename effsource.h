@@ -28,10 +28,10 @@ struct coordinate {
 void effsource_init(double M, double a);
 void effsource_set_particle(struct coordinate * x_p, double e, double l, double ur_p);
 
-void effsource_phis(struct coordinate * x, double * phis);
+void effsource_PhiS(struct coordinate * x, double * PhiS);
 void effsource_calc(struct coordinate * x,
-  double * phis, double * dphis_dx, double * d2phis_dx2, double * box_phis);
+  double * PhiS, double * dPhiS_dx, double * d2PhiS_dx2, double * src);
 
-void effsource_phis_m(int m, struct coordinate * x, double * phis);
+void effsource_PhiS_m(int m, struct coordinate * x, double * PhiS);
 void effsource_calc_m(int m, struct coordinate * x,
-  double * phis, double * dphis_dx, double * d2phis_dx2, double * box_phis);
+  double * PhiS, double * dPhiS_dx, double * d2PhiS_dx2, double * src);
