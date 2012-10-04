@@ -358,7 +358,7 @@ void effsource_calc(struct coordinate * x,
   /* d^2s/dx^2 */
   d2s2_dr2   = 2*alpha20 + 2*beta*dQ_dr*dQ_dr + 2*beta*dQ*d2Q_dr2;
   d2s2_dth2  = 2*alpha02;
-  d2s2_dQ2   = beta;
+  d2s2_dQ2   = 2*beta;
   d2s2_dph2  = d2s2_dQ2*dQ_dph*dQ_dph + ds2_dQ*d2Q_dph2;
   d2s2_dt2   = 0; /* FIXME */
   d2s2_dtph  = 0; /* FIXME */
