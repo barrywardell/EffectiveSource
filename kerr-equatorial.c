@@ -343,7 +343,7 @@ void effsource_calc(struct coordinate * x,
 
   /* Correct for rotation of phi coordinate */
   d2A_dr2   = d2A_dr2 + d2Q_dr2*dA_dQ + d2R_dr2*dA_dR + 2.0*d2A_dQr*dQ_dr + d2A_dQ2*dQ_dr*dQ_dr + 2.0*(d2A_dRr + d2A_dQR*dQ_dr)*dR_dr;
-  dA_dr     = dA_dr + dA_dQ*dQ_dr + dA_dR*dR*dr;
+  dA_dr     = dA_dr + dA_dQ*dQ_dr + dA_dR*dR_dr;
 
   /* s */
   s2         = alpha20*dr2 + alpha02*dtheta2 + beta*dQ2;
