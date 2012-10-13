@@ -31,6 +31,7 @@ double M, a;
 /* Static variables used to store the coefficients of the series expansions */
 double A0060, A0061, A0080, A0081, A0240, A0241, A0260, A0261, A0420, A0421, A0440, A0441, A0600, A0601, A0620, A0621, A0800, A0801, A1060, A1061, A1080, A1240, A1241, A1260, A1420, A1421, A1440, A1600, A1601, A1620, A1800, A2040, A2041, A2060, A2061, A2220, A2221, A2240, A2241, A2400, A2401, A2420, A2421, A2600, A2601, A3040, A3041, A3060, A3220, A3221, A3240, A3400, A3401, A3420, A3600, A4020, A4021, A4040, A4041, A4200, A4201, A4220, A4221, A4400, A4401, A5020, A5021, A5040, A5200, A5201, A5220, A5400, A6000, A6001, A6020, A6021, A6200, A6201, A7000, A7001, A7020, A7200, A8000, A8001, A9000;
 double alpha20, alpha02, beta, c;
+double rt, urt, rtt, urtt, phit, phitt;
 
 /* Initialize array of coefficients of pows of dr, dtheta and dphi. */
 void effsource_init(double mass, double spin)
@@ -39,11 +40,21 @@ void effsource_init(double mass, double spin)
   a = spin;
 }
 
+extern void effsource_set_particle_dt(struct coordinate * x_p, double E, double L, double ur);
+extern void effsource_set_particle_dtt(struct coordinate * x_p, double E, double L, double ur);
+
 /* Initialize array of coefficients of pows of dr, dtheta, sin(dphi) and sin(dphi/2) */
 void effsource_set_particle(struct coordinate * x_p, double E, double L, double ur)
 {
   xp = *x_p;
   const double r = xp.r;
+
+  rt = (r*(pow(a,2) + r*(-2*M + r))*ur)/(-2*a*L*M + E*pow(r,3) + pow(a,2)*E*(2*M + r));
+  urt = -(((pow(a,2) + r*(-2*M + r))*(-6*a*E*L*M + pow(L,2)*(3*M - r) + M*pow(r,2) + pow(a,2)*(-r + pow(E,2)*(3*M + r))))/(pow(r,3)*(-2*a*L*M + E*pow(r,3) + pow(a,2)*E*(2*M + r))));
+  rtt = -(((pow(a,2) + r*(-2*M + r))*(E*pow(r,4)*(-2*M + r)*(pow(L,2)*(3*M - r) + M*pow(r,2)) + pow(a,6)*E*(2*M + r)*(-r + pow(E,2)*(3*M + r)) + 2*pow(a,5)*L*M*(r - pow(E,2)*(9*M + 4*r)) - 2*E*M*pow(r,7)*pow(ur,2) + 2*a*L*M*r*((2*M - r)*(pow(L,2)*(3*M - r) + pow(r,2)*(M + 3*pow(E,2)*r)) + pow(r,3)*(-4*M + 3*r)*pow(ur,2)) + 2*pow(a,3)*L*M*(pow(L,2)*(-3*M + r) + r*(pow(E,2)*(18*pow(M,2) - M*r - 7*pow(r,2)) + r*(-3*M + r + r*pow(ur,2)))) + pow(a,2)*E*r*(-2*pow(L,2)*(18*pow(M,3) - 8*pow(M,2)*r - 3*M*pow(r,2) + pow(r,3)) + pow(r,2)*(-4*pow(M,3) + (-1 + pow(E,2))*pow(r,3) + M*pow(r,2)*(4 + pow(E,2) - 4*pow(ur,2)) + pow(M,2)*(-6*pow(E,2)*r + 8*r*pow(ur,2)))) + pow(a,4)*E*(pow(L,2)*(18*pow(M,2) + M*r - pow(r,2)) + r*(-2*pow(E,2)*(3*M + r)*(2*pow(M,2) - pow(r,2)) + r*(6*pow(M,2) + M*r - 2*pow(r,2) - 2*M*r*pow(ur,2))))))/ (pow(r,2)*pow(-2*a*L*M + E*pow(r,3) + pow(a,2)*E*(2*M + r),3)));
+  urtt = ((pow(a,2) + r*(-2*M + r))*(-2*pow(a,5)*L*M*(-2*r + pow(E,2)*(27*M + 14*r)) + 2*a*L*M*r*(pow(L,2)*M*(12*M - 5*r) + pow(r,3)*(M + 30*pow(E,2)*M - 12*pow(E,2)*r)) + E*pow(r,4)*(2*M*pow(r,2)*(-3*M + r) + pow(L,2)*(-30*pow(M,2) + 20*M*r - 3*pow(r,2))) + pow(a,6)*E*(-(r*(4*M + 3*r)) + pow(E,2)*(18*pow(M,2) + 16*M*r + 3*pow(r,2))) + pow(a,2)*E*r*(pow(r,3)*(-2*(2 + 15*pow(E,2))*pow(M,2) + 4*(3 + pow(E,2))*M*r + 3*(-1 + pow(E,2))*pow(r,2)) + pow(L,2)*(-72*pow(M,3) + 4*pow(M,2)*r + 28*M*pow(r,2) - 6*pow(r,3))) + 2*pow(a,3)*L*M*(pow(L,2)*(-9*M + 2*r) + r*(-3*M*r + pow(E,2)*(36*pow(M,2) + 11*M*r - 24*pow(r,2)))) + pow(a,4)*E*(pow(L,2)*(54*pow(M,2) + 8*M*r - 3*pow(r,2)) + 2*r*(3*r*(pow(M,2) + M*r - pow(r,2)) + pow(E,2)*(-12*pow(M,3) - 8*pow(M,2)*r + 10*M*pow(r,2) + 3*pow(r,3)))))*ur)/ (pow(r,3)*pow(-2*a*L*M + E*pow(r,3) + pow(a,2)*E*(2*M + r),3));
+  phit = (2*a*E*M + L*(-2*M + r))/(-2*a*L*M + E*pow(r,3) + pow(a,2)*E*(2*M + r));
+  phitt = (-2*r*(a*pow(-(a*E) + L,2)*M + 3*E*(a*E - L)*M*pow(r,2) + E*L*pow(r,3))*(pow(a,2) + r*(-2*M + r))*ur)/pow(-2*a*L*M + E*pow(r,3) + pow(a,2)*E*(2*M + r),3);
 
   /* Compute A coefficients */
   {
@@ -141,4 +152,7 @@ void effsource_set_particle(struct coordinate * x_p, double E, double L, double 
 
   /* Coefficient in front of dr in twisted coordinate */
   c = -((L*r*r*r*ur)/((a*a+r*(r-2.0*M))*(a*a*(2.0*M+r)+r*(L*L+r*r))));
+
+  effsource_set_particle_dt(x_p, E, L,ur);
+  effsource_set_particle_dtt(x_p, E, L,ur);
 }

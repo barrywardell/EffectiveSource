@@ -56,7 +56,12 @@ extern double M, a;
 
 /* Static variables used to store the coefficients of the series expansions */
 extern double A0060, A0061, A0080, A0081, A0240, A0241, A0260, A0261, A0420, A0421, A0440, A0441, A0600, A0601, A0620, A0621, A0800, A0801, A1060, A1061, A1080, A1240, A1241, A1260, A1420, A1421, A1440, A1600, A1601, A1620, A1800, A2040, A2041, A2060, A2061, A2220, A2221, A2240, A2241, A2400, A2401, A2420, A2421, A2600, A2601, A3040, A3041, A3060, A3220, A3221, A3240, A3400, A3401, A3420, A3600, A4020, A4021, A4040, A4041, A4200, A4201, A4220, A4221, A4400, A4401, A5020, A5021, A5040, A5200, A5201, A5220, A5400, A6000, A6001, A6020, A6021, A6200, A6201, A7000, A7001, A7020, A7200, A8000, A8001, A9000;
-extern double c, alpha20, alpha02, beta;
+extern double dAdt0060, dAdt0061, dAdt0080, dAdt0081, dAdt0240, dAdt0241, dAdt0260, dAdt0261, dAdt0420, dAdt0421, dAdt0440, dAdt0441, dAdt0600, dAdt0601, dAdt0620, dAdt0621, dAdt0800, dAdt0801, dAdt1060, dAdt1061, dAdt1080, dAdt1240, dAdt1241, dAdt1260, dAdt1420, dAdt1421, dAdt1440, dAdt1600, dAdt1601, dAdt1620, dAdt1800, dAdt2040, dAdt2041, dAdt2060, dAdt2061, dAdt2220, dAdt2221, dAdt2240, dAdt2241, dAdt2400, dAdt2401, dAdt2420, dAdt2421, dAdt2600, dAdt2601, dAdt3040, dAdt3041, dAdt3060, dAdt3220, dAdt3221, dAdt3240, dAdt3400, dAdt3401, dAdt3420, dAdt3600, dAdt4020, dAdt4021, dAdt4040, dAdt4041, dAdt4200, dAdt4201, dAdt4220, dAdt4221, dAdt4400, dAdt4401, dAdt5020, dAdt5021, dAdt5040, dAdt5200, dAdt5201, dAdt5220, dAdt5400, dAdt6000, dAdt6001, dAdt6020, dAdt6021, dAdt6200, dAdt6201, dAdt7000, dAdt7001, dAdt7020, dAdt7200, dAdt8000, dAdt8001, dAdt9000;
+extern double d2Adt20060, d2Adt20061, d2Adt20080, d2Adt20081, d2Adt20240, d2Adt20241, d2Adt20260, d2Adt20261, d2Adt20420, d2Adt20421, d2Adt20440, d2Adt20441, d2Adt20600, d2Adt20601, d2Adt20620, d2Adt20621, d2Adt20800, d2Adt20801, d2Adt21060, d2Adt21061, d2Adt21080, d2Adt21240, d2Adt21241, d2Adt21260, d2Adt21420, d2Adt21421, d2Adt21440, d2Adt21600, d2Adt21601, d2Adt21620, d2Adt21800, d2Adt22040, d2Adt22041, d2Adt22060, d2Adt22061, d2Adt22220, d2Adt22221, d2Adt22240, d2Adt22241, d2Adt22400, d2Adt22401, d2Adt22420, d2Adt22421, d2Adt22600, d2Adt22601, d2Adt23040, d2Adt23041, d2Adt23060, d2Adt23220, d2Adt23221, d2Adt23240, d2Adt23400, d2Adt23401, d2Adt23420, d2Adt23600, d2Adt24020, d2Adt24021, d2Adt24040, d2Adt24041, d2Adt24200, d2Adt24201, d2Adt24220, d2Adt24221, d2Adt24400, d2Adt24401, d2Adt25020, d2Adt25021, d2Adt25040, d2Adt25200, d2Adt25201, d2Adt25220, d2Adt25400, d2Adt26000, d2Adt26001, d2Adt26020, d2Adt26021, d2Adt26200, d2Adt26201, d2Adt27000, d2Adt27001, d2Adt27020, d2Adt27200, d2Adt28000, d2Adt28001, d2Adt29000;
+extern double alpha20, alpha02, beta, c;
+extern double dalphadt20, dalphadt02, dbetadt, dcdt;
+extern double d2alphadt220, d2alphadt202, d2betadt2, d2cdt2;
+extern double rt, urt, rtt, urtt, phit, phitt;
 
 /* Numerical coefficients appearing in the elliptic integrals expressions. The
    indices here correspond to mode m, EllipticK/EllipticE, order in Sin[dphi]/Sin[dphi/2],
@@ -268,9 +273,9 @@ void effsource_calc(struct coordinate * x,
   double *PhiS, double *dPhiS_dx, double *d2PhiS_dx2, double *src)
 {
   double A, dA_dr, d2A_dr2, dA_dth, d2A_dth2, dA_dQ, dA_dR, dA_dph;
-  double d2A_dQ2, d2A_dQR, d2A_dQr, d2A_dRr, d2A_dph2, dA_dt, d2A_dt2, d2A_dtph;
+  double d2A_dQ2, d2A_dQR, d2A_dQr, d2A_dRr, d2A_dph2, dA_dt, d2A_dt2, d2A_dtQ, d2A_dtR, d2A_dtph, d2A_dtr;
   double s2, sqrts2, s2_15, s2_25, s2_35, s2_45, s2_55, ds2_dr, d2s2_dr2, ds2_dth;
-  double d2s2_dth2, ds2_dQ, ds2_dph, d2s2_dQ2, d2s2_dph2, ds2_dt, d2s2_dt2, d2s2_dtph;
+  double d2s2_dth2, ds2_dQ, ds2_dph, d2s2_dQ2, d2s2_dph2, ds2_dt, d2s2_dt2, d2s2_dtQ, d2s2_dtph, d2s2_dtr;
 
   double dPhiS_dt, dPhiS_dr, dPhiS_dth, dPhiS_dph, d2PhiS_dt2, d2PhiS_dtr, d2PhiS_dtth;
   double d2PhiS_dtph, d2PhiS_dr2, d2PhiS_drth, d2PhiS_drph, d2PhiS_dth2, d2PhiS_dthph, d2PhiS_dph2;
@@ -311,13 +316,19 @@ void effsource_calc(struct coordinate * x,
 
   double dQ_dph = 0.5*cos(0.5*dphib);
   double dQ_dr  = -c*dQ_dph;
+  double dQ_dt  = -dQ_dph*(dr*dcdt - c*rt + phit);
   double dR_dph = cos(dphib);
   double dR_dr  = -c*dR_dph;
+  double dR_dt  = -dR_dph*(dr*dcdt - c*rt + phit);
 
   double d2Q_dph2 = -0.25*sin(0.5*dphib);
   double d2Q_dr2  = c*c*d2Q_dph2;
+  double d2Q_dt2  = d2Q_dph2*(dr*dcdt + phit - c*rt)*(dr*dcdt + phit - c*rt) - dQ_dph*(-2.0*dcdt*rt + dr*d2cdt2 + phitt - c*rtt);
+  double d2Q_dtph = -d2Q_dph2*(dr*dcdt + phit - c*rt);
   double d2R_dph2 = -sin(dphib);
   double d2R_dr2  = c*c*d2R_dph2;
+  double d2R_dt2  = d2R_dph2*(dr*dcdt + phit - c*rt)*(dr*dcdt + phit - c*rt) - dR_dph*(-2.0*dcdt*rt + dr*d2cdt2 + phitt - c*rtt);
+  double d2R_dtph = -d2R_dph2*(dr*dcdt + phit - c*rt);
 
   /* A */
   A         = dQ8*(A0080 + A1080*dr) + (A6000 + A7000*dr)*dr6 + (A8000 + A9000*dr)*dr8 + (A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4*dtheta2 + ((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 + (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2)* dtheta4 + dQ4*((A2040 + A3040*dr)*dr2 + (A4040 + A5040*dr)*dr4 + (A0240 + dr*(A1240 + dr*(A2240 + A3240*dr)))*dtheta2 + dQ2*(A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2) + (A0440 + A1440*dr)*dtheta4) + dQ2*((A4020 + dr*(A5020 + dr*(A6020 + A7020*dr)))*dr4 + (A2220 + dr*(A3220 + dr*(A4220 + A5220*dr)))*dr2*dtheta2 + (A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2)*dtheta4) + (A0800 + A1800*dr)*dtheta8 + dR*(A0081*dQ8 + (A6001 + A7001*dr)*dr6 + A8001*dr8 + (A4201 + dr*(A5201 + A6201*dr))*dr4*dtheta2 + ((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2)*dtheta4 + dQ4*((A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + dQ2*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) + A0441*dtheta4) + dQ2*((A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 + (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4) + A0801*dtheta8);
@@ -327,41 +338,76 @@ void effsource_calc(struct coordinate * x,
   dA_dth    = 2*dtheta*((A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4 +  dQ4*(A0240 + A1240*dr + dQ2*(A0260 + A1260*dr) + (A2240 + A3240*dr)*dr2 + 2*(A0440 + A1440*dr)*dtheta2) +  2*dtheta2*((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 + (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2) +  (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta4 + dQ2* ((A2220 + A3220*dr)*dr2 + (A4220 + A5220*dr)*dr4 + 2*dtheta2*(A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2) +  (A0620 + A1620*dr)*dtheta4) + 4*(A0800 + A1800*dr)*dtheta6 +  dR*((A4201 + dr*(A5201 + A6201*dr))*dr4 + dQ4*(A0241 + A0261*dQ2 + A1241*dr + A2241*dr2 + 2*A0441*dtheta2) +  2*dtheta2*((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2) + (A0601 + dr*(A1601 + A2601*dr))*dtheta4 +  dQ2*((A2221 + A3221*dr)*dr2 + A4221*dr4 + 2*dtheta2*(A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2) + A0621*dtheta4) + 4*A0801*dtheta6));
   dA_dQ     = 2*dQ*(4*dQ6*(A0080 + A1080*dr) + (A4020 + dr*(A5020 + dr*(A6020 + A7020*dr)))*dr4 + (A2220 + dr*(A3220 + dr*(A4220 + A5220*dr)))*dr2*dtheta2 +  dQ4*(A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2) +  (A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2)*dtheta4 +  2*dQ2*((A2040 + A3040*dr)*dr2 + (A4040 + A5040*dr)*dr4 + (A0240 + dr*(A1240 + dr*(A2240 + A3240*dr)))*dtheta2 +  dQ2*(A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2) + (A0440 + A1440*dr)*dtheta4) +  dR*(4*A0081*dQ6 + (A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 +  dQ4*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) + (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4 +  2*dQ2*((A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + dQ2*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) +  A0441*dtheta4)));
   dA_dR     = A0081*dQ8 + (A6001 + A7001*dr)*dr6 + A8001*dr8 + (A4201 + dr*(A5201 + A6201*dr))*dr4*dtheta2 +  ((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2)*dtheta4 +  dQ4*((A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + dQ2*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) +  A0441*dtheta4) + dQ2*((A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 +  (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4) + A0801*dtheta8;
-  dA_dph    = dA_dQ*dQ_dph + dA_dR*dR_dph;
-  dA_dt     = 0; /* FIXME */
+  dA_dt     = dQ8*(dAdt0080 + dAdt1080*dr) + (dAdt6000 + dAdt7000*dr)*dr6 + (dAdt8000 + dAdt9000*dr)*dr8 + (dAdt4200 + dr*(dAdt5200 + dr*(dAdt6200 + dAdt7200*dr)))*dr4*dtheta2 + ((dAdt2400 + dAdt3400*dr)*dr2 + (dAdt4400 + dAdt5400*dr)*dr4 + (dAdt0600 + dr*(dAdt1600 + dr*(dAdt2600 + dAdt3600*dr)))*dtheta2)*dtheta4 + dQ4*((dAdt2040 + dAdt3040*dr)*dr2 + (dAdt4040 + dAdt5040*dr)*dr4 + (dAdt0240 + dr*(dAdt1240 + dr*(dAdt2240 + dAdt3240*dr)))*dtheta2 + dQ2*(dAdt0060 + dAdt1060*dr + (dAdt2060 + dAdt3060*dr)*dr2 + (dAdt0260 + dAdt1260*dr)*dtheta2) + (dAdt0440 + dAdt1440*dr)*dtheta4) + dQ2*((dAdt4020 + dr*(dAdt5020 + dr*(dAdt6020 + dAdt7020*dr)))*dr4 + (dAdt2220 + dr*(dAdt3220 + dr*(dAdt4220 + dAdt5220*dr)))*dr2*dtheta2 + (dAdt0420 + dAdt1420*dr + (dAdt2420 + dAdt3420*dr)*dr2 + (dAdt0620 + dAdt1620*dr)*dtheta2)*dtheta4) + (dAdt0800 + dAdt1800*dr)*dtheta8 + dR*(dAdt0081*dQ8 + (dAdt6001 + dAdt7001*dr)*dr6 + dAdt8001*dr8 + (dAdt4201 + dr*(dAdt5201 + dAdt6201*dr))*dr4*dtheta2 + ((dAdt2401 + dAdt3401*dr)*dr2 + dAdt4401*dr4 + (dAdt0601 + dr*(dAdt1601 + dAdt2601*dr))*dtheta2)*dtheta4 + dQ4*((dAdt2041 + dAdt3041*dr)*dr2 + dAdt4041*dr4 + (dAdt0241 + dr*(dAdt1241 + dAdt2241*dr))*dtheta2 + dQ2*(dAdt0061 + dAdt1061*dr + dAdt2061*dr2 + dAdt0261*dtheta2) + dAdt0441*dtheta4) + dQ2*((dAdt4021 + dr*(dAdt5021 + dAdt6021*dr))*dr4 + (dAdt2221 + dr*(dAdt3221 + dAdt4221*dr))*dr2*dtheta2 + (dAdt0421 + dAdt1421*dr + dAdt2421*dr2 + dAdt0621*dtheta2)*dtheta4) + dAdt0801*dtheta8);
 
   /* d^2A/dx^2 */
   d2A_dr2   = 2*(A2040*dQ4 + A2060*dQ6 + 3*A3040*dQ4*dr + 3*A3060*dQ6*dr + A2041*dQ4*dR + A2061*dQ6*dR + 3*A3041*dQ4*dr*dR + 6*A4020*dQ2*dr2 + 6*A4040*dQ4*dr2 +  6*A4021*dQ2*dR*dr2 + 6*A4041*dQ4*dR*dr2 + 10*A5020*dQ2*dr3 + 10*A5040*dQ4*dr3 + 10*A5021*dQ2*dR*dr3 + 15*A6000*dr4 + 15*A6020*dQ2*dr4 +  15*A6001*dR*dr4 + 15*A6021*dQ2*dR*dr4 + 21*A7000*dr5 + 21*A7020*dQ2*dr5 + 21*A7001*dR*dr5 + 28*A8000*dr6 + 28*A8001*dR*dr6 + 36*A9000*dr7 +  A2220*dQ2*dtheta2 + A2240*dQ4*dtheta2 + 3*A3220*dQ2*dr*dtheta2 + 3*A3240*dQ4*dr*dtheta2 + A2221*dQ2*dR*dtheta2 + A2241*dQ4*dR*dtheta2 +  3*A3221*dQ2*dr*dR*dtheta2 + 6*A4200*dr2*dtheta2 + 6*A4220*dQ2*dr2*dtheta2 + 6*A4201*dR*dr2*dtheta2 + 6*A4221*dQ2*dR*dr2*dtheta2 +  10*A5200*dr3*dtheta2 + 10*A5220*dQ2*dr3*dtheta2 + 10*A5201*dR*dr3*dtheta2 + 15*A6200*dr4*dtheta2 + 15*A6201*dR*dr4*dtheta2 +  21*A7200*dr5*dtheta2 + A2400*dtheta4 + A2420*dQ2*dtheta4 + 3*A3400*dr*dtheta4 + 3*A3420*dQ2*dr*dtheta4 + A2401*dR*dtheta4 +  A2421*dQ2*dR*dtheta4 + 3*A3401*dr*dR*dtheta4 + 6*A4400*dr2*dtheta4 + 6*A4401*dR*dr2*dtheta4 + 10*A5400*dr3*dtheta4 + A2600*dtheta6 +  3*A3600*dr*dtheta6 + A2601*dR*dtheta6);
   d2A_dth2  = 2*((A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4 + dQ4*(A0240 + A1240*dr + dQ2*(A0260 + A1260*dr) + (A2240 + A3240*dr)*dr2 +  6*(A0440 + A1440*dr)*dtheta2) + 6*dtheta2*((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 +  (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2) + 9*(A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta4 +  dQ2*((A2220 + A3220*dr)*dr2 + (A4220 + A5220*dr)*dr4 + 6*dtheta2*(A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2) +  9*(A0620 + A1620*dr)*dtheta4) + 28*(A0800 + A1800*dr)*dtheta6 +  dR*((A4201 + dr*(A5201 + A6201*dr))*dr4 + dQ4*(A0241 + A0261*dQ2 + A1241*dr + A2241*dr2 + 6*A0441*dtheta2) +  6*dtheta2*((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2) + 9*(A0601 + dr*(A1601 + A2601*dr))*dtheta4 +  dQ2*(A2221*dr2 + A3221*dr3 + A4221*dr4 + 6*A0421*dtheta2 + 6*A1421*dr*dtheta2 + 6*A2421*dr2*dtheta2 + 15*A0621*dtheta4) + 28*A0801*dtheta6));
   d2A_dQ2   = 2*(28*dQ6*(A0080 + A1080*dr) + (A4020 + dr*(A5020 + dr*(A6020 + A7020*dr)))*dr4 + (A2220 + dr*(A3220 + dr*(A4220 + A5220*dr)))*dr2*dtheta2 +  9*dQ4*(A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2) +  (A0420 + A1420*dr + (A2420 + A3420*dr)*dr2 + (A0620 + A1620*dr)*dtheta2)*dtheta4 +  6*dQ2*((A2040 + A3040*dr)*dr2 + (A4040 + A5040*dr)*dr4 + (A0240 + dr*(A1240 + dr*(A2240 + A3240*dr)))*dtheta2 +  dQ2*(A0060 + A1060*dr + (A2060 + A3060*dr)*dr2 + (A0260 + A1260*dr)*dtheta2) + (A0440 + A1440*dr)*dtheta4) +  dR*(28*A0081*dQ6 + (A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 +  9*dQ4*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) + (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4 +  6*dQ2*((A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + dQ2*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) +  A0441*dtheta4)));
   d2A_dQR   = 2*dQ*(4*A0081*dQ6 + (A4021 + dr*(A5021 + A6021*dr))*dr4 + (A2221 + dr*(A3221 + A4221*dr))*dr2*dtheta2 +  dQ4*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) + (A0421 + A1421*dr + A2421*dr2 + A0621*dtheta2)*dtheta4 +  2*dQ2*((A2041 + A3041*dr)*dr2 + A4041*dr4 + (A0241 + dr*(A1241 + A2241*dr))*dtheta2 + dQ2*(A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2) +  A0441*dtheta4));
+
+  d2A_dtQ   = 2*dQ*(4*dQ6*(dAdt0080 + dAdt1080*dr) + (dAdt4020 + dr*(dAdt5020 + dr*(dAdt6020 + dAdt7020*dr)))*dr4 + (dAdt2220 + dr*(dAdt3220 + dr*(dAdt4220 + dAdt5220*dr)))*dr2*dtheta2 + dQ4*(dAdt0060 + dAdt1060*dr + (dAdt2060 + dAdt3060*dr)*dr2 + (dAdt0260 + dAdt1260*dr)*dtheta2) + (dAdt0420 + dAdt1420*dr + (dAdt2420 + dAdt3420*dr)*dr2 + (dAdt0620 + dAdt1620*dr)*dtheta2)*dtheta4 + 2*dQ2*((dAdt2040 + dAdt3040*dr)*dr2 + (dAdt4040 + dAdt5040*dr)*dr4 + (dAdt0240 + dr*(dAdt1240 + dr*(dAdt2240 + dAdt3240*dr)))*dtheta2 + dQ2*(dAdt0060 + dAdt1060*dr + (dAdt2060 + dAdt3060*dr)*dr2 + (dAdt0260 + dAdt1260*dr)*dtheta2) + (dAdt0440 + dAdt1440*dr)*dtheta4) + dR*(4*dAdt0081*dQ6 + (dAdt4021 + dr*(dAdt5021 + dAdt6021*dr))*dr4 + (dAdt2221 + dr*(dAdt3221 + dAdt4221*dr))*dr2*dtheta2 + dQ4*(dAdt0061 + dAdt1061*dr + dAdt2061*dr2 + dAdt0261*dtheta2) + (dAdt0421 + dAdt1421*dr + dAdt2421*dr2 + dAdt0621*dtheta2)*dtheta4 + 2*dQ2*((dAdt2041 + dAdt3041*dr)*dr2 + dAdt4041*dr4 + (dAdt0241 + dr*(dAdt1241 + dAdt2241*dr))*dtheta2 + dQ2*(dAdt0061 + dAdt1061*dr + dAdt2061*dr2 + dAdt0261*dtheta2) + dAdt0441*dtheta4)));
+  d2A_dtR   = dAdt0081*dQ8 + (dAdt6001 + dAdt7001*dr)*dr6 + dAdt8001*dr8 + (dAdt4201 + dr*(dAdt5201 + dAdt6201*dr))*dr4*dtheta2 + ((dAdt2401 + dAdt3401*dr)*dr2 + dAdt4401*dr4 + (dAdt0601 + dr*(dAdt1601 + dAdt2601*dr))*dtheta2)*dtheta4 + dQ4*((dAdt2041 + dAdt3041*dr)*dr2 + dAdt4041*dr4 + (dAdt0241 + dr*(dAdt1241 + dAdt2241*dr))*dtheta2 + dQ2*(dAdt0061 + dAdt1061*dr + dAdt2061*dr2 + dAdt0261*dtheta2) + dAdt0441*dtheta4) + dQ2*((dAdt4021 + dr*(dAdt5021 + dAdt6021*dr))*dr4 + (dAdt2221 + dr*(dAdt3221 + dAdt4221*dr))*dr2*dtheta2 + (dAdt0421 + dAdt1421*dr + dAdt2421*dr2 + dAdt0621*dtheta2)*dtheta4) + dAdt0801*dtheta8;
+  d2A_dtr   = dAdt1080*dQ8 + 6*(dAdt6000 + dAdt7000*dr)*dr5 + dAdt7000*dr6 + 8*(dAdt8000 + dAdt9000*dr)*dr7 + dAdt9000*dr8 + 4*(dAdt4200 + dr*(dAdt5200 + dr*(dAdt6200 + dAdt7200*dr)))*dr3*dtheta2 + (dAdt5200 + dr*(2*dAdt6200 + 3*dAdt7200*dr))*dr4*dtheta2 + (2*dAdt2400*dr + 3*dAdt3400*dr2 + 4*dAdt4400*dr3 + 5*dAdt5400*dr4 + dAdt1600*dtheta2 + 2*dAdt2600*dr*dtheta2 + 3*dAdt3600*dr2*dtheta2)*dtheta4 + dQ4*(2*dr*(dAdt2040 + dAdt3040*dr) + dAdt3040*dr2 + 4*(dAdt4040 + dAdt5040*dr)*dr3 + dAdt5040*dr4 + (dAdt1240 + dr*(2*dAdt2240 + 3*dAdt3240*dr))*dtheta2 + dQ2*(dAdt1060 + 2*dAdt2060*dr + 3*dAdt3060*dr2 + dAdt1260*dtheta2) + dAdt1440*dtheta4) + dR*(6*(dAdt6001 + dAdt7001*dr)*dr5 + dAdt7001*dr6 + 8*dAdt8001*dr7 + 4*(dAdt4201 + dr*(dAdt5201 + dAdt6201*dr))*dr3*dtheta2 + (dAdt5201 + 2*dAdt6201*dr)*dr4*dtheta2 + dQ4*(dQ2*(dAdt1061 + 2*dAdt2061*dr) + 2*dr*(dAdt2041 + dAdt3041*dr) + dAdt3041*dr2 + 4*dAdt4041*dr3 + (dAdt1241 + 2*dAdt2241*dr)*dtheta2) + (2*dAdt2401*dr + 3*dAdt3401*dr2 + 4*dAdt4401*dr3 + dAdt1601*dtheta2 + 2*dAdt2601*dr*dtheta2)*dtheta4 + dQ2*(4*dAdt4021*dr3 + 5*dAdt5021*dr4 + 6*dAdt6021*dr5 + 2*dAdt2221*dr*dtheta2 + 3*dAdt3221*dr2*dtheta2 + 4*dAdt4221*dr3*dtheta2 + dAdt1421*dtheta4 + 2*dAdt2421*dr*dtheta4)) + dQ2*(4*dAdt4020*dr3 + 5*dAdt5020*dr4 + 6*dAdt6020*dr5 + 7*dAdt7020*dr6 + 2*dAdt2220*dr*dtheta2 + 3*dAdt3220*dr2*dtheta2 + 4*dAdt4220*dr3*dtheta2 + 5*dAdt5220*dr4*dtheta2 + dAdt1420*dtheta4 + 2*dAdt2420*dr*dtheta4 + 3*dAdt3420*dr2*dtheta4 + dAdt1620*dtheta6) + dAdt1800*dtheta8;
+
   d2A_dQr   = 2*dQ*(3*A1060*dQ4 + 4*A1080*dQ6 + 4*A2040*dQ2*dr + 6*A2060*dQ4*dr + 3*A1061*dQ4*dR + 4*A2041*dQ2*dr*dR + 6*A2061*dQ4*dr*dR + 6*A3040*dQ2*dr2 + 9*A3060*dQ4*dr2 + 6*A3041*dQ2*dR*dr2 + 4*A4020*dr3 + 8*A4040*dQ2*dr3 + 4*A4021*dR*dr3 + 8*A4041*dQ2*dR*dr3 + 5*A5020*dr4 + 10*A5040*dQ2*dr4 + 5*A5021*dR*dr4 + 6*A6020*dr5 + 6*A6021*dR*dr5 + 7*A7020*dr6 + 2*A1240*dQ2*dtheta2 + 3*A1260*dQ4*dtheta2 + 2*A2220*dr*dtheta2 + 4*A2240*dQ2*dr*dtheta2 + 2*A1241*dQ2*dR*dtheta2 + 2*A2221*dr*dR*dtheta2 + 4*A2241*dQ2*dr*dR*dtheta2 + 3*A3220*dr2*dtheta2 + 6*A3240*dQ2*dr2*dtheta2 + 3*A3221*dR*dr2*dtheta2 + 4*A4220*dr3*dtheta2 + 4*A4221*dR*dr3*dtheta2 + 5*A5220*dr4*dtheta2 + A1420*dtheta4 + 2*A1440*dQ2*dtheta4 + 2*A2420*dr*dtheta4 + A1421*dR*dtheta4 + 2*A2421*dr*dR*dtheta4 + 3*A3420*dr2*dtheta4 + A1620*dtheta6);
   d2A_dRr   = 6*(A6001 + A7001*dr)*dr5 + A7001*dr6 + 8*A8001*dr7 + 4*(A4201 + dr*(A5201 + A6201*dr))*dr3*dtheta2 + (A5201 + 2*A6201*dr)*dr4*dtheta2 + dQ4*(dQ2*(A1061 + 2*A2061*dr) + 2*dr*(A2041 + A3041*dr) + A3041*dr2 + 4*A4041*dr3 + (A1241 + 2*A2241*dr)*dtheta2) + (2*A2401*dr + 3*A3401*dr2 + 4*A4401*dr3 + A1601*dtheta2 + 2*A2601*dr*dtheta2)*dtheta4 + dQ2*(4*A4021*dr3 + 5*A5021*dr4 + 6*A6021*dr5 + 2*A2221*dr*dtheta2 + 3*A3221*dr2*dtheta2 + 4*A4221*dr3*dtheta2 + A1421*dtheta4 + 2*A2421*dr*dtheta4);
-  d2A_dph2  = dA_dR*d2R_dph2 + dA_dQ*d2Q_dph2 + 2*dQ_dph*dR_dph*d2A_dQR + dQ_dph*dQ_dph*d2A_dQ2;
-  d2A_dt2   = 0; /* FIXME */
-  d2A_dtph  = 0; /* FIXME */
+  d2A_dt2   = dQ8*(d2Adt20080 + d2Adt21080*dr) + (d2Adt26000 + d2Adt27000*dr)*dr6 + (d2Adt28000 + d2Adt29000*dr)*dr8 + (d2Adt24200 + dr*(d2Adt25200 + dr*(d2Adt26200 + d2Adt27200*dr)))*dr4*dtheta2 + ((d2Adt22400 + d2Adt23400*dr)*dr2 + (d2Adt24400 + d2Adt25400*dr)*dr4 + (d2Adt20600 + dr*(d2Adt21600 + dr*(d2Adt22600 + d2Adt23600*dr)))*dtheta2)*dtheta4 + dQ4*((d2Adt22040 + d2Adt23040*dr)*dr2 + (d2Adt24040 + d2Adt25040*dr)*dr4 + (d2Adt20240 + dr*(d2Adt21240 + dr*(d2Adt22240 + d2Adt23240*dr)))*dtheta2 + dQ2*(d2Adt20060 + d2Adt21060*dr + (d2Adt22060 + d2Adt23060*dr)*dr2 + (d2Adt20260 + d2Adt21260*dr)*dtheta2) + (d2Adt20440 + d2Adt21440*dr)*dtheta4) + dQ2*((d2Adt24020 + dr*(d2Adt25020 + dr*(d2Adt26020 + d2Adt27020*dr)))*dr4 + (d2Adt22220 + dr*(d2Adt23220 + dr*(d2Adt24220 + d2Adt25220*dr)))*dr2*dtheta2 + (d2Adt20420 + d2Adt21420*dr + (d2Adt22420 + d2Adt23420*dr)*dr2 + (d2Adt20620 + d2Adt21620*dr)*dtheta2)*dtheta4) + (d2Adt20800 + d2Adt21800*dr)*dtheta8 + dR*(d2Adt20081*dQ8 + (d2Adt26001 + d2Adt27001*dr)*dr6 + d2Adt28001*dr8 + (d2Adt24201 + dr*(d2Adt25201 + d2Adt26201*dr))*dr4*dtheta2 + ((d2Adt22401 + d2Adt23401*dr)*dr2 + d2Adt24401*dr4 + (d2Adt20601 + dr*(d2Adt21601 + d2Adt22601*dr))*dtheta2)*dtheta4 + dQ4*((d2Adt22041 + d2Adt23041*dr)*dr2 + d2Adt24041*dr4 + (d2Adt20241 + dr*(d2Adt21241 + d2Adt22241*dr))*dtheta2 + dQ2*(d2Adt20061 + d2Adt21061*dr + d2Adt22061*dr2 + d2Adt20261*dtheta2) + d2Adt20441*dtheta4) + dQ2*((d2Adt24021 + dr*(d2Adt25021 + d2Adt26021*dr))*dr4 + (d2Adt22221 + dr*(d2Adt23221 + d2Adt24221*dr))*dr2*dtheta2 + (d2Adt20421 + d2Adt21421*dr + d2Adt22421*dr2 + d2Adt20621*dtheta2)*dtheta4) + d2Adt20801*dtheta8);
 
-  /* Correct for rotation of phi coordinate */
-  d2A_dr2   = d2A_dr2 + d2Q_dr2*dA_dQ + d2R_dr2*dA_dR + 2.0*d2A_dQr*dQ_dr + d2A_dQ2*dQ_dr*dQ_dr + 2.0*(d2A_dRr + d2A_dQR*dQ_dr)*dR_dr;
-  dA_dr     = dA_dr + dA_dQ*dQ_dr + dA_dR*dR_dr;
+  /* Convert partial derivatives to total derivatives */
+  double DA_Dt    = dA_dt + dA_dQ*dQ_dt + dA_dR*dR_dt - dA_dr*rt;
+  double DA_Dr    = dA_dr + dA_dQ*dQ_dr + dA_dR*dR_dr;
+  double DA_Dph   = dA_dQ*dQ_dph + dA_dR*dR_dph;
+
+  double D2A_Dph2 = dA_dR*d2R_dph2 + dA_dQ*d2Q_dph2 + 2*dQ_dph*dR_dph*d2A_dQR + dQ_dph*dQ_dph*d2A_dQ2;
+  double D2A_Dr2  = d2A_dr2 + d2Q_dr2*dA_dQ + d2R_dr2*dA_dR + 2.0*d2A_dQr*dQ_dr + d2A_dQ2*dQ_dr*dQ_dr + 2.0*(d2A_dRr + d2A_dQR*dQ_dr)*dR_dr;
+  double D2A_Dtph = dA_dR*d2R_dtph + dA_dQ*d2Q_dtph + d2A_dQR*dR_dph*dQ_dt + d2A_dQR*dQ_dph*dR_dt + d2A_dQ2*dQ_dph*dQ_dt - d2A_dRr*dR_dph*rt - d2A_dQr*dQ_dph*rt + d2A_dtR*dR_dph + d2A_dtQ*dQ_dph;
+  double D2A_Dt2  = d2A_dt2 + dA_dR*d2R_dt2 + dA_dQ*d2Q_dt2 + 2.0*d2A_dQR*dQ_dt*dR_dt + d2A_dQ2*dQ_dt*dQ_dt - dA_dr*rtt - 2.0*d2A_dRr*dR_dt*rt - 2.0*d2A_dQr*dQ_dt*rt + d2A_dr2*rt*rt + 2.0*d2A_dtR*dR_dt + 2.0*d2A_dtQ*dQ_dt - 2.0*d2A_dtr*rt;
+
+  dA_dt  = DA_Dt;
+  dA_dr  = DA_Dr;
+  dA_dph = DA_Dph;
+
+  d2A_dph2 = D2A_Dph2;
+  d2A_dr2  = D2A_Dr2;
+  d2A_dtph = D2A_Dtph;
+  d2A_dt2  = D2A_Dt2;
 
   /* s */
   s2         = alpha20*dr2 + alpha02*dtheta2 + beta*dQ2;
 
   /* ds/dx */
-  ds2_dr     = 2*alpha20*dr + 2*beta*dQ*dQ_dr;
+  ds2_dr     = 2*alpha20*dr;
   ds2_dth    = 2*alpha02*dtheta;
   ds2_dQ     = 2*beta*dQ;
-  ds2_dph    = ds2_dQ*dQ_dph;
-  ds2_dt     = 0; /* FIXME */
+  ds2_dt     = dalphadt20*dr2 + dalphadt02*dtheta2 + dbetadt*dQ2;
 
   /* d^2s/dx^2 */
   d2s2_dr2   = 2*alpha20 + 2*beta*dQ_dr*dQ_dr + 2*beta*dQ*d2Q_dr2;
   d2s2_dth2  = 2*alpha02;
   d2s2_dQ2   = 2*beta;
-  d2s2_dph2  = d2s2_dQ2*dQ_dph*dQ_dph + ds2_dQ*d2Q_dph2;
-  d2s2_dt2   = 0; /* FIXME */
-  d2s2_dtph  = 0; /* FIXME */
+  d2s2_dtQ   = 2*dbetadt*dQ;
+  d2s2_dtr   = 2*dalphadt20*dr;
+  d2s2_dt2   = d2alphadt220*dr2 + d2alphadt202*dtheta2 + d2betadt2*dQ2;
+
+  double Ds2_Dt    = ds2_dt + ds2_dQ*dQ_dt - ds2_dr*rt;
+  double Ds2_Dr    = ds2_dr + ds2_dQ*dQ_dr;
+  double Ds2_Dph   = ds2_dQ*dQ_dph;
+
+  double D2s2_Dph2 = ds2_dQ*d2Q_dph2 + dQ_dph*dQ_dph*d2s2_dQ2;
+  double D2s2_Dr2  = d2s2_dr2 + d2Q_dr2*ds2_dQ + d2s2_dQ2*dQ_dr*dQ_dr;
+  double D2s2_Dtph = ds2_dQ*d2Q_dtph + d2s2_dQ2*dQ_dph*dQ_dt + d2s2_dtQ*dQ_dph;
+  double D2s2_Dt2  = d2s2_dt2 + ds2_dQ*d2Q_dt2 + d2s2_dQ2*dQ_dt*dQ_dt - ds2_dr*rtt + d2s2_dr2*rt*rt + 2.0*d2s2_dtQ*dQ_dt - 2.0*d2s2_dtr*rt;
+
+  ds2_dt  = Ds2_Dt;
+  ds2_dr  = Ds2_Dr;
+  ds2_dph = Ds2_Dph;
+
+  d2s2_dph2 = D2s2_Dph2;
+  d2s2_dr2  = D2s2_Dr2;
+  d2s2_dtph = D2s2_Dtph;
+  d2s2_dt2  = D2s2_Dt2;
+
   sqrts2     = sqrt(s2);
   s2_15      = s2*sqrts2;
   s2_25      = s2*s2_15;
