@@ -62,6 +62,8 @@ extern double alpha20, alpha02, beta, c;
 extern double dalphadt20, dalphadt02, dbetadt, dcdt;
 extern double d2alphadt220, d2alphadt202, d2betadt2, d2cdt2;
 extern double rt, urt, rtt, urtt, phit, phitt;
+extern double dC1_dt02, dC1_dt10, dC1_dt20;
+extern double d2C1_dt200, d2C1_dt202, d2C1_dt210, d2C1_dt220;
 
 /* Numerical coefficients appearing in the elliptic integrals expressions. The
    indices here correspond to mode m, EllipticK/EllipticE, order in Sin[dphi]/Sin[dphi/2],
@@ -509,8 +511,8 @@ void effsource_calc_m(int m, struct coordinate * x,
   const double dtheta8  = dtheta4*dtheta4;
 
   /* Coefficients of sin(dphi/2), sin(dphi) in the numerator */
-  double ReA[5], ImA[5], dReA_dr[5], dImA_dr[5], dReA_dtheta[5], dImA_dtheta[5];
-  double d2ReA_dr2[5], d2ImA_dr2[5], d2ReA_dtheta2[5], d2ImA_dtheta2[5];
+  double ReA[5], ImA[5], dReA_dt[5], dImA_dt[5], dReA_dr[5], dImA_dr[5], dReA_dtheta[5], dImA_dtheta[5];
+  double d2ReA_dt2[5], d2ImA_dt2[5], d2ReA_dtr[5], d2ImA_dtr[5], d2ReA_dr2[5], d2ImA_dr2[5], d2ReA_dtheta2[5], d2ImA_dtheta2[5];
 
   ReA[0] = (A6000 + A7000*dr)*dr6 + (A8000 + A9000*dr)*dr8 + (A4200 + dr*(A5200 + dr*(A6200 + A7200*dr)))*dr4*dtheta2 + ((A2400 + A3400*dr)*dr2 + (A4400 + A5400*dr)*dr4 + (A0600 + dr*(A1600 + dr*(A2600 + A3600*dr)))*dtheta2)*dtheta4 + (A0800 + A1800*dr)*dtheta8;
   ImA[0] = (A6001 + A7001*dr)*dr6 + A8001*dr8 + (A4201 + dr*(A5201 + A6201*dr))*dr4*dtheta2 + ((A2401 + A3401*dr)*dr2 + A4401*dr4 + (A0601 + dr*(A1601 + A2601*dr))*dtheta2)*dtheta4 + A0801*dtheta8;
@@ -522,6 +524,64 @@ void effsource_calc_m(int m, struct coordinate * x,
   ImA[3] = A0061 + A1061*dr + A2061*dr2 + A0261*dtheta2;
   ReA[4] = A0080 + A1080*dr;
   ImA[4] = A0081;
+
+  /* t derivatives of coefficients */
+  dReA_dt[0] = (dAdt6000 + dAdt7000*dr)*dr6 + (dAdt8000 + dAdt9000*dr)*dr8 + (dAdt4200 + dr*(dAdt5200 + dr*(dAdt6200 + dAdt7200*dr)))*dr4*dtheta2 + ((dAdt2400 + dAdt3400*dr)*dr2 + (dAdt4400 + dAdt5400*dr)*dr4 + (dAdt0600 + dr*(dAdt1600 + dr*(dAdt2600 + dAdt3600*dr)))*dtheta2)*dtheta4 + (dAdt0800 + dAdt1800*dr)*dtheta8;
+  dImA_dt[0] = (dAdt6001 + dAdt7001*dr)*dr6 + dAdt8001*dr8 + (dAdt4201 + dr*(dAdt5201 + dAdt6201*dr))*dr4*dtheta2 + ((dAdt2401 + dAdt3401*dr)*dr2 + dAdt4401*dr4 + (dAdt0601 + dr*(dAdt1601 + dAdt2601*dr))*dtheta2)*dtheta4 + dAdt0801*dtheta8;
+  dReA_dt[1] = (dAdt4020 + dr*(dAdt5020 + dr*(dAdt6020 + dAdt7020*dr)))*dr4 + (dAdt2220 + dr*(dAdt3220 + dr*(dAdt4220 + dAdt5220*dr)))*dr2*dtheta2 + (dAdt0420 + dAdt1420*dr + (dAdt2420 + dAdt3420*dr)*dr2 + (dAdt0620 + dAdt1620*dr)*dtheta2)*dtheta4;
+  dImA_dt[1] = (dAdt4021 + dr*(dAdt5021 + dAdt6021*dr))*dr4 + (dAdt2221 + dr*(dAdt3221 + dAdt4221*dr))*dr2*dtheta2 + (dAdt0421 + dAdt1421*dr + dAdt2421*dr2 + dAdt0621*dtheta2)*dtheta4;
+  dReA_dt[2] = (dAdt2040 + dAdt3040*dr)*dr2 + (dAdt4040 + dAdt5040*dr)*dr4 + (dAdt0240 + dr*(dAdt1240 + dr*(dAdt2240 + dAdt3240*dr)))*dtheta2 + (dAdt0440 + dAdt1440*dr)*dtheta4;
+  dImA_dt[2] = (dAdt2041 + dAdt3041*dr)*dr2 + dAdt4041*dr4 + (dAdt0241 + dr*(dAdt1241 + dAdt2241*dr))*dtheta2 + dAdt0441*dtheta4;
+  dReA_dt[3] = dAdt0060 + dAdt1060*dr + (dAdt2060 + dAdt3060*dr)*dr2 + (dAdt0260 + dAdt1260*dr)*dtheta2;
+  dImA_dt[3] = dAdt0061 + dAdt1061*dr + dAdt2061*dr2 + dAdt0261*dtheta2;
+  dReA_dt[4] = dAdt0080 + dAdt1080*dr;
+  dImA_dt[4] = dAdt0081;
+
+  dReA_dt[0] -= dReA_dr[0]*rt;
+  dImA_dt[0] -= dImA_dr[0]*rt;
+  dReA_dt[1] -= dReA_dr[1]*rt;
+  dImA_dt[1] -= dImA_dr[1]*rt;
+  dReA_dt[2] -= dReA_dr[2]*rt;
+  dImA_dt[2] -= dImA_dr[2]*rt;
+  dReA_dt[3] -= dReA_dr[3]*rt;
+  dImA_dt[3] -= dImA_dr[3]*rt;
+  dReA_dt[4] -= dReA_dr[4]*rt;
+  dImA_dt[4] -= dImA_dr[4]*rt;
+
+  /* t,r derivatives of coefficients */
+  d2ReA_dtr[0] = 6*dAdt6000*dr5 + 7*dAdt7000*dr6 + 8*dAdt8000*dr7 + 9*dAdt9000*dr8 + 4*dAdt4200*dr3*dtheta2 + 5*dAdt5200*dr4*dtheta2 + 6*dAdt6200*dr5*dtheta2 + 7*dAdt7200*dr6*dtheta2 + 2*dAdt2400*dr*dtheta4 + 3*dAdt3400*dr2*dtheta4 + 4*dAdt4400*dr3*dtheta4 + 5*dAdt5400*dr4*dtheta4 + dAdt1600*dtheta6 + 2*dAdt2600*dr*dtheta6 + 3*dAdt3600*dr2*dtheta6 + dAdt1800*dtheta8;
+  d2ImA_dtr[0] = 6*dAdt6001*dr5 + 7*dAdt7001*dr6 + 8*dAdt8001*dr7 + 4*dAdt4201*dr3*dtheta2 + 5*dAdt5201*dr4*dtheta2 + 6*dAdt6201*dr5*dtheta2 + 2*dAdt2401*dr*dtheta4 + 3*dAdt3401*dr2*dtheta4 + 4*dAdt4401*dr3*dtheta4 + dAdt1601*dtheta6 + 2*dAdt2601*dr*dtheta6;
+  d2ReA_dtr[1] = 4*dAdt4020*dr3 + 5*dAdt5020*dr4 + 6*dAdt6020*dr5 + 7*dAdt7020*dr6 + 2*dAdt2220*dr*dtheta2 + 3*dAdt3220*dr2*dtheta2 + 4*dAdt4220*dr3*dtheta2 + 5*dAdt5220*dr4*dtheta2 + dAdt1420*dtheta4 + 2*dAdt2420*dr*dtheta4 + 3*dAdt3420*dr2*dtheta4 + dAdt1620*dtheta6;
+  d2ImA_dtr[1] = 4*dAdt4021*dr3 + 5*dAdt5021*dr4 + 6*dAdt6021*dr5 + 2*dAdt2221*dr*dtheta2 + 3*dAdt3221*dr2*dtheta2 + 4*dAdt4221*dr3*dtheta2 + dAdt1421*dtheta4 + 2*dAdt2421*dr*dtheta4;
+  d2ReA_dtr[2] = 2*dAdt2040*dr + 3*dAdt3040*dr2 + 4*dAdt4040*dr3 + 5*dAdt5040*dr4 + dAdt1240*dtheta2 + 2*dAdt2240*dr*dtheta2 + 3*dAdt3240*dr2*dtheta2 + dAdt1440*dtheta4;
+  d2ImA_dtr[2] = 2*dAdt2041*dr + 3*dAdt3041*dr2 + 4*dAdt4041*dr3 + dAdt1241*dtheta2 + 2*dAdt2241*dr*dtheta2;
+  d2ReA_dtr[3] = dAdt1060 + 2*dAdt2060*dr + 3*dAdt3060*dr2 + dAdt1260*dtheta2;
+  d2ImA_dtr[3] = dAdt1061 + 2*dAdt2061*dr;
+  d2ReA_dtr[4] = dAdt1080;
+  d2ImA_dtr[4] = 0;
+
+  /* t,t derivatives of coefficients */
+  d2ReA_dt2[0] = (d2Adt26000 + d2Adt27000*dr)*dr6 + (d2Adt28000 + d2Adt29000*dr)*dr8 + (d2Adt24200 + dr*(d2Adt25200 + dr*(d2Adt26200 + d2Adt27200*dr)))*dr4*dtheta2 + ((d2Adt22400 + d2Adt23400*dr)*dr2 + (d2Adt24400 + d2Adt25400*dr)*dr4 + (d2Adt20600 + dr*(d2Adt21600 + dr*(d2Adt22600 + d2Adt23600*dr)))*dtheta2)*dtheta4 + (d2Adt20800 + d2Adt21800*dr)*dtheta8;
+  d2ImA_dt2[0] = (d2Adt26001 + d2Adt27001*dr)*dr6 + d2Adt28001*dr8 + (d2Adt24201 + dr*(d2Adt25201 + d2Adt26201*dr))*dr4*dtheta2 + ((d2Adt22401 + d2Adt23401*dr)*dr2 + d2Adt24401*dr4 + (d2Adt20601 + dr*(d2Adt21601 + d2Adt22601*dr))*dtheta2)*dtheta4 + d2Adt20801*dtheta8;
+  d2ReA_dt2[1] = (d2Adt24020 + dr*(d2Adt25020 + dr*(d2Adt26020 + d2Adt27020*dr)))*dr4 + (d2Adt22220 + dr*(d2Adt23220 + dr*(d2Adt24220 + d2Adt25220*dr)))*dr2*dtheta2 + (d2Adt20420 + d2Adt21420*dr + (d2Adt22420 + d2Adt23420*dr)*dr2 + (d2Adt20620 + d2Adt21620*dr)*dtheta2)*dtheta4;
+  d2ImA_dt2[1] = (d2Adt24021 + dr*(d2Adt25021 + d2Adt26021*dr))*dr4 + (d2Adt22221 + dr*(d2Adt23221 + d2Adt24221*dr))*dr2*dtheta2 + (d2Adt20421 + d2Adt21421*dr + d2Adt22421*dr2 + d2Adt20621*dtheta2)*dtheta4;
+  d2ReA_dt2[2] = (d2Adt22040 + d2Adt23040*dr)*dr2 + (d2Adt24040 + d2Adt25040*dr)*dr4 + (d2Adt20240 + dr*(d2Adt21240 + dr*(d2Adt22240 + d2Adt23240*dr)))*dtheta2 + (d2Adt20440 + d2Adt21440*dr)*dtheta4;
+  d2ImA_dt2[2] = (d2Adt22041 + d2Adt23041*dr)*dr2 + d2Adt24041*dr4 + (d2Adt20241 + dr*(d2Adt21241 + d2Adt22241*dr))*dtheta2 + d2Adt20441*dtheta4;
+  d2ReA_dt2[3] = d2Adt20060 + d2Adt21060*dr + (d2Adt22060 + d2Adt23060*dr)*dr2 + (d2Adt20260 + d2Adt21260*dr)*dtheta2;
+  d2ImA_dt2[3] = d2Adt20061 + d2Adt21061*dr + d2Adt22061*dr2 + d2Adt20261*dtheta2;
+  d2ReA_dt2[4] = d2Adt20080 + d2Adt21080*dr;
+  d2ImA_dt2[4] = d2Adt20081;
+
+  d2ReA_dt2[0] -= d2ReA_dr2[0]*rt;
+  d2ImA_dt2[0] -= d2ImA_dr2[0]*rt;
+  d2ReA_dt2[1] -= d2ReA_dr2[1]*rt;
+  d2ImA_dt2[1] -= d2ImA_dr2[1]*rt;
+  d2ReA_dt2[2] -= d2ReA_dr2[2]*rt;
+  d2ImA_dt2[2] -= d2ImA_dr2[2]*rt;
+  d2ReA_dt2[3] -= d2ReA_dr2[3]*rt;
+  d2ImA_dt2[3] -= d2ImA_dr2[3]*rt;
+  d2ReA_dt2[4] -= d2ReA_dr2[4]*rt;
+  d2ImA_dt2[4] -= d2ImA_dr2[4]*rt;
 
   /* r derivatives of coefficients */
   dReA_dr[0] = 6*A6000*dr5 + 7*A7000*dr6 + 8*A8000*dr7 + 9*A9000*dr8 + 4*A4200*dr3*dtheta2 + 5*A5200*dr4*dtheta2 + 6*A6200*dr5*dtheta2 + 7*A7200*dr6*dtheta2 + 2*A2400*dr*dtheta4 + 3*A3400*dr2*dtheta4 + 4*A4400*dr3*dtheta4 + 5*A5400*dr4*dtheta4 + A1600*dtheta6 + 2*A2600*dr*dtheta6 + 3*A3600*dr2*dtheta6 + A1800*dtheta8;
@@ -573,6 +633,8 @@ void effsource_calc_m(int m, struct coordinate * x,
 
   /* alpha term appearing in the denominator */
   double alpha = alpha20*dr2 + alpha02*dtheta2;
+  double dalpha_dt = dalphadt20*dr2 + dalphadt02*dtheta2 - 2.0*alpha20*dr*rt;
+  double d2alpha_dt2 = d2alphadt220*dr2 + d2alphadt202*dtheta2 - 2.0*dalphadt20*dr*rt + 2.0*alpha20*rt*rt - 2.0*alpha20*dr*rtt;
 
   /* Derivatives of alpha */
   double dalpha_dr       = 2*alpha20*dr;
@@ -616,6 +678,8 @@ void effsource_calc_m(int m, struct coordinate * x,
   double d2C1_dr2     = d2alpha_dr2 / beta;
   double dC1_dtheta   = dalpha_dtheta / beta;
   double d2C1_dtheta2 = d2alpha_dtheta2 / beta;
+  double dC1_dt       = dC1_dt02*dtheta2 + dC1_dt10*dr + dC1_dt20*dr2;
+  double d2C1_dt2     = d2C1_dt200 + d2C1_dt202*dtheta2 + d2C1_dt210*dr + d2C1_dt220*dr2;
 
   double dC_dr[27];
   dC_dr[0]  = 0;
@@ -733,6 +797,64 @@ void effsource_calc_m(int m, struct coordinate * x,
   d2C_dtheta2[25] = 25*24*C[23]*dC1_dtheta*dC1_dtheta + 25*C[24]*d2C1_dtheta2;
   d2C_dtheta2[26] = 26*25*C[24]*dC1_dtheta*dC1_dtheta + 26*C[25]*d2C1_dtheta2;
 
+  double dC_dt[27];
+  dC_dt[0]  = 0;
+  dC_dt[1]  = 1*C[0]*dC1_dt;
+  dC_dt[2]  = 2*C[1]*dC1_dt;
+  dC_dt[3]  = 3*C[2]*dC1_dt;
+  dC_dt[4]  = 4*C[3]*dC1_dt;
+  dC_dt[5]  = 5*C[4]*dC1_dt;
+  dC_dt[6]  = 6*C[5]*dC1_dt;
+  dC_dt[7]  = 7*C[6]*dC1_dt;
+  dC_dt[8]  = 8*C[7]*dC1_dt;
+  dC_dt[9]  = 9*C[8]*dC1_dt;
+  dC_dt[10] = 10*C[9]*dC1_dt;
+  dC_dt[11] = 11*C[10]*dC1_dt;
+  dC_dt[12] = 12*C[11]*dC1_dt;
+  dC_dt[13] = 13*C[12]*dC1_dt;
+  dC_dt[14] = 14*C[13]*dC1_dt;
+  dC_dt[15] = 15*C[14]*dC1_dt;
+  dC_dt[16] = 16*C[15]*dC1_dt;
+  dC_dt[17] = 17*C[16]*dC1_dt;
+  dC_dt[18] = 18*C[17]*dC1_dt;
+  dC_dt[19] = 19*C[18]*dC1_dt;
+  dC_dt[20] = 20*C[19]*dC1_dt;
+  dC_dt[21] = 21*C[20]*dC1_dt;
+  dC_dt[22] = 22*C[21]*dC1_dt;
+  dC_dt[23] = 23*C[22]*dC1_dt;
+  dC_dt[24] = 24*C[23]*dC1_dt;
+  dC_dt[25] = 25*C[24]*dC1_dt;
+  dC_dt[26] = 26*C[25]*dC1_dt;
+
+  double d2C_dt2[27];
+  d2C_dt2[0]  = 0;
+  d2C_dt2[1]  = d2C1_dt2;
+  d2C_dt2[2]  = 2*1*C[0]*dC1_dt*dC1_dt + 2*C[1]*d2C1_dt2;
+  d2C_dt2[3]  = 3*2*C[1]*dC1_dt*dC1_dt + 3*C[2]*d2C1_dt2;
+  d2C_dt2[4]  = 4*3*C[2]*dC1_dt*dC1_dt + 4*C[3]*d2C1_dt2;
+  d2C_dt2[5]  = 5*4*C[3]*dC1_dt*dC1_dt + 5*C[4]*d2C1_dt2;
+  d2C_dt2[6]  = 6*5*C[4]*dC1_dt*dC1_dt + 6*C[5]*d2C1_dt2;
+  d2C_dt2[7]  = 7*6*C[5]*dC1_dt*dC1_dt + 7*C[6]*d2C1_dt2;
+  d2C_dt2[8]  = 8*7*C[6]*dC1_dt*dC1_dt + 8*C[7]*d2C1_dt2;
+  d2C_dt2[9]  = 9*8*C[7]*dC1_dt*dC1_dt + 9*C[8]*d2C1_dt2;
+  d2C_dt2[10] = 10*9*C[8]*dC1_dt*dC1_dt + 10*C[9]*d2C1_dt2;
+  d2C_dt2[11] = 11*10*C[9]*dC1_dt*dC1_dt + 11*C[10]*d2C1_dt2;
+  d2C_dt2[12] = 12*11*C[10]*dC1_dt*dC1_dt + 12*C[11]*d2C1_dt2;
+  d2C_dt2[13] = 13*12*C[11]*dC1_dt*dC1_dt + 13*C[12]*d2C1_dt2;
+  d2C_dt2[14] = 14*13*C[12]*dC1_dt*dC1_dt + 14*C[13]*d2C1_dt2;
+  d2C_dt2[15] = 15*14*C[13]*dC1_dt*dC1_dt + 15*C[14]*d2C1_dt2;
+  d2C_dt2[16] = 16*15*C[14]*dC1_dt*dC1_dt + 16*C[15]*d2C1_dt2;
+  d2C_dt2[17] = 17*16*C[15]*dC1_dt*dC1_dt + 17*C[16]*d2C1_dt2;
+  d2C_dt2[18] = 18*17*C[16]*dC1_dt*dC1_dt + 18*C[17]*d2C1_dt2;
+  d2C_dt2[19] = 19*18*C[17]*dC1_dt*dC1_dt + 19*C[18]*d2C1_dt2;
+  d2C_dt2[20] = 20*19*C[18]*dC1_dt*dC1_dt + 20*C[19]*d2C1_dt2;
+  d2C_dt2[21] = 21*20*C[19]*dC1_dt*dC1_dt + 21*C[20]*d2C1_dt2;
+  d2C_dt2[22] = 22*21*C[20]*dC1_dt*dC1_dt + 22*C[21]*d2C1_dt2;
+  d2C_dt2[23] = 23*22*C[21]*dC1_dt*dC1_dt + 23*C[22]*d2C1_dt2;
+  d2C_dt2[24] = 24*23*C[22]*dC1_dt*dC1_dt + 24*C[23]*d2C1_dt2;
+  d2C_dt2[25] = 25*24*C[23]*dC1_dt*dC1_dt + 25*C[24]*d2C1_dt2;
+  d2C_dt2[26] = 26*25*C[24]*dC1_dt*dC1_dt + 26*C[25]*d2C1_dt2;
+
   /* Elliptic integrals */
   double ellE = gsl_sf_ellint_Ecomp(sqrt(1.0/(1.0+C1)), GSL_PREC_DOUBLE);
   double ellK = gsl_sf_ellint_Kcomp(sqrt(1.0/(1.0+C1)), GSL_PREC_DOUBLE);
@@ -746,19 +868,25 @@ void effsource_calc_m(int m, struct coordinate * x,
 
   double dellE_dr       = dellE_dC * dC1_dr;
   double dellE_dtheta   = dellE_dC * dC1_dtheta;
+  double dellE_dt       = dellE_dC * dC1_dt;
   double d2ellE_dr2     = d2ellE_dC2 * dC1_dr * dC1_dr + dellE_dC * d2C1_dr2;
   double d2ellE_dtheta2 = d2ellE_dC2 * dC1_dtheta * dC1_dtheta + dellE_dC * d2C1_dtheta2;
+  double d2ellE_dt2     = d2ellE_dC2 * dC1_dt * dC1_dt + dellE_dC * d2C1_dt2;
 
   double dellK_dr       = dellK_dC * dC1_dr;
   double dellK_dtheta   = dellK_dC * dC1_dtheta;
+  double dellK_dt       = dellK_dC * dC1_dt;
   double d2ellK_dr2     = d2ellK_dC2 * dC1_dr * dC1_dr + dellK_dC * d2C1_dr2;
   double d2ellK_dtheta2 = d2ellK_dC2 * dC1_dtheta * dC1_dtheta + dellK_dC * d2C1_dtheta2;
+  double d2ellK_dt2     = d2ellK_dC2 * dC1_dt * dC1_dt + dellK_dC * d2C1_dt2;
 
   const double dellip_dr[2] = {dellK_dr, dellE_dr};
   const double dellip_dtheta[2] = {dellK_dtheta, dellE_dtheta};
+  const double dellip_dt[2] = {dellK_dt, dellE_dt};
 
   const double d2ellip_dr2[2] = {d2ellK_dr2, d2ellE_dr2};
   const double d2ellip_dtheta2[2] = {d2ellK_dtheta2, d2ellE_dtheta2};
+  const double d2ellip_dt2[2] = {d2ellK_dt2, d2ellE_dt2};
 
   if(m>20)
   {
@@ -860,18 +988,64 @@ void effsource_calc_m(int m, struct coordinate * x,
            + ellip[i]*ImA[j]*d2C_dtheta2[k]);
       }
 
+  double dNumRePhiSb_dt = 0, dNumImPhiSb_dt = 0;
+  for(int i=0; i<2; i++)
+    for(int j=0; j<5; j++)
+      for(int k=0; k<27; k++)
+      {
+        dNumRePhiSb_dt += ReEI[m][i][j][k]*
+            (dellip_dt[i]*ReA[j]*C[k]
+           + ellip[i]*dReA_dt[j]*C[k]
+           + ellip[i]*ReA[j]*dC_dt[k]);
+        dNumImPhiSb_dt += ImEI[m][i][j][k]*
+            (dellip_dt[i]*ImA[j]*C[k]
+           + ellip[i]*dImA_dt[j]*C[k]
+           + ellip[i]*ImA[j]*dC_dt[k]);
+      }
+
+  double d2NumRePhiSb_dt2 = 0, d2NumImPhiSb_dt2 = 0;
+  for(int i=0; i<2; i++)
+    for(int j=0; j<5; j++)
+      for(int k=0; k<17; k++)
+      {
+        d2NumRePhiSb_dt2 += ReEI[m][i][j][k]*
+            (d2ellip_dt2[i]*ReA[j]*C[k]
+           + dellip_dt[i]*dReA_dt[j]*C[k]
+           + dellip_dt[i]*ReA[j]*dC_dt[k]
+           + dellip_dt[i]*dReA_dt[j]*C[k]
+           + ellip[i]*d2ReA_dt2[j]*C[k]
+           + ellip[i]*dReA_dt[j]*dC_dt[k]
+           + dellip_dt[i]*ReA[j]*dC_dt[k]
+           + ellip[i]*dReA_dt[j]*dC_dt[k]
+           + ellip[i]*ReA[j]*d2C_dt2[k]);
+        d2NumImPhiSb_dt2 += ImEI[m][i][j][k]*
+            (d2ellip_dt2[i]*ImA[j]*C[k]
+           + dellip_dt[i]*dImA_dt[j]*C[k]
+           + dellip_dt[i]*ImA[j]*dC_dt[k]
+           + dellip_dt[i]*dImA_dt[j]*C[k]
+           + ellip[i]*d2ImA_dt2[j]*C[k]
+           + ellip[i]*dImA_dt[j]*dC_dt[k]
+           + dellip_dt[i]*ImA[j]*dC_dt[k]
+           + ellip[i]*dImA_dt[j]*dC_dt[k]
+           + ellip[i]*ImA[j]*d2C_dt2[k]);
+      }
+
   /* Denominator - there is a different denominator for real and imaginary parts */
   double DenRePhiSb         = beta*C[3]*pow(alpha+beta, 2.5)/4.0;
   double dDenRePhiSb_dr     = beta*(6.0*C[2]*pow(alpha+beta, 2.5)*dC1_dr + C[3]*5.0*pow(alpha+beta, 1.5)*dalpha_dr)/8.0;
   double dDenRePhiSb_dtheta = beta*(6.0*C[2]*pow(alpha+beta, 2.5)*dC1_dtheta + C[3]*5.0*pow(alpha+beta, 1.5)*dalpha_dtheta)/8.0;
+  double dDenRePhiSb_dt     = beta*(6.0*C[2]*pow(alpha+beta, 2.5)*dC1_dt + C[3]*5.0*pow(alpha+beta, 1.5)*dalpha_dt)/8.0;
   double d2DenRePhiSb_dr2   = beta*C1*sqrt(alpha+beta)*(24*pow(alpha+beta, 2)*dC1_dr*dC1_dr + 60.0*C1*(alpha+beta)*dalpha_dr*dC1_dr + C1*(12.0*pow(alpha+beta, 2)*d2C1_dr2 + 5.0*C1*(3.0*dalpha_dr*dalpha_dr + 2.0*(alpha+beta)*d2alpha_dr2)))/16.0;
   double d2DenRePhiSb_dtheta2  = beta*C1*sqrt(alpha+beta)*(24*pow(alpha+beta, 2)*dC1_dtheta*dC1_dtheta + 60.0*C1*(alpha+beta)*dalpha_dtheta*dC1_dtheta + C1*(12.0*pow(alpha+beta, 2)*d2C1_dtheta2 + 5.0*C1*(3.0*dalpha_dtheta*dalpha_dtheta + 2.0*(alpha+beta)*d2alpha_dtheta2)))/16.0;
+  double d2DenRePhiSb_dt2   = beta*C1*sqrt(alpha+beta)*(24*pow(alpha+beta, 2)*dC1_dt*dC1_dt + 60.0*C1*(alpha+beta)*dalpha_dt*dC1_dt + C1*(12.0*pow(alpha+beta, 2)*d2C1_dt2 + 5.0*C1*(3.0*dalpha_dt*dalpha_dt + 2.0*(alpha+beta)*d2alpha_dt2)))/16.0;
 
   double DenImPhiSb           = -(beta*beta*C[2]*pow(alpha+beta, 1.5))/32.0;
   double dDenImPhiSb_dr       = -(pow(beta,2)*C1*sqrt(alpha + beta)*(4.0*(alpha + beta)*dC1_dr + 3*C1*dalpha_dr))/64.;
   double dDenImPhiSb_dtheta   = -(pow(beta,2)*C1*sqrt(alpha + beta)*(4.0*(alpha + beta)*dC1_dtheta + 3*C1*dalpha_dtheta))/64.;
+  double dDenImPhiSb_dt       = -(pow(beta,2)*C1*sqrt(alpha + beta)*(4.0*(alpha + beta)*dC1_dt + 3*C1*dalpha_dt))/64.;
   double d2DenImPhiSb_dr2     = -(pow(beta,2)*(C1*(8*pow(alpha + beta,2)*d2C1_dr2 + 3.0*C1*(2.0*(alpha + beta)*d2alpha_dr2 + pow(dalpha_dr,2))) + 24.0*(alpha + beta)*C1*dalpha_dr*dC1_dr + 8.0*pow(alpha + beta,2)*pow(dC1_dr,2)))/(128.*sqrt(alpha + beta));
   double d2DenImPhiSb_dtheta2 = -(pow(beta,2)*(C1*(8*pow(alpha + beta,2)*d2C1_dtheta2 + 3.0*C1*(2.0*(alpha + beta)*d2alpha_dtheta2 + pow(dalpha_dtheta,2))) + 24.0*(alpha + beta)*C1*dalpha_dtheta*dC1_dtheta + 8.0*pow(alpha + beta,2)*pow(dC1_dtheta,2)))/(128.*sqrt(alpha + beta));
+  double d2DenImPhiSb_dt2     = -(pow(beta,2)*(C1*(8*pow(alpha + beta,2)*d2C1_dt2 + 3.0*C1*(2.0*(alpha + beta)*d2alpha_dt2 + pow(dalpha_dt,2))) + 24.0*(alpha + beta)*C1*dalpha_dt*dC1_dt + 8.0*pow(alpha + beta,2)*pow(dC1_dt,2)))/(128.*sqrt(alpha + beta));
 
   /* m-modes for the rotated phi coordinate */
   double RePhiSb = NumRePhiSb/DenRePhiSb;
@@ -884,8 +1058,9 @@ void effsource_calc_m(int m, struct coordinate * x,
   double ImPhiS = ImPhiSb*coscmdr - RePhiSb*sincmdr;
 
   /* First derivatives */
-  double Re_dPhiS_dt  = 0; // FIXME
-  double Im_dPhiS_dt  = 0; // FIXME
+  double Re_dPhiS_dt  = (pow(DenImPhiSb,2)*(DenRePhiSb*dNumRePhiSb_dt - dDenRePhiSb_dt*NumRePhiSb)*coscmdr + pow(DenRePhiSb,2)*(DenImPhiSb*dNumImPhiSb_dt - dDenImPhiSb_dt*NumImPhiSb)*sincmdr)/(pow(DenImPhiSb,2)*pow(DenRePhiSb,2));
+  double Im_dPhiS_dt  = (pow(DenRePhiSb,2)*(DenImPhiSb*dNumImPhiSb_dt - dDenImPhiSb_dt*NumImPhiSb)*coscmdr - pow(DenImPhiSb,2)*(DenRePhiSb*dNumRePhiSb_dt - dDenRePhiSb_dt*NumRePhiSb)*sincmdr)/(pow(DenImPhiSb,2)*pow(DenRePhiSb,2));
+
   double Re_dPhiS_dr  = (DenImPhiSb*(DenImPhiSb*DenRePhiSb*dNumRePhiSb_dr + c*pow(DenRePhiSb,2)*m*NumImPhiSb - dDenRePhiSb_dr*DenImPhiSb*NumRePhiSb)*coscmdr + DenRePhiSb*(DenImPhiSb*DenRePhiSb*dNumImPhiSb_dr - dDenImPhiSb_dr*DenRePhiSb*NumImPhiSb - c*pow(DenImPhiSb,2)*m*NumRePhiSb)*sincmdr)/(pow(DenImPhiSb,2)*pow(DenRePhiSb,2));
   double Im_dPhiS_dr  = (DenRePhiSb*(DenImPhiSb*DenRePhiSb*dNumImPhiSb_dr - dDenImPhiSb_dr*DenRePhiSb*NumImPhiSb - c*pow(DenImPhiSb,2)*m*NumRePhiSb)*coscmdr - DenImPhiSb*(DenImPhiSb*DenRePhiSb*dNumRePhiSb_dr + c*pow(DenRePhiSb,2)*m*NumImPhiSb - dDenRePhiSb_dr*DenImPhiSb*NumRePhiSb)*sincmdr)/(pow(DenImPhiSb,2)*pow(DenRePhiSb,2));
   double Re_dPhiS_dth = (pow(DenImPhiSb,2)*(DenRePhiSb*dNumRePhiSb_dtheta - dDenRePhiSb_dtheta*NumRePhiSb)*coscmdr + pow(DenRePhiSb,2)*(DenImPhiSb*dNumImPhiSb_dtheta - dDenImPhiSb_dtheta*NumImPhiSb)*sincmdr)/(pow(DenImPhiSb,2)*pow(DenRePhiSb,2));
@@ -901,10 +1076,15 @@ void effsource_calc_m(int m, struct coordinate * x,
 
   double Re_d2PhiS_dph2  = -m*Im_dPhiS_dph;
   double Im_d2PhiS_dph2  = m*Re_dPhiS_dph;
-  double Re_d2PhiS_dt2   = 0; // FIXME
-  double Im_d2PhiS_dt2   = 0; // FIXME
-  double Re_d2PhiS_dtph  = 0; // FIXME
-  double Im_d2PhiS_dtph  = 0; // FIXME
+  double Re_d2PhiS_dt2   = (pow(DenImPhiSb,3)*(d2NumRePhiSb_dt2*pow(DenRePhiSb,2) - 2*dDenRePhiSb_dt*DenRePhiSb*dNumRePhiSb_dt + 2*pow(dDenRePhiSb_dt,2)*NumRePhiSb - d2DenRePhiSb_dt2*DenRePhiSb*NumRePhiSb)*coscmdr + pow(DenRePhiSb,3)*(d2NumImPhiSb_dt2*pow(DenImPhiSb,2) - 2*dDenImPhiSb_dt*DenImPhiSb*dNumImPhiSb_dt + 2*pow(dDenImPhiSb_dt,2)*NumImPhiSb - d2DenImPhiSb_dt2*DenImPhiSb*NumImPhiSb)*sincmdr)/ (pow(DenImPhiSb,3)*pow(DenRePhiSb,3));
+  double Im_d2PhiS_dt2   = (pow(DenRePhiSb,3)*(d2NumImPhiSb_dt2*pow(DenImPhiSb,2) - 2*dDenImPhiSb_dt*DenImPhiSb*dNumImPhiSb_dt + 2*pow(dDenImPhiSb_dt,2)*NumImPhiSb - d2DenImPhiSb_dt2*DenImPhiSb*NumImPhiSb)*coscmdr + pow(DenImPhiSb,3)*(-(d2NumRePhiSb_dt2*pow(DenRePhiSb,2)) + 2*dDenRePhiSb_dt*DenRePhiSb*dNumRePhiSb_dt - 2*pow(dDenRePhiSb_dt,2)*NumRePhiSb + d2DenRePhiSb_dt2*DenRePhiSb*NumRePhiSb)*sincmdr)/ (pow(DenImPhiSb,3)*pow(DenRePhiSb,3));
+  Re_d2PhiS_dt2 += m*phit*Im_dPhiS_dt - m*m*phit*phit*RePhiS + m*phitt*ImPhiS;
+  Im_d2PhiS_dt2 += -m*phit*Re_dPhiS_dt - m*m*phit*phit*ImPhiS - m*phitt*RePhiS;
+  Re_dPhiS_dt += m*phit*ImPhiS;
+  Im_dPhiS_dt += -m*phit*RePhiS;
+
+  double Re_d2PhiS_dtph  = -m*Im_dPhiS_dt;
+  double Im_d2PhiS_dtph  = m*Re_dPhiS_dt;
   double Re_d2PhiS_dtr   = NAN;
   double Im_d2PhiS_dtr   = NAN;
   double Re_d2PhiS_dtth  = NAN;
