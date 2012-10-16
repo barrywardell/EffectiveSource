@@ -385,7 +385,7 @@ void effsource_calc(struct coordinate * x,
   ds2_dt     = dalphadt20*dr2 + dalphadt02*dtheta2 + dbetadt*dQ2;
 
   /* d^2s/dx^2 */
-  d2s2_dr2   = 2*alpha20 + 2*beta*dQ_dr*dQ_dr + 2*beta*dQ*d2Q_dr2;
+  d2s2_dr2   = 2*alpha20;
   d2s2_dth2  = 2*alpha02;
   d2s2_dQ2   = 2*beta;
   d2s2_dtQ   = 2*dbetadt*dQ;
@@ -397,7 +397,7 @@ void effsource_calc(struct coordinate * x,
   double Ds2_Dph   = ds2_dQ*dQ_dph;
 
   double D2s2_Dph2 = ds2_dQ*d2Q_dph2 + dQ_dph*dQ_dph*d2s2_dQ2;
-  double D2s2_Dr2  = d2s2_dr2 + d2Q_dr2*ds2_dQ + d2s2_dQ2*dQ_dr*dQ_dr;
+  double D2s2_Dr2  = d2s2_dr2 + d2s2_dQ2*dQ_dr*dQ_dr + ds2_dQ*d2Q_dr2 + d2Q_dr2*ds2_dQ + d2s2_dQ2*dQ_dr*dQ_dr;
   double D2s2_Dtph = ds2_dQ*d2Q_dtph + d2s2_dQ2*dQ_dph*dQ_dt + d2s2_dtQ*dQ_dph;
   double D2s2_Dt2  = d2s2_dt2 + ds2_dQ*d2Q_dt2 + d2s2_dQ2*dQ_dt*dQ_dt - ds2_dr*rtt + d2s2_dr2*rt*rt + 2.0*d2s2_dtQ*dQ_dt - 2.0*d2s2_dtr*rt;
 
