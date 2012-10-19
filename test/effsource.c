@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
     e = sqrt((-434070 + 2471*a*a + 6*sqrt(110)*a*sqrt(6237 + 162*a*a + a*a*a*a))/(-474721 + 3960*a*a));
     l = ((261*a + a*a*a - 3*sqrt(110)*sqrt(6237 + 162*a*a + a*a*a*a))*
         sqrt((-434070 + 2471*a*a + 6*sqrt(110)*a*sqrt(6237 + 162*a*a + a*a*a*a))/(-474721 + 3960*a*a)))/(-630 + a*a);
-    ur = -sqrt(-1 + e*e - 2*(-(l-a*e)*(l-a*e)*M/r_p*r_p*r_p + (l*l-a*a*(e*e-1))/(2.*r_p*r_p) - M/r_p));
+    ur = -sqrt(-1 + e*e - 2*(-(l-a*e)*(l-a*e)*M/(r_p*r_p*r_p) + (l*l-a*a*(e*e-1))/(2.*r_p*r_p) - M/r_p));
   } else {
     /* Circular orbit of radius 10M */
     e = ((r_p-2.0*M)*sqrt(M*r_p)+a*M)/(sqrt(M*r_p)*sqrt(r_p*r_p-3.0*M*r_p+2.0*a*sqrt(M*r_p)));
