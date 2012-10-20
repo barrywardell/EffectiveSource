@@ -1034,7 +1034,7 @@ void effsource_calc_m(int m, struct coordinate * x,
   double DenRePhiSb         = beta*C[3]*pow(alpha+beta, 2.5)/4.0;
   double dDenRePhiSb_dr     = beta*(6.0*C[2]*pow(alpha+beta, 2.5)*dC1_dr + C[3]*5.0*pow(alpha+beta, 1.5)*dalpha_dr)/8.0;
   double dDenRePhiSb_dtheta = beta*(6.0*C[2]*pow(alpha+beta, 2.5)*dC1_dtheta + C[3]*5.0*pow(alpha+beta, 1.5)*dalpha_dtheta)/8.0;
-  double dDenRePhiSb_dt     = beta*(6.0*C[2]*pow(alpha+beta, 2.5)*dC1_dt + C[3]*5.0*pow(alpha+beta, 1.5)*dalpha_dt)/8.0;
+  double dDenRePhiSb_dt     = (pow(alpha + beta,1.5)*C[2]*(6*dC1_dt*beta*(alpha + beta) + 5*(dalpha_dt + dbetadt)*beta*C1 + 2*dbetadt*(alpha + beta)*C1))/8.0;
   double d2DenRePhiSb_dr2   = beta*C1*sqrt(alpha+beta)*(24*pow(alpha+beta, 2)*dC1_dr*dC1_dr + 60.0*C1*(alpha+beta)*dalpha_dr*dC1_dr + C1*(12.0*pow(alpha+beta, 2)*d2C1_dr2 + 5.0*C1*(3.0*dalpha_dr*dalpha_dr + 2.0*(alpha+beta)*d2alpha_dr2)))/16.0;
   double d2DenRePhiSb_dtheta2  = beta*C1*sqrt(alpha+beta)*(24*pow(alpha+beta, 2)*dC1_dtheta*dC1_dtheta + 60.0*C1*(alpha+beta)*dalpha_dtheta*dC1_dtheta + C1*(12.0*pow(alpha+beta, 2)*d2C1_dtheta2 + 5.0*C1*(3.0*dalpha_dtheta*dalpha_dtheta + 2.0*(alpha+beta)*d2alpha_dtheta2)))/16.0;
   double d2DenRePhiSb_dt2   = beta*C1*sqrt(alpha+beta)*(24*pow(alpha+beta, 2)*dC1_dt*dC1_dt + 60.0*C1*(alpha+beta)*dalpha_dt*dC1_dt + C1*(12.0*pow(alpha+beta, 2)*d2C1_dt2 + 5.0*C1*(3.0*dalpha_dt*dalpha_dt + 2.0*(alpha+beta)*d2alpha_dt2)))/16.0;
@@ -1042,7 +1042,7 @@ void effsource_calc_m(int m, struct coordinate * x,
   double DenImPhiSb           = -(beta*beta*C[2]*pow(alpha+beta, 1.5))/32.0;
   double dDenImPhiSb_dr       = -(pow(beta,2)*C1*sqrt(alpha + beta)*(4.0*(alpha + beta)*dC1_dr + 3*C1*dalpha_dr))/64.;
   double dDenImPhiSb_dtheta   = -(pow(beta,2)*C1*sqrt(alpha + beta)*(4.0*(alpha + beta)*dC1_dtheta + 3*C1*dalpha_dtheta))/64.;
-  double dDenImPhiSb_dt       = -(pow(beta,2)*C1*sqrt(alpha + beta)*(4.0*(alpha + beta)*dC1_dt + 3*C1*dalpha_dt))/64.;
+  double dDenImPhiSb_dt       = (beta*sqrt(alpha + beta)*C1*(-4*dC1_dt*beta*(alpha + beta) - 3*(dalpha_dt + dbetadt)*beta*C1 - 4*dbetadt*(alpha + beta)*C1))/64.0;
   double d2DenImPhiSb_dr2     = -(pow(beta,2)*(C1*(8*pow(alpha + beta,2)*d2C1_dr2 + 3.0*C1*(2.0*(alpha + beta)*d2alpha_dr2 + pow(dalpha_dr,2))) + 24.0*(alpha + beta)*C1*dalpha_dr*dC1_dr + 8.0*pow(alpha + beta,2)*pow(dC1_dr,2)))/(128.*sqrt(alpha + beta));
   double d2DenImPhiSb_dtheta2 = -(pow(beta,2)*(C1*(8*pow(alpha + beta,2)*d2C1_dtheta2 + 3.0*C1*(2.0*(alpha + beta)*d2alpha_dtheta2 + pow(dalpha_dtheta,2))) + 24.0*(alpha + beta)*C1*dalpha_dtheta*dC1_dtheta + 8.0*pow(alpha + beta,2)*pow(dC1_dtheta,2)))/(128.*sqrt(alpha + beta));
   double d2DenImPhiSb_dt2     = -(pow(beta,2)*(C1*(8*pow(alpha + beta,2)*d2C1_dt2 + 3.0*C1*(2.0*(alpha + beta)*d2alpha_dt2 + pow(dalpha_dt,2))) + 24.0*(alpha + beta)*C1*dalpha_dt*dC1_dt + 8.0*pow(alpha + beta,2)*pow(dC1_dt,2)))/(128.*sqrt(alpha + beta));
