@@ -537,17 +537,6 @@ void effsource_calc_m(int m, struct coordinate * x,
   dReA_dt[4] = dAdt0080 + dAdt1080*dr;
   dImA_dt[4] = dAdt0081;
 
-  dReA_dt[0] -= dReA_dr[0]*rt;
-  dImA_dt[0] -= dImA_dr[0]*rt;
-  dReA_dt[1] -= dReA_dr[1]*rt;
-  dImA_dt[1] -= dImA_dr[1]*rt;
-  dReA_dt[2] -= dReA_dr[2]*rt;
-  dImA_dt[2] -= dImA_dr[2]*rt;
-  dReA_dt[3] -= dReA_dr[3]*rt;
-  dImA_dt[3] -= dImA_dr[3]*rt;
-  dReA_dt[4] -= dReA_dr[4]*rt;
-  dImA_dt[4] -= dImA_dr[4]*rt;
-
   /* t,r derivatives of coefficients */
   d2ReA_dtr[0] = 6*dAdt6000*dr5 + 7*dAdt7000*dr6 + 8*dAdt8000*dr7 + 9*dAdt9000*dr8 + 4*dAdt4200*dr3*dtheta2 + 5*dAdt5200*dr4*dtheta2 + 6*dAdt6200*dr5*dtheta2 + 7*dAdt7200*dr6*dtheta2 + 2*dAdt2400*dr*dtheta4 + 3*dAdt3400*dr2*dtheta4 + 4*dAdt4400*dr3*dtheta4 + 5*dAdt5400*dr4*dtheta4 + dAdt1600*dtheta6 + 2*dAdt2600*dr*dtheta6 + 3*dAdt3600*dr2*dtheta6 + dAdt1800*dtheta8;
   d2ImA_dtr[0] = 6*dAdt6001*dr5 + 7*dAdt7001*dr6 + 8*dAdt8001*dr7 + 4*dAdt4201*dr3*dtheta2 + 5*dAdt5201*dr4*dtheta2 + 6*dAdt6201*dr5*dtheta2 + 2*dAdt2401*dr*dtheta4 + 3*dAdt3401*dr2*dtheta4 + 4*dAdt4401*dr3*dtheta4 + dAdt1601*dtheta6 + 2*dAdt2601*dr*dtheta6;
@@ -571,17 +560,6 @@ void effsource_calc_m(int m, struct coordinate * x,
   d2ImA_dt2[3] = d2Adt20061 + d2Adt21061*dr + d2Adt22061*dr2 + d2Adt20261*dtheta2;
   d2ReA_dt2[4] = d2Adt20080 + d2Adt21080*dr;
   d2ImA_dt2[4] = d2Adt20081;
-
-  d2ReA_dt2[0] -= d2ReA_dr2[0]*rt;
-  d2ImA_dt2[0] -= d2ImA_dr2[0]*rt;
-  d2ReA_dt2[1] -= d2ReA_dr2[1]*rt;
-  d2ImA_dt2[1] -= d2ImA_dr2[1]*rt;
-  d2ReA_dt2[2] -= d2ReA_dr2[2]*rt;
-  d2ImA_dt2[2] -= d2ImA_dr2[2]*rt;
-  d2ReA_dt2[3] -= d2ReA_dr2[3]*rt;
-  d2ImA_dt2[3] -= d2ImA_dr2[3]*rt;
-  d2ReA_dt2[4] -= d2ReA_dr2[4]*rt;
-  d2ImA_dt2[4] -= d2ImA_dr2[4]*rt;
 
   /* r derivatives of coefficients */
   dReA_dr[0] = 6*A6000*dr5 + 7*A7000*dr6 + 8*A8000*dr7 + 9*A9000*dr8 + 4*A4200*dr3*dtheta2 + 5*A5200*dr4*dtheta2 + 6*A6200*dr5*dtheta2 + 7*A7200*dr6*dtheta2 + 2*A2400*dr*dtheta4 + 3*A3400*dr2*dtheta4 + 4*A4400*dr3*dtheta4 + 5*A5400*dr4*dtheta4 + A1600*dtheta6 + 2*A2600*dr*dtheta6 + 3*A3600*dr2*dtheta6 + A1800*dtheta8;
@@ -630,6 +608,30 @@ void effsource_calc_m(int m, struct coordinate * x,
   d2ImA_dtheta2[3] = 2*A0261;
   d2ReA_dtheta2[4] = 0;
   d2ImA_dtheta2[4] = 0;
+
+  /* t derivatives of coefficients - add terms from derivatives of Delta r */
+  dReA_dt[0] -= dReA_dr[0]*rt;
+  dImA_dt[0] -= dImA_dr[0]*rt;
+  dReA_dt[1] -= dReA_dr[1]*rt;
+  dImA_dt[1] -= dImA_dr[1]*rt;
+  dReA_dt[2] -= dReA_dr[2]*rt;
+  dImA_dt[2] -= dImA_dr[2]*rt;
+  dReA_dt[3] -= dReA_dr[3]*rt;
+  dImA_dt[3] -= dImA_dr[3]*rt;
+  dReA_dt[4] -= dReA_dr[4]*rt;
+  dImA_dt[4] -= dImA_dr[4]*rt;
+
+  /* t,t derivatives of coefficients - add terms from derivatives of Delta r */
+  d2ReA_dt2[0] -= d2ReA_dr2[0]*rt;
+  d2ImA_dt2[0] -= d2ImA_dr2[0]*rt;
+  d2ReA_dt2[1] -= d2ReA_dr2[1]*rt;
+  d2ImA_dt2[1] -= d2ImA_dr2[1]*rt;
+  d2ReA_dt2[2] -= d2ReA_dr2[2]*rt;
+  d2ImA_dt2[2] -= d2ImA_dr2[2]*rt;
+  d2ReA_dt2[3] -= d2ReA_dr2[3]*rt;
+  d2ImA_dt2[3] -= d2ImA_dr2[3]*rt;
+  d2ReA_dt2[4] -= d2ReA_dr2[4]*rt;
+  d2ImA_dt2[4] -= d2ImA_dr2[4]*rt;
 
   /* alpha term appearing in the denominator */
   double alpha = alpha20*dr2 + alpha02*dtheta2;
