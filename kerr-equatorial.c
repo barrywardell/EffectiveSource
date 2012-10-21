@@ -1060,8 +1060,8 @@ void effsource_calc_m(int m, struct coordinate * x,
   double ImPhiS = ImPhiSb*coscmdr - RePhiSb*sincmdr;
 
   /* First derivatives */
-  double Re_dPhiS_dt  = (pow(DenImPhiSb,2)*(DenRePhiSb*dNumRePhiSb_dt - dDenRePhiSb_dt*NumRePhiSb)*coscmdr + pow(DenRePhiSb,2)*(DenImPhiSb*dNumImPhiSb_dt - dDenImPhiSb_dt*NumImPhiSb)*sincmdr)/(pow(DenImPhiSb,2)*pow(DenRePhiSb,2));
-  double Im_dPhiS_dt  = (pow(DenRePhiSb,2)*(DenImPhiSb*dNumImPhiSb_dt - dDenImPhiSb_dt*NumImPhiSb)*coscmdr - pow(DenImPhiSb,2)*(DenRePhiSb*dNumRePhiSb_dt - dDenRePhiSb_dt*NumRePhiSb)*sincmdr)/(pow(DenImPhiSb,2)*pow(DenRePhiSb,2));
+  double Re_dPhiS_dt  = (DenImPhiSb*(DenImPhiSb*DenRePhiSb*dNumRePhiSb_dt - (c*rt-dr*dcdt)*pow(DenRePhiSb,2)*m*NumImPhiSb - dDenRePhiSb_dt*DenImPhiSb*NumRePhiSb)*coscmdr + DenRePhiSb*(DenImPhiSb*DenRePhiSb*dNumImPhiSb_dt - dDenImPhiSb_dt*DenRePhiSb*NumImPhiSb + (c*rt-dr*dcdt)*pow(DenImPhiSb,2)*m*NumRePhiSb)*sincmdr)/(pow(DenImPhiSb,2)*pow(DenRePhiSb,2));
+  double Im_dPhiS_dt  = (DenRePhiSb*(DenImPhiSb*DenRePhiSb*dNumImPhiSb_dt - dDenImPhiSb_dt*DenRePhiSb*NumImPhiSb + (c*rt-dr*dcdt)*pow(DenImPhiSb,2)*m*NumRePhiSb)*coscmdr - DenImPhiSb*(DenImPhiSb*DenRePhiSb*dNumRePhiSb_dt - (c*rt-dr*dcdt)*pow(DenRePhiSb,2)*m*NumImPhiSb - dDenRePhiSb_dt*DenImPhiSb*NumRePhiSb)*sincmdr)/(pow(DenImPhiSb,2)*pow(DenRePhiSb,2));
 
   double Re_dPhiS_dr  = (DenImPhiSb*(DenImPhiSb*DenRePhiSb*dNumRePhiSb_dr + c*pow(DenRePhiSb,2)*m*NumImPhiSb - dDenRePhiSb_dr*DenImPhiSb*NumRePhiSb)*coscmdr + DenRePhiSb*(DenImPhiSb*DenRePhiSb*dNumImPhiSb_dr - dDenImPhiSb_dr*DenRePhiSb*NumImPhiSb - c*pow(DenImPhiSb,2)*m*NumRePhiSb)*sincmdr)/(pow(DenImPhiSb,2)*pow(DenRePhiSb,2));
   double Im_dPhiS_dr  = (DenRePhiSb*(DenImPhiSb*DenRePhiSb*dNumImPhiSb_dr - dDenImPhiSb_dr*DenRePhiSb*NumImPhiSb - c*pow(DenImPhiSb,2)*m*NumRePhiSb)*coscmdr - DenImPhiSb*(DenImPhiSb*DenRePhiSb*dNumRePhiSb_dr + c*pow(DenRePhiSb,2)*m*NumImPhiSb - dDenRePhiSb_dr*DenImPhiSb*NumRePhiSb)*sincmdr)/(pow(DenImPhiSb,2)*pow(DenRePhiSb,2));
