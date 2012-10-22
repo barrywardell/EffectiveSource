@@ -31,6 +31,7 @@ extern double M, a;
 /* Static variables used to store the coefficients of the series expansions */
 double dAdt0060, dAdt0061, dAdt0080, dAdt0081, dAdt0240, dAdt0241, dAdt0260, dAdt0261, dAdt0420, dAdt0421, dAdt0440, dAdt0441, dAdt0600, dAdt0601, dAdt0620, dAdt0621, dAdt0800, dAdt0801, dAdt1060, dAdt1061, dAdt1080, dAdt1240, dAdt1241, dAdt1260, dAdt1420, dAdt1421, dAdt1440, dAdt1600, dAdt1601, dAdt1620, dAdt1800, dAdt2040, dAdt2041, dAdt2060, dAdt2061, dAdt2220, dAdt2221, dAdt2240, dAdt2241, dAdt2400, dAdt2401, dAdt2420, dAdt2421, dAdt2600, dAdt2601, dAdt3040, dAdt3041, dAdt3060, dAdt3220, dAdt3221, dAdt3240, dAdt3400, dAdt3401, dAdt3420, dAdt3600, dAdt4020, dAdt4021, dAdt4040, dAdt4041, dAdt4200, dAdt4201, dAdt4220, dAdt4221, dAdt4400, dAdt4401, dAdt5020, dAdt5021, dAdt5040, dAdt5200, dAdt5201, dAdt5220, dAdt5400, dAdt6000, dAdt6001, dAdt6020, dAdt6021, dAdt6200, dAdt6201, dAdt7000, dAdt7001, dAdt7020, dAdt7200, dAdt8000, dAdt8001, dAdt9000;
 double dalphadt20, dalphadt02, dbetadt, dcdt;
+double dC1_dt02, dC1_dt10, dC1_dt20;
 
 /* Initialize array of coefficients of pows of dr, dtheta, sin(dphi) and sin(dphi/2) */
 void effsource_set_particle_dt(struct coordinate * x_p, double E, double L, double ur)
@@ -132,6 +133,11 @@ void effsource_set_particle_dt(struct coordinate * x_p, double E, double L, doub
   dalphadt20 = (2*r*(rt*(4*pow(a,8)*pow(M,2) + 4*pow(a,6)*M*(pow(a,2) + pow(L,2) - 3*pow(M,2))*r - M*pow(r,7)*(5*pow(a,2) + 2*pow(L,2) + 4*(pow(a,2) + pow(L,2))*pow(ur,2)) + pow(r,8)*(pow(a,2) + 2*pow(M,2) + (2*pow(a,2) + pow(L,2))*pow(ur,2)) + M*pow(r,5)*(-3*pow(a,4) - pow(L,4) - 8*pow(a,2)*(pow(L,2) - pow(M,2)) + (6*pow(a,4) - 3*pow(a,2)*pow(L,2))*pow(ur,2)) - pow(r,9)*(M + 2*M*pow(ur,2)) + pow(a,4)*pow(r,2)*(pow(a,4) + pow(L,4) - 12*pow(L,2)*pow(M,2) + 8*pow(M,4) + 2*pow(a,2)*(pow(L,2) - 4*pow(M,2)) + 8*pow(a,2)*pow(M,2)*pow(ur,2)) + pow(r,6)*(3*pow(a,4) + 2*pow(a,2)*pow(L,2) + 4*pow(L,2)*pow(M,2) + pow(a,2)*(4*pow(a,2) + 3*pow(L,2) - 8*pow(M,2))*pow(ur,2)) + pow(a,2)*M*pow(r,3)*(5*pow(a,4) - 3*pow(L,4) + 8*pow(L,2)*pow(M,2) - 2*pow(a,2)*(pow(L,2) - 2*pow(M,2)) + pow(a,2)*(8*pow(a,2) + 3*pow(L,2) - 8*pow(M,2))*pow(ur,2)) + pow(r,4)*(3*pow(a,6) + pow(a,2)*pow(L,4) + 2*pow(L,4)*pow(M,2) + 2*pow(a,4)*(2*pow(L,2) - 7*pow(M,2)) + 2*(pow(a,6) - pow(a,2)*pow(L,2)*pow(M,2) + pow(a,4)*(pow(L,2) - 4*pow(M,2)))*pow(ur,2))) + pow(r,3)*(2*pow(a,2)*M + (pow(a,2) + pow(L,2))*r + pow(r,3))*(2*pow(a,4)*M + (pow(a,4) - 4*pow(a,2)*pow(M,2))*r + 2*pow(a,2)*pow(r,3) - 2*M*pow(r,4) + pow(r,5))*ur*urt))/(pow(pow(a,2) - 2*M*r + pow(r,2),3)*pow(2*pow(a,2)*M + (pow(a,2) + pow(L,2))*r + pow(r,3),2));
   dalphadt02 = 2*r*rt;
   dbetadt = (8*(-(pow(a,2)*M) + pow(r,3))*rt)/pow(r,2);
+
+  /* Compute C1 = alpha/beta coefficients */
+  dC1_dt02 = (pow(r,3)*(pow(a,2) + r*(-2*M + r))*(pow(L,2)*r + pow(a,2)*(3*M + r))*ur)/(2.*(-2*a*L*M + E*pow(r,3) + pow(a,2)*E*(2*M + r))*pow(pow(a,2)*(2*M + r) + r*(pow(L,2) + pow(r,2)),2));
+  dC1_dt10 = -(pow(r,3)*(-2*a*L*M + E*pow(r,3) + pow(a,2)*E*(2*M + r))*ur)/(2.*(pow(a,2) + r*(-2*M + r))*pow(pow(a,2)*(2*M + r) + r*(pow(L,2) + pow(r,2)),2));
+  dC1_dt20 = -(pow(r,2)*(4*pow(a,5)*L*pow(M,2) - 8*pow(a,3)*L*M*pow(r,3) - pow(a,6)*E*pow(2*M + r,2) - pow(a,4)*E*pow(r,2)*(pow(L,2) - 4*pow(M,2) + pow(r,2)) + 4*a*L*M*pow(r,2)*(pow(L,2)*(M - r) + (3*M - 2*r)*pow(r,2)) + E*pow(r,5)*(pow(L,2)*(4*M - r) + pow(r,3)) + pow(a,2)*E*pow(r,2)*(pow(r,3)*(4*M + r) - 2*pow(L,2)*(2*pow(M,2) - 2*M*r + pow(r,2))))*ur)/(2.*pow(pow(a,2) + r*(-2*M + r),2)*pow(pow(a,2)*(2*M + r) + r*(pow(L,2) + pow(r,2)),3));
 
   /* Coefficient in front of dr in twisted coordinate */
   dcdt = -((L*pow(r,2)*(2*(3*pow(a,4)*M + pow(a,2)*(pow(a,2) + pow(L,2) - 4*pow(M,2))*r - pow(L,2)*M*pow(r,2) + M*pow(r,4) - pow(r,5))*rt*ur + r*(pow(a,2) - 2*M*r + pow(r,2))*(2*pow(a,2)*M + (pow(a,2) + pow(L,2))*r + pow(r,3))*urt))/(pow(pow(a,2) - 2*M*r + pow(r,2),2)*pow(2*pow(a,2)*M + (pow(a,2) + pow(L,2))*r + pow(r,3),2)));
