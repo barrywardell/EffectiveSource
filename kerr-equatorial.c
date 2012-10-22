@@ -622,21 +622,21 @@ void effsource_calc_m(int m, struct coordinate * x,
   dImA_dt[4] -= dImA_dr[4]*rt;
 
   /* t,t derivatives of coefficients - add terms from derivatives of Delta r */
-  d2ReA_dt2[0] -= d2ReA_dr2[0]*rt;
-  d2ImA_dt2[0] -= d2ImA_dr2[0]*rt;
-  d2ReA_dt2[1] -= d2ReA_dr2[1]*rt;
-  d2ImA_dt2[1] -= d2ImA_dr2[1]*rt;
-  d2ReA_dt2[2] -= d2ReA_dr2[2]*rt;
-  d2ImA_dt2[2] -= d2ImA_dr2[2]*rt;
-  d2ReA_dt2[3] -= d2ReA_dr2[3]*rt;
-  d2ImA_dt2[3] -= d2ImA_dr2[3]*rt;
-  d2ReA_dt2[4] -= d2ReA_dr2[4]*rt;
-  d2ImA_dt2[4] -= d2ImA_dr2[4]*rt;
+  d2ReA_dt2[0] += - dReA_dr[0]*rtt + d2ReA_dr2[0]*rt*rt - 2*d2ReA_dtr[0]*rt;
+  d2ImA_dt2[0] += - dImA_dr[0]*rtt + d2ImA_dr2[0]*rt*rt - 2*d2ImA_dtr[0]*rt;
+  d2ReA_dt2[1] += - dReA_dr[1]*rtt + d2ReA_dr2[1]*rt*rt - 2*d2ReA_dtr[1]*rt;
+  d2ImA_dt2[1] += - dImA_dr[1]*rtt + d2ImA_dr2[1]*rt*rt - 2*d2ImA_dtr[1]*rt;
+  d2ReA_dt2[2] += - dReA_dr[2]*rtt + d2ReA_dr2[2]*rt*rt - 2*d2ReA_dtr[2]*rt;
+  d2ImA_dt2[2] += - dImA_dr[2]*rtt + d2ImA_dr2[2]*rt*rt - 2*d2ImA_dtr[2]*rt;
+  d2ReA_dt2[3] += - dReA_dr[3]*rtt + d2ReA_dr2[3]*rt*rt - 2*d2ReA_dtr[3]*rt;
+  d2ImA_dt2[3] += - dImA_dr[3]*rtt + d2ImA_dr2[3]*rt*rt - 2*d2ImA_dtr[3]*rt;
+  d2ReA_dt2[4] += - dReA_dr[4]*rtt + d2ReA_dr2[4]*rt*rt - 2*d2ReA_dtr[4]*rt;
+  d2ImA_dt2[4] += - dImA_dr[4]*rtt + d2ImA_dr2[4]*rt*rt - 2*d2ImA_dtr[4]*rt;
 
   /* alpha term appearing in the denominator */
   double alpha = alpha20*dr2 + alpha02*dtheta2;
   double dalpha_dt = dalphadt20*dr2 + dalphadt02*dtheta2 - 2.0*alpha20*dr*rt;
-  double d2alpha_dt2 = d2alphadt220*dr2 + d2alphadt202*dtheta2 - 2.0*dalphadt20*dr*rt + 2.0*alpha20*rt*rt - 2.0*alpha20*dr*rtt;
+  double d2alpha_dt2 = d2alphadt220*dr2 + d2alphadt202*dtheta2 - 4.0*dalphadt20*dr*rt + 2.0*alpha20*rt*rt - 2.0*alpha20*dr*rtt;
 
   /* Derivatives of alpha */
   double dalpha_dr       = 2*alpha20*dr;
@@ -1039,7 +1039,7 @@ void effsource_calc_m(int m, struct coordinate * x,
   double dDenRePhiSb_dt     = (pow(alpha + beta,1.5)*C[2]*(6*dC1_dt*beta*(alpha + beta) + 5*(dalpha_dt + dbetadt)*beta*C1 + 2*dbetadt*(alpha + beta)*C1))/8.0;
   double d2DenRePhiSb_dr2   = beta*C1*sqrt(alpha+beta)*(24*pow(alpha+beta, 2)*dC1_dr*dC1_dr + 60.0*C1*(alpha+beta)*dalpha_dr*dC1_dr + C1*(12.0*pow(alpha+beta, 2)*d2C1_dr2 + 5.0*C1*(3.0*dalpha_dr*dalpha_dr + 2.0*(alpha+beta)*d2alpha_dr2)))/16.0;
   double d2DenRePhiSb_dtheta2  = beta*C1*sqrt(alpha+beta)*(24*pow(alpha+beta, 2)*dC1_dtheta*dC1_dtheta + 60.0*C1*(alpha+beta)*dalpha_dtheta*dC1_dtheta + C1*(12.0*pow(alpha+beta, 2)*d2C1_dtheta2 + 5.0*C1*(3.0*dalpha_dtheta*dalpha_dtheta + 2.0*(alpha+beta)*d2alpha_dtheta2)))/16.0;
-  double d2DenRePhiSb_dt2   = beta*C1*sqrt(alpha+beta)*(24*pow(alpha+beta, 2)*dC1_dt*dC1_dt + 60.0*C1*(alpha+beta)*dalpha_dt*dC1_dt + C1*(12.0*pow(alpha+beta, 2)*d2C1_dt2 + 5.0*C1*(3.0*dalpha_dt*dalpha_dt + 2.0*(alpha+beta)*d2alpha_dt2)))/16.0;
+  double d2DenRePhiSb_dt2   = (sqrt(alpha + beta)*C1*(4*pow(alpha + beta,2)*C[2]*d2betadt2 + 10*beta*(alpha + beta)*C[2]*(d2alpha_dt2 + d2betadt2) + 12*beta*pow(alpha + beta,2)*C1*d2C1_dt2 + 20*(alpha + beta)*C[2]*dbetadt*(dalpha_dt + dbetadt) + 15*beta*C[2]*pow(dalpha_dt + dbetadt,2) + 24*pow(alpha + beta,2)*C1*dbetadt*dC1_dt + 60*beta*(alpha + beta)*C1*(dalpha_dt + dbetadt)*dC1_dt + 24*beta*pow(dC1_dt*(alpha + beta),2)))/16.0;
 
   double DenImPhiSb           = -(beta*beta*C[2]*pow(alpha+beta, 1.5))/32.0;
   double dDenImPhiSb_dr       = -(pow(beta,2)*C1*sqrt(alpha + beta)*(4.0*(alpha + beta)*dC1_dr + 3*C1*dalpha_dr))/64.;
@@ -1047,7 +1047,7 @@ void effsource_calc_m(int m, struct coordinate * x,
   double dDenImPhiSb_dt       = (beta*sqrt(alpha + beta)*C1*(-4*dC1_dt*beta*(alpha + beta) - 3*(dalpha_dt + dbetadt)*beta*C1 - 4*dbetadt*(alpha + beta)*C1))/64.0;
   double d2DenImPhiSb_dr2     = -(pow(beta,2)*(C1*(8*pow(alpha + beta,2)*d2C1_dr2 + 3.0*C1*(2.0*(alpha + beta)*d2alpha_dr2 + pow(dalpha_dr,2))) + 24.0*(alpha + beta)*C1*dalpha_dr*dC1_dr + 8.0*pow(alpha + beta,2)*pow(dC1_dr,2)))/(128.*sqrt(alpha + beta));
   double d2DenImPhiSb_dtheta2 = -(pow(beta,2)*(C1*(8*pow(alpha + beta,2)*d2C1_dtheta2 + 3.0*C1*(2.0*(alpha + beta)*d2alpha_dtheta2 + pow(dalpha_dtheta,2))) + 24.0*(alpha + beta)*C1*dalpha_dtheta*dC1_dtheta + 8.0*pow(alpha + beta,2)*pow(dC1_dtheta,2)))/(128.*sqrt(alpha + beta));
-  double d2DenImPhiSb_dt2     = -(pow(beta,2)*(C1*(8*pow(alpha + beta,2)*d2C1_dt2 + 3.0*C1*(2.0*(alpha + beta)*d2alpha_dt2 + pow(dalpha_dt,2))) + 24.0*(alpha + beta)*C1*dalpha_dt*dC1_dt + 8.0*pow(alpha + beta,2)*pow(dC1_dt,2)))/(128.*sqrt(alpha + beta));
+  double d2DenImPhiSb_dt2     = (-3*pow(beta*C1*dalpha_dt,2) - (8*pow(alpha,2) + 40*alpha*beta + 35*pow(beta,2))*C[2]*pow(dbetadt,2) - 8*beta*(alpha + beta)*(4*alpha + 7*beta)*C1*dbetadt*dC1_dt - 6*beta*C1*dalpha_dt*((4*alpha + 5*beta)*C1*dbetadt + 4*beta*(alpha + beta)*dC1_dt) + 2*beta*(alpha + beta)*(C1*(-(C1*(3*beta*d2alpha_dt2 + (4*alpha + 7*beta)*d2betadt2)) - 4*beta*(alpha + beta)*d2C1_dt2) - 4*beta*(alpha + beta)*pow(dC1_dt,2)))/(128*sqrt(alpha + beta));
 
   /* m-modes for the rotated phi coordinate */
   double RePhiSb = NumRePhiSb/DenRePhiSb;
