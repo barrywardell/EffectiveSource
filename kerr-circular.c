@@ -17,29 +17,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston MA 02110-1301, USA.
  *
- * Version 3.0 beta 1 - 30 May 2012
- *
- * This code compute the singular field and effective source for a point scalar
- * particle following an equatorial geodesic orbit in Kerr.
- *
- * Definitions: x is the 4-dimensional location of the field point, xp is the
- *        location of the particle. M is the mass of the background Kerr black
- *        hole. a = J/M is the spin of the black hole in units of M.
- *
- * Usage: Call effsource_init(M, a) at startup to set the mass and spin of the
- *        central black hole.
- *
- *        Call either effsource_set_particle(x_p, u_p) or
- *        effsource_set_particle_el(x_p, e, l, ur_p) every time the particle's
- *        position (x_p), velocity (u_p, ur_p) or constants of motion (e, l) change.
- *
- *        effsource_PhiS(x, *PhiS) stores the value of the singular field in PhiS
- *
- *        effsource_calc(x, *PhiS, *dPhiS_dr, *dPhiS_dth, *dPhiS_dph, *src)
- *        computes the singular field, its spatial derivatives and its
- *        d'Alembertian and stores them in the variables PhiS, dPhiS_dr,
- *        dPhiS_dth, dPhiS_dph and src.
- *
  */
 
 #include <math.h>

@@ -1,26 +1,81 @@
 EffectiveSource
-------------------------------------------------------------------------------
-Numerical code for the effective source for a point particle moving in a
-curved background spacetime
+===============
+
+Numerical code for computing the effective source for a point particle moving
+in a curved background spacetime
 
 Getting the code
 ----------------
-To get the code, run
+The latest version of this code is always available from the project's git
+repository at
 
-git clone git://github.com/barrywardell/EffectiveSource
+  git://github.com/barrywardell/EffectiveSource
 
-Compiling
----------
-This code has no requirements other than a C compiler.
+Description
+-----------
+This code compute the singular field and effective source for a point scalar
+particle following an equatorial geodesic orbit in Kerr.
+
+Definitions:
+ * x is the 4-dimensional location of the field point.
+ * x_p is the location of the particle.
+ * M is the mass of the background Kerr black hole.
+ * a = J/M is the spin of the black hole in units of M.
+ * m is the mode in the m-modes scheme.
 
 Usage
 -----
-The code parameters for the geodesic are currently hardcoded
-into the main function in main.cc. There are no command line
-arguments available.
+All publicly provided functions are listed in the header file effsource.h.
+Briefly, the code may be used as follows:
+
+1. Call effsource_init(M, a) at startup to set the mass and spin of the
+   central black hole.
+
+2. Call effsource_set_particle(x_p, e, l, ur_p) every time the particle's
+   position (x_p), or constants of motion (e, l) change. Here, ur_p is only
+   used to determine the sign of the radial component of the four-velocity,
+   i.e. whether it is currently moving inwards or outwards.
+
+3. To compute only the singular field, call effsource_PhiS(x, PhiS) or
+   effsource_PhiS(m, x, PhiS).
+
+4. To compute the effective source, call
+   effsource_calc(x, PhiS, dPhiS_dx, d2PhiS_dx2, src) or
+   effsource_calc(x, PhiS, dPhiS_dx, d2PhiS_dx2, src). This will also compute
+   the singular field and its derivatives.
+
+For a detailed demonstration of the usage, see the example provided in the
+test dirctory.
+
+Requirements
+------------
+This code requires the GNU Scientific Library in order to provide for the
+calculation of elliptic integrals. The test code also makes use of the ODE
+integration routines in the GNU Scientific Library.
+
+Compiling
+---------
+To compile the code, add the effsource.h header to the list of includes in
+your code and then compile either kerr-circular.c or the four files
+kerr-equatorial-coeffs.c, kerr-equatorial-dtcoeffs.c,
+kerr-equatorial-dttcoeffs.c and kerr-equatorial.c with the rest of your code.
+
+Some of these files can take a large amount of time and RAM to compile, in
+particular the file kerr-equatorial-dttcoeffs.c. For example, the total compile
+time was 105 minutes on a MacBook Pro with 16GB RAM using llvm-gcc 4.2.1 from
+Apple's Xcode and with optimisation turned off.
+
+To compile the example, change to the test directory and run make.
 
 Changelog
 ---------
+22 Oct 2012 Version 3.1.
+            Includes Kerr scalar effective source for eccentric, equatorial
+            geodesic orbits in both 3D and 2D-elliptic-integrals forms.
+30 May 2012 Version 3.0 beta 1.
+            Includes Kerr scalar effective source for eccentric, equatorial
+            geodesic orbits in 3D form and circular orbits in
+            2D-elliptic-integrals forms.
 31 Jan 2012	Initial version made public
 
 License
