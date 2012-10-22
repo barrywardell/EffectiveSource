@@ -376,8 +376,15 @@ void effsource_PhiS_m(int m, struct coordinate * x, double * PhiS)
       for(int k=0; k<17; k++)
         num += EI[m][i][j][k]*ellip[i]*A[j]*C[k];
 
-  PhiS[0] = 4.0*num/(beta*C[3]*pow(alpha+beta, 2.5));
-  PhiS[1] = 0;
+  double RePhiS = 4.0*num/(beta*C[3]*pow(alpha+beta, 2.5));
+
+  /* Store calculated quantities into the arrays provided by the caller,
+     including the phase factor exp(-i*m*phi_p) */
+  double cosmph = cos(m*xp.phi);
+  double sinmph = sin(m*xp.phi);
+
+  PhiS[0] = RePhiS*cosmph;
+  PhiS[1] = - RePhiS*sinmph;
 }
 
 /* Compute the singular field, its derivatives and its d'Alembertian */
@@ -850,42 +857,46 @@ void effsource_calc_m(int m, struct coordinate * x,
             a2*d2PhiS_dt2*(a2 + (-2 + r)*r)*sinth2) - a2*dPhiS_dth*sin2th + 2*dPhiS_dth*r*sin2th -
          dPhiS_dth*r2*sin2th))/((sinth2*(a2 + (-2 + r)*r)*(a2 + 2*r2 + a2*cos2th)));
 
-  /* Store calculated quantities into the arrays provided by the caller */
-  PhiS[0] = RePhiS;
-  PhiS[1] = 0;
+  /* Store calculated quantities into the arrays provided by the caller,
+     including the phase factor exp(-i*m*phi_p) */
+  double cosmph = cos(m*xp.phi);
+  double sinmph = sin(m*xp.phi);
 
-  dPhiS_dx[0] = 0;
-  dPhiS_dx[1] = dPhiS_dt;
-  dPhiS_dx[2] = dPhiS_dr;
-  dPhiS_dx[3] = 0;
-  dPhiS_dx[4] = dPhiS_dth;
-  dPhiS_dx[5] = 0;
-  dPhiS_dx[6] = 0;
-  dPhiS_dx[7] = dPhiS_dph;
+  PhiS[0] = RePhiS*cosmph;
+  PhiS[1] = - RePhiS*sinmph;
 
-  d2PhiS_dx2[0]  = d2PhiS_dt2;
-  d2PhiS_dx2[1]  = 0;
-  d2PhiS_dx2[2]  = d2PhiS_dtr;
-  d2PhiS_dx2[3]  = 0;
-  d2PhiS_dx2[4]  = d2PhiS_dtth;
-  d2PhiS_dx2[5]  = 0;
-  d2PhiS_dx2[6]  = d2PhiS_dtph;
-  d2PhiS_dx2[7]  = 0;
-  d2PhiS_dx2[8]  = d2PhiS_dr2;
-  d2PhiS_dx2[9]  = 0;
-  d2PhiS_dx2[10] = d2PhiS_drth;
-  d2PhiS_dx2[11] = 0;
-  d2PhiS_dx2[12] = d2PhiS_drph;
-  d2PhiS_dx2[13] = 0;
-  d2PhiS_dx2[14] = d2PhiS_dth2;
-  d2PhiS_dx2[15] = 0;
-  d2PhiS_dx2[16] = d2PhiS_dthph;
-  d2PhiS_dx2[17] = 0;
-  d2PhiS_dx2[18] = d2PhiS_dph2;
-  d2PhiS_dx2[19] = 0;
+  dPhiS_dx[0] = dPhiS_dt*cosmph;
+  dPhiS_dx[1] = - dPhiS_dt*sinmph;
+  dPhiS_dx[2] = dPhiS_dr*cosmph;
+  dPhiS_dx[3] = - dPhiS_dr*sinmph;
+  dPhiS_dx[4] = dPhiS_dth*cosmph;
+  dPhiS_dx[5] = - dPhiS_dth*sinmph;
+  dPhiS_dx[6] = dPhiS_dph*cosmph;
+  dPhiS_dx[7] = - dPhiS_dph*sinmph;
 
-  src[0] = effsrc;
-  src[1] = 0;
+  d2PhiS_dx2[0]  = d2PhiS_dt2*cosmph;
+  d2PhiS_dx2[1]  = - d2PhiS_dt2*sinmph;
+  d2PhiS_dx2[2]  = d2PhiS_dtr*cosmph;
+  d2PhiS_dx2[3]  = - d2PhiS_dtr*sinmph;
+  d2PhiS_dx2[4]  = d2PhiS_dtth*cosmph;
+  d2PhiS_dx2[5]  = - d2PhiS_dtth*sinmph;
+  d2PhiS_dx2[6]  = d2PhiS_dtph*cosmph;
+  d2PhiS_dx2[7]  = - d2PhiS_dtph*sinmph;
+  d2PhiS_dx2[8]  = d2PhiS_dr2*cosmph;
+  d2PhiS_dx2[9]  = - d2PhiS_dr2*sinmph;
+  d2PhiS_dx2[10] = d2PhiS_drth*cosmph;
+  d2PhiS_dx2[11] = - d2PhiS_drth*sinmph;
+  d2PhiS_dx2[12] = d2PhiS_drph*cosmph;
+  d2PhiS_dx2[13] = - d2PhiS_drph*sinmph;
+  d2PhiS_dx2[14] = d2PhiS_dth2*cosmph;
+  d2PhiS_dx2[15] = - d2PhiS_dth2*sinmph;
+  d2PhiS_dx2[16] = d2PhiS_dthph*cosmph;
+  d2PhiS_dx2[17] = - d2PhiS_dthph*sinmph;
+  d2PhiS_dx2[18] = d2PhiS_dph2*cosmph;
+  d2PhiS_dx2[19] = - d2PhiS_dph2*sinmph;
+
+  src[0] = effsrc*cosmph;
+  src[1] = - effsrc*sinmph;
 }
 
 /* Initialize array of coefficients of pows of dr, dtheta and dphi. */

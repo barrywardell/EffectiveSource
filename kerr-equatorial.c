@@ -266,8 +266,16 @@ void effsource_PhiS_m(int m, struct coordinate * x, double * PhiS)
   const double PhiSb_im = -32.0*num_im/(beta*beta*C[2]*pow(alpha+beta, 1.5));
 
   /* m-modes for the regular Boyer-Lindquist phi coordinate */
-  PhiS[0] = PhiSb_re*cos(c*m*dr) + PhiSb_im*sin(c*m*dr);
-  PhiS[1] = PhiSb_im*cos(c*m*dr) - PhiSb_re*sin(c*m*dr);
+  double RePhiS = PhiSb_re*cos(c*m*dr) + PhiSb_im*sin(c*m*dr);
+  double ImPhiS = PhiSb_im*cos(c*m*dr) - PhiSb_re*sin(c*m*dr);
+
+  /* Store calculated quantities into the arrays provided by the caller,
+     including the phase factor exp(-i*m*phi_p) */
+  double cosmph = cos(m*xp.phi);
+  double sinmph = sin(m*xp.phi);
+
+  PhiS[0] = RePhiS*cosmph + ImPhiS*sinmph;
+  PhiS[1] = ImPhiS*cosmph - RePhiS*sinmph;
 }
 
 /* Compute the singular field, its derivatives and its d'Alembertian */
@@ -1127,40 +1135,44 @@ void effsource_calc_m(int m, struct coordinate * x,
             a2*Im_d2PhiS_dt2*(a2 + (-2 + r)*r)*sinth2) - a2*Im_dPhiS_dth*sin2th + 2*Im_dPhiS_dth*r*sin2th -
          Im_dPhiS_dth*r2*sin2th))/((sinth2*(a2 + (-2 + r)*r)*(a2 + 2*r2 + a2*cos2th)));
 
-  /* Store calculated quantities into the arrays provided by the caller */
-  PhiS[0] = RePhiS;
-  PhiS[1] = ImPhiS;
+  /* Store calculated quantities into the arrays provided by the caller,
+     including the phase factor exp(-i*m*phi_p) */
+  double cosmph = cos(m*xp.phi);
+  double sinmph = sin(m*xp.phi);
 
-  dPhiS_dx[0] = Re_dPhiS_dt;
-  dPhiS_dx[1] = Im_dPhiS_dt;
-  dPhiS_dx[2] = Re_dPhiS_dr;
-  dPhiS_dx[3] = Im_dPhiS_dr;
-  dPhiS_dx[4] = Re_dPhiS_dth;
-  dPhiS_dx[5] = Im_dPhiS_dth;
-  dPhiS_dx[6] = Re_dPhiS_dph;
-  dPhiS_dx[7] = Im_dPhiS_dph;
+  PhiS[0] = RePhiS*cosmph + ImPhiS*sinmph;
+  PhiS[1] = ImPhiS*cosmph - RePhiS*sinmph;
 
-  d2PhiS_dx2[0]  = Re_d2PhiS_dt2;
-  d2PhiS_dx2[1]  = Im_d2PhiS_dt2;
-  d2PhiS_dx2[2]  = Re_d2PhiS_dtr;
-  d2PhiS_dx2[3]  = Im_d2PhiS_dtr;
-  d2PhiS_dx2[4]  = Re_d2PhiS_dtth;
-  d2PhiS_dx2[5]  = Im_d2PhiS_dtth;
-  d2PhiS_dx2[6]  = Re_d2PhiS_dtph;
-  d2PhiS_dx2[7]  = Im_d2PhiS_dtph;
-  d2PhiS_dx2[8]  = Re_d2PhiS_dr2;
-  d2PhiS_dx2[9]  = Im_d2PhiS_dr2;
-  d2PhiS_dx2[10] = Re_d2PhiS_drth;
-  d2PhiS_dx2[11] = Im_d2PhiS_drth;
-  d2PhiS_dx2[12] = Re_d2PhiS_drph;
-  d2PhiS_dx2[13] = Im_d2PhiS_drph;
-  d2PhiS_dx2[14] = Re_d2PhiS_dth2;
-  d2PhiS_dx2[15] = Im_d2PhiS_dth2;
-  d2PhiS_dx2[16] = Re_d2PhiS_dthph;
-  d2PhiS_dx2[17] = Im_d2PhiS_dthph;
-  d2PhiS_dx2[18] = Re_d2PhiS_dph2;
-  d2PhiS_dx2[19] = Im_d2PhiS_dph2;
+  dPhiS_dx[0] = Re_dPhiS_dt*cosmph + Im_dPhiS_dt*sinmph;
+  dPhiS_dx[1] = Im_dPhiS_dt*cosmph - Re_dPhiS_dt*sinmph;
+  dPhiS_dx[2] = Re_dPhiS_dr*cosmph + Im_dPhiS_dr*sinmph;
+  dPhiS_dx[3] = Im_dPhiS_dr*cosmph - Re_dPhiS_dr*sinmph;
+  dPhiS_dx[4] = Re_dPhiS_dth*cosmph + Im_dPhiS_dth*sinmph;
+  dPhiS_dx[5] = Im_dPhiS_dth*cosmph - Re_dPhiS_dth*sinmph;
+  dPhiS_dx[6] = Re_dPhiS_dph*cosmph + Im_dPhiS_dph*sinmph;
+  dPhiS_dx[7] = Im_dPhiS_dph*cosmph - Re_dPhiS_dph*sinmph;
 
-  src[0] = Re_box_PhiS;
-  src[1] = Im_box_PhiS;
+  d2PhiS_dx2[0]  = Re_d2PhiS_dt2*cosmph + Im_d2PhiS_dt2*sinmph;
+  d2PhiS_dx2[1]  = Im_d2PhiS_dt2*cosmph - Re_d2PhiS_dt2*sinmph;
+  d2PhiS_dx2[2]  = Re_d2PhiS_dtr*cosmph + Im_d2PhiS_dtr*sinmph;
+  d2PhiS_dx2[3]  = Im_d2PhiS_dtr*cosmph - Re_d2PhiS_dtr*sinmph;
+  d2PhiS_dx2[4]  = Re_d2PhiS_dtth*cosmph + Im_d2PhiS_dtth*sinmph;
+  d2PhiS_dx2[5]  = Im_d2PhiS_dtth*cosmph - Re_d2PhiS_dtth*sinmph;
+  d2PhiS_dx2[6]  = Re_d2PhiS_dtph*cosmph + Im_d2PhiS_dtph*sinmph;
+  d2PhiS_dx2[7]  = Im_d2PhiS_dtph*cosmph - Re_d2PhiS_dtph*sinmph;
+  d2PhiS_dx2[8]  = Re_d2PhiS_dr2*cosmph + Im_d2PhiS_dr2*sinmph;
+  d2PhiS_dx2[9]  = Im_d2PhiS_dr2*cosmph - Re_d2PhiS_dr2*sinmph;
+  d2PhiS_dx2[10] = Re_d2PhiS_drth*cosmph + Im_d2PhiS_drth*sinmph;
+  d2PhiS_dx2[11] = Im_d2PhiS_drth*cosmph - Re_d2PhiS_drth*sinmph;
+  d2PhiS_dx2[12] = Re_d2PhiS_drph*cosmph + Im_d2PhiS_drph*sinmph;
+  d2PhiS_dx2[13] = Im_d2PhiS_drph*cosmph - Re_d2PhiS_drph*sinmph;
+  d2PhiS_dx2[14] = Re_d2PhiS_dth2*cosmph + Im_d2PhiS_dth2*sinmph;
+  d2PhiS_dx2[15] = Im_d2PhiS_dth2*cosmph - Re_d2PhiS_dth2*sinmph;
+  d2PhiS_dx2[16] = Re_d2PhiS_dthph*cosmph + Im_d2PhiS_dthph*sinmph;
+  d2PhiS_dx2[17] = Im_d2PhiS_dthph*cosmph - Re_d2PhiS_dthph*sinmph;
+  d2PhiS_dx2[18] = Re_d2PhiS_dph2*cosmph + Im_d2PhiS_dph2*sinmph;
+  d2PhiS_dx2[19] = Im_d2PhiS_dph2*cosmph - Re_d2PhiS_dph2*sinmph;
+
+  src[0] = Re_box_PhiS*cosmph + Im_box_PhiS*sinmph;
+  src[1] = Im_box_PhiS*cosmph - Re_box_PhiS*sinmph;
 }
