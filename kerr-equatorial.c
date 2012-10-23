@@ -909,7 +909,7 @@ void effsource_calc_m(int m, struct coordinate * x,
   double d2NumRePhiSb_dr2 = 0, d2NumImPhiSb_dr2 = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<17; k++)
+      for(int k=0; k<27; k++)
       {
         d2NumRePhiSb_dr2 += ReEI[m][i][j][k]*
             (d2ellip_dr2[i]*ReA[j]*C[k]
@@ -951,7 +951,7 @@ void effsource_calc_m(int m, struct coordinate * x,
   double d2NumRePhiSb_dtheta2 = 0, d2NumImPhiSb_dtheta2 = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<17; k++)
+      for(int k=0; k<27; k++)
       {
         d2NumRePhiSb_dtheta2 += ReEI[m][i][j][k]*
             (d2ellip_dtheta2[i]*ReA[j]*C[k]
@@ -993,7 +993,7 @@ void effsource_calc_m(int m, struct coordinate * x,
   double d2NumRePhiSb_dt2 = 0, d2NumImPhiSb_dt2 = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<17; k++)
+      for(int k=0; k<27; k++)
       {
         d2NumRePhiSb_dt2 += ReEI[m][i][j][k]*
             (d2ellip_dt2[i]*ReA[j]*C[k]
