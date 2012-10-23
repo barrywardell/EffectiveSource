@@ -69,10 +69,13 @@ To compile the example, change to the test directory and run make.
 
 Changelog
 ---------
-22 Oct 2012 Version 3.1.
+22 Oct 2012 Version 3.1.1
+            Added support for modes up to m=20 in circular orbits code.
+            Fixed bug which caused modes m>20 to be wrong in equatorial code.
+22 Oct 2012 Version 3.1
             Includes Kerr scalar effective source for eccentric, equatorial
             geodesic orbits in both 3D and 2D-elliptic-integrals forms.
-30 May 2012 Version 3.0 beta 1.
+30 May 2012 Version 3.0 beta 1
             Includes Kerr scalar effective source for eccentric, equatorial
             geodesic orbits in 3D form and circular orbits in
             2D-elliptic-integrals forms.
