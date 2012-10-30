@@ -752,14 +752,14 @@ void effsource_calc_m(int m, struct coordinate * x,
   PhiS[0] = RePhiS*cosmph;
   PhiS[1] = - RePhiS*sinmph;
 
-  dPhiS_dx[0] = dPhiS_dt*cosmph;
-  dPhiS_dx[1] = - dPhiS_dt*sinmph;
+  dPhiS_dx[0] = dPhiS_dt*sinmph;
+  dPhiS_dx[1] = dPhiS_dt*cosmph;
   dPhiS_dx[2] = dPhiS_dr*cosmph;
   dPhiS_dx[3] = - dPhiS_dr*sinmph;
   dPhiS_dx[4] = dPhiS_dth*cosmph;
   dPhiS_dx[5] = - dPhiS_dth*sinmph;
-  dPhiS_dx[6] = dPhiS_dph*cosmph;
-  dPhiS_dx[7] = - dPhiS_dph*sinmph;
+  dPhiS_dx[6] = dPhiS_dph*sinmph;
+  dPhiS_dx[7] = dPhiS_dph*cosmph;
 
   d2PhiS_dx2[0]  = d2PhiS_dt2*cosmph;
   d2PhiS_dx2[1]  = - d2PhiS_dt2*sinmph;
