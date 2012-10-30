@@ -149,10 +149,10 @@ void m_decompose(int m, struct coordinate x,
   F.function = &m_integrand;
 
   ip.comp = Re;
-  gsl_integration_qags (&F, -M_PI, M_PI, 0, 1e-5, 1000, w, &res[0], &err_re);
+  gsl_integration_qags (&F, -M_PI, M_PI, 0, 1e-10, 1000, w, &res[0], &err_re);
 
   ip.comp = Im;
-  gsl_integration_qags (&F, -M_PI, M_PI, 0, 1e-5, 1000, w, &res[1], &err_im);
+  gsl_integration_qags (&F, -M_PI, M_PI, 0, 1e-10, 1000, w, &res[1], &err_im);
 
   gsl_integration_workspace_free (w);
 
