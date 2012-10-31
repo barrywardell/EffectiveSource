@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
       effsource_calc_m(m, &x, PhiS, dPhiS, ddPhiS, src);
       m_decompose(m, x, src_calc, src_num);
 
-      printf("%g\t%g\t%g\t%g\t%g\t%g\t%g\n",
+      printf("%.15g\t%.15g\t%.15g\t%.15g\t%.15g\t%.15g\t%.15g\n",
         x.r-xp.r, x.theta-xp.theta, x.phi-xp.phi,
         src[0], src[1], src_num[0], src_num[1]);
     }
