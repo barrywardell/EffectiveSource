@@ -61,14 +61,17 @@ kerr-equatorial-coeffs.c, kerr-equatorial-dtcoeffs.c,
 kerr-equatorial-dttcoeffs.c and kerr-equatorial.c with the rest of your code.
 
 Some of these files can take a large amount of time and RAM to compile, in
-particular the file kerr-equatorial-dttcoeffs.c. For example, the total compile
-time was 105 minutes on a MacBook Pro with 16GB RAM using llvm-gcc 4.2.1 from
-Apple's Xcode and with optimisation turned off.
+particular the file kerr-equatorial-dttcoeffs.c. I have found llvm-gcc 4.2.1
+from Apple's Xcode to do much better than gcc 4.6 in this regard.
 
 To compile the example, change to the test directory and run make.
 
 Changelog
 ---------
+31 Oct 2012 Version 3.1.2
+            Optimised compile time massively for eccentric orbits code.
+            Corrected complex conjugation error in first derivatives returned
+            in Kerr circular orbits code.
 22 Oct 2012 Version 3.1.1
             Added support for modes up to m=20 in circular orbits code.
             Fixed bug which caused modes m>20 to be wrong in equatorial code.
