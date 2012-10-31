@@ -723,6 +723,11 @@ void effsource_calc_m(int m, struct coordinate * x,
   d2PhiS_dph2  = - m*m*(RePhiS);
   d2PhiS_dt2   = - m*m*om*om*(RePhiS);
   d2PhiS_dtph = m*m*om*(RePhiS);
+  d2PhiS_dtr   = NAN;
+  d2PhiS_dtth  = NAN;
+  d2PhiS_drth  = NAN;
+  d2PhiS_drph  = NAN;
+  d2PhiS_dthph = NAN;
 
   /* Box[PhiS] */
   double sinth  = sin(theta);
