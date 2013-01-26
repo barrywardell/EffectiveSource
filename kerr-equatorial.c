@@ -95,6 +95,11 @@ static const double ImEI[21][2][5][27] =
   {{{0,-0.6666666666666666,212266.66666666666,2.853599258035219e7,1.4330114863456995e9,3.800258146404937e10,6.199274770948887e11,6.782860407787912e12,5.259010470068523e13,2.998352445442762e14,1.289474302995765e15,4.256253873967506e15,1.0902678302444068e16,2.1797926698136784e16,3.403776778865586e16,4.131592071162812e16,3.85489253454479e16,2.709770607257666e16,1.3874444112447926e16,4.881180309397506e15,1.054602760425601e15,1.054602760425601e14,0,0,0,0,0},{0,0,-2666,-751541.6624389548,-6.496750631920008e7,-2.6584414136368732e9,-6.248207318933823e10,-9.406826677470544e11,-9.718503789838549e12,-7.216907849489138e13,-3.978378205026157e14,-1.6653179634893145e15,-5.376204754295016e15,-1.3518436707709178e16,-2.6605608406951144e16,-4.0986885639172104e16,-4.9169772065455784e16,-4.540651511838149e16,-3.162877001568124e16,-1.6063591016532404e16,-5.610415428520925e15,-1.204242341296801e15,-1.1971166469696011e14,0,0,0,0},{0,0,10,9367.463398770313,1.701250849010266e6,1.1998124014091475e8,4.354863213182676e9,9.45208118958657e10,1.344305113466995e12,1.3306614989260633e13,9.556877985629884e13,5.12895265809024e14,2.1002083731150322e15,6.656579614385937e15,1.6478625548324368e16,3.1999232770493936e16,4.8724507460816184e16,5.785749736908936e16,5.294839315410694e16,3.65864067552318e16,1.844784707627131e16,6.401367498840126e15,1.365940789490955e15,1.350593140170832e14,0,0,0},{0,0,0,-35.00312695434646,-21120.499631781146,-3.13075780749621e6,-1.9594466391609663e8,-6.57050375487538e9,-1.3476651743799847e11,-1.8369043800571548e12,-1.7589435314077154e13,-1.2300981206774544e14,-6.45896597792679e14,-2.5969519006174225e15,-8.1043872896729e15,-1.979717247928791e16,-3.800085757405471e16,-5.727840617892459e16,-6.7406697825393336e16,-6.119592653276693e16,-4.198322456673902e16,-2.1032687680075924e16,-7.255685440992997e15,-1.5400055927557658e15,-1.51529962067947e14,0,0},{0,0,0,3.930803703917714e-6,78.76094777966587,38771.1275913068,5.100639029001081e6,2.949841095687273e8,9.349478097378347e9,1.8381938202018082e11,2.42419630975418e12,2.2606778024802125e13,1.547013295439825e14,7.976887641336864e14,3.1582328358075825e15,9.726354425919532e15,2.3487483127377148e16,4.463176708335417e16,6.667543951844797e16,7.784411667165024e16,7.0169853688251656e16,4.78314795584771e16,2.3823442630743476e16,8.174976337050191e15,1.7267367770533495e15,1.6914972509910362e14,0}},{{1.3333333333333333,-530.6666666666666,-892251.827371045,-9.987215970701566e7,-4.424126639899304e9,-1.0578643572033942e11,-1.5747287228400437e12,-1.5845717567057562e13,-1.1362682509291195e14,-6.01771280857198e14,-2.4125671241445005e15,-7.446002113664234e15,-1.7881405459744606e16,-3.35951258854644e16,-4.9401354974251736e16,-5.657957303847233e16,-4.9900402465368104e16,-3.3212859965007824e16,-1.612718315044587e16,-5.388707887852326e15,-1.107332898446881e15,-1.054602760425601e14,0,0,0,0,0},{0,2,12417.32487790964,2.877010547668333e6,2.1757735630149266e8,7.983815399399566e9,1.7056499979904105e11,2.354551408251009e12,2.244295896408418e13,1.5448897973201038e14,7.924454954576368e14,3.09644241377513e15,9.357141993333924e15,2.2077909573687176e16,4.086271515883938e16,5.931957879239599e16,6.7183171140618856e16,5.867380519673225e16,3.8715022071894504e16,1.8654226260365056e16,6.190090662038646e15,1.2640981736452812e15,1.1971166469696011e14,0,0,0,0},{0,0,-54.92679754062404,-40215.75896837982,-6.263591942903851e6,-3.919620881744125e8,-1.2847160247073557e10,-2.5452055340858438e11,-3.3284003694315527e12,-3.045760371601915e13,-2.0308431931952872e14,-1.0153938929148701e15,-3.8851031201166525e15,-1.1535964059895936e16,-2.6816071946032308e16,-4.9000640659284456e16,-7.0346216741010216e16,-7.889814086638738e16,-6.831336974290147e16,-4.473081072704507e16,-2.1405078738350924e16,-7.0590142722074e15,-1.4334704464994968e15,-1.350593140170832e14,0,0,0},{0,0,0.006253908692933083,179.75473573239677,87672.02030488498,1.127655502867755e7,6.299257811345832e8,1.9142375540966686e10,3.592377142778432e11,4.510116251939719e12,3.997869384169198e13,2.598472460491622e14,1.2722572790529712e15,4.783417939546741e15,1.3993927307709768e16,3.2117401194767464e16,5.8041145938566104e16,8.251977130024504e16,9.176083681396456e16,7.884587952758733e16,5.127529010535035e16,2.4385985285874588e16,7.99727636948314e15,1.6157705737897392e15,1.51529962067947e14,0,0},{0,0,-7.861607407835427e-6,-0.021902438238229502,-393.52434085950074,-157932.76854200763,-1.8113190266049244e7,-9.376913624338514e8,-2.698711715217962e10,-4.86188476940676e11,-5.912673590075985e12,-5.109028982891983e13,-3.251901708214681e14,-1.5646005583864498e15,-5.796048104691107e15,-1.6742037879323554e16,-3.800261305735843e16,-6.801536029880263e16,-9.587749223709138e16,-1.0580649570083427e17,-9.029733700258528e16,-5.8363106600548536e16,-2.7603025440299108e16,-9.006629152120784e15,-1.8113116396029015e15,-1.6914972509910362e14,0}}}
  };
 
+static inline int max(int a, int b)
+{
+  return a > b ? a : b;
+}
+
 /* Compute the singular field at the point x for the particle at xp */
 void effsource_PhiS(struct coordinate * x, double * PhiS)
 {
@@ -232,11 +237,12 @@ void effsource_PhiS_m(int m, struct coordinate * x, double * PhiS)
   num_im = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<27; k++)
-      {
+    {
+      for(int k=max(j-i,0); k<=m+2+j; k++)
         num_re += ReEI[m][i][j][k]*ellip[i]*ReA[j]*C[k];
+      for(int k=max(j-i-1,0); k<=m+1+j; k++)
         num_im += ImEI[m][i][j][k]*ellip[i]*ImA[j]*C[k];
-      }
+    }
 
   /* m-modes for the rotated phi coordinate */
   const double PhiSb_re = 4.0*num_re/(beta*C[3]*pow(alpha+beta, 2.5));
@@ -885,32 +891,34 @@ void effsource_calc_m(int m, struct coordinate * x,
   double NumRePhiSb = 0, NumImPhiSb = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<27; k++)
-      {
+    {
+      for(int k=max(j-i,0); k<=m+2+j; k++)
         NumRePhiSb += ReEI[m][i][j][k]*ellip[i]*ReA[j]*C[k];
+      for(int k=max(j-i-1,0); k<=m+1+j; k++)
         NumImPhiSb += ImEI[m][i][j][k]*ellip[i]*ImA[j]*C[k];
-      }
+    }
 
   double dNumRePhiSb_dr = 0, dNumImPhiSb_dr = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<27; k++)
-      {
+    {
+      for(int k=max(j-i,0); k<=m+2+j; k++)
         dNumRePhiSb_dr += ReEI[m][i][j][k]*
             (dellip_dr[i]*ReA[j]*C[k]
            + ellip[i]*dReA_dr[j]*C[k]
            + ellip[i]*ReA[j]*dC_dr[k]);
+      for(int k=max(j-i-1,0); k<=m+1+j; k++)
         dNumImPhiSb_dr += ImEI[m][i][j][k]*
             (dellip_dr[i]*ImA[j]*C[k]
            + ellip[i]*dImA_dr[j]*C[k]
            + ellip[i]*ImA[j]*dC_dr[k]);
-      }
+    }
 
   double d2NumRePhiSb_dr2 = 0, d2NumImPhiSb_dr2 = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<27; k++)
-      {
+    {
+      for(int k=max(j-i,0); k<=m+2+j; k++)
         d2NumRePhiSb_dr2 += ReEI[m][i][j][k]*
             (d2ellip_dr2[i]*ReA[j]*C[k]
            + dellip_dr[i]*dReA_dr[j]*C[k]
@@ -921,6 +929,7 @@ void effsource_calc_m(int m, struct coordinate * x,
            + dellip_dr[i]*ReA[j]*dC_dr[k]
            + ellip[i]*dReA_dr[j]*dC_dr[k]
            + ellip[i]*ReA[j]*d2C_dr2[k]);
+      for(int k=max(j-i-1,0); k<=m+1+j; k++)
         d2NumImPhiSb_dr2 += ImEI[m][i][j][k]*
             (d2ellip_dr2[i]*ImA[j]*C[k]
            + dellip_dr[i]*dImA_dr[j]*C[k]
@@ -931,28 +940,29 @@ void effsource_calc_m(int m, struct coordinate * x,
            + dellip_dr[i]*ImA[j]*dC_dr[k]
            + ellip[i]*dImA_dr[j]*dC_dr[k]
            + ellip[i]*ImA[j]*d2C_dr2[k]);
-      }
+    }
 
   double dNumRePhiSb_dtheta = 0, dNumImPhiSb_dtheta = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<27; k++)
-      {
+    {
+      for(int k=max(j-i,0); k<=m+2+j; k++)
         dNumRePhiSb_dtheta += ReEI[m][i][j][k]*
             (dellip_dtheta[i]*ReA[j]*C[k]
            + ellip[i]*dReA_dtheta[j]*C[k]
            + ellip[i]*ReA[j]*dC_dtheta[k]);
+      for(int k=max(j-i-1,0); k<=m+1+j; k++)
         dNumImPhiSb_dtheta += ImEI[m][i][j][k]*
             (dellip_dtheta[i]*ImA[j]*C[k]
            + ellip[i]*dImA_dtheta[j]*C[k]
            + ellip[i]*ImA[j]*dC_dtheta[k]);
-      }
+    }
 
   double d2NumRePhiSb_dtheta2 = 0, d2NumImPhiSb_dtheta2 = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<27; k++)
-      {
+    {
+      for(int k=max(j-i,0); k<=m+2+j; k++)
         d2NumRePhiSb_dtheta2 += ReEI[m][i][j][k]*
             (d2ellip_dtheta2[i]*ReA[j]*C[k]
            + dellip_dtheta[i]*dReA_dtheta[j]*C[k]
@@ -963,6 +973,7 @@ void effsource_calc_m(int m, struct coordinate * x,
            + dellip_dtheta[i]*ReA[j]*dC_dtheta[k]
            + ellip[i]*dReA_dtheta[j]*dC_dtheta[k]
            + ellip[i]*ReA[j]*d2C_dtheta2[k]);
+      for(int k=max(j-i-1,0); k<=m+1+j; k++)
         d2NumImPhiSb_dtheta2 += ImEI[m][i][j][k]*
             (d2ellip_dtheta2[i]*ImA[j]*C[k]
            + dellip_dtheta[i]*dImA_dtheta[j]*C[k]
@@ -973,28 +984,29 @@ void effsource_calc_m(int m, struct coordinate * x,
            + dellip_dtheta[i]*ImA[j]*dC_dtheta[k]
            + ellip[i]*dImA_dtheta[j]*dC_dtheta[k]
            + ellip[i]*ImA[j]*d2C_dtheta2[k]);
-      }
+    }
 
   double dNumRePhiSb_dt = 0, dNumImPhiSb_dt = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<27; k++)
-      {
+    {
+      for(int k=max(j-i,0); k<=m+2+j; k++)
         dNumRePhiSb_dt += ReEI[m][i][j][k]*
             (dellip_dt[i]*ReA[j]*C[k]
            + ellip[i]*dReA_dt[j]*C[k]
            + ellip[i]*ReA[j]*dC_dt[k]);
+      for(int k=max(j-i-1,0); k<=m+1+j; k++)
         dNumImPhiSb_dt += ImEI[m][i][j][k]*
             (dellip_dt[i]*ImA[j]*C[k]
            + ellip[i]*dImA_dt[j]*C[k]
            + ellip[i]*ImA[j]*dC_dt[k]);
-      }
+    }
 
   double d2NumRePhiSb_dt2 = 0, d2NumImPhiSb_dt2 = 0;
   for(int i=0; i<2; i++)
     for(int j=0; j<5; j++)
-      for(int k=0; k<27; k++)
-      {
+    {
+      for(int k=max(j-i,0); k<=m+2+j; k++)
         d2NumRePhiSb_dt2 += ReEI[m][i][j][k]*
             (d2ellip_dt2[i]*ReA[j]*C[k]
            + dellip_dt[i]*dReA_dt[j]*C[k]
@@ -1005,6 +1017,7 @@ void effsource_calc_m(int m, struct coordinate * x,
            + dellip_dt[i]*ReA[j]*dC_dt[k]
            + ellip[i]*dReA_dt[j]*dC_dt[k]
            + ellip[i]*ReA[j]*d2C_dt2[k]);
+      for(int k=max(j-i-1,0); k<=m+1+j; k++)
         d2NumImPhiSb_dt2 += ImEI[m][i][j][k]*
             (d2ellip_dt2[i]*ImA[j]*C[k]
            + dellip_dt[i]*dImA_dt[j]*C[k]
@@ -1015,7 +1028,7 @@ void effsource_calc_m(int m, struct coordinate * x,
            + dellip_dt[i]*ImA[j]*dC_dt[k]
            + ellip[i]*dImA_dt[j]*dC_dt[k]
            + ellip[i]*ImA[j]*d2C_dt2[k]);
-      }
+    }
 
   /* Denominator - there is a different denominator for real and imaginary parts */
   double DenRePhiSb         = beta*C[3]*pow(alpha+beta, 2.5)/4.0;
