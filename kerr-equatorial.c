@@ -1032,18 +1032,18 @@ void effsource_calc_m(int m, struct coordinate * x,
   double DenRePhiSb         = beta*C[3]*alpha_plus_beta_25/4.0;
   double dDenRePhiSb_dr     = beta*(6.0*C[2]*alpha_plus_beta_25*dC1_dr + C[3]*5.0*alpha_plus_beta_15*dalpha_dr)/8.0;
   double dDenRePhiSb_dtheta = beta*(6.0*C[2]*alpha_plus_beta_25*dC1_dtheta + C[3]*5.0*alpha_plus_beta_15*dalpha_dtheta)/8.0;
-  double dDenRePhiSb_dt     = (alpha_plus_beta_15*C[2]*(6*dC1_dt*beta*alpha_plus_beta_05 + 5*(dalpha_dt + dbetadt)*beta*C1 + 2*dbetadt*alpha_plus_beta_05*C1))/8.0;
+  double dDenRePhiSb_dt     = (alpha_plus_beta_15*C[2]*(6*dC1_dt*beta*alpha_plus_beta_10 + 5*(dalpha_dt + dbetadt)*beta*C1 + 2*dbetadt*alpha_plus_beta_10*C1))/8.0;
   double d2DenRePhiSb_dr2   = beta*C1*alpha_plus_beta_05*(24*alpha_plus_beta_20*dC1_dr*dC1_dr + 60.0*C1*(alpha+beta)*dalpha_dr*dC1_dr + C1*(12.0*alpha_plus_beta_20*d2C1_dr2 + 5.0*C1*(3.0*dalpha_dr*dalpha_dr + 2.0*(alpha+beta)*d2alpha_dr2)))/16.0;
   double d2DenRePhiSb_dtheta2  = beta*C1*alpha_plus_beta_05*(24*alpha_plus_beta_20*dC1_dtheta*dC1_dtheta + 60.0*C1*(alpha+beta)*dalpha_dtheta*dC1_dtheta + C1*(12.0*alpha_plus_beta_20*d2C1_dtheta2 + 5.0*C1*(3.0*dalpha_dtheta*dalpha_dtheta + 2.0*(alpha+beta)*d2alpha_dtheta2)))/16.0;
-  double d2DenRePhiSb_dt2   = (alpha_plus_beta_05*C1*(4*alpha_plus_beta_20*C[2]*d2betadt2 + 10*beta*alpha_plus_beta_05*C[2]*(d2alpha_dt2 + d2betadt2) + 12*beta*alpha_plus_beta_20*C1*d2C1_dt2 + 20*alpha_plus_beta_05*C[2]*dbetadt*(dalpha_dt + dbetadt) + 15*beta*C[2]*(dalpha_dt + dbetadt)*(dalpha_dt + dbetadt) + 24*alpha_plus_beta_20*C1*dbetadt*dC1_dt + 60*beta*alpha_plus_beta_05*C1*(dalpha_dt + dbetadt)*dC1_dt + 24*beta*alpha_plus_beta_20*dC1_dt*dC1_dt))/16.0;
+  double d2DenRePhiSb_dt2   = (alpha_plus_beta_05*C1*(4*alpha_plus_beta_20*C[2]*d2betadt2 + 10*beta*alpha_plus_beta_10*C[2]*(d2alpha_dt2 + d2betadt2) + 12*beta*alpha_plus_beta_20*C1*d2C1_dt2 + 20*alpha_plus_beta_10*C[2]*dbetadt*(dalpha_dt + dbetadt) + 15*beta*C[2]*(dalpha_dt + dbetadt)*(dalpha_dt + dbetadt) + 24*alpha_plus_beta_20*C1*dbetadt*dC1_dt + 60*beta*alpha_plus_beta_10*C1*(dalpha_dt + dbetadt)*dC1_dt + 24*beta*alpha_plus_beta_20*dC1_dt*dC1_dt))/16.0;
 
   double DenImPhiSb           = -(beta_2*C[2]*alpha_plus_beta_15)/32.0;
-  double dDenImPhiSb_dr       = -(beta_2*C1*alpha_plus_beta_05*(4.0*alpha_plus_beta_05*dC1_dr + 3*C1*dalpha_dr))/64.;
-  double dDenImPhiSb_dtheta   = -(beta_2*C1*alpha_plus_beta_05*(4.0*alpha_plus_beta_05*dC1_dtheta + 3*C1*dalpha_dtheta))/64.;
-  double dDenImPhiSb_dt       = (beta*alpha_plus_beta_05*C1*(-4*dC1_dt*beta*alpha_plus_beta_05 - 3*(dalpha_dt + dbetadt)*beta*C1 - 4*dbetadt*alpha_plus_beta_05*C1))/64.0;
-  double d2DenImPhiSb_dr2     = -(beta_2*(C1*(8*alpha_plus_beta_20*d2C1_dr2 + 3.0*C1*(2.0*alpha_plus_beta_05*d2alpha_dr2 + dalpha_dr*dalpha_dr)) + 24.0*alpha_plus_beta_05*C1*dalpha_dr*dC1_dr + 8.0*alpha_plus_beta_20*dC1_dr*dC1_dr))/(128.*alpha_plus_beta_05);
-  double d2DenImPhiSb_dtheta2 = -(beta_2*(C1*(8*alpha_plus_beta_20*d2C1_dtheta2 + 3.0*C1*(2.0*alpha_plus_beta_05*d2alpha_dtheta2 + dalpha_dtheta*dalpha_dtheta)) + 24.0*alpha_plus_beta_05*C1*dalpha_dtheta*dC1_dtheta + 8.0*alpha_plus_beta_20*dC1_dtheta*dC1_dtheta))/(128.*alpha_plus_beta_05);
-  double d2DenImPhiSb_dt2     = (-3*beta_2*C[2]*dalpha_dt*dalpha_dt - (8*alpha*alpha + 40*alpha*beta + 35*beta_2)*C[2]*dbetadt*dbetadt - 8*beta*alpha_plus_beta_05*(4*alpha + 7*beta)*C1*dbetadt*dC1_dt - 6*beta*C1*dalpha_dt*((4*alpha + 5*beta)*C1*dbetadt + 4*beta*alpha_plus_beta_05*dC1_dt) + 2*beta*alpha_plus_beta_05*(C1*(-(C1*(3*beta*d2alpha_dt2 + (4*alpha + 7*beta)*d2betadt2)) - 4*beta*alpha_plus_beta_05*d2C1_dt2) - 4*beta*alpha_plus_beta_05*dC1_dt*dC1_dt))/(128*alpha_plus_beta_05);
+  double dDenImPhiSb_dr       = -(beta_2*C1*alpha_plus_beta_05*(4.0*alpha_plus_beta_10*dC1_dr + 3*C1*dalpha_dr))/64.;
+  double dDenImPhiSb_dtheta   = -(beta_2*C1*alpha_plus_beta_05*(4.0*alpha_plus_beta_10*dC1_dtheta + 3*C1*dalpha_dtheta))/64.;
+  double dDenImPhiSb_dt       = (beta*alpha_plus_beta_05*C1*(-4*dC1_dt*beta*alpha_plus_beta_10 - 3*(dalpha_dt + dbetadt)*beta*C1 - 4*dbetadt*alpha_plus_beta_10*C1))/64.0;
+  double d2DenImPhiSb_dr2     = -(beta_2*(C1*(8*alpha_plus_beta_20*d2C1_dr2 + 3.0*C1*(2.0*alpha_plus_beta_10*d2alpha_dr2 + dalpha_dr*dalpha_dr)) + 24.0*alpha_plus_beta_10*C1*dalpha_dr*dC1_dr + 8.0*alpha_plus_beta_20*dC1_dr*dC1_dr))/(128.*alpha_plus_beta_05);
+  double d2DenImPhiSb_dtheta2 = -(beta_2*(C1*(8*alpha_plus_beta_20*d2C1_dtheta2 + 3.0*C1*(2.0*alpha_plus_beta_10*d2alpha_dtheta2 + dalpha_dtheta*dalpha_dtheta)) + 24.0*alpha_plus_beta_10*C1*dalpha_dtheta*dC1_dtheta + 8.0*alpha_plus_beta_20*dC1_dtheta*dC1_dtheta))/(128.*alpha_plus_beta_05);
+  double d2DenImPhiSb_dt2     = (-3*beta_2*C[2]*dalpha_dt*dalpha_dt - (8*alpha*alpha + 40*alpha*beta + 35*beta_2)*C[2]*dbetadt*dbetadt - 8*beta*alpha_plus_beta_10*(4*alpha + 7*beta)*C1*dbetadt*dC1_dt - 6*beta*C1*dalpha_dt*((4*alpha + 5*beta)*C1*dbetadt + 4*beta*alpha_plus_beta_10*dC1_dt) + 2*beta*alpha_plus_beta_10*(C1*(-(C1*(3*beta*d2alpha_dt2 + (4*alpha + 7*beta)*d2betadt2)) - 4*beta*alpha_plus_beta_10*d2C1_dt2) - 4*beta*alpha_plus_beta_10*dC1_dt*dC1_dt))/(128*alpha_plus_beta_05);
 
   /* m-modes for the rotated phi coordinate */
   double RePhiSb = NumRePhiSb/DenRePhiSb;
