@@ -68,6 +68,8 @@ To compile the example, change to the test directory and run make.
 
 Changelog
 ---------
+26 Jan 2013 Version 3.1.3
+            Performance optimisations in effective source calculation.
 31 Oct 2012 Version 3.1.2
             Optimised compile time massively for eccentric orbits code.
             Corrected complex conjugation error in first derivatives returned
