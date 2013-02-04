@@ -254,8 +254,10 @@ void effsource_PhiS_m(int m, struct coordinate * x, double * PhiS)
   const double PhiSb_im = -32.0*num_im/(beta*beta*C[2]*alpha_plus_beta_15);
 
   /* m-modes for the regular Boyer-Lindquist phi coordinate */
-  double RePhiS = PhiSb_re*cos(c*m*dr) + PhiSb_im*sin(c*m*dr);
-  double ImPhiS = PhiSb_im*cos(c*m*dr) - PhiSb_re*sin(c*m*dr);
+  double sincmdr = sin(c*m*dr);
+  double coscmdr = cos(c*m*dr);
+  double RePhiS = PhiSb_re*coscmdr + PhiSb_im*sincmdr;
+  double ImPhiS = PhiSb_im*coscmdr - PhiSb_re*sincmdr;
 
   /* Store calculated quantities into the arrays provided by the caller,
      including the phase factor exp(-i*m*phi_p) */
@@ -641,7 +643,8 @@ void effsource_calc_m(int m, struct coordinate * x,
   double d2alpha_dtheta2 = 2*alpha02;
 
   /* C term appearing in Elliptic integrals and related power series in numerator */
-  const double C1 = alpha / beta;
+  const double beta_inv = 1.0 / beta;
+  const double C1 = alpha * beta_inv;
 
   double C[27];
   C[0]  = 1;
@@ -672,10 +675,10 @@ void effsource_calc_m(int m, struct coordinate * x,
   C[25] = C[13]*C[12];
   C[26] = C[13]*C[13];
 
-  double dC1_dr       = dalpha_dr / beta;
-  double d2C1_dr2     = d2alpha_dr2 / beta;
-  double dC1_dtheta   = dalpha_dtheta / beta;
-  double d2C1_dtheta2 = d2alpha_dtheta2 / beta;
+  double dC1_dr       = dalpha_dr * beta_inv;
+  double d2C1_dr2     = d2alpha_dr2 * beta_inv;
+  double dC1_dtheta   = dalpha_dtheta * beta_inv;
+  double d2C1_dtheta2 = d2alpha_dtheta2 * beta_inv;
   double dC1_dt       = dC1_dt02*dtheta2 + dC1_dt10*dr + dC1_dt20*dr2;
   double d2C1_dt2     = d2C1_dt200 + d2C1_dt202*dtheta2 + d2C1_dt210*dr + d2C1_dt220*dr2;
 
@@ -1088,8 +1091,8 @@ void effsource_calc_m(int m, struct coordinate * x,
 
   double Re_d2PhiS_dph2  = -m*Im_dPhiS_dph;
   double Im_d2PhiS_dph2  = m*Re_dPhiS_dph;
-  double Re_d2PhiS_dt2   = (DenImPhiSb*(-2*dDenImPhiSb_dt*DenRePhiSb_3*m*NumImPhiSb*(dcdt*dr - c*rt) - DenImPhiSb_2*(-2*dDenRePhiSb_dt_2*NumRePhiSb + DenRePhiSb*(2*dDenRePhiSb_dt*dNumRePhiSb_dt + d2DenRePhiSb_dt2*NumRePhiSb) + DenRePhiSb_2*(-d2NumRePhiSb_dt2 + m_2*NumRePhiSb*dcdt_dr_minus_c_rt_2)) + DenImPhiSb*DenRePhiSb_3*m*(dr*(2*dcdt*dNumImPhiSb_dt + d2cdt2*NumImPhiSb) - 2*(c*dNumImPhiSb_dt + dcdt*NumImPhiSb)*rt - c*NumImPhiSb*rtt))*cos(c*dr*m) - DenRePhiSb*(-2*dDenImPhiSb_dt_2*DenRePhiSb_2*NumImPhiSb + DenImPhiSb*DenRePhiSb_2*(2*dDenImPhiSb_dt*dNumImPhiSb_dt + d2DenImPhiSb_dt2*NumImPhiSb) + DenImPhiSb_2*DenRePhiSb_2*(-d2NumImPhiSb_dt2 + m_2*NumImPhiSb*dcdt_dr_minus_c_rt_2) + DenImPhiSb_3*m*(2*DenRePhiSb*dNumRePhiSb_dt*(dcdt*dr - c*rt) + NumRePhiSb*((-2*dcdt*dDenRePhiSb_dt + d2cdt2*DenRePhiSb)*dr - 2*(-(c*dDenRePhiSb_dt) + dcdt*DenRePhiSb)*rt - c*DenRePhiSb*rtt)))*sin(c*dr*m))/(DenImPhiSb_3*DenRePhiSb_3);
-  double Im_d2PhiS_dt2   = (-(DenRePhiSb*(-2*dDenImPhiSb_dt_2*DenRePhiSb_2*NumImPhiSb + DenImPhiSb*DenRePhiSb_2*(2*dDenImPhiSb_dt*dNumImPhiSb_dt + d2DenImPhiSb_dt2*NumImPhiSb) + DenImPhiSb_2*DenRePhiSb_2*(-d2NumImPhiSb_dt2 + m_2*NumImPhiSb*dcdt_dr_minus_c_rt_2) + DenImPhiSb_3*m*(2*DenRePhiSb*dNumRePhiSb_dt*(dcdt*dr - c*rt) + NumRePhiSb*((-2*dcdt*dDenRePhiSb_dt + d2cdt2*DenRePhiSb)*dr - 2*(-(c*dDenRePhiSb_dt) + dcdt*DenRePhiSb)*rt - c*DenRePhiSb*rtt)))*cos(c*dr*m)) + DenImPhiSb*(2*dDenImPhiSb_dt*DenRePhiSb_3*m*NumImPhiSb*(dcdt*dr - c*rt) + DenImPhiSb_2*(-2*dDenRePhiSb_dt_2*NumRePhiSb + DenRePhiSb*(2*dDenRePhiSb_dt*dNumRePhiSb_dt + d2DenRePhiSb_dt2*NumRePhiSb) + DenRePhiSb_2*(-d2NumRePhiSb_dt2 + m_2*NumRePhiSb*dcdt_dr_minus_c_rt_2)) - DenImPhiSb*DenRePhiSb_3*m*(dr*(2*dcdt*dNumImPhiSb_dt + d2cdt2*NumImPhiSb) - 2*(c*dNumImPhiSb_dt + dcdt*NumImPhiSb)*rt - c*NumImPhiSb*rtt))*sin(c*dr*m))/(DenImPhiSb_3*DenRePhiSb_3);
+  double Re_d2PhiS_dt2   = (DenImPhiSb*(-2*dDenImPhiSb_dt*DenRePhiSb_3*m*NumImPhiSb*(dcdt*dr - c*rt) - DenImPhiSb_2*(-2*dDenRePhiSb_dt_2*NumRePhiSb + DenRePhiSb*(2*dDenRePhiSb_dt*dNumRePhiSb_dt + d2DenRePhiSb_dt2*NumRePhiSb) + DenRePhiSb_2*(-d2NumRePhiSb_dt2 + m_2*NumRePhiSb*dcdt_dr_minus_c_rt_2)) + DenImPhiSb*DenRePhiSb_3*m*(dr*(2*dcdt*dNumImPhiSb_dt + d2cdt2*NumImPhiSb) - 2*(c*dNumImPhiSb_dt + dcdt*NumImPhiSb)*rt - c*NumImPhiSb*rtt))*coscmdr - DenRePhiSb*(-2*dDenImPhiSb_dt_2*DenRePhiSb_2*NumImPhiSb + DenImPhiSb*DenRePhiSb_2*(2*dDenImPhiSb_dt*dNumImPhiSb_dt + d2DenImPhiSb_dt2*NumImPhiSb) + DenImPhiSb_2*DenRePhiSb_2*(-d2NumImPhiSb_dt2 + m_2*NumImPhiSb*dcdt_dr_minus_c_rt_2) + DenImPhiSb_3*m*(2*DenRePhiSb*dNumRePhiSb_dt*(dcdt*dr - c*rt) + NumRePhiSb*((-2*dcdt*dDenRePhiSb_dt + d2cdt2*DenRePhiSb)*dr - 2*(-(c*dDenRePhiSb_dt) + dcdt*DenRePhiSb)*rt - c*DenRePhiSb*rtt)))*sincmdr)/(DenImPhiSb_3*DenRePhiSb_3);
+  double Im_d2PhiS_dt2   = (-(DenRePhiSb*(-2*dDenImPhiSb_dt_2*DenRePhiSb_2*NumImPhiSb + DenImPhiSb*DenRePhiSb_2*(2*dDenImPhiSb_dt*dNumImPhiSb_dt + d2DenImPhiSb_dt2*NumImPhiSb) + DenImPhiSb_2*DenRePhiSb_2*(-d2NumImPhiSb_dt2 + m_2*NumImPhiSb*dcdt_dr_minus_c_rt_2) + DenImPhiSb_3*m*(2*DenRePhiSb*dNumRePhiSb_dt*(dcdt*dr - c*rt) + NumRePhiSb*((-2*dcdt*dDenRePhiSb_dt + d2cdt2*DenRePhiSb)*dr - 2*(-(c*dDenRePhiSb_dt) + dcdt*DenRePhiSb)*rt - c*DenRePhiSb*rtt)))*coscmdr) + DenImPhiSb*(2*dDenImPhiSb_dt*DenRePhiSb_3*m*NumImPhiSb*(dcdt*dr - c*rt) + DenImPhiSb_2*(-2*dDenRePhiSb_dt_2*NumRePhiSb + DenRePhiSb*(2*dDenRePhiSb_dt*dNumRePhiSb_dt + d2DenRePhiSb_dt2*NumRePhiSb) + DenRePhiSb_2*(-d2NumRePhiSb_dt2 + m_2*NumRePhiSb*dcdt_dr_minus_c_rt_2)) - DenImPhiSb*DenRePhiSb_3*m*(dr*(2*dcdt*dNumImPhiSb_dt + d2cdt2*NumImPhiSb) - 2*(c*dNumImPhiSb_dt + dcdt*NumImPhiSb)*rt - c*NumImPhiSb*rtt))*sincmdr)/(DenImPhiSb_3*DenRePhiSb_3);
   Re_d2PhiS_dt2 += 2*m*phit*Im_dPhiS_dt - m*m*phit*phit*RePhiS + m*phitt*ImPhiS;
   Im_d2PhiS_dt2 += -2*m*phit*Re_dPhiS_dt - m*m*phit*phit*ImPhiS - m*phitt*RePhiS;
   Re_dPhiS_dt += m*phit*ImPhiS;
@@ -1111,8 +1114,8 @@ void effsource_calc_m(int m, struct coordinate * x,
   /* Box[PhiS] */
   double sinth  = sin(theta);
   double sinth2 = sinth*sinth;
-  double sin2th = sin(2*theta);
-  double cos2th = cos(2*theta);
+  double sin2th = sin(2.0*theta);
+  double cos2th = cos(2.0*theta);
   double r2 = r*r;
   double r3 = r2*r;
   double r4 = r2*r2;
