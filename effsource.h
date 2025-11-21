@@ -3,10 +3,10 @@
  ******************************************************************************/
 
 struct coordinate {
+  double t;
   double r;
   double theta;
   double phi;
-  double t;
 };
 
 void effsource_init(double M, double a);
