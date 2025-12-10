@@ -71,11 +71,11 @@ int main(int argc, char* argv[])
   gsl_set_error_handler_off();
 
   /* Output the singular field for the m=2 mode in the r-theta plane */
-  int m = 2;
-  for(double r=9.9; r<=10.1; r+=0.01)
+  int m = 18;
+  for(double r=6; r<=30; r+=0.1)
   {
     x.r = r;
-    for(double theta=M_PI_2-0.1; theta<=M_PI_2+0.1; theta+=0.011)
+    for(double theta=M_PI_2-1.5; theta<=M_PI_2+1.5; theta+=0.1)
     {
       double PhiS[2], src_num[2], dPhiS[8], ddPhiS[20], src[2];
       x.theta     = theta;
