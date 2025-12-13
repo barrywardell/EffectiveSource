@@ -18,6 +18,46 @@ static double M, a;
 static double A006, A008, A024, A026, A042, A044, A060, A062, A080, A106, A108, A124, A126, A142, A144, A160, A162, A180, A204, A206, A222, A224, A240, A242, A260, A304, A306, A322, A324, A340, A342, A360, A402, A404, A420, A422, A440, A502, A504, A520, A522, A540, A600, A602, A620, A700, A702, A720, A800, A900;
 static double alpha20, alpha02, beta;
 
+/* Hypergeometric 2F1 function for z<1, a+b-c integer */
+double hype_2F1(double a, double b, double c, double z)
+{
+	double res;
+
+	if(z < 0.995)
+	  res = gsl_sf_hyperg_2F1_renorm(a, b, c, z);
+	else if (c-a-b < 0) {
+		/* DLMF (15.8.12) */
+		double m = a+b-c;
+		double at = a-m;
+		double bt = b-m;
+		res = pow(1-z,-m)*hype_2F1(at, bt, at+bt+m, z);
+	} else {
+		/* DLMF (15.8.10) */
+		int m = round(c-a-b);
+    double sum1 = 0.0, sum2 = 0.0;
+		int k;
+		int converged = 0;
+
+		for(k=0; k<=(m-1); k++)
+      sum1 += pow(z-1,k)*gsl_sf_fact(m-k-1)*gsl_sf_poch(a,k)*gsl_sf_poch(b,k)/gsl_sf_fact(k);
+
+		k=0;
+    while(!converged)
+		{
+			double term = pow(1-z,k)*gsl_sf_poch(a+m,k)*gsl_sf_poch(b+m,k)*(log(1-z) - gsl_sf_psi_int(k+1) - gsl_sf_psi_int(k+m+1) + gsl_sf_psi(a+k+m) + gsl_sf_psi(b+k+m))/(gsl_sf_fact(k)*gsl_sf_fact(k+m));
+			if(sum2 == (sum2 + term))
+				converged = 1;
+			else {
+				sum2 += term;
+				k++;
+			}
+		}
+
+	  res = sum1/(gsl_sf_gamma(a+m)*gsl_sf_gamma(b+m)) - pow(z-1,m)*sum2/(gsl_sf_gamma(a)*gsl_sf_gamma(b));
+	}
+	return res;
+}
+
 /* Legendre function for z>1, n half-integer, m integer */
 double LegendreP(double l, int m, double z)
 {
@@ -28,10 +68,10 @@ double LegendreP(double l, int m, double z)
 
   if(m>=0) {
     double c = 1.0+m;
-    h = gsl_sf_gamma(-a + m + 1)/gsl_sf_gamma(-a - m + 1)*pow(z-1.0,m/2.0)*pow(z+1.0,-m/2.0)*pow((1.0+z)/2.0,-b)*gsl_sf_hyperg_2F1_renorm(c-a, b, c, (z-1.0)/(z+1.0));
+    h = gsl_sf_gamma(-a + m + 1)/gsl_sf_gamma(-a - m + 1)*pow(z-1.0,m/2.0)*pow(z+1.0,-m/2.0)*pow((1.0+z)/2.0,-b)*hype_2F1(c-a, b, c, (z-1.0)/(z+1.0));
   } else {
     double c = 1.0-m;
-    h = pow(z-1.0,-m/2.0)*pow(z+1.0,m/2.0)*pow((1.0+z)/2.0,-b)*gsl_sf_hyperg_2F1_renorm(c-a, b, c, (z-1.0)/(z+1.0));
+    h = pow(z-1.0,-m/2.0)*pow(z+1.0,m/2.0)*pow((1.0+z)/2.0,-b)*hype_2F1(c-a, b, c, (z-1.0)/(z+1.0));
   }
   return h;
 }
