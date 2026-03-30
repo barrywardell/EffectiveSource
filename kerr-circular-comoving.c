@@ -160,23 +160,15 @@ void effsource_PhiS_m(int m, struct coordinate * x, double * PhiS)
   const double z = (pow(rho,2) + pow(zc,2)/2.0)/(rho*R0);
 
   double R[10], ZpR[10];
-  int mBlock, mp1, mm1;
   for(int i=0; i<=8; i+=2)
   {
     int n = i-7;
-    if (1+n/2.0 <= 0) {
-      mBlock = -abs(m);
-      mm1 = -abs(m-1);
-      mp1 = -abs(m+1);
-    } else {
-      mBlock = abs(m);
-      mm1 = abs(m-1);
-      mp1 = abs(m+1);
-    }
-    const double pch = gsl_sf_poch(1+n/2.0, mBlock);
+    int mm1 = m-1;
+    int mp1 = m+1;
+    const double pch = gsl_sf_poch(1+n/2.0, m);
     const double pchmp1 = gsl_sf_poch(1+n/2.0, mp1);
     const double pchmm1 = gsl_sf_poch(1+n/2.0, mm1);
-    R[i]   = 2*M_PI*pow(-1,mBlock)*pow(rho,n/2.0)*pow(R0,n/2.0)*LegendreP(n/2.0, mBlock, z)/pch;
+    R[i]   = 2*M_PI*pow(-1,m)*pow(rho,n/2.0)*pow(R0,n/2.0)*LegendreP(n/2.0, m, z)/pch;
     ZpR[i] = pow(-1,m)*M_PI*zc*pow(rho,n/2.0)*pow(R0,n/2.0)*(LegendreP(n/2.0, mm1, z)/pchmm1-LegendreP(n/2.0, mp1, z)/pchmp1);
   }
 
@@ -439,29 +431,21 @@ void effsource_calc_m(int m, struct coordinate * x,
   /* m-mode integrals of R */
   double R[9], DrhoR[9], D2rhoR[9];
   double ZpR[9], DrhoZpR[9], D2rhoZpR[9];
-  int mBlock, mp1, mm1;
   for(int i=0; i<=8; i+=2)
   {
     int n = i-7;
-    if (1+n/2.0 <= 0) {
-      mBlock = -abs(m);
-      mm1 = -abs(m-1);
-      mp1 = -abs(m+1);
-    } else {
-      mBlock = abs(m);
-      mm1 = abs(m-1);
-      mp1 = abs(m+1);
-    }
-    const double pch = gsl_sf_poch(1+n/2.0, mBlock);
+    int mm1 = m-1;
+    int mp1 = m+1;
+    const double pch = gsl_sf_poch(1+n/2.0, m);
     const double pchmp1 = gsl_sf_poch(1+n/2.0, mp1);
     const double pchmm1 = gsl_sf_poch(1+n/2.0, mm1);
-    R[i]   = 2*M_PI*pow(-1,mBlock)*pow(rho,n/2.0)*pow(R0,n/2.0)*LegendreP(n/2.0, mBlock, z)/pch;
+    R[i]   = 2*M_PI*pow(-1,m)*pow(rho,n/2.0)*pow(R0,n/2.0)*LegendreP(n/2.0, m, z)/pch;
     ZpR[i] = pow(-1,m)*M_PI*zc*pow(rho,n/2.0)*pow(R0,n/2.0)*(LegendreP(n/2.0, mm1, z)/pchmm1-LegendreP(n/2.0, mp1, z)/pchmp1);
 
-    DrhoR[i]   = 2*pow(-1,mBlock)*M_PI*((-2 + 2*mBlock - n)*pow(R0,(-2 + n)/2.)*pow(rho,n/2.)*LegendreP(1 + n/2.,mBlock,z) + (1 + n)*pow(R0,2*(-1 + n/4.))*pow(rho,-1 + n/2.)*(2*pow(rho,2) + pow(zc,2))*LegendreP(n/2.,mBlock,z))/pch;
-    D2rhoR[i]  = (2*pow(-1,mBlock)*M_PI*((-2 + 2*mBlock - n)*pow(R0,(-6 + n)/2.)*pow(rho,-1 + n/2.)*((5 + 4*n)*pow(rho,2) + (3 + 2*n)*pow(zc,2))*LegendreP(1 + n/2.,mBlock,z) + 
-       (-4 + 2*mBlock - n)*(-2 + 2*mBlock - n)*pow(R0,2*(-1 + n/4.))*pow(rho,n/2.)*LegendreP(2 + n/2.,mBlock,z) + 
-       (1 + n)*pow(R0,2*(-2 + n/4.))*pow(rho,-2 + n/2.)*(2*pow(rho,4) + 3*pow(rho,2)*pow(zc,2) + n*pow(2*pow(rho,2) + pow(zc,2),2))*LegendreP(n/2.,mBlock,z)))/pch;
+    DrhoR[i]   = 2*pow(-1,m)*M_PI*((-2 + 2*m - n)*pow(R0,(-2 + n)/2.)*pow(rho,n/2.)*LegendreP(1 + n/2.,m,z) + (1 + n)*pow(R0,2*(-1 + n/4.))*pow(rho,-1 + n/2.)*(2*pow(rho,2) + pow(zc,2))*LegendreP(n/2.,m,z))/pch;
+    D2rhoR[i]  = (2*pow(-1,m)*M_PI*((-2 + 2*m - n)*pow(R0,(-6 + n)/2.)*pow(rho,-1 + n/2.)*((5 + 4*n)*pow(rho,2) + (3 + 2*n)*pow(zc,2))*LegendreP(1 + n/2.,m,z) + 
+       (-4 + 2*m - n)*(-2 + 2*m - n)*pow(R0,2*(-1 + n/4.))*pow(rho,n/2.)*LegendreP(2 + n/2.,m,z) + 
+       (1 + n)*pow(R0,2*(-2 + n/4.))*pow(rho,-2 + n/2.)*(2*pow(rho,4) + 3*pow(rho,2)*pow(zc,2) + n*pow(2*pow(rho,2) + pow(zc,2),2))*LegendreP(n/2.,m,z)))/pch;
 
     DrhoZpR[i] = pow(-1,m)*M_PI*zc*(((-2 + 2*mm1 - n)*pow(R0,(-2 + n)/2.)*pow(rho,n/2.)*LegendreP(1 + n/2.,mm1,z))/pchmm1
       + ((2 - 2*mp1 + n)*pow(R0,(-2 + n)/2.)*pow(rho,n/2.)*LegendreP(1 + n/2.,mp1,z))/pchmp1
