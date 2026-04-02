@@ -19,3 +19,4 @@ void effsource_calc(struct coordinate * x,
 void effsource_PhiS_m(int m, struct coordinate * x, double * PhiS);
 void effsource_calc_m(int m, struct coordinate * x,
   double * PhiS, double * dPhiS_dx, double * d2PhiS_dx2, double * src);
+void effsource_calc_m_series(int m, struct coordinate * x, double *src);
