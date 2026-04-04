@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[   1121193,      27967]
-NotebookOptionsPosition[   1080181,      27346]
-NotebookOutlinePosition[   1080679,      27364]
-CellTagsIndexPosition[   1080636,      27361]
+NotebookDataLength[   1267977,      30484]
+NotebookOptionsPosition[   1226510,      29856]
+NotebookOutlinePosition[   1227025,      29875]
+CellTagsIndexPosition[   1226982,      29872]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -26669,8 +26669,89 @@ Cell[BoxData[{
            AutoSpacing->False],
           Log,
           Editable->False], "[", 
-         SuperscriptBox["\[CurlyRho]", "2"], "]"}], "zc"]}], ")"}]}]}]}], 
-  ";"}], "\[IndentingNewLine]", 
+         SuperscriptBox["\[CurlyRho]", "2"], "]"}], "zc"]}], ")"}]}], "+", 
+    RowBox[{
+     SuperscriptBox[
+      InterpretationBox[
+       StyleBox["\[CurlyRho]",
+        ShowAutoStyles->False,
+        AutoSpacing->False],
+       $CellContext`\[CurlyRho],
+       Editable->False], "4"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        RowBox[{
+         RowBox[{"-", "139"}], "+", 
+         RowBox[{"128", " ", "\[ScriptM]"}], "+", 
+         RowBox[{"792", " ", 
+          SuperscriptBox["\[ScriptM]", "2"]}], "+", 
+         RowBox[{"512", " ", 
+          SuperscriptBox["\[ScriptM]", "3"]}], "+", 
+         RowBox[{"80", " ", 
+          SuperscriptBox["\[ScriptM]", "4"]}], "-", 
+         RowBox[{"4", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "15"}], "-", 
+            RowBox[{"16", " ", "\[ScriptM]"}], "+", 
+            RowBox[{"56", " ", 
+             SuperscriptBox["\[ScriptM]", "2"]}], "+", 
+            RowBox[{"64", " ", 
+             SuperscriptBox["\[ScriptM]", "3"]}], "+", 
+            RowBox[{"16", " ", 
+             SuperscriptBox["\[ScriptM]", "4"]}]}], ")"}], " ", 
+          RowBox[{
+           InterpretationBox[
+            StyleBox["HarmonicNumber",
+             ShowAutoStyles->False,
+             AutoSpacing->False],
+            HarmonicNumber,
+            Editable->False], "[", 
+           RowBox[{
+            RowBox[{"-", 
+             FractionBox["7", "2"]}], "-", "\[ScriptM]"}], "]"}]}], "+", 
+         RowBox[{"4", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "15"}], "-", 
+            RowBox[{"16", " ", "\[ScriptM]"}], "+", 
+            RowBox[{"56", " ", 
+             SuperscriptBox["\[ScriptM]", "2"]}], "+", 
+            RowBox[{"64", " ", 
+             SuperscriptBox["\[ScriptM]", "3"]}], "+", 
+            RowBox[{"16", " ", 
+             SuperscriptBox["\[ScriptM]", "4"]}]}], ")"}], " ", 
+          RowBox[{
+           InterpretationBox[
+            StyleBox["Log",
+             ShowAutoStyles->False,
+             AutoSpacing->False],
+            Log,
+            Editable->False], "[", "zc", "]"}]}]}], 
+        RowBox[{"16", " ", 
+         SuperscriptBox["zc", "3"], " ", 
+         RowBox[{"(", 
+          RowBox[{"15", "+", 
+           RowBox[{"16", " ", "\[ScriptM]"}], "+", 
+           RowBox[{"4", " ", 
+            SuperscriptBox["\[ScriptM]", "2"]}]}], ")"}]}]], "+", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           RowBox[{"4", " ", 
+            SuperscriptBox["\[ScriptM]", "2"]}]}], ")"}], " ", 
+         RowBox[{
+          InterpretationBox[
+           StyleBox["Log",
+            ShowAutoStyles->False,
+            AutoSpacing->False],
+           Log,
+           Editable->False], "[", 
+          SuperscriptBox["\[CurlyRho]", "2"], "]"}]}], 
+        RowBox[{"8", " ", 
+         SuperscriptBox["zc", "3"]}]]}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"R0\[ScriptM]", "[", 
@@ -26780,7 +26861,101 @@ Cell[BoxData[{
            Editable->False], "[", 
           SuperscriptBox["\[CurlyRho]", "2"], "]"}]}], 
         RowBox[{"2", " ", 
-         SuperscriptBox["zc", "3"]}]]}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+         SuperscriptBox["zc", "3"]}]]}], ")"}]}], "+", 
+    RowBox[{
+     SuperscriptBox[
+      InterpretationBox[
+       StyleBox["\[CurlyRho]",
+        ShowAutoStyles->False,
+        AutoSpacing->False],
+       $CellContext`\[CurlyRho],
+       Editable->False], "4"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox["1", 
+        RowBox[{"32", " ", 
+         RowBox[{"(", 
+          RowBox[{"35", "+", 
+           RowBox[{"24", " ", "\[ScriptM]"}], "+", 
+           RowBox[{"4", " ", 
+            SuperscriptBox["\[ScriptM]", "2"]}]}], ")"}], " ", 
+         SuperscriptBox["zc", "5"]}]], 
+       RowBox[{"(", 
+        RowBox[{"1377", "-", 
+         RowBox[{"2008", " ", "\[ScriptM]"}], "-", 
+         RowBox[{"7932", " ", 
+          SuperscriptBox["\[ScriptM]", "2"]}], "-", 
+         RowBox[{"1600", " ", 
+          SuperscriptBox["\[ScriptM]", "3"]}], "+", 
+         RowBox[{"3504", " ", 
+          SuperscriptBox["\[ScriptM]", "4"]}], "+", 
+         RowBox[{"1664", " ", 
+          SuperscriptBox["\[ScriptM]", "5"]}], "+", 
+         RowBox[{"192", " ", 
+          SuperscriptBox["\[ScriptM]", "6"]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{"315", "+", 
+            RowBox[{"216", " ", "\[ScriptM]"}], "-", 
+            RowBox[{"1364", " ", 
+             SuperscriptBox["\[ScriptM]", "2"]}], "-", 
+            RowBox[{"960", " ", 
+             SuperscriptBox["\[ScriptM]", "3"]}], "+", 
+            RowBox[{"400", " ", 
+             SuperscriptBox["\[ScriptM]", "4"]}], "+", 
+            RowBox[{"384", " ", 
+             SuperscriptBox["\[ScriptM]", "5"]}], "+", 
+            RowBox[{"64", " ", 
+             SuperscriptBox["\[ScriptM]", "6"]}]}], ")"}], " ", 
+          RowBox[{
+           InterpretationBox[
+            StyleBox["HarmonicNumber",
+             ShowAutoStyles->False,
+             AutoSpacing->False],
+            HarmonicNumber,
+            Editable->False], "[", 
+           RowBox[{
+            RowBox[{"-", 
+             FractionBox["9", "2"]}], "-", "\[ScriptM]"}], "]"}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{"315", "+", 
+            RowBox[{"216", " ", "\[ScriptM]"}], "-", 
+            RowBox[{"1364", " ", 
+             SuperscriptBox["\[ScriptM]", "2"]}], "-", 
+            RowBox[{"960", " ", 
+             SuperscriptBox["\[ScriptM]", "3"]}], "+", 
+            RowBox[{"400", " ", 
+             SuperscriptBox["\[ScriptM]", "4"]}], "+", 
+            RowBox[{"384", " ", 
+             SuperscriptBox["\[ScriptM]", "5"]}], "+", 
+            RowBox[{"64", " ", 
+             SuperscriptBox["\[ScriptM]", "6"]}]}], ")"}], " ", 
+          RowBox[{
+           InterpretationBox[
+            StyleBox["Log",
+             ShowAutoStyles->False,
+             AutoSpacing->False],
+            Log,
+            Editable->False], "[", "zc", "]"}]}]}], ")"}], "-", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"9", "-", 
+           RowBox[{"40", " ", 
+            SuperscriptBox["\[ScriptM]", "2"]}], "+", 
+           RowBox[{"16", " ", 
+            SuperscriptBox["\[ScriptM]", "4"]}]}], ")"}], " ", 
+         RowBox[{
+          InterpretationBox[
+           StyleBox["Log",
+            ShowAutoStyles->False,
+            AutoSpacing->False],
+           Log,
+           Editable->False], "[", 
+          SuperscriptBox["\[CurlyRho]", "2"], "]"}]}], 
+        RowBox[{"32", " ", 
+         SuperscriptBox["zc", "5"]}]]}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"R0\[ScriptM]", "[", 
@@ -26844,20 +27019,185 @@ Cell[BoxData[{
         Log,
         Editable->False], "[", 
        SuperscriptBox["\[CurlyRho]", "2"], "]"}]}], 
-     SuperscriptBox["zc", "3"]]}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"R0\[ScriptM]", "[", 
-    RowBox[{"-", "5"}], "]"}], "=", 
-   FractionBox["8", 
-    RowBox[{"3", " ", "zc", " ", 
+     SuperscriptBox["zc", "3"]]}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"+", 
      SuperscriptBox[
       InterpretationBox[
        StyleBox["\[CurlyRho]",
         ShowAutoStyles->False,
         AutoSpacing->False],
        $CellContext`\[CurlyRho],
-       Editable->False], "4"]}]]}], ";"}], "\[IndentingNewLine]", 
+       Editable->False], "2"]}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"297", "-", 
+         RowBox[{"710", " ", "\[ScriptM]"}], "-", 
+         RowBox[{"1640", " ", 
+          SuperscriptBox["\[ScriptM]", "2"]}], "+", 
+         RowBox[{"240", " ", 
+          SuperscriptBox["\[ScriptM]", "3"]}], "+", 
+         RowBox[{"784", " ", 
+          SuperscriptBox["\[ScriptM]", "4"]}], "+", 
+         RowBox[{"160", " ", 
+          SuperscriptBox["\[ScriptM]", "5"]}], "-", 
+         RowBox[{"4", " ", 
+          RowBox[{"(", 
+           RowBox[{"45", "+", 
+            RowBox[{"18", " ", "\[ScriptM]"}], "-", 
+            RowBox[{"200", " ", 
+             SuperscriptBox["\[ScriptM]", "2"]}], "-", 
+            RowBox[{"80", " ", 
+             SuperscriptBox["\[ScriptM]", "3"]}], "+", 
+            RowBox[{"80", " ", 
+             SuperscriptBox["\[ScriptM]", "4"]}], "+", 
+            RowBox[{"32", " ", 
+             SuperscriptBox["\[ScriptM]", "5"]}]}], ")"}], " ", 
+          RowBox[{
+           InterpretationBox[
+            StyleBox["HarmonicNumber",
+             ShowAutoStyles->False,
+             AutoSpacing->False],
+            HarmonicNumber,
+            Editable->False], "[", 
+           RowBox[{
+            RowBox[{"-", 
+             FractionBox["7", "2"]}], "-", "\[ScriptM]"}], "]"}]}], "+", 
+         RowBox[{"4", " ", 
+          RowBox[{"(", 
+           RowBox[{"45", "+", 
+            RowBox[{"18", " ", "\[ScriptM]"}], "-", 
+            RowBox[{"200", " ", 
+             SuperscriptBox["\[ScriptM]", "2"]}], "-", 
+            RowBox[{"80", " ", 
+             SuperscriptBox["\[ScriptM]", "3"]}], "+", 
+            RowBox[{"80", " ", 
+             SuperscriptBox["\[ScriptM]", "4"]}], "+", 
+            RowBox[{"32", " ", 
+             SuperscriptBox["\[ScriptM]", "5"]}]}], ")"}], " ", 
+          RowBox[{
+           InterpretationBox[
+            StyleBox["Log",
+             ShowAutoStyles->False,
+             AutoSpacing->False],
+            Log,
+            Editable->False], "[", "zc", "]"}]}]}], 
+        RowBox[{"16", " ", 
+         RowBox[{"(", 
+          RowBox[{"5", "+", 
+           RowBox[{"2", " ", "\[ScriptM]"}]}], ")"}], " ", 
+         SuperscriptBox["zc", "5"]}]]}], "+", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"9", "-", 
+          RowBox[{"40", " ", 
+           SuperscriptBox["\[ScriptM]", "2"]}], "+", 
+          RowBox[{"16", " ", 
+           SuperscriptBox["\[ScriptM]", "4"]}]}], ")"}], " ", 
+        RowBox[{
+         InterpretationBox[
+          StyleBox["Log",
+           ShowAutoStyles->False,
+           AutoSpacing->False],
+          Log,
+          Editable->False], "[", 
+         SuperscriptBox["\[CurlyRho]", "2"], "]"}]}], 
+       RowBox[{"8", " ", 
+        SuperscriptBox["zc", "5"]}]]}], ")"}]}], "*)"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"R0\[ScriptM]", "[", 
+    RowBox[{"-", "5"}], "]"}], "=", 
+   RowBox[{
+    FractionBox["8", 
+     RowBox[{"3", " ", "zc", " ", 
+      SuperscriptBox[
+       InterpretationBox[
+        StyleBox["\[CurlyRho]",
+         ShowAutoStyles->False,
+         AutoSpacing->False],
+        $CellContext`\[CurlyRho],
+        Editable->False], "4"]}]], "+", 
+    FractionBox[
+     RowBox[{"2", "-", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["\[ScriptM]", "2"]}]}], 
+     RowBox[{"3", " ", 
+      SuperscriptBox["zc", "3"], " ", 
+      SuperscriptBox[
+       InterpretationBox[
+        StyleBox["\[CurlyRho]",
+         ShowAutoStyles->False,
+         AutoSpacing->False],
+        $CellContext`\[CurlyRho],
+        Editable->False], "2"]}]]}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"+", 
+     FractionBox[
+      RowBox[{"27", "-", 
+       RowBox[{"160", " ", "\[ScriptM]"}], "-", 
+       RowBox[{"120", " ", 
+        SuperscriptBox["\[ScriptM]", "2"]}], "+", 
+       RowBox[{"128", " ", 
+        SuperscriptBox["\[ScriptM]", "3"]}], "+", 
+       RowBox[{"48", " ", 
+        SuperscriptBox["\[ScriptM]", "4"]}], "-", 
+       RowBox[{"4", " ", 
+        RowBox[{"(", 
+         RowBox[{"9", "-", 
+          RowBox[{"40", " ", 
+           SuperscriptBox["\[ScriptM]", "2"]}], "+", 
+          RowBox[{"16", " ", 
+           SuperscriptBox["\[ScriptM]", "4"]}]}], ")"}], " ", 
+        RowBox[{
+         InterpretationBox[
+          StyleBox["HarmonicNumber",
+           ShowAutoStyles->False,
+           AutoSpacing->False],
+          HarmonicNumber,
+          Editable->False], "[", 
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox["5", "2"]}], "-", "\[ScriptM]"}], "]"}]}], "+", 
+       RowBox[{"4", " ", 
+        RowBox[{"(", 
+         RowBox[{"9", "-", 
+          RowBox[{"40", " ", 
+           SuperscriptBox["\[ScriptM]", "2"]}], "+", 
+          RowBox[{"16", " ", 
+           SuperscriptBox["\[ScriptM]", "4"]}]}], ")"}], " ", 
+        RowBox[{
+         InterpretationBox[
+          StyleBox["Log",
+           ShowAutoStyles->False,
+           AutoSpacing->False],
+          Log,
+          Editable->False], "[", "zc", "]"}]}]}], 
+      RowBox[{"24", " ", 
+       SuperscriptBox["zc", "5"]}]]}], "-", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"9", "-", 
+        RowBox[{"40", " ", 
+         SuperscriptBox["\[ScriptM]", "2"]}], "+", 
+        RowBox[{"16", " ", 
+         SuperscriptBox["\[ScriptM]", "4"]}]}], ")"}], " ", 
+      RowBox[{
+       InterpretationBox[
+        StyleBox["Log",
+         ShowAutoStyles->False,
+         AutoSpacing->False],
+        Log,
+        Editable->False], "[", 
+       SuperscriptBox["\[CurlyRho]", "2"], "]"}]}], 
+     RowBox[{"12", " ", 
+      SuperscriptBox["zc", "5"]}]]}], "*)"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"R0\[ScriptM]", "[", 
@@ -26870,7 +27210,38 @@ Cell[BoxData[{
         ShowAutoStyles->False,
         AutoSpacing->False],
        $CellContext`\[CurlyRho],
-       Editable->False], "6"]}]]}], ";"}]}], "Input",
+       Editable->False], "6"]}]]}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"+", 
+     FractionBox[
+      RowBox[{"4", "-", 
+       RowBox[{"16", " ", 
+        SuperscriptBox["\[ScriptM]", "2"]}]}], 
+      RowBox[{"15", " ", 
+       SuperscriptBox["zc", "3"], " ", 
+       SuperscriptBox[
+        InterpretationBox[
+         StyleBox["\[CurlyRho]",
+          ShowAutoStyles->False,
+          AutoSpacing->False],
+         $CellContext`\[CurlyRho],
+         Editable->False], "4"]}]]}], "+", 
+    FractionBox[
+     RowBox[{"9", "-", 
+      RowBox[{"40", " ", 
+       SuperscriptBox["\[ScriptM]", "2"]}], "+", 
+      RowBox[{"16", " ", 
+       SuperscriptBox["\[ScriptM]", "4"]}]}], 
+     RowBox[{"30", " ", 
+      SuperscriptBox["zc", "5"], " ", 
+      SuperscriptBox[
+       InterpretationBox[
+        StyleBox["\[CurlyRho]",
+         ShowAutoStyles->False,
+         AutoSpacing->False],
+        $CellContext`\[CurlyRho],
+        Editable->False], "2"]}]]}], "*)"}], ";"}]}], "Input",
  CellChangeTimes->{{3.983957775493483*^9, 3.9839577900786257`*^9}, {
    3.983958259832191*^9, 3.983958360859996*^9}, {3.983958563807411*^9, 
    3.983958566687086*^9}, {3.98396041100842*^9, 3.9839604123382607`*^9}, {
@@ -26878,9 +27249,13 @@ Cell[BoxData[{
    3.983978364161199*^9}, {3.983978684386653*^9, 3.983978709634905*^9}, 
    3.983978743253634*^9, {3.983978852557908*^9, 3.983978878260611*^9}, {
    3.984060229584038*^9, 3.984060280130658*^9}, {3.9840677239542427`*^9, 
-   3.984067728033759*^9}},
+   3.984067728033759*^9}, {3.9841297991767893`*^9, 3.984129808693891*^9}, {
+   3.9841298840666533`*^9, 3.9841298880993958`*^9}, {3.9841299629687557`*^9, 
+   3.984129966904846*^9}, {3.9841302476455193`*^9, 3.9841302709340687`*^9}, 
+   3.9841303283890753`*^9, 3.984130435878131*^9, 3.984130575444653*^9, {
+   3.9841445110173883`*^9, 3.984144676902379*^9}},
  CellLabel->
-  "In[645]:=",ExpressionUUID->"7e55faca-e991-4a2e-b4e2-8944bbe76051"],
+  "In[714]:=",ExpressionUUID->"7e55faca-e991-4a2e-b4e2-8944bbe76051"],
 
 Cell[BoxData[
  RowBox[{
@@ -26895,9 +27270,9 @@ Cell[BoxData[
      RowBox[{"\[ImaginaryI]", " ", "\[ScriptM]", " ", "x"}]}]}]}], 
   ";"}]], "Input",
  CellChangeTimes->{{3.983956045327693*^9, 3.983956077965994*^9}, {
-   3.9839566538496637`*^9, 3.9839566571832533`*^9}, 
-   3.9841269978403673`*^9},ExpressionUUID->"637b55e0-f23a-44de-af07-\
-f8a55407b54c"],
+   3.9839566538496637`*^9, 3.9839566571832533`*^9}, 3.9841269978403673`*^9},
+ CellLabel->
+  "In[719]:=",ExpressionUUID->"637b55e0-f23a-44de-af07-f8a55407b54c"],
 
 Cell[BoxData[
  RowBox[{
@@ -26920,7 +27295,7 @@ Cell[BoxData[
   3.983960422312413*^9, 3.983960423347692*^9}, {3.983978971662003*^9, 
   3.983979001896875*^9}},
  CellLabel->
-  "In[650]:=",ExpressionUUID->"173a18bb-e433-4472-9b60-2c255aaf43ad"],
+  "In[720]:=",ExpressionUUID->"173a18bb-e433-4472-9b60-2c255aaf43ad"],
 
 Cell[BoxData[
  RowBox[{
@@ -26973,7 +27348,7 @@ Cell[BoxData[
   3.983958587974017*^9, 3.98395864301935*^9}, {3.983958720159382*^9, 
   3.983958730594804*^9}, {3.983979016291164*^9, 3.983979016436941*^9}},
  CellLabel->
-  "In[651]:=",ExpressionUUID->"cbd4da9c-8c29-4f4f-a4b6-506f6d361030"],
+  "In[722]:=",ExpressionUUID->"cbd4da9c-8c29-4f4f-a4b6-506f6d361030"],
 
 Cell[BoxData[
  RowBox[{
@@ -26989,14 +27364,16 @@ Cell[BoxData[
          RowBox[{"\[Epsilon]", " ", "\[CapitalDelta]\[Theta]"}]}]}], "}"}]}], 
      ",", 
      RowBox[{"{", 
-      RowBox[{"\[Epsilon]", ",", "0", ",", "1"}], "}"}]}], "]"}]}], 
+      RowBox[{"\[Epsilon]", ",", "0", ",", "2"}], "}"}]}], "]"}]}], 
   ";"}]], "Input",
  CellChangeTimes->{{3.983958661959366*^9, 3.983958716389421*^9}, {
    3.98395875926633*^9, 3.983958772740801*^9}, {3.983959033183878*^9, 
    3.98395903335907*^9}, {3.983960158110159*^9, 3.983960158557466*^9}, {
-   3.983963821437992*^9, 3.983963823500723*^9}, 3.983979028892202*^9},
+   3.983963821437992*^9, 3.983963823500723*^9}, 3.983979028892202*^9, {
+   3.984130593620687*^9, 3.9841305937765923`*^9}, {3.984144471865631*^9, 
+   3.9841444722219353`*^9}},
  CellLabel->
-  "In[652]:=",ExpressionUUID->"32e41e69-bb64-4bbd-95cb-7ff8b3483d17"],
+  "In[723]:=",ExpressionUUID->"32e41e69-bb64-4bbd-95cb-7ff8b3483d17"],
 
 Cell[BoxData[
  RowBox[{
@@ -27047,7 +27424,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.984074446561018*^9, 3.984074487830976*^9}, 
    3.984074633812064*^9, {3.984074884091918*^9, 3.9840748851254797`*^9}},
  CellLabel->
-  "In[657]:=",ExpressionUUID->"bcd812f5-25a7-4a43-a176-f0bfa0e6d3df"],
+  "In[724]:=",ExpressionUUID->"bcd812f5-25a7-4a43-a176-f0bfa0e6d3df"],
 
 Cell[CellGroupData[{
 
@@ -27060,14 +27437,15 @@ Cell[BoxData[
    3.983959048710999*^9}, {3.983960162697877*^9, 3.983960164470765*^9}, {
    3.983960432110909*^9, 3.983960432916451*^9}, 3.983963851984292*^9},
  CellLabel->
-  "In[653]:=",ExpressionUUID->"39b11b6b-458f-4cba-bdd3-e05a15893f4b"],
+  "In[725]:=",ExpressionUUID->"39b11b6b-458f-4cba-bdd3-e05a15893f4b"],
 
 Cell[BoxData["0"], "Output",
  CellChangeTimes->{3.9839589356649313`*^9, 3.983958980264291*^9, 
   3.9839590753803864`*^9, 3.983960206849339*^9, 3.983960443817854*^9, 
-  3.983963853521044*^9, 3.9840635412291737`*^9, 3.984073180940529*^9},
+  3.983963853521044*^9, 3.9840635412291737`*^9, 3.984073180940529*^9, 
+  3.9841686250076427`*^9},
  CellLabel->
-  "Out[653]=",ExpressionUUID->"f79444dd-52f7-4b0b-8206-5f745c7a8986"]
+  "Out[725]=",ExpressionUUID->"c277153e-41cf-44e4-9783-fe5d409278d8"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -27091,16 +27469,16 @@ Cell[BoxData[
   3.9839604364073343`*^9, 3.9839604520361023`*^9}, {3.983963855301594*^9, 
   3.9839638617184753`*^9}},
  CellLabel->
-  "In[654]:=",ExpressionUUID->"a784972c-8406-43d2-8252-111d294fcc21"],
+  "In[726]:=",ExpressionUUID->"a784972c-8406-43d2-8252-111d294fcc21"],
 
 Cell[BoxData["0"], "Output",
  CellChangeTimes->{
   3.9839589444778633`*^9, {3.983959079822626*^9, 3.983959108027841*^9}, {
    3.983960223420195*^9, 3.98396023807125*^9}, {3.983960445640409*^9, 
    3.983960452931863*^9}, {3.98396385597331*^9, 3.983963862157942*^9}, 
-   3.9840635427487392`*^9, 3.984073181737379*^9},
+   3.9840635427487392`*^9, 3.984073181737379*^9, 3.984168626761078*^9},
  CellLabel->
-  "Out[654]=",ExpressionUUID->"2bfb81aa-9247-4778-bb55-5512f225c5c1"]
+  "Out[726]=",ExpressionUUID->"d46ef862-daea-4f42-832e-a135f3a9e9cb"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -27153,7 +27531,7 @@ Cell[BoxData[
    3.984075495639118*^9}, {3.984121764579793*^9, 3.984121773546588*^9}, 
    3.984126984392426*^9},
  CellLabel->
-  "In[702]:=",ExpressionUUID->"e0518967-367c-4d42-a968-07510cc821ce"],
+  "In[727]:=",ExpressionUUID->"e0518967-367c-4d42-a968-07510cc821ce"],
 
 Cell[BoxData[
  RowBox[{
@@ -27205,7 +27583,79 @@ Cell[BoxData[
    3.984075502125092*^9}, {3.9841217772248507`*^9, 3.984121778412307*^9}, {
    3.984122361530807*^9, 3.984122380497592*^9}, 3.984126980911236*^9},
  CellLabel->
-  "In[701]:=",ExpressionUUID->"52fcb3e2-137d-44a7-9a9d-24688753e978"],
+  "In[728]:=",ExpressionUUID->"52fcb3e2-137d-44a7-9a9d-24688753e978"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"srcO\[Epsilon]2", "=", 
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", "$Assumptions", "}"}], ",", 
+     RowBox[{"Simplify", "[", 
+      RowBox[{
+       RowBox[{"Collect", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Coefficient", "[", 
+            RowBox[{
+            "Box\[CapitalPhi]circ\[ScriptM]Series", ",", "\[Epsilon]", ",", 
+             "2"}], "]"}], "//.", "HNRecurrence"}], "/.", 
+          RowBox[{"\[CapitalOmega]", "->", 
+           FractionBox["1", 
+            RowBox[{"a", "+", 
+             RowBox[{
+              SqrtBox[
+               SuperscriptBox["r1", "3"]], "/", 
+              SqrtBox["M"]}]}]]}]}], ",", 
+         RowBox[{"HarmonicNumber", "[", "__", "]"}], ",", "Simplify"}], "]"}],
+        "/.", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          SuperscriptBox["r1", "3"], ")"}], "n_"], ":>", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          FractionBox[
+           RowBox[{
+            SqrtBox["M"], 
+            RowBox[{"(", 
+             RowBox[{"1", "-", 
+              RowBox[{"a", " ", "\[CapitalOmega]"}]}], ")"}]}], 
+           "\[CapitalOmega]"], ")"}], 
+         RowBox[{"2", "n"}]]}]}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.983958928882593*^9, 3.9839589438932457`*^9}, {
+   3.983959078588223*^9, 3.983959107142424*^9}, {3.983960170556552*^9, 
+   3.983960172028751*^9}, {3.983960229785117*^9, 3.983960237168906*^9}, {
+   3.9839604364073343`*^9, 3.9839604520361023`*^9}, {3.983963855301594*^9, 
+   3.9839638617184753`*^9}, {3.984069380652534*^9, 3.984069383083156*^9}, {
+   3.9840700698318*^9, 3.984070098311716*^9}, {3.984070162839341*^9, 
+   3.984070211341263*^9}, {3.984070286042046*^9, 3.9840703456553717`*^9}, {
+   3.9840749420199537`*^9, 3.9840749526024942`*^9}, {3.98407547524253*^9, 
+   3.984075502125092*^9}, {3.9841217772248507`*^9, 3.984121778412307*^9}, {
+   3.984122361530807*^9, 3.984122380497592*^9}, 3.984126980911236*^9, {
+   3.984131751811295*^9, 3.9841317574251013`*^9}},
+ CellLabel->
+  "In[729]:=",ExpressionUUID->"088dc0ef-761f-4e91-b1fb-abbf02b39c1b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"srcO\[Epsilon]2simp", "=", 
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", "$Assumptions", "}"}], ",", 
+     RowBox[{"Collect", "[", 
+      RowBox[{
+       RowBox[{"srcO\[Epsilon]2", "/.", 
+        RowBox[{"\[Epsilon]", "->", "1"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"HarmonicNumber", "[", "__", "]"}], ",", 
+         RowBox[{"Log", "[", "__", "]"}]}], "}"}], ",", "Simplify"}], "]"}]}],
+     "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.984186565088896*^9, 3.9841866333630447`*^9}},
+ CellLabel->
+  "In[750]:=",ExpressionUUID->"870627e1-04fc-48a1-aa35-aa63461275d6"],
 
 Cell[CellGroupData[{
 
@@ -27229,7 +27679,7 @@ Cell[BoxData[
   3.984122299483471*^9, 3.984122340388665*^9}, {3.984122614329941*^9, 
   3.9841226145880823`*^9}},
  CellLabel->
-  "In[699]:=",ExpressionUUID->"f0c7fcd3-9695-4e3e-b197-af4308d18255"],
+  "In[730]:=",ExpressionUUID->"f0c7fcd3-9695-4e3e-b197-af4308d18255"],
 
 Cell[BoxData["\<\"-0.08333333333333333*(pow(Omega,5)*(-96*pow(a,11)*pow(M,4)*(\
 M - rp) + 96*pow(a,12)*pow(M,4)*Omega*(M - rp) - \
@@ -27260,9 +27710,10 @@ rp)*pow(rp,2),2)*(pow(a,2) + rp*(-2*M + rp))*sqrt(((-2*a*M + pow(a,2)*M*Omega \
 - Omega*pow(rp,3))*(pow(a,2) + rp*(-2*M + rp)))/(-2*a*M + 2*pow(a,2)*M*Omega \
 + Omega*(3*M - rp)*pow(rp,2))))\"\>"], "Output",
  CellChangeTimes->{{3.984122188053008*^9, 3.9841222257906303`*^9}, {
-   3.984122309040188*^9, 3.984122340738227*^9}, 3.984122615094181*^9},
+   3.984122309040188*^9, 3.984122340738227*^9}, 3.984122615094181*^9, 
+   3.984186009256847*^9},
  CellLabel->
-  "Out[699]=",ExpressionUUID->"4ded07a4-7256-4c07-96d7-4cdb82dceddd"]
+  "Out[730]=",ExpressionUUID->"8225a635-0b5d-4c62-90e7-290ca17faf9c"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -27288,7 +27739,7 @@ Cell[BoxData[
   3.984122299483471*^9, 3.984122340388665*^9}, {3.984122392998062*^9, 
   3.984122403885495*^9}, {3.98412261749161*^9, 3.984122617682373*^9}},
  CellLabel->
-  "In[700]:=",ExpressionUUID->"b76e9a07-bf37-45d8-adb5-4ca2a25bb232"],
+  "In[731]:=",ExpressionUUID->"b76e9a07-bf37-45d8-adb5-4ca2a25bb232"],
 
 Cell[BoxData["\<\"(pow(Omega,6)*((192*pow(a,15)*pow(M,5)*(1 - a*Omega)*(-2*M \
 + rp))/Omega + 192*pow(a,14)*pow(M,4)*pow(rp,2)*(2*pow(M,2) - 17*M*rp + \
@@ -27336,16 +27787,2076 @@ a*Omega)*pow(rp,8)*(77952*pow(M,7) - 254907*pow(M,6)*rp + \
 pow(rp,2)*(-3*M + rp),2)*pow(pow(a,2) + rp*(-2*M + rp),2)*sqrt(((-2*a*M + \
 pow(a,2)*M*Omega - Omega*pow(rp,3))*(pow(a,2) + rp*(-2*M + rp)))/(-2*a*M + \
 2*pow(a,2)*M*Omega + Omega*(3*M - rp)*pow(rp,2))))\"\>"], "Output",
- CellChangeTimes->{3.984122427017515*^9, 3.984122618123892*^9},
+ CellChangeTimes->{3.984122427017515*^9, 3.984122618123892*^9, 
+  3.984186045072915*^9},
  CellLabel->
-  "Out[700]=",ExpressionUUID->"9ed2b774-21d2-479f-945b-c1749d156cac"]
+  "Out[731]=",ExpressionUUID->"e878a6d1-f17d-4dbd-acfd-8e62164d83d9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringReplace", "[", 
+  RowBox[{
+   RowBox[{"ToString", "[", 
+    RowBox[{"CForm", "[", 
+     RowBox[{"srcO\[Epsilon]2simp", "/.", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"r1", "->", "rp"}], ",", 
+        RowBox[{"\[CapitalOmega]", "->", "Omega"}], ",", 
+        RowBox[{"\[ScriptM]", "->", "m"}]}], "}"}]}], "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<Power\>\"", "->", "\"\<pow\>\""}], ",", 
+     RowBox[{"\"\<Sqrt\>\"", "->", "\"\<sqrt\>\""}], ",", 
+     RowBox[{"\"\<Log\>\"", "->", "\"\<log\>\""}], ",", 
+     RowBox[{"\"\<\[CapitalDelta]r\>\"", "->", "\"\<dr\>\""}], ",", 
+     RowBox[{"\"\<\[CapitalDelta]\[Theta]\>\"", "->", "\"\<dth\>\""}]}], 
+    "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.984122192796565*^9, 3.9841222227678213`*^9}, {
+  3.984122299483471*^9, 3.984122340388665*^9}, {3.984122392998062*^9, 
+  3.984122403885495*^9}, {3.98412261749161*^9, 3.984122617682373*^9}, {
+  3.984248362272031*^9, 3.9842483925452843`*^9}, {3.984329943034134*^9, 
+  3.9843299548401403`*^9}},
+ CellLabel->
+  "In[780]:=",ExpressionUUID->"588e924f-88f8-48f3-ad3a-fbf056ff1f53"],
+
+Cell[BoxData["\<\"(pow(Omega,5)*(256*pow(a,30)*pow(M,6)*pow(Omega,3)*(169*M - \
+6*rp)*pow(dth,12) - 768*pow(a,29)*pow(M,6)*pow(Omega,2)*(165*M - \
+2*rp)*pow(dth,12) + \
+256*pow(a,27)*pow(M,5)*pow(dth,10)*(24*M*pow(Omega,2)*rp*pow(dr,2) + \
+2514*pow(M,4)*pow(Omega,2)*pow(dth,2) + \
+107*pow(M,3)*pow(Omega,2)*rp*pow(dth,2) + \
+168*pow(Omega,2)*pow(rp,4)*pow(dth,2) - pow(M,2)*(1050*pow(Omega,2)*pow(dr,2) \
++ (163 + 112*pow(Omega,2)*pow(rp,2))*pow(dth,2))) - \
+256*pow(a,28)*pow(M,5)*Omega*pow(dth,10)*(838*pow(M,4)*pow(Omega,2)*pow(dth,2)\
+ + 107*pow(M,3)*pow(Omega,2)*rp*pow(dth,2) + \
+120*pow(Omega,2)*pow(rp,4)*pow(dth,2) + 6*M*pow(Omega,2)*rp*(4*pow(dr,2) + \
+9*pow(rp,2)*pow(dth,2)) - pow(M,2)*(358*pow(Omega,2)*pow(dr,2) + (489 + \
+118*pow(Omega,2)*pow(rp,2))*pow(dth,2))) + \
+64*pow(a,25)*pow(M,4)*pow(dth,8)*(616*pow(M,4)*pow(Omega,2)*rp*pow(dr,2)*pow(\
+dth,2) + 47124*pow(M,7)*pow(Omega,2)*pow(dth,4) + 84*(19 + \
+4*pow(m,2))*pow(Omega,2)*pow(rp,7)*pow(dth,4) + \
+M*pow(Omega,2)*pow(rp,4)*pow(dth,2)*(2688*pow(dr,2) + (2979 - \
+340*pow(m,2))*pow(rp,2)*pow(dth,2)) + \
+5*pow(M,2)*pow(Omega,2)*rp*(24*pow(dr,4) + (-3481 + \
+12*pow(m,2))*pow(rp,4)*pow(dth,4)) + 4*pow(M,3)*(2355*pow(Omega,2)*pow(dr,4) \
+- 2*(173 + 174*pow(Omega,2)*pow(rp,2))*pow(dr,2)*pow(dth,2) + \
+3213*pow(Omega,2)*pow(rp,4)*pow(dth,4)) + \
+pow(M,5)*(23496*pow(Omega,2)*pow(dr,2)*pow(dth,2) + (3352 - \
+3394*pow(Omega,2)*pow(rp,2))*pow(dth,4))) - \
+64*pow(a,26)*pow(M,4)*Omega*pow(dth,8)*(15708*pow(M,7)*pow(Omega,2)*pow(dth,4)\
+ + 24*(11 + 12*pow(m,2))*pow(Omega,2)*pow(rp,7)*pow(dth,4) + \
+2*pow(M,4)*pow(Omega,2)*rp*pow(dth,2)*(308*pow(dr,2) + \
+213*pow(rp,2)*pow(dth,2)) + \
+3*M*pow(Omega,2)*pow(rp,4)*pow(dth,2)*(640*pow(dr,2) + (1097 - \
+100*pow(m,2))*pow(rp,2)*pow(dth,2)) + pow(M,2)*pow(Omega,2)*rp*(120*pow(dr,4) \
++ 480*pow(rp,2)*pow(dr,2)*pow(dth,2) + (-12751 + \
+60*pow(m,2))*pow(rp,4)*pow(dth,4)) + 2*pow(M,3)*(1610*pow(Omega,2)*pow(dr,4) \
+- 12*(173 + 60*pow(Omega,2)*pow(rp,2))*pow(dr,2)*pow(dth,2) + \
+4397*pow(Omega,2)*pow(rp,4)*pow(dth,4)) + \
+pow(M,5)*(7832*pow(Omega,2)*pow(dr,2)*pow(dth,2) + (10056 - \
+3394*pow(Omega,2)*pow(rp,2))*pow(dth,4))) + \
+32*pow(a,23)*pow(M,3)*pow(dth,6)*(12*(39 + \
+292*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dth,6) + \
+M*pow(Omega,2)*pow(rp,7)*pow(dth,4)*(840*(15 + 4*pow(m,2))*pow(dr,2) + (24923 \
++ 1716*pow(m,2))*pow(rp,2)*pow(dth,2)) + \
+4*pow(M,3)*pow(Omega,2)*pow(rp,5)*pow(dth,4)*((-25174 + \
+72*pow(m,2))*pow(dr,2) + (-28973 + 3286*pow(m,2))*pow(rp,2)*pow(dth,2)) - \
+40*pow(M,5)*pow(Omega,2)*rp*pow(dth,2)*(119*pow(dr,4) + \
+5660*pow(rp,4)*pow(dth,4)) + \
+pow(M,2)*pow(Omega,2)*pow(rp,4)*pow(dth,2)*(6720*pow(dr,4) + 16*(1477 - \
+120*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) - (59485 + \
+16144*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+24*pow(M,8)*(1269*pow(Omega,2)*pow(dr,2)*pow(dth,4) + 1309*pow(dth,6)) + \
+4*pow(M,6)*(8760*pow(Omega,2)*pow(dr,4)*pow(dth,2) + 2*(1958 - \
+747*pow(Omega,2)*pow(rp,2))*pow(dr,2)*pow(dth,4) - \
+6099*pow(Omega,2)*pow(rp,4)*pow(dth,6)) + \
+pow(M,4)*(80160*pow(Omega,2)*pow(dr,6) - 200*(-31 + \
+12*pow(Omega,2)*pow(rp,2))*pow(dr,4)*pow(dth,2) + \
+41816*pow(Omega,2)*pow(rp,4)*pow(dr,2)*pow(dth,4) + (369383 - \
+2160*pow(m,2))*pow(Omega,2)*pow(rp,6)*pow(dth,6))) - \
+32*pow(a,24)*pow(M,3)*Omega*pow(dth,6)*(6*(-285 + \
+244*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dth,6) + \
+3*M*pow(Omega,2)*pow(rp,7)*pow(dth,4)*(16*(41 + 60*pow(m,2))*pow(dr,2) + \
+(2327 + 1084*pow(m,2))*pow(rp,2)*pow(dth,2)) - \
+2*pow(M,5)*pow(Omega,2)*rp*pow(dth,2)*(2380*pow(dr,4) - \
+612*pow(rp,2)*pow(dr,2)*pow(dth,2) + 79395*pow(rp,4)*pow(dth,4)) + \
+4*pow(M,3)*pow(Omega,2)*pow(rp,3)*pow(dth,2)*(-420*pow(dr,4) + 4*(-4597 + \
+18*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + 3*(-10851 + \
+976*pow(m,2))*pow(rp,4)*pow(dth,4)) - \
+3*pow(M,2)*pow(Omega,2)*pow(rp,4)*pow(dth,2)*(-1600*pow(dr,4) + 16*(-473 + \
+36*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (-2213 + \
+4832*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+72*pow(M,8)*(141*pow(Omega,2)*pow(dr,2)*pow(dth,4) + 1309*pow(dth,6)) + \
+2*pow(M,6)*(5840*pow(Omega,2)*pow(dr,4)*pow(dth,2) + 12*(1958 - \
+249*pow(Omega,2)*pow(rp,2))*pow(dr,2)*pow(dth,4) - \
+15561*pow(Omega,2)*pow(rp,4)*pow(dth,6)) + \
+3*pow(M,4)*(9120*pow(Omega,2)*pow(dr,6) + 40*(155 - \
+18*pow(Omega,2)*pow(rp,2))*pow(dr,4)*pow(dth,2) + \
+9480*pow(Omega,2)*pow(rp,4)*pow(dr,2)*pow(dth,4) + 9*(10257 - \
+80*pow(m,2))*pow(Omega,2)*pow(rp,6)*pow(dth,6))) - \
+8*pow(a,21)*pow(M,2)*pow(dth,4)*(-125888*pow(M,8)*pow(Omega,2)*pow(rp,5)*pow(\
+dth,8) + 768*(3 - 13*pow(m,2))*pow(Omega,2)*pow(rp,13)*pow(dth,8) - \
+M*pow(Omega,2)*pow(rp,10)*pow(dth,6)*(48*(83 + 1460*pow(m,2))*pow(dr,2) + \
+7*(1813 + 18156*pow(m,2))*pow(rp,2)*pow(dth,2)) + \
+2*pow(M,2)*pow(Omega,2)*pow(rp,7)*pow(dth,4)*(-3360*(9 + \
+4*pow(m,2))*pow(dr,4) - 8*(20721 + \
+4412*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + 3*(-50879 + \
+54220*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+pow(M,3)*pow(Omega,2)*pow(rp,6)*pow(dth,4)*(-40*(4223 + \
+60*pow(m,2))*pow(dr,4) + 144*(4789 + \
+1896*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (1855237 + \
+100700*pow(m,2))*pow(rp,4)*pow(dth,4)) - \
+20*pow(M,6)*pow(Omega,2)*rp*pow(dth,2)*(-2848*pow(dr,6) - \
+50304*pow(rp,4)*pow(dr,2)*pow(dth,4) + (-434663 + \
+3468*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+32*pow(M,9)*(68700*pow(Omega,2)*pow(dr,4)*pow(dth,4) - \
+1269*pow(dr,2)*pow(dth,6) + 11690*pow(Omega,2)*pow(rp,4)*pow(dth,8)) - \
+16*pow(M,7)*(9480*pow(Omega,2)*pow(dr,6)*pow(dth,2) + 5*(584 + \
+1981*pow(Omega,2)*pow(rp,2))*pow(dr,4)*pow(dth,4) - \
+10221*pow(Omega,2)*pow(rp,4)*pow(dr,2)*pow(dth,6) + \
+291767*pow(Omega,2)*pow(rp,6)*pow(dth,8)) - \
+8*pow(M,4)*pow(Omega,2)*rp*(-120*pow(dr,8) - 5*(3469 + \
+36*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 12*(-13861 + \
+1264*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 4*(67053 + \
+20257*pow(m,2))*pow(rp,8)*pow(dth,8)) - \
+4*pow(M,5)*(102840*pow(Omega,2)*pow(dr,8) + 160*(165 + \
+2*pow(Omega,2)*pow(rp,2))*pow(dr,6)*pow(dth,2) - \
+132400*pow(Omega,2)*pow(rp,4)*pow(dr,4)*pow(dth,4) + 4*(187873 - \
+948*pow(m,2))*pow(Omega,2)*pow(rp,6)*pow(dr,2)*pow(dth,6) + (918461 - \
+112728*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dth,8))) + \
+8*pow(a,22)*pow(M,2)*Omega*pow(dth,4)*(-249872*pow(M,8)*pow(Omega,2)*pow(rp,5)\
+*pow(dth,8) + 24*(5 + 204*pow(m,2))*pow(Omega,2)*pow(rp,13)*pow(dth,8) + \
+M*pow(Omega,2)*pow(rp,10)*pow(dth,6)*((28824 - 29280*pow(m,2))*pow(dr,2) + \
+(59119 - 68316*pow(m,2))*pow(rp,2)*pow(dth,2)) + \
+8*pow(M,2)*pow(Omega,2)*pow(rp,7)*pow(dth,4)*(-960*(1 + 3*pow(m,2))*pow(dr,4) \
+- 48*(208 + 215*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (-34890 + \
+14063*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+pow(M,3)*pow(Omega,2)*pow(rp,6)*pow(dth,4)*(-360*(271 + 4*pow(m,2))*pow(dr,4) \
++ 24*(-3233 + 10140*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (441417 + \
+232372*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+4*pow(M,6)*pow(Omega,2)*rp*pow(dth,2)*(14240*pow(dr,6) + \
+4740*pow(rp,2)*pow(dr,4)*pow(dth,2) + 178668*pow(rp,4)*pow(dr,2)*pow(dth,4) + \
+(1668349 - 17340*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+32*pow(M,9)*(22900*pow(Omega,2)*pow(dr,4)*pow(dth,4) - \
+3807*pow(dr,2)*pow(dth,6) + 11690*pow(Omega,2)*pow(rp,4)*pow(dth,8)) - \
+8*pow(M,7)*(6320*pow(Omega,2)*pow(dr,6)*pow(dth,2) + 10*(1752 + \
+1981*pow(Omega,2)*pow(rp,2))*pow(dr,4)*pow(dth,4) - \
+23388*pow(Omega,2)*pow(rp,4)*pow(dr,2)*pow(dth,6) + \
+419587*pow(Omega,2)*pow(rp,6)*pow(dth,8)) + \
+4*pow(M,4)*pow(Omega,2)*rp*(240*pow(dr,8) + \
+7680*pow(rp,2)*pow(dr,6)*pow(dth,2) + 10*(2275 + \
+36*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) - 48*(-6847 + \
+581*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 7*(23737 - \
+21558*pow(m,2))*pow(rp,8)*pow(dth,8)) - \
+4*pow(M,5)*(35080*pow(Omega,2)*pow(dr,8) + 160*(495 + \
+8*pow(Omega,2)*pow(rp,2))*pow(dr,6)*pow(dth,2) - \
+94820*pow(Omega,2)*pow(rp,4)*pow(dr,4)*pow(dth,4) - 48*(-11707 + \
+79*pow(m,2))*pow(Omega,2)*pow(rp,6)*pow(dr,2)*pow(dth,6) + (1082495 - \
+101334*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dth,8))) - \
+4*pow(a,20)*M*Omega*pow(dth,2)*(1485568*pow(M,11)*pow(Omega,2)*pow(rp,5)*pow(\
+dth,10) + 1584*(1 - 4*pow(m,2))*pow(Omega,2)*pow(rp,16)*pow(dth,10) - \
+32*pow(M,9)*pow(Omega,2)*pow(rp,5)*pow(dth,8)*(-13239*pow(dr,2) + \
+713342*pow(rp,2)*pow(dth,2)) - \
+3*M*pow(Omega,2)*pow(rp,13)*pow(dth,8)*(16*(-31 + 1020*pow(m,2))*pow(dr,2) + \
+(131 + 29364*pow(m,2))*pow(rp,2)*pow(dth,2)) + \
+pow(M,2)*pow(Omega,2)*pow(rp,10)*pow(dth,6)*(480*(-173 + \
+244*pow(m,2))*pow(dr,4) + 8*(-57561 + \
+86276*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (-447519 + \
+858988*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+pow(M,3)*pow(Omega,2)*pow(rp,7)*pow(dth,4)*(11520*(-1 + 4*pow(m,2))*pow(dr,6) \
++ 120*(-69 + 4396*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) - 8*(-217189 + \
+148660*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + (2876539 - \
+2730332*pow(m,2))*pow(rp,6)*pow(dth,6)) - \
+64*pow(M,10)*pow(dth,4)*(39510*pow(Omega,2)*pow(dr,6) + \
+68700*pow(dr,4)*pow(dth,2) - 2720*pow(Omega,2)*pow(rp,4)*pow(dr,2)*pow(dth,4) \
++ 553*pow(Omega,2)*pow(rp,6)*pow(dth,6)) + \
+pow(M,4)*pow(Omega,2)*pow(rp,4)*pow(dth,2)*(-38400*pow(dr,8) + 1920*(9 + \
+28*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) - 600*(-619 + \
+1416*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) - 128*(16445 + \
+13968*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 7*(-1022287 + \
+330012*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+2*pow(M,7)*pow(Omega,2)*rp*pow(dth,2)*(-58720*pow(dr,8) - \
+56640*pow(rp,2)*pow(dr,6)*pow(dth,2) + 3493720*pow(rp,4)*pow(dr,4)*pow(dth,4) \
++ 16*(-537107 + 3798*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (-19822475 + \
+2037564*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+4*pow(M,8)*pow(dth,2)*(47840*pow(Omega,2)*pow(dr,8) + 160*(474 + \
+1127*pow(Omega,2)*pow(rp,2))*pow(dr,6)*pow(dth,2) - \
+55380*pow(Omega,2)*pow(rp,4)*pow(dr,4)*pow(dth,4) + \
+1017724*pow(Omega,2)*pow(rp,6)*pow(dr,2)*pow(dth,6) + 7*(1782215 - \
+23244*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dth,8)) + \
+4*pow(M,5)*pow(Omega,2)*rp*(-384*pow(dr,10) - \
+19680*pow(rp,2)*pow(dr,8)*pow(dth,2) - 160*(-1669 + \
+24*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) - 80*(3179 + \
+384*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 2*(-307327 + \
+443652*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (1788479 + \
+850224*pow(m,2))*pow(rp,10)*pow(dth,10)) + \
+4*pow(M,6)*(40096*pow(Omega,2)*pow(dr,10) + 240*(847 + \
+18*pow(Omega,2)*pow(rp,2))*pow(dr,8)*pow(dth,2) - \
+612320*pow(Omega,2)*pow(rp,4)*pow(dr,6)*pow(dth,4) + 30*(-24467 + \
+608*pow(m,2))*pow(Omega,2)*pow(rp,6)*pow(dr,4)*pow(dth,6) - 6*(-614867 + \
+52436*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,2)*pow(dth,8) + (2158925 - \
+1741248*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dth,10))) + \
+16*pow(a,19)*M*pow(dth,2)*(371392*pow(M,11)*pow(Omega,2)*pow(rp,5)*pow(dth,10)\
+ + 120*(-1 + 4*pow(m,2))*pow(Omega,2)*pow(rp,16)*pow(dth,10) + \
+48*pow(M,9)*pow(Omega,2)*pow(rp,5)*pow(dth,8)*(1796*pow(dr,2) - \
+161413*pow(rp,2)*pow(dth,2)) + \
+4*M*pow(Omega,2)*pow(rp,13)*pow(dth,8)*(24*(-61 + 260*pow(m,2))*pow(dr,2) + \
+(-3077 + 13060*pow(m,2))*pow(rp,2)*pow(dth,2)) + \
+2*pow(M,2)*pow(Omega,2)*pow(rp,10)*pow(dth,6)*(120*(-17 + \
+292*pow(m,2))*pow(dr,4) + (-5229 + \
+172276*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (21999 + \
+70064*pow(m,2))*pow(rp,4)*pow(dth,4)) - \
+2*pow(M,3)*pow(Omega,2)*pow(rp,7)*pow(dth,4)*(-1680*(-1 + \
+4*pow(m,2))*pow(dr,6) - 5*(14163 + \
+15188*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) + 4*(-61039 + \
+95064*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + 3*(-36919 + \
+209620*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+32*pow(M,10)*pow(dth,4)*(-59265*pow(Omega,2)*pow(dr,6) - \
+11450*pow(dr,4)*pow(dth,2) + 1360*pow(Omega,2)*pow(rp,4)*pow(dr,2)*pow(dth,4) \
++ 5467*pow(Omega,2)*pow(rp,6)*pow(dth,6)) + \
+4*pow(M,7)*pow(Omega,2)*rp*pow(dth,2)*(-7340*pow(dr,8) + \
+607980*pow(rp,4)*pow(dr,4)*pow(dth,4) + (-1399843 + \
+7596*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (-1918837 + \
+281080*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+pow(M,4)*pow(Omega,2)*pow(rp,4)*pow(dth,2)*(-13440*pow(dr,8) + 160*(647 + \
+100*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) - 10*(1441 + \
+24192*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) - 2*(1181519 + \
+146772*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (-2584307 + \
+1739500*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+pow(M,8)*pow(dth,2)*(143520*pow(Omega,2)*pow(dr,8) + 160*(158 + \
+1127*pow(Omega,2)*pow(rp,2))*pow(dr,6)*pow(dth,2) - \
+133920*pow(Omega,2)*pow(rp,4)*pow(dr,4)*pow(dth,4) + \
+1352224*pow(Omega,2)*pow(rp,6)*pow(dr,2)*pow(dth,6) + 21*(754121 - \
+7748*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dth,8)) + \
+4*pow(M,5)*pow(Omega,2)*rp*(-96*pow(dr,10) + 80*(1069 - \
+12*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) - 20*(10144 + \
+543*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 4*(142633 + \
+60158*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (1933059 + \
+56308*pow(m,2))*pow(rp,10)*pow(dth,10)) + \
+2*pow(M,6)*(58800*pow(Omega,2)*pow(dr,10) + 40*(847 + \
+24*pow(Omega,2)*pow(rp,2))*pow(dr,8)*pow(dth,2) - \
+427920*pow(Omega,2)*pow(rp,4)*pow(dr,6)*pow(dth,4) + 5*(-88177 + \
+1824*pow(m,2))*pow(Omega,2)*pow(rp,6)*pow(dr,4)*pow(dth,6) - 8*(-223767 + \
+21002*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,2)*pow(dth,8) - 2*(1594727 + \
+451498*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dth,10))) + pow(Omega,3)*(3*M - \
+rp)*pow(rp,18)*(768*pow(M,11)*pow(rp,5)*pow(dth,10)*(928*pow(dr,2) + 15*(-1 + \
+4*pow(m,2))*pow(rp,2)*pow(dth,2)) - \
+192*pow(M,10)*pow(rp,4)*pow(dth,8)*(9280*pow(dr,4) + 4*(4293 - \
+172*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (79 + \
+452*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+64*pow(M,9)*pow(rp,3)*pow(dth,6)*(27840*pow(dr,6) + 3*(30007 + \
+31412*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) + 3*(33891 + \
+4484*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + (-6031 + \
+34108*pow(m,2))*pow(rp,6)*pow(dth,6)) - \
+16*pow(M,8)*pow(rp,2)*pow(dth,4)*(55680*pow(dr,8) + 24*(12043 + \
+18268*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + 15*(20261 + \
+136172*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 2*(172609 + \
+333020*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (-127129 + \
+585316*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+16*pow(M,7)*rp*pow(dth,2)*(13920*pow(dr,10) + 3*(36447 + \
+82852*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 42*(2849 + \
+46924*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 3*(-145031 + \
+1698684*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 52*(-1981 + \
+39244*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 6*(-43739 + \
+189292*pow(m,2))*pow(rp,10)*pow(dth,10)) - 4*(-1 + \
+4*pow(m,2))*pow(rp,6)*(750*pow(dr,12) + 3750*pow(rp,2)*pow(dr,10)*pow(dth,2) \
++ 7563*pow(rp,4)*pow(dr,8)*pow(dth,4) + 7550*pow(rp,6)*pow(dr,6)*pow(dth,6) + \
+5570*pow(rp,8)*pow(dr,4)*pow(dth,8) + 1228*pow(rp,10)*pow(dr,2)*pow(dth,10) + \
+181*pow(rp,12)*pow(dth,12)) + pow(M,4)*pow(rp,2)*((47427 - \
+332556*pow(m,2))*pow(dr,12) + 6*(165817 - \
+863076*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (5537737 - \
+25775908*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(3110519 - \
+13745756*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 15*(1191971 - \
+5020300*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(3238247 - \
+13598492*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(578829 - \
+2365492*pow(m,2))*pow(rp,12)*pow(dth,12)) + pow(M,2)*pow(rp,4)*((56049 - \
+228996*pow(m,2))*pow(dr,12) - 6*(-80711 + \
+326492*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (1504603 - \
+6061612*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(535643 - \
+2155052*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 9*(-238063 + \
+956412*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(303413 - \
+1222292*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (114637 - \
+462196*pow(m,2))*pow(rp,12)*pow(dth,12)) + M*pow(rp,5)*(3*(-6915 + \
+27532*pow(m,2))*pow(dr,12) + 6*(-22273 + \
+88804*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-329687 + \
+1315868*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 20*(-19445 + \
+77684*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 331815*(-1 + \
+4*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-41387 + \
+165836*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(-4563 + \
+18316*pow(m,2))*pow(rp,12)*pow(dth,12)) + pow(M,3)*pow(rp,3)*((-81015 + \
+371676*pow(m,2))*pow(dr,12) + 6*(-157281 + \
+677764*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(-1257323 + \
+5262252*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(-1654421 + \
+6830804*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-7853849 + \
+31983716*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-1262003 + \
+5148620*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-557807 + \
+2261948*pow(m,2))*pow(rp,12)*pow(dth,12)) + 4*pow(M,5)*rp*(15*(293 + \
+1916*pow(m,2))*pow(dr,12) + 3*(-27873 + \
+308116*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-1063349 + \
+6648116*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(-1743527 + \
+9116108*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(-2138773 + \
+9761252*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-2571703 + \
+11590732*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-895231 + \
+3699196*pow(m,2))*pow(rp,12)*pow(dth,12)) - 4*pow(M,6)*(5568*pow(dr,12) + \
+12*(6341 + 22516*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(-34983 + \
+1311772*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(-454787 + \
+3911708*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(-2705221 + \
+15164884*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 8*(-283133 + \
+1572992*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-1219097 + \
+5123684*pow(m,2))*pow(rp,12)*pow(dth,12))) + \
+4*a*M*pow(Omega,2)*pow(rp,15)*(1152*pow(M,12)*pow(rp,5)*pow(dth,10)*(3712*pow(\
+dr,2) + 45*(-1 + 4*pow(m,2))*pow(rp,2)*pow(dth,2)) - \
+192*pow(M,11)*pow(rp,4)*pow(dth,8)*(55680*pow(dr,4) + 2*(56221 - \
+1548*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + 3*(-131 + \
+2060*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+96*pow(M,10)*pow(rp,3)*pow(dth,6)*(111360*pow(dr,6) + (431983 + \
+282708*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) + 1672*(303 + \
+14*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + (-21623 + \
+131036*pow(m,2))*pow(rp,6)*pow(dth,6)) - \
+16*pow(M,9)*pow(rp,2)*pow(dth,4)*(334080*pow(dr,8) + 12*(182387 + \
+164412*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + 3*(1229543 + \
+3251428*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 6*(602613 + \
+434972*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (-663535 + \
+3234748*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+8*pow(M,8)*rp*pow(dth,2)*(167040*pow(dr,10) + 21*(85169 + \
+106524*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 96*(49783 + \
+198283*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 30*(53563 + \
+1754308*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 8*(405029 + \
+2366296*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (-3037235 + \
+13641932*pow(m,2))*pow(rp,10)*pow(dth,10)) + 10*(-1 + \
+4*pow(m,2))*pow(rp,7)*(750*pow(dr,12) + 3750*pow(rp,2)*pow(dr,10)*pow(dth,2) \
++ 7563*pow(rp,4)*pow(dr,8)*pow(dth,4) + 7550*pow(rp,6)*pow(dr,6)*pow(dth,6) + \
+5570*pow(rp,8)*pow(dr,4)*pow(dth,8) + 1228*pow(rp,10)*pow(dr,2)*pow(dth,10) + \
+181*pow(rp,12)*pow(dth,12)) + pow(M,5)*pow(rp,2)*((73569 - \
+1679172*pow(m,2))*pow(dr,12) - 6*(-638009 + \
+4961988*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (27561179 - \
+163707116*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(18184321 - \
+95700004*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(42244421 - \
+194525524*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(24247691 - \
+110742092*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (16746469 - \
+69308308*pow(m,2))*pow(rp,12)*pow(dth,12)) + M*pow(rp,6)*((60951 - \
+245532*pow(m,2))*pow(dr,12) - 18*(-21105 + \
+84932*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 7*(131123 - \
+527372*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(266707 - \
+1072588*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(303299 - \
+1217996*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(112649 - \
+452900*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(12505 - \
+50212*pow(m,2))*pow(rp,12)*pow(dth,12)) + 2*pow(M,4)*pow(rp,3)*(6*(-31783 + \
+189388*pow(m,2))*pow(dr,12) + 96*(-28384 + \
+144773*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-12782801 + \
+60209924*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(-12896957 + \
+58259348*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 42*(-864413 + \
+3693252*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-6336019 + \
+27005884*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 27*(-126825 + \
+519076*pow(m,2))*pow(rp,12)*pow(dth,12)) + 2*pow(M,2)*pow(rp,5)*(339*(-299 + \
+1244*pow(m,2))*pow(dr,12) + 6*(-134755 + \
+554548*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-2388893 + \
+9771572*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 8*(-410519 + \
+1674296*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 45*(-72771 + \
+294748*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-456199 + \
+1850932*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-174275 + \
+703148*pow(m,2))*pow(rp,12)*pow(dth,12)) - 4*pow(M,3)*pow(rp,4)*((-93963 + \
+430908*pow(m,2))*pow(dr,12) + 96*(-10014 + \
+43843*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 12*(-293213 + \
+1251492*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(-1449827 + \
+6106508*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-6825947 + \
+28137788*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-534097 + \
+2203612*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 2*(-238915 + \
+969916*pow(m,2))*pow(rp,12)*pow(dth,12)) - 4*pow(M,7)*(33408*pow(dr,12) + \
+6*(117149 + 202644*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(788877 + \
+6408332*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 96*(-11339 + \
+867251*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 6*(-3326057 + \
+28885508*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-3355835 + \
+34477892*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(-2709355 + \
+11676076*pow(m,2))*pow(rp,12)*pow(dth,12)) + 2*pow(M,6)*rp*(3*(34433 + \
+86220*pow(m,2))*pow(dr,12) + 24*(11833 + \
+381734*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(-1952679 + \
+24393916*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 40*(-711763 + \
+5460184*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 5*(-14022275 + \
+76404092*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 8*(-3519379 + \
+19089394*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-14138839 + \
+59458396*pow(m,2))*pow(rp,12)*pow(dth,12))) + \
+4*pow(a,3)*M*pow(Omega,2)*pow(rp,12)*(2304*pow(M,13)*pow(rp,5)*pow(dth,10)*(\
+12992*pow(dr,2) + 75*(-1 + 4*pow(m,2))*pow(rp,2)*pow(dth,2)) - \
+192*pow(M,12)*pow(rp,4)*pow(dth,8)*(389760*pow(dr,4) - 20*(-41887 + \
+516*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (605 + \
+56076*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+192*pow(M,11)*pow(rp,3)*pow(dth,6)*(389760*pow(dr,6) + 5*(355045 + \
+94236*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) + (1982369 - \
+18452*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + 20*(-865 + \
+19476*pow(m,2))*pow(rp,6)*pow(dth,6)) - \
+16*pow(M,10)*pow(rp,2)*pow(dth,4)*(2338560*pow(dr,8) + 120*(156113 + \
+54804*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + 3*(13060459 + \
+11292244*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 6*(5231437 + \
+1004700*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (-1824707 + \
+16477580*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+16*pow(M,9)*rp*pow(dth,2)*(584640*pow(dr,10) + 165*(49015 + \
+22596*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 66*(443399 + \
+503764*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 30*(1100085 + \
+3152636*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 8*(2761809 + \
+3733216*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (-4809535 + \
+31814588*pow(m,2))*pow(rp,10)*pow(dth,10)) + 20*(-1 + \
+4*pow(m,2))*pow(rp,8)*(-1830*pow(dr,12) - \
+6831*pow(rp,2)*pow(dr,10)*pow(dth,2) - 8679*pow(rp,4)*pow(dr,8)*pow(dth,4) - \
+3363*pow(rp,6)*pow(dr,6)*pow(dth,6) + 5670*pow(rp,8)*pow(dr,4)*pow(dth,8) + \
+3104*pow(rp,10)*pow(dr,2)*pow(dth,10) + 725*pow(rp,12)*pow(dth,12)) - \
+2*M*pow(rp,7)*(-8*(-20309 + 81076*pow(m,2))*pow(dr,12) + (803563 - \
+3202700*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (1370007 - \
+5444348*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(443713 - \
+1748452*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(-252069 + \
+1028596*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 5*(-89065 + \
+359364*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-126613 + \
+508724*pow(m,2))*pow(rp,12)*pow(dth,12)) + 4*pow(M,4)*pow(rp,4)*(-8*(-57055 + \
+282474*pow(m,2))*pow(dr,12) - 8*(-722283 + \
+3119074*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 8*(3016089 - \
+12208466*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + (40291797 - \
+157119028*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(13270993 - \
+49863052*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-3525859 + \
+16778524*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 16*(-306090 + \
+1226159*pow(m,2))*pow(rp,12)*pow(dth,12)) - 2*pow(M,5)*pow(rp,3)*((376827 - \
+4726860*pow(m,2))*pow(dr,12) + (10125847 - \
+62404476*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 10*(5976699 - \
+28662428*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 10*(13334497 - \
+56836836*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (152760559 - \
+610863196*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (18298127 - \
+69969500*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 8*(-1525929 + \
+5714240*pow(m,2))*pow(rp,12)*pow(dth,12)) + pow(M,2)*pow(rp,6)*((1009991 - \
+4030428*pow(m,2))*pow(dr,12) + 2*(3514125 - \
+13941572*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (16189581 - \
+63822964*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 20*(-741911 + \
+2888268*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-1552311 + \
+7515164*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-2604739 + \
+10668284*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-1910541 + \
+7707380*pow(m,2))*pow(rp,12)*pow(dth,12)) - 2*pow(M,3)*pow(rp,5)*((830999 - \
+3413980*pow(m,2))*pow(dr,12) + 4*(2010607 - \
+8023060*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (25202559 - \
+98930876*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 32*(-983839 + \
+3794586*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (8259013 - \
+28742932*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-1853663 + \
+7830276*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-4005579 + \
+16184428*pow(m,2))*pow(rp,12)*pow(dth,12)) + 4*pow(M,7)*rp*(75*(7471 + \
+5748*pow(m,2))*pow(dr,12) + 3*(2167733 + \
+5461916*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 12*(1242193 + \
+11408148*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(-5228977 + \
+205515188*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 5*(-21682691 + \
+147375964*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-38626781 + \
+265737796*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 2*(-7382541 + \
+41721812*pow(m,2))*pow(rp,12)*pow(dth,12)) - pow(M,6)*pow(rp,2)*(3*(478877 + \
+2033420*pow(m,2))*pow(dr,12) + 6*(66793 + \
+19391308*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-70724619 + \
+662888236*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(-65968277 + \
+391381188*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-504067831 + \
+2311636444*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-67478473 + \
+315563764*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-1924533 + \
+41904724*pow(m,2))*pow(rp,12)*pow(dth,12)) - 4*pow(M,8)*(233856*pow(dr,12) + \
+60*(113951 + 67548*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(13528699 + \
+22635284*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 12*(6464589 + \
+25099244*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(2601151 + \
+322783236*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 16*(645173 + \
+15215586*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-24340431 + \
+140870332*pow(m,2))*pow(rp,12)*pow(dth,12))) + \
+pow(a,2)*pow(Omega,3)*pow(rp,15)*(11520*pow(M,13)*pow(rp,5)*pow(dth,10)*(3712*\
+pow(dr,2) + 27*(-1 + 4*pow(m,2))*pow(rp,2)*pow(dth,2)) - \
+384*pow(M,12)*pow(rp,4)*pow(dth,8)*(278400*pow(dr,4) + 2*(291383 - \
+4644*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (-3001 + \
+41316*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+192*pow(M,11)*pow(rp,3)*pow(dth,6)*(556800*pow(dr,6) + (2411789 + \
+848124*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) + 4*(687017 - \
+2200*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + 2*(-36091 + \
+297644*pow(m,2))*pow(rp,6)*pow(dth,6)) - \
+96*pow(M,10)*pow(rp,2)*pow(dth,4)*(556800*pow(dr,8) + 4*(1049401 + \
+493236*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + (8536667 + \
+9947092*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 40*(183329 + \
+47876*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (-729433 + \
+4331492*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+48*pow(M,9)*rp*pow(dth,2)*(278400*pow(dr,10) + (3574789 + \
+2237004*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 8*(1559219 + \
+2432344*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 25*(537855 + \
+2207332*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 4*(2639679 + \
+4342780*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 8*(-432187 + \
+2201372*pow(m,2))*pow(rp,10)*pow(dth,10)) + 8*(-1 + \
+4*pow(m,2))*pow(rp,8)*(-1830*pow(dr,12) - \
+6831*pow(rp,2)*pow(dr,10)*pow(dth,2) - 8679*pow(rp,4)*pow(dr,8)*pow(dth,4) - \
+3363*pow(rp,6)*pow(dr,6)*pow(dth,6) + 5670*pow(rp,8)*pow(dr,4)*pow(dth,8) + \
+3104*pow(rp,10)*pow(dr,2)*pow(dth,10) + 725*pow(rp,12)*pow(dth,12)) + \
+M*pow(rp,7)*(3*(-71301 + 285908*pow(m,2))*pow(dr,12) + 12*(-85989 + \
+344884*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-1816411 + \
+7286764*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 40*(-34115 + \
+136844*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(-3607 + \
+14108*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 4*(-70457 + \
+283460*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 9*(10151 - \
+40860*pow(m,2))*pow(rp,12)*pow(dth,12)) + 6*pow(M,2)*pow(rp,6)*((153725 - \
+624308*pow(m,2))*pow(dr,12) + 4*(251395 - \
+1017572*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (2330639 - \
+9419196*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 8*(295159 - \
+1192036*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (953659 - \
+3846956*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-31225 + \
+126348*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(-30685 + \
+124404*pow(m,2))*pow(rp,12)*pow(dth,12)) - 8*pow(M,4)*pow(rp,4)*(144*(-2224 + \
+11609*pow(m,2))*pow(dr,12) + 3*(-1247449 + \
+5846308*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 2*(-7470233 + \
+33138692*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + (-25107227 + \
+108562028*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 30*(-862217 + \
+3620028*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-1300613 + \
+5556740*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 6*(-69883 + \
+292668*pow(m,2))*pow(rp,12)*pow(dth,12)) - 2*pow(M,3)*pow(rp,5)*((967479 - \
+4163580*pow(m,2))*pow(dr,12) + 12*(724001 - \
+3033212*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 15*(-1771663 + \
+7330364*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 360*(-96863 + \
+398596*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 15*(-1640279 + \
+6702908*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 68*(-33587 + \
+139796*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-596273 + \
+2432516*pow(m,2))*pow(rp,12)*pow(dth,12)) + 4*pow(M,7)*rp*((712137 + \
+775980*pow(m,2))*pow(dr,12) + 12*(616121 + \
+2375464*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 12*(1047179 + \
+19656524*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 24*(-1150859 + \
+29711976*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(-59843261 + \
+433507364*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-16441813 + \
+123971080*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 6*(-7832373 + \
+34982932*pow(m,2))*pow(rp,12)*pow(dth,12)) + 3*pow(M,5)*pow(rp,3)*(25*(-20669 \
++ 208052*pow(m,2))*pow(dr,12) + 4*(-2565341 + \
+16611124*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 5*(-11166101 + \
+59898708*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 8*(-15153173 + \
+74288052*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-173938487 + \
+774378908*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 36*(-1357997 + \
+6141108*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-10192923 + \
+43155692*pow(m,2))*pow(rp,12)*pow(dth,12)) - 24*pow(M,8)*(55680*pow(dr,12) + \
+2*(742327 + 607932*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (8276549 + \
+19787564*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 20*(753361 + \
+4378932*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(-1560577 + \
+94163748*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(1197107 + \
+35313004*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-9344267 + \
+43841964*pow(m,2))*pow(rp,12)*pow(dth,12)) - 2*pow(M,6)*pow(rp,2)*((691755 + \
+5273556*pow(m,2))*pow(dr,12) + 12*(-258717 + \
+8208748*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 9*(-6580359 + \
+61832476*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 48*(-4060021 + \
+27564184*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 15*(-27311389 + \
+139032948*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-35146657 + \
+180832300*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-49596697 + \
+214560484*pow(m,2))*pow(rp,12)*pow(dth,12))) + \
+pow(a,6)*pow(Omega,3)*pow(rp,9)*(-2304*pow(M,15)*pow(rp,5)*pow(dth,10)*(25984*\
+pow(dr,2) + 75*(-1 + 4*pow(m,2))*pow(rp,2)*pow(dth,2)) + \
+768*pow(M,14)*pow(rp,4)*pow(dth,8)*(194880*pow(dr,4) - 5*(-83327 + \
+516*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (-16679 + \
+27996*pow(m,2))*pow(rp,4)*pow(dth,4)) - \
+192*pow(M,13)*pow(rp,3)*pow(dth,6)*(779520*pow(dr,6) + 5*(730469 + \
+94236*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) + 2*(2347071 - \
+47524*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + (-490973 + \
+699892*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+64*pow(M,12)*pow(rp,2)*pow(dth,4)*(1169280*pow(dr,8) + 30*(324337 + \
+54804*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + 6*(4478891 + \
+1566836*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 6*(4824369 + \
+145148*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 7*(-595855 + \
+1095676*pow(m,2))*pow(rp,8)*pow(dth,8)) + 8*(-1 + \
+4*pow(m,2))*pow(rp,12)*pow(dth,2)*(1890*pow(dr,10) - \
+8349*pow(rp,2)*pow(dr,8)*pow(dth,2) - 27569*pow(rp,4)*pow(dr,6)*pow(dth,4) - \
+11770*pow(rp,6)*pow(dr,4)*pow(dth,6) + 10390*pow(rp,8)*pow(dr,2)*pow(dth,8) + \
+5257*pow(rp,10)*pow(dth,10)) - 16*pow(M,11)*rp*pow(dth,2)*(1169280*pow(dr,10) \
++ 15*(1134109 + 248556*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 12*(7123791 \
++ 3122956*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 480*(425190 + \
+230447*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 2*(82746477 + \
+14053532*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (-20394205 + \
+67571188*pow(m,2))*pow(rp,10)*pow(dth,10)) + 2*pow(M,6)*pow(rp,4)*(4*(704443 \
++ 1707108*pow(m,2))*pow(dr,12) + (20467003 + \
+54863700*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 2*(-12164699 + \
+98964396*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 6*(-60388317 + \
+109831508*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 4*(-152176151 + \
+256164364*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (141477923 - \
+939211660*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 2*(230995259 - \
+781967852*pow(m,2))*pow(rp,12)*pow(dth,12)) + 4*pow(M,8)*pow(rp,2)*(60*(27007 \
++ 30652*pow(m,2))*pow(dr,12) + 12*(2874169 + \
+3192384*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (222262401 + \
+216027836*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 440*(1073543 + \
+955736*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 6*(30869987 + \
+119047172*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(10297449 + \
+65099128*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (207302129 - \
+167042564*pow(m,2))*pow(rp,12)*pow(dth,12)) + M*pow(rp,9)*(96*(-1003 + \
+4020*pow(m,2))*pow(dr,12) - 48*(-39749 + \
+158708*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 5*(1216651 - \
+4856236*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 56*(-97457 + \
+388868*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 30*(-10979 + \
+42956*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 88*(-7969 + \
+31012*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(-4471 + \
+7132*pow(m,2))*pow(rp,12)*pow(dth,12)) - 2*pow(M,2)*pow(rp,8)*(12*(-43933 + \
+183340*pow(m,2))*pow(dr,12) + 3*(1232227 - \
+4679244*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 16*(1425917 - \
+5555798*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(16527167 - \
+64374428*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 24*(-191123 + \
+671112*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-8093135 + \
+32704316*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 4*(-720611 + \
+2845172*pow(m,2))*pow(rp,12)*pow(dth,12)) + 16*pow(M,10)*(116928*pow(dr,12) + \
+15*(243199 + 67548*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(10851717 + \
+6501452*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 6*(25417123 + \
+14898188*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 32*(8369633 + \
+6096333*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (151825847 + \
+59477164*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(-1247205 + \
+31397332*pow(m,2))*pow(rp,12)*pow(dth,12)) - 4*pow(M,4)*pow(rp,6)*(4*(-26389 \
++ 203232*pow(m,2))*pow(dr,12) + (3012125 - \
+631524*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 2*(23840857 - \
+65455228*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 20*(-7552275 + \
+24137396*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 20*(4100653 - \
+11188368*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-71381707 + \
+313007932*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 6*(-9032781 + \
+35428540*pow(m,2))*pow(rp,12)*pow(dth,12)) - 4*pow(M,9)*rp*(15*(81259 + \
+28740*pow(m,2))*pow(dr,12) + 6*(3955843 + \
+3207628*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(70412007 + \
+56740292*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 16*(46040033 + \
+31163318*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (803305187 + \
+869132612*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(156192827 + \
+159487868*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(33735501 + \
+88141132*pow(m,2))*pow(rp,12)*pow(dth,12)) + 2*pow(M,3)*pow(rp,7)*((-847661 + \
+4058548*pow(m,2))*pow(dr,12) + (4522969 - \
+10972068*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (63028553 - \
+225841092*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(68979039 - \
+254071196*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 5*(-8355021 + \
+26823220*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-48541743 + \
+202393916*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-25378541 + \
+100613972*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+2*pow(M,7)*pow(rp,3)*(-111*(37035 + 60404*pow(m,2))*pow(dr,12) - (60818827 + \
+87755604*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 4*(54288883 + \
+81543908*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 2*(48928809 + \
+288051644*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (482156623 - \
+1139503452*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (24286661 + \
+149765164*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 6*(-87135273 + \
+218841604*pow(m,2))*pow(rp,12)*pow(dth,12)) + pow(M,5)*pow(rp,5)*(-8*(149297 \
++ 700572*pow(m,2))*pow(dr,12) - 12*(-943997 + \
+3049252*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (205795467 - \
+379029868*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 16*(52451647 - \
+123293108*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 6*(129918873 - \
+275413732*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-110127023 + \
+536134252*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 7*(-79360519 + \
+299358172*pow(m,2))*pow(rp,12)*pow(dth,12))) + \
+2*pow(a,5)*M*pow(Omega,2)*pow(rp,9)*(2304*pow(M,14)*pow(rp,5)*pow(dth,10)*(\
+25984*pow(dr,2) + 45*(-1 + 4*pow(m,2))*pow(rp,2)*pow(dth,2)) - \
+768*pow(M,13)*pow(rp,4)*pow(dth,8)*(194880*pow(dr,4) + (476221 - \
+1548*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (23041 + \
+22140*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+192*pow(M,12)*pow(rp,3)*pow(dth,6)*(779520*pow(dr,6) + (4297903 + \
+282708*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) + 2*(2054701 - \
+42156*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + 8*(68457 + \
+70588*pow(m,2))*pow(rp,6)*pow(dth,6)) - \
+64*pow(M,11)*pow(rp,2)*pow(dth,4)*(1169280*pow(dr,8) + 6*(1948307 + \
+164412*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + 72*(312217 + \
+84072*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 3*(3193373 + \
+216380*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (4077251 + \
+4584052*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+16*pow(M,10)*rp*pow(dth,2)*(1169280*pow(dr,10) + 3*(6991703 + \
+745668*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 12*(5747573 + \
+2030148*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 9*(3063671 + \
+7180356*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 2*(-14204079 + \
+15555308*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 2*(12801669 + \
+5945324*pow(m,2))*pow(rp,10)*pow(dth,10)) + 20*(-1 + \
+4*pow(m,2))*pow(rp,9)*(729*pow(dr,12) - 13680*pow(rp,2)*pow(dr,10)*pow(dth,2) \
+- 49632*pow(rp,4)*pow(dr,8)*pow(dth,4) - 57158*pow(rp,6)*pow(dr,6)*pow(dth,6) \
+- 5505*pow(rp,8)*pow(dr,4)*pow(dth,8) + \
+14136*pow(rp,10)*pow(dr,2)*pow(dth,10) + 5130*pow(rp,12)*pow(dth,12)) - \
+16*pow(M,9)*(116928*pow(dr,12) + 39*(119153 + \
+15588*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 15*(1697981 + \
+854316*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 528*(9068 + \
+99773*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 8*(-14339869 + \
+12067296*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-92611179 + \
+59258692*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (35761687 - \
+54445788*pow(m,2))*pow(rp,12)*pow(dth,12)) - 2*M*pow(rp,8)*(64*(-6527 + \
+26170*pow(m,2))*pow(dr,12) + 64*(-8013 + \
+32567*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (2541403 - \
+10047532*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(1380587 - \
+5469708*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(982989 - \
+3835316*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 12*(-117887 + \
+478732*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 75*(-9487 + \
+38140*pow(m,2))*pow(rp,12)*pow(dth,12)) - 4*pow(M,3)*pow(rp,6)*((-2004067 + \
+7508556*pow(m,2))*pow(dr,12) + (-15237739 + \
+57618316*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 2*(-14577707 + \
+54578588*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(-3046669 + \
+8734036*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (32695877 - \
+133159508*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 3*(1451383 - \
+5920956*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 4*(-1027709 + \
+4051836*pow(m,2))*pow(rp,12)*pow(dth,12)) - 4*pow(M,8)*rp*(-3*(540353 + \
+86220*pow(m,2))*pow(dr,12) - 54*(332545 + \
+236996*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 6*(-3350461 + \
+17992964*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 8*(-48814961 + \
+36269104*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (763522869 - \
+324664196*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(171895263 + \
+3806732*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 32*(-5908597 + \
+19513556*pow(m,2))*pow(rp,12)*pow(dth,12)) + pow(M,2)*pow(rp,7)*((-4050673 + \
+16084356*pow(m,2))*pow(dr,12) + 2*(-8777185 + \
+34864324*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 5*(-1911199 + \
+7636156*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 4*(-7672667 + \
+30200588*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (33647969 - \
+131703236*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 6*(-1295791 + \
+5426108*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-7654917 + \
+30821716*pow(m,2))*pow(rp,12)*pow(dth,12)) - 2*pow(M,4)*pow(rp,5)*((5002855 - \
+15164316*pow(m,2))*pow(dr,12) - 30*(-1794021 + \
+5762596*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 5*(34229621 - \
+111596724*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 64*(-2617571 + \
+7828609*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-124233747 + \
+605236748*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-40288161 + \
+179175956*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-7915593 + \
+39515332*pow(m,2))*pow(rp,12)*pow(dth,12)) + 2*pow(M,5)*pow(rp,4)*((4754954 - \
+9962472*pow(m,2))*pow(dr,12) - 20*(-3394013 + \
+7454004*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (296653553 - \
+695531332*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 20*(-23955541 + \
+54116724*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 16*(-2470337 + \
+50561808*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 16*(-12707043 + \
+65141956*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-91986907 + \
+404658668*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+4*pow(M,7)*pow(rp,2)*(-54*(21843 + 22964*pow(m,2))*pow(dr,12) + 3*(2910137 - \
+8917892*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (160382439 - \
+166653596*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(273520641 - \
+207175364*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 24*(23781843 - \
+1691372*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (95009475 + \
+537261524*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-191195373 + \
+778265396*pow(m,2))*pow(rp,12)*pow(dth,12)) - pow(M,6)*pow(rp,3)*((4010529 - \
+10580868*pow(m,2))*pow(dr,12) - 14*(-8913467 + \
+13195116*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (766842491 - \
+1060569964*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 20*(-86196661 + \
+116341492*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 5*(162174675 + \
+222883124*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-183169311 + \
+1537129532*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-502469467 + \
+2165492076*pow(m,2))*pow(rp,12)*pow(dth,12))) - \
+pow(a,4)*pow(Omega,3)*pow(rp,12)*(2304*pow(M,14)*pow(rp,5)*pow(dth,10)*(-\
+12992*pow(dr,2) + 75*(-1 + 4*pow(m,2))*pow(rp,2)*pow(dth,2)) + \
+192*pow(M,13)*pow(rp,4)*pow(dth,8)*(389760*pow(dr,4) + 20*(53089 + \
+516*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (67637 + \
+37932*pow(m,2))*pow(rp,4)*pow(dth,4)) - \
+192*pow(M,12)*pow(rp,3)*pow(dth,6)*(389760*pow(dr,6) - 5*(-516763 + \
+94236*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) + (2371661 - \
+112004*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + (425357 + \
+144716*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+48*pow(M,11)*pow(rp,2)*pow(dth,4)*(779520*pow(dr,8) - 40*(-240815 + \
+54804*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + (20777803 - \
+9265772*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 2*(3994073 - \
+1577348*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (4666907 + \
+108692*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+48*pow(M,10)*rp*pow(dth,2)*(-194880*pow(dr,10) + 5*(-892643 + \
+248556*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 2*(-8421793 + \
+4393012*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + (-13983541 + \
+25250164*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 16*(217949 + \
+393702*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 2*(-4161415 + \
+3341532*pow(m,2))*pow(rp,10)*pow(dth,10)) - 4*(-1 + \
+4*pow(m,2))*pow(rp,9)*(729*pow(dr,12) - 13680*pow(rp,2)*pow(dr,10)*pow(dth,2) \
+- 49632*pow(rp,4)*pow(dr,8)*pow(dth,4) - 57158*pow(rp,6)*pow(dr,6)*pow(dth,6) \
+- 5505*pow(rp,8)*pow(dr,4)*pow(dth,8) + \
+14136*pow(rp,10)*pow(dr,2)*pow(dth,10) + 5130*pow(rp,12)*pow(dth,12)) + \
+12*pow(M,9)*(77952*pow(dr,12) - 20*(-205025 + \
+67548*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (27113203 - \
+17129932*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 12*(2658279 - \
+6478156*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 2*(17416883 + \
+90391988*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 96*(578617 + \
+521337*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (49816103 - \
+107705756*pow(m,2))*pow(rp,12)*pow(dth,12)) + pow(M,3)*pow(rp,6)*(3*(-1929079 \
++ 7270620*pow(m,2))*pow(dr,12) + 6*(-7538013 + \
+28346996*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(-33520111 + \
+123379004*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(-16956917 + \
+56568788*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(26425907 - \
+115850188*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 6*(-8389763 + \
+34891020*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(4182499 - \
+16722188*pow(m,2))*pow(rp,12)*pow(dth,12)) + 3*pow(M,2)*pow(rp,7)*((946609 - \
+3742980*pow(m,2))*pow(dr,12) + 2*(2301853 - \
+9047540*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (6244807 - \
+24123868*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(245711 - \
+718044*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-5994897 + \
+24559108*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 6*(-316713 + \
+1277668*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 11*(-13765 + \
+51924*pow(m,2))*pow(rp,12)*pow(dth,12)) + M*pow(rp,8)*(12*(-41919 + \
+167468*pow(m,2))*pow(dr,12) + 18*(-77139 + \
+307436*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(-122831 + \
+474684*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 704*(-2537 + \
+10208*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 30*(-59257 + \
+236740*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 6*(-13591 + \
+59388*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-174461 + \
+709364*pow(m,2))*pow(rp,12)*pow(dth,12)) + 12*pow(M,8)*rp*(25*(-14929 + \
+5748*pow(m,2))*pow(dr,12) + (-5300897 + \
+3902548*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-8802059 + \
+29784716*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(21086571 + \
+50203556*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (89203613 + \
+236899708*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 7*(6085421 + \
+19225020*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 13*(-4966381 + \
+16195636*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+2*pow(M,4)*pow(rp,5)*(-9*(-357023 + 1112636*pow(m,2))*pow(dr,12) - \
+12*(-3071761 + 9949308*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - \
+105*(-1179239 + 3794684*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - \
+20*(-7035631 + 20431372*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + \
+3*(-30282021 + 160335124*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + \
+12*(-8375539 + 36545268*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + \
+(-38332259 + 154800428*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+3*pow(M,5)*pow(rp,4)*((1532394 - 2750632*pow(m,2))*pow(dr,12) + 2*(12733863 - \
+26005436*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 5*(-24236437 + \
+53174996*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 40*(-5175433 + \
+10369604*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 8*(-7546157 + \
+74879428*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-73942811 + \
+356091916*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-85481515 + \
+345865132*pow(m,2))*pow(rp,12)*pow(dth,12)) + 3*pow(M,6)*pow(rp,3)*((6029 + \
+724940*pow(m,2))*pow(dr,12) - 6*(-2807891 + \
+969484*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (125672707 - \
+82460428*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 4*(-77003443 + \
+51571692*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (50994131 + \
+847654196*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-85547767 + \
+534405468*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-181200547 + \
+723832588*pow(m,2))*pow(rp,12)*pow(dth,12)) - pow(M,7)*pow(rp,2)*(75*(-63989 \
++ 53908*pow(m,2))*pow(dr,12) + 6*(-1803805 + \
+9339316*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(75471101 + \
+85097356*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 12*(81971987 + \
+51568372*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(258522029 + \
+984253964*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 18*(-6249163 + \
+163885804*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-773272327 + \
+2936298268*pow(m,2))*pow(rp,12)*pow(dth,12))) - \
+2*pow(a,17)*M*(3935232*pow(M,12)*pow(Omega,2)*pow(rp,6)*pow(dth,12) - 60*(-1 \
++ 4*pow(m,2))*pow(Omega,2)*pow(rp,16)*pow(dth,10)*(80*pow(dr,2) + \
+173*pow(rp,2)*pow(dth,2)) + \
+1536*pow(M,11)*pow(Omega,2)*pow(rp,5)*pow(dth,10)*(1523*pow(dr,2) + \
+4928*pow(rp,2)*pow(dth,2)) - \
+32*pow(M,9)*pow(Omega,2)*pow(rp,5)*pow(dth,8)*(206680*pow(dr,4) - \
+69100*pow(rp,2)*pow(dr,2)*pow(dth,2) + 7*(-1328887 + \
+17532*pow(m,2))*pow(rp,4)*pow(dth,4)) - \
+32*M*pow(Omega,2)*pow(rp,13)*pow(dth,8)*(120*(-25 + 104*pow(m,2))*pow(dr,4) + \
+4*(-4131 + 17156*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + 3*(-4555 + \
+19068*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+pow(M,2)*pow(Omega,2)*pow(rp,10)*pow(dth,6)*(-140160*(-1 + \
+4*pow(m,2))*pow(dr,6) - 20*(-62253 + \
+363892*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) - 32*(30087 + \
+99868*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + (-2172519 + \
+3711836*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+4*pow(M,3)*pow(Omega,2)*pow(rp,7)*pow(dth,4)*(-3360*(-21 + \
+4*pow(m,2))*pow(dr,8) - 2560*(-71 + \
+242*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + 10*(-136033 + \
+353940*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 64*(-26946 + \
+156685*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 3*(105793 + \
+2011836*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+128*pow(M,10)*pow(dth,4)*(76275*pow(Omega,2)*pow(dr,8) + \
+39510*pow(dr,6)*pow(dth,2) - \
+64850*pow(Omega,2)*pow(rp,4)*pow(dr,4)*pow(dth,4) + \
+4586*pow(Omega,2)*pow(rp,6)*pow(dr,2)*pow(dth,6) - \
+1072036*pow(Omega,2)*pow(rp,8)*pow(dth,8)) + \
+2*pow(M,4)*pow(Omega,2)*pow(rp,4)*pow(dth,2)*(43008*pow(dr,10) - 400*(977 + \
+228*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 1280*(-2987 + \
+758*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 2*(1370041 + \
+934316*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) - 8*(-2900029 + \
+3234140*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (14076829 - \
+43575604*pow(m,2))*pow(rp,10)*pow(dth,10)) - \
+8*pow(M,7)*pow(Omega,2)*rp*pow(dth,2)*(-13408*pow(dr,10) + \
+5982400*pow(rp,4)*pow(dr,6)*pow(dth,4) - 190*(-55061 + \
+1140*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 4*(-2148439 + \
+189800*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 7*(3855675 + \
+879764*pow(m,2))*pow(rp,10)*pow(dth,10)) + \
+4*pow(M,8)*pow(dth,2)*(-222528*pow(Omega,2)*pow(dr,10) - 80*(1196 + \
+3741*pow(Omega,2)*pow(rp,2))*pow(dr,8)*pow(dth,2) + \
+747680*pow(Omega,2)*pow(rp,4)*pow(dr,6)*pow(dth,4) + \
+25120880*pow(Omega,2)*pow(rp,6)*pow(dr,4)*pow(dth,6) + 4*(-4757425 + \
+2604*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,2)*pow(dth,8) + 7*(-5020337 + \
+1024708*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dth,10)) + \
+4*pow(M,5)*pow(Omega,2)*rp*(192*pow(dr,12) + 40*(-23645 + \
+252*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 640*(2827 + \
+796*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 16*(331249 - \
+56806*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 8*(3509219 + \
+166888*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-36246153 + \
+22153796*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+pow(M,6)*(-205440*pow(Omega,2)*pow(dr,12) + 256*(-1211 + \
+6*pow(Omega,2)*pow(rp,2))*pow(dr,10)*pow(dth,2) + \
+7308160*pow(Omega,2)*pow(rp,4)*pow(dr,8)*pow(dth,4) - 3840*(-9181 + \
+130*pow(m,2))*pow(Omega,2)*pow(rp,6)*pow(dr,6)*pow(dth,6) - 16*(1330521 + \
+462736*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,4)*pow(dth,8) + 64*(1182191 + \
+410572*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dr,2)*pow(dth,10) + (301458061 - \
+1911540*pow(m,2))*pow(Omega,2)*pow(rp,12)*pow(dth,12))) + \
+2*pow(a,18)*Omega*(3935232*pow(M,13)*pow(Omega,2)*pow(rp,6)*pow(dth,12) + \
+96*(-1 + 4*pow(m,2))*pow(Omega,2)*pow(rp,19)*pow(dth,12) + \
+768*pow(M,12)*pow(Omega,2)*pow(rp,5)*pow(dth,10)*(3046*pow(dr,2) + \
+6069*pow(rp,2)*pow(dth,2)) + \
+48*M*pow(Omega,2)*pow(rp,16)*pow(dth,10)*(330*(-1 + 4*pow(m,2))*pow(dr,2) + \
+(-707 + 2820*pow(m,2))*pow(rp,2)*pow(dth,2)) + \
+24*pow(M,2)*pow(Omega,2)*pow(rp,13)*pow(dth,8)*(40*(-23 + \
+204*pow(m,2))*pow(dr,4) + (-3565 + \
+39668*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + 14*(199 + \
+1166*pow(m,2))*pow(rp,4)*pow(dth,4)) - \
+32*pow(M,10)*pow(Omega,2)*pow(rp,5)*pow(dth,8)*(116320*pow(dr,4) - \
+97020*pow(rp,2)*pow(dr,2)*pow(dth,2) + 63*(-119913 + \
+1948*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+pow(M,3)*pow(Omega,2)*pow(rp,10)*pow(dth,6)*(-58560*(-1 + \
+4*pow(m,2))*pow(dr,6) - 100*(-13899 + \
+32716*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) - 8*(-377171 + \
+874732*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + 5*(391043 - \
+1323116*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+4*pow(M,4)*pow(Omega,2)*pow(rp,7)*pow(dth,4)*(-960*(-17 + \
+12*pow(m,2))*pow(dr,8) - 480*(-523 + \
+972*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + 12*(-62189 + \
+145886*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 32*(-127417 + \
+172849*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 3*(-1367193 + \
+2191060*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+128*pow(M,11)*pow(dth,4)*(25425*pow(Omega,2)*pow(dr,8) + \
+118530*pow(dr,6)*pow(dth,2) - \
+64850*pow(Omega,2)*pow(rp,4)*pow(dr,4)*pow(dth,4) + \
+1850*pow(Omega,2)*pow(rp,6)*pow(dr,2)*pow(dth,6) - \
+807723*pow(Omega,2)*pow(rp,8)*pow(dth,8)) - \
+8*pow(M,8)*pow(Omega,2)*rp*pow(dth,2)*(-13408*pow(dr,10) - \
+29160*pow(rp,2)*pow(dr,8)*pow(dth,2) + 4343600*pow(rp,4)*pow(dr,6)*pow(dth,4) \
++ 10*(852059 - 21660*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + (-9381599 + \
+727164*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 168*(-35191 + \
+36776*pow(m,2))*pow(rp,10)*pow(dth,10)) - \
+4*pow(M,5)*pow(Omega,2)*pow(rp,4)*pow(dth,2)*(-15360*pow(dr,10) + 120*(-385 + \
+324*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) - 240*(-1743 + \
+1724*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + (433823 - \
+793332*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 2*(-4129089 + \
+2771908*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (-13841423 + \
+12277628*pow(m,2))*pow(rp,10)*pow(dth,10)) + \
+2*pow(M,9)*pow(dth,2)*(-148352*pow(Omega,2)*pow(dr,10) - 480*(1196 + \
+1247*pow(Omega,2)*pow(rp,2))*pow(dr,8)*pow(dth,2) + \
+782080*pow(Omega,2)*pow(rp,4)*pow(dr,6)*pow(dth,4) + \
+36591840*pow(Omega,2)*pow(rp,6)*pow(dr,4)*pow(dth,6) + 8*(-3772753 + \
+2604*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,2)*pow(dth,8) + 21*(-5173465 + \
+623588*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dth,10)) + \
+4*pow(M,6)*pow(Omega,2)*rp*(192*pow(dr,12) + \
+22272*pow(rp,2)*pow(dr,10)*pow(dth,2) + 40*(-18407 + \
+252*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 320*(-3607 + \
+1326*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 24*(-50494 + \
+30601*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 4*(1715857 + \
+879924*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-24100019 + \
+7951316*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+pow(M,7)*(-70016*pow(Omega,2)*pow(dr,12) - 768*(1211 + \
+12*pow(Omega,2)*pow(rp,2))*pow(dr,10)*pow(dth,2) + \
+5263680*pow(Omega,2)*pow(rp,4)*pow(dr,8)*pow(dth,4) - 8320*(-3391 + \
+60*pow(m,2))*pow(Omega,2)*pow(rp,6)*pow(dr,6)*pow(dth,6) - 32*(-398672 + \
+198123*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,4)*pow(dth,8) + 96*(-160797 + \
+257848*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(26031221 \
++ 8537932*pow(m,2))*pow(Omega,2)*pow(rp,12)*pow(dth,12))) - \
+2*pow(a,9)*M*pow(Omega,2)*pow(rp,4)*(24576*pow(M,15)*pow(rp,5)*pow(dth,10)*(\
+45*pow(dr,2) + 116*pow(rp,2)*pow(dth,2)) - \
+12288*pow(M,14)*pow(rp,4)*pow(dth,8)*(225*pow(dr,4) - \
+2141*pow(rp,2)*pow(dr,2)*pow(dth,2) + 2108*pow(rp,4)*pow(dth,4)) - \
+1536*pow(M,13)*pow(rp,3)*pow(dth,6)*(-1800*pow(dr,6) + \
+43720*pow(rp,2)*pow(dr,4)*pow(dth,2) + 152156*pow(rp,4)*pow(dr,2)*pow(dth,4) \
++ (-3311 + 2908*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+64*pow(M,12)*pow(rp,2)*pow(dth,4)*(-21600*pow(dr,8) + \
+959520*pow(rp,2)*pow(dr,6)*pow(dth,2) + \
+8716080*pow(rp,4)*pow(dr,4)*pow(dth,4) + 4*(1403723 - \
+23076*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 3*(1909061 + \
+193580*pow(m,2))*pow(rp,8)*pow(dth,8)) - 20*(-1 + \
+4*pow(m,2))*pow(rp,12)*pow(dth,2)*(48*pow(dr,10) + \
+8253*pow(rp,2)*pow(dr,8)*pow(dth,2) - 2976*pow(rp,4)*pow(dr,6)*pow(dth,4) - \
+7260*pow(rp,6)*pow(dr,4)*pow(dth,6) + 23180*pow(rp,8)*pow(dr,2)*pow(dth,8) + \
+13748*pow(rp,10)*pow(dth,10)) + 128*pow(M,11)*rp*pow(dth,2)*(2700*pow(dr,10) \
+- 210480*pow(rp,2)*pow(dr,8)*pow(dth,2) - \
+3723600*pow(rp,4)*pow(dr,6)*pow(dth,4) + 16*(-314077 + \
+78*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + (3780279 + \
+41276*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 4*(-2208461 + \
+9764*pow(m,2))*pow(rp,10)*pow(dth,10)) + 2*M*pow(rp,9)*(384*pow(dr,12) - \
+64*(-6269 + 24684*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 16*(-133359 + \
+539836*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 128*(-44029 + \
+177511*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(-659539 + \
+2687756*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-221293 + \
+909940*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-691093 + \
+2764820*pow(m,2))*pow(rp,12)*pow(dth,12)) + pow(M,2)*pow(rp,8)*((299980 - \
+924720*pow(m,2))*pow(dr,12) + 32*(-178213 + \
+792012*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (4531503 - \
+10368892*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(16038791 - \
+61479004*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(20969009 - \
+80378276*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-4836889 + \
+19895156*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-7868989 + \
+31899316*pow(m,2))*pow(rp,12)*pow(dth,12)) - 16*pow(M,10)*(2160*pow(dr,12) - \
+356592*pow(rp,2)*pow(dr,10)*pow(dth,2) - \
+12163200*pow(rp,4)*pow(dr,8)*pow(dth,4) + 8*(-3451447 + \
+30708*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(54061451 + \
+1632356*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 12*(-9833861 + \
+1100764*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-92975917 + \
+36261748*pow(m,2))*pow(rp,12)*pow(dth,12)) + 8*pow(M,7)*pow(rp,3)*(2*(-82309 \
++ 12948*pow(m,2))*pow(dr,12) + 4*(2581399 + \
+315592*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(38637523 - \
+3038412*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 5*(-64670835 + \
+33268492*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (244213829 - \
+217129876*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (25277061 + \
+210092300*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(24696893 + \
+58199372*pow(m,2))*pow(rp,12)*pow(dth,12)) - 4*pow(M,3)*pow(rp,7)*(-6*(-32005 \
++ 87588*pow(m,2))*pow(dr,12) + 8*(-300019 + \
+1791780*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-6952417 + \
+49199428*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(14383053 - \
+38759572*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 4*(-9939477 + \
+33107108*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-14277083 + \
+59466828*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-21795167 + \
+86089980*pow(m,2))*pow(rp,12)*pow(dth,12)) + 2*pow(M,4)*pow(rp,6)*(-2*(127765 \
++ 422588*pow(m,2))*pow(dr,12) + 8*(-909013 + \
+4613996*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-36921537 + \
+276879428*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(6776929 + \
+59642124*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 80*(-2098531 + \
+4703326*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 8*(-15540991 + \
+63847332*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-162078447 + \
+596858620*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+4*pow(M,8)*pow(rp,2)*(-713232*pow(dr,12) + 4*(-1401175 + \
+89268*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (129063729 + \
+8777564*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(199985177 - \
+11282188*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 4*(-285901963 + \
+73304692*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(79750545 + \
+26025452*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-1864509 + \
+699710644*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+2*pow(M,5)*pow(rp,5)*(-64*(33058 + 14733*pow(m,2))*pow(dr,12) + 32*(-850999 + \
+854270*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 6*(-17083523 + \
+60457132*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 8*(-11136623 + \
+111646572*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (220141779 - \
+110571596*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-47686829 + \
+150918836*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-327122295 + \
+974830748*pow(m,2))*pow(rp,12)*pow(dth,12)) + pow(M,6)*pow(rp,4)*(-16*(282151 \
++ 83504*pow(m,2))*pow(dr,12) + 32*(-3581687 + \
+132188*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-603392109 + \
+478467316*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 396*(-2530687 + \
+5718268*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 10*(-3230405 + \
+94927252*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(10867157 - \
+258903236*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-804706097 + \
+1055332996*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+32*pow(M,9)*(-14472*rp*pow(dr,12) - 1192764*pow(rp,3)*pow(dr,10)*pow(dth,2) + \
+(-4516931 + 111564*pow(m,2))*pow(rp,5)*pow(dr,8)*pow(dth,4) + (44809951 + \
+2206316*pow(m,2))*pow(rp,7)*pow(dr,6)*pow(dth,6) + 5*(29691323 - \
+1094108*pow(m,2))*pow(rp,9)*pow(dr,4)*pow(dth,8) + 2*(35128507 - \
+7252336*pow(m,2))*pow(rp,11)*pow(dr,2)*pow(dth,10) + 15*(-1893393 + \
+4065508*pow(m,2))*pow(rp,13)*pow(dth,12))) + \
+pow(a,8)*pow(Omega,3)*pow(rp,6)*(-14966784*pow(M,16)*pow(rp,5)*pow(dr,2)*pow(\
+dth,10) + 3072*pow(M,15)*pow(rp,4)*pow(dth,8)*(12180*pow(dr,4) + \
+37780*pow(rp,2)*pow(dr,2)*pow(dth,2) + (6409 + \
+636*pow(m,2))*pow(rp,4)*pow(dth,4)) - \
+768*pow(M,14)*pow(rp,3)*pow(dth,6)*(48720*pow(dr,6) + \
+353440*pow(rp,2)*pow(dr,4)*pow(dth,2) - 4*(-48579 + \
+812*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + (153885 + \
+18668*pow(m,2))*pow(rp,6)*pow(dth,6)) - \
+384*pow(M,13)*pow(rp,2)*pow(dth,4)*(-48720*pow(dr,8) - \
+658160*pow(rp,2)*pow(dr,6)*pow(dth,2) - 2*(301867 + \
+16372*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + (949327 - \
+24772*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 7*(-139255 + \
+11388*pow(m,2))*pow(rp,8)*pow(dth,8)) + 4*(-1 + \
+4*pow(m,2))*pow(rp,13)*pow(dth,2)*(48*pow(dr,10) + \
+8253*pow(rp,2)*pow(dr,8)*pow(dth,2) - 2976*pow(rp,4)*pow(dr,6)*pow(dth,4) - \
+7260*pow(rp,6)*pow(dr,4)*pow(dth,6) + 23180*pow(rp,8)*pow(dr,2)*pow(dth,8) + \
+13748*pow(rp,10)*pow(dth,10)) + M*pow(rp,12)*pow(dth,2)*(192*(-2597 + \
+10404*pow(m,2))*pow(dr,10) + 4*(605693 - \
+2416772*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 4*(1815397 - \
+7253428*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) - 15*(-192973 + \
+775092*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 10*(-162551 + \
+638588*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 21*(-30137 + \
+117860*pow(m,2))*pow(rp,10)*pow(dth,10)) + \
+64*pow(M,12)*rp*pow(dth,2)*(-73080*pow(dr,10) - \
+1828320*pow(rp,2)*pow(dr,8)*pow(dth,2) - 24*(100683 + \
+9308*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 192*(86737 + \
+4537*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 24*(1060027 - \
+116232*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (-14198269 + \
+6605844*pow(m,2))*pow(rp,10)*pow(dth,10)) + pow(M,6)*pow(rp,5)*(-48*(-280937 \
++ 432824*pow(m,2))*pow(dr,12) - 48*(-4159649 + \
+5736908*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 5*(173583919 - \
+247750140*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 12*(111625209 - \
+183974116*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(97242283 + \
+271526868*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 32*(2911455 + \
+20363726*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (630054443 - \
+1174410092*pow(m,2))*pow(rp,12)*pow(dth,12)) + 16*pow(M,11)*(29232*pow(dr,12) \
++ 1682160*pow(rp,2)*pow(dr,10)*pow(dth,2) + 12*(258327 + \
+44132*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 60*(990491 + \
+43644*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 36*(6170339 + \
+565444*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 16*(-12550673 + \
+1218546*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (105417727 - \
+100586556*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+3*pow(M,2)*pow(rp,9)*(-44*(-1481 + 4836*pow(m,2))*pow(dr,12) + 128*(-11023 + \
+47896*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (920367 - \
+1951228*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(3643179 - \
+13880236*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(4787021 - \
+18240724*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 8*(-971195 + \
+3891124*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-4572921 + \
+18004516*pow(m,2))*pow(rp,12)*pow(dth,12)) + pow(M,3)*pow(rp,8)*(4*(-190327 + \
+822156*pow(m,2))*pow(dr,12) + 4*(-2483623 + \
+12005772*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 295*(-67519 + \
+418812*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(21784963 - \
+65471532*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 4*(-27814559 + \
+94971036*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-27082391 + \
+109161772*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 5*(-17352691 + \
+67189388*pow(m,2))*pow(rp,12)*pow(dth,12)) - 8*pow(M,9)*pow(rp,2)*(-6*(7637 + \
+5420*pow(m,2))*pow(dr,12) + 3*(3174307 - \
+290516*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 3*(-39446543 + \
+3765052*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 10*(55488569 - \
+5718108*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(303924949 + \
+45124684*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (361303239 + \
+218947820*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 4*(-50525147 + \
+135405764*pow(m,2))*pow(rp,12)*pow(dth,12)) - 2*pow(M,4)*pow(rp,7)*((-2637614 \
++ 8383448*pow(m,2))*pow(dr,12) + 384*(-44739 + \
+163427*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-40201961 + \
+201379364*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 8*(2667979 + \
+9135004*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 480*(-250729 + \
+686059*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 8*(-15080633 + \
+59285756*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-142541359 + \
+522832700*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+4*pow(M,8)*pow(rp,3)*(-6*(-233173 + 61124*pow(m,2))*pow(dr,12) + 12*(3293883 \
+- 1162388*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (356259613 - \
+125533812*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(606980653 - \
+196495332*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 4*(330602063 + \
+51681588*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(156101089 + \
+330443100*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-149193295 + \
+883195548*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+pow(M,7)*pow(rp,4)*(-192*(-52952 + 44859*pow(m,2))*pow(dr,12) - 4*(-55083691 \
++ 44446620*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 5*(-283298797 + \
+206852980*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 4*(-834560407 + \
+632474108*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(1063915619 + \
+248908884*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 8*(28675127 + \
+285275164*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (257688413 + \
+1102604492*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+pow(M,5)*pow(rp,6)*(4*(-2799677 + 6322260*pow(m,2))*pow(dr,12) + 16*(-6843565 \
++ 15797712*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 2*(-156527569 + \
+427051716*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(-65697829 + \
+276751956*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (297825287 - \
+684372828*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-126577663 + \
+395444796*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-552773807 + \
+1743185340*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+16*pow(M,10)*(-153600*rp*pow(dr,12) - 12*(37943 + \
+12404*pow(m,2))*pow(rp,3)*pow(dr,10)*pow(dth,2) + 3*(8161651 - \
+15244*pow(m,2))*pow(rp,5)*pow(dr,8)*pow(dth,4) + 12*(14028159 + \
+382684*pow(m,2))*pow(rp,7)*pow(dr,6)*pow(dth,6) + 16*(24656267 + \
+2849172*pow(m,2))*pow(rp,9)*pow(dr,4)*pow(dth,8) + 2*(120808391 + \
+12959908*pow(m,2))*pow(rp,11)*pow(dr,2)*pow(dth,10) + 16*(-8220847 + \
+12985682*pow(m,2))*pow(rp,13)*pow(dth,12))) + \
+pow(a,10)*pow(Omega,3)*pow(rp,4)*(24576*pow(M,16)*pow(rp,5)*pow(dth,10)*(90*\
+pow(dr,2) + 203*pow(rp,2)*pow(dth,2)) - \
+12288*pow(M,15)*pow(rp,4)*pow(dth,8)*(450*pow(dr,4) - \
+3638*pow(rp,2)*pow(dr,2)*pow(dth,2) + 3419*pow(rp,4)*pow(dth,4)) - \
+3072*pow(M,14)*pow(rp,3)*pow(dth,6)*(-1800*pow(dr,6) + \
+37280*pow(rp,2)*pow(dr,4)*pow(dth,2) + 120236*pow(rp,4)*pow(dr,2)*pow(dth,4) \
++ (-19105 + 2908*pow(m,2))*pow(rp,6)*pow(dth,6)) + 8*(-1 + \
+4*pow(m,2))*pow(rp,15)*pow(dth,4)*(120*pow(dr,8) + \
+4880*pow(rp,2)*pow(dr,6)*pow(dth,2) + 5640*pow(rp,4)*pow(dr,4)*pow(dth,4) + \
+9564*pow(rp,6)*pow(dr,2)*pow(dth,6) + 5943*pow(rp,8)*pow(dth,8)) + \
+192*pow(M,13)*pow(rp,2)*pow(dth,4)*(-14400*pow(dr,8) + \
+545920*pow(rp,2)*pow(dr,6)*pow(dth,2) + \
+4576160*pow(rp,4)*pow(dr,4)*pow(dth,4) + 24*(158891 - \
+2564*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (995935 + \
+364292*pow(m,2))*pow(rp,8)*pow(dth,8)) - \
+384*pow(M,12)*rp*pow(dth,2)*(-1800*pow(dr,10) + \
+119780*pow(rp,2)*pow(dr,8)*pow(dth,2) + \
+1943040*pow(rp,4)*pow(dr,6)*pow(dth,4) - 208*(-18051 + \
+4*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + (917719 - \
+37812*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (2386667 + \
+198724*pow(m,2))*pow(rp,10)*pow(dth,10)) + M*pow(rp,12)*pow(dth,2)*(6336*(-1 \
++ 4*pow(m,2))*pow(dr,10) + 96*(-11321 + \
+45324*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) - 32*(-20089 + \
+80116*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) - 15*(-90241 + \
+363844*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 12*(-191125 + \
+755252*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 7*(-180005 + \
+710804*pow(m,2))*pow(rp,10)*pow(dth,10)) - \
+6*pow(M,2)*pow(rp,9)*(1792*pow(dr,12) - 8*(-20939 + \
+67308*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 8*(-134919 + \
+613816*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(-726413 + \
+3401332*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(101977 - \
+261988*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 10*(-399531 + \
+1556252*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(-947791 + \
+3678044*pow(m,2))*pow(rp,12)*pow(dth,12)) - 32*pow(M,11)*(2160*pow(dr,12) - \
+304368*pow(rp,2)*pow(dr,10)*pow(dth,2) - \
+9448440*pow(rp,4)*pow(dr,8)*pow(dth,4) + 72*(-451143 + \
+3412*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 75*(-21341 + \
+35364*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 6*(4579329 - \
+1478524*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 4*(-16423989 + \
+3951764*pow(m,2))*pow(rp,12)*pow(dth,12)) - 8*pow(M,4)*pow(rp,7)*(-4*(5557 + \
+93366*pow(m,2))*pow(dr,12) + 4*(-771379 + \
+1823364*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(-4915991 + \
+15657724*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + (-26600587 + \
+104628668*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 8*(-1419419 + \
+6185001*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 3*(-5190665 + \
+12931124*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-24032177 + \
+72976564*pow(m,2))*pow(rp,12)*pow(dth,12)) + 2*pow(M,3)*pow(rp,8)*(-4*(-6953 \
++ 77700*pow(m,2))*pow(dr,12) + 8*(-193157 + \
+751380*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(-3374261 + \
+16008884*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 22*(-1226233 + \
+5918692*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-9194077 + \
+48965268*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 6*(-7093127 + \
+25631308*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 2*(-20322649 + \
+74195508*pow(m,2))*pow(rp,12)*pow(dth,12)) + 8*pow(M,8)*pow(rp,3)*(12*(-34919 \
++ 4316*pow(m,2))*pow(dr,12) + 18*(121775 + \
+130372*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 36*(2066983 - \
+179972*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 16*(26728064 - \
+11164621*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (730818841 - \
+300272484*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 12*(9269347 + \
+18595660*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 4*(-86732721 + \
+167443556*pow(m,2))*pow(rp,12)*pow(dth,12)) + pow(M,5)*pow(rp,6)*(-8*(172933 \
++ 470276*pow(m,2))*pow(dr,12) + 16*(-3774721 + \
+4508772*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 24*(-16643929 + \
+33619556*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 8*(-102976453 + \
+260530532*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-412411489 + \
+1017110916*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 12*(376875 + \
+44392244*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-197187507 + \
+186535244*pow(m,2))*pow(rp,12)*pow(dth,12)) + 2*pow(M,6)*pow(rp,5)*(288*(3435 \
++ 6467*pow(m,2))*pow(dr,12) + 16*(2700701 - \
+1404012*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 420*(-894695 + \
+1016788*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 2*(-530504539 + \
+811594156*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (799387993 - \
+1067041092*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 6*(-17201209 + \
+159300276*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-101992387 + \
+794769132*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+4*pow(M,9)*pow(rp,2)*(-1086144*pow(dr,12) + 24*(-587901 + \
+29756*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 33*(712259 + \
+488724*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 12*(42196907 - \
+3065988*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 10*(137266187 - \
+31596156*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 24*(21510003 + \
+2430040*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-939613313 + \
+1133249412*pow(m,2))*pow(rp,12)*pow(dth,12)) - 2*pow(M,7)*pow(rp,4)*(96*(4221 \
++ 12767*pow(m,2))*pow(dr,12) + 336*(105525 + \
+8948*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 9*(-48321863 + \
+27384892*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 34*(-49857527 + \
+42326428*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 2*(-970113553 + \
+720151812*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 6*(-4205863 + \
+211408172*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-631836255 + \
+2013815644*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+32*pow(M,10)*(-24696*rp*pow(dr,12) - 1836312*pow(rp,3)*pow(dr,10)*pow(dth,2) \
++ 18*(-613249 + 12396*pow(m,2))*pow(rp,5)*pow(dr,8)*pow(dth,4) + 9*(546697 + \
+436372*pow(m,2))*pow(rp,7)*pow(dr,6)*pow(dth,6) + 3*(29836591 - \
+1849964*pow(m,2))*pow(rp,9)*pow(dr,4)*pow(dth,8) + 3*(21978413 - \
+6449692*pow(m,2))*pow(rp,11)*pow(dr,2)*pow(dth,10) + 4*(-26343507 + \
+17956264*pow(m,2))*pow(rp,13)*pow(dth,12))) + \
+4*pow(a,7)*M*pow(Omega,2)*pow(rp,6)*(4276224*pow(M,15)*pow(rp,5)*pow(dr,2)*\
+pow(dth,10) - 768*pow(M,14)*pow(rp,4)*pow(dth,8)*(13920*pow(dr,4) + \
+46880*pow(rp,2)*pow(dr,2)*pow(dth,2) + (12905 + \
+636*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+384*pow(M,13)*pow(rp,3)*pow(dth,6)*(27840*pow(dr,6) + \
+220480*pow(rp,2)*pow(dr,4)*pow(dth,2) + 2*(11525 - \
+812*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + (174891 + \
+9716*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+64*pow(M,12)*pow(rp,2)*pow(dth,4)*(-83520*pow(dr,8) - \
+1239360*pow(rp,2)*pow(dr,6)*pow(dth,2) + 3*(112433 - \
+16372*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 3*(1985919 - \
+16420*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 4*(-634739 + \
+79076*pow(m,2))*pow(rp,8)*pow(dth,8)) + 20*(-1 + \
+4*pow(m,2))*pow(rp,12)*pow(dth,2)*(1890*pow(dr,10) - \
+8349*pow(rp,2)*pow(dr,8)*pow(dth,2) - 27569*pow(rp,4)*pow(dr,6)*pow(dth,4) - \
+11770*pow(rp,6)*pow(dr,4)*pow(dth,6) + 10390*pow(rp,8)*pow(dr,2)*pow(dth,8) + \
+5257*pow(rp,10)*pow(dth,10)) - 32*pow(M,11)*rp*pow(dth,2)*(-41760*pow(dr,10) \
+- 1155840*pow(rp,2)*pow(dr,8)*pow(dth,2) - 12*(-94997 + \
+9308*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 6*(5013541 + \
+106396*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) - 4*(-8064369 + \
+511676*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 25*(-185435 + \
+244108*pow(m,2))*pow(rp,10)*pow(dth,10)) - 4*M*pow(rp,9)*((19404 - \
+76528*pow(m,2))*pow(dr,12) + 12*(-33505 + \
+134812*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 2*(-511411 + \
+2062164*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 3*(-100459 + \
+422156*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 63*(-7561 + \
+29284*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-302009 + \
+1237284*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 29*(-8885 + \
+35716*pow(m,2))*pow(rp,12)*pow(dth,12)) + 4*pow(M,3)*pow(rp,7)*((-418674 + \
+2011064*pow(m,2))*pow(dr,12) + 3*(330039 - \
+275180*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 4*(5172201 - \
+18177464*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 320*(-140419 + \
+516369*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 24*(-516521 + \
+1651494*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-10416273 + \
+44867380*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 18*(-185879 + \
+772132*pow(m,2))*pow(rp,12)*pow(dth,12)) + pow(M,2)*pow(rp,8)*((726844 - \
+3055440*pow(m,2))*pow(dr,12) + (-5327491 + \
+20342604*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 2*(-15903133 + \
+62450052*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(-19682023 + \
+77522492*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 4*(-66553 + \
+20412*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (2841937 - \
+11498052*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 2*(-1111219 + \
+4418556*pow(m,2))*pow(rp,12)*pow(dth,12)) - 16*pow(M,10)*(8352*pow(dr,12) + \
+536160*pow(rp,2)*pow(dr,10)*pow(dth,2) + 3*(-442553 + \
+44132*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 6*(8620407 + \
+164332*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 40*(3340385 + \
+167244*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-75014867 + \
+7148956*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) - 7*(471787 + \
+5388852*pow(m,2))*pow(rp,12)*pow(dth,12)) + 4*pow(M,8)*pow(rp,2)*(-3*(-41791 \
++ 5420*pow(m,2))*pow(dr,12) + 3*(5400691 - \
+141684*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 4*(34011477 - \
+1990748*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 8*(-36097319 + \
+7363766*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(22908847 + \
+36905652*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-51451329 + \
+233800012*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 2*(58055923 + \
+10507140*pow(m,2))*pow(rp,12)*pow(dth,12)) - pow(M,6)*pow(rp,4)*(16*(-342949 \
++ 186216*pow(m,2))*pow(dr,12) + 3*(-15912983 + \
+23378012*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 56*(-446397 + \
+5622908*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 6*(-81049977 + \
+7910788*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 4*(-259801561 + \
+370298644*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (56803991 + \
+526991332*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 12*(-41292155 + \
+138701084*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+2*pow(M,4)*pow(rp,6)*(12*(-84807 + 452320*pow(m,2))*pow(dr,12) + 5*(-205649 + \
+5615028*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (55244733 - \
+113810852*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 160*(-1238413 + \
+3742557*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 10*(11950967 - \
+32453940*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-67962749 + \
+318858980*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-49102587 + \
+199691228*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+2*pow(M,5)*pow(rp,5)*(40*(-38623 + 104892*pow(m,2))*pow(dr,12) + 270*(-22431 \
++ 177916*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (47881051 + \
+51662036*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(137634499 - \
+236271596*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 16*(19451659 - \
+39954876*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 8*(-10545707 + \
+63732948*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-144621131 + \
+561024364*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+2*pow(M,7)*pow(rp,3)*(24*(-98865 + 8428*pow(m,2))*pow(dr,12) + 20*(-2217649 + \
+479868*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 5*(-33060567 + \
+20594620*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 16*(-3280943 + \
+13931572*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(232081789 - \
+261914196*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 52*(-3589073 + \
+5750524*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-278954871 + \
+585095804*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+8*pow(M,9)*(-98880*rp*pow(dr,12) + 6*(112699 - \
+12404*pow(m,2))*pow(rp,3)*pow(dr,10)*pow(dth,2) + 51*(822249 + \
+3484*pow(m,2))*pow(rp,5)*pow(dr,8)*pow(dth,4) + 8*(24662173 + \
+314308*pow(m,2))*pow(rp,7)*pow(dr,6)*pow(dth,6) + 16*(14595391 + \
+1383206*pow(m,2))*pow(rp,9)*pow(dr,4)*pow(dth,8) + 14*(5055433 + \
+2701380*pow(m,2))*pow(rp,11)*pow(dr,2)*pow(dth,10) + (36511241 + \
+100707388*pow(m,2))*pow(rp,13)*pow(dth,12))) + \
+pow(a,16)*Omega*(-6705152*pow(M,14)*pow(Omega,2)*pow(rp,7)*pow(dth,12) + \
+12*(-1 + 4*pow(m,2))*pow(Omega,2)*pow(rp,19)*pow(dth,10)*(80*pow(dr,2) + \
+173*pow(rp,2)*pow(dth,2)) - \
+1024*pow(M,13)*pow(Omega,2)*pow(rp,6)*pow(dth,10)*(10308*pow(dr,2) + \
+23069*pow(rp,2)*pow(dth,2)) + \
+512*pow(M,12)*pow(Omega,2)*pow(rp,5)*pow(dth,8)*(57880*pow(dr,4) - \
+11565*pow(rp,2)*pow(dr,2)*pow(dth,2) + 608426*pow(rp,4)*pow(dth,4)) + \
+4*M*pow(Omega,2)*pow(rp,16)*pow(dth,8)*(15840*(-1 + 4*pow(m,2))*pow(dr,4) + \
+48*(-1851 + 7388*pow(m,2))*pow(rp,2)*pow(dr,2)*pow(dth,2) + (-78697 + \
+313204*pow(m,2))*pow(rp,4)*pow(dth,4)) + \
+3*pow(M,2)*pow(Omega,2)*pow(rp,13)*pow(dth,6)*(32640*(-1 + \
+4*pow(m,2))*pow(dr,6) + 20*(-16125 + \
+83636*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) + 64*(2055 + \
+10964*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + 3*(148557 - \
+283124*pow(m,2))*pow(rp,6)*pow(dth,6)) - \
+16*pow(M,10)*pow(Omega,2)*pow(rp,5)*pow(dth,6)*(1421680*pow(dr,6) + \
+29648000*pow(rp,2)*pow(dr,4)*pow(dth,2) + 12*(112951 - \
+24380*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + 7*(-6361019 + \
+994380*pow(m,2))*pow(rp,6)*pow(dth,6)) - \
+pow(M,3)*pow(Omega,2)*pow(rp,10)*pow(dth,4)*(960*(163 + \
+244*pow(m,2))*pow(dr,8) + 1280*(-1595 + \
+7052*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + 28*(-223021 + \
+641604*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 12*(-928527 + \
+3545644*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (-3783913 + \
+25553316*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+2*pow(M,4)*pow(Omega,2)*pow(rp,7)*pow(dth,2)*(-768*(-59 + \
+12*pow(m,2))*pow(dr,10) - 144*(-9721 + \
+12604*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 32*(30347 + \
+378812*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 22*(-448577 + \
+1285428*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 192*(-194253 + \
+390878*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (-27863061 + \
+73817684*pow(m,2))*pow(rp,10)*pow(dth,10)) + \
+64*pow(M,11)*pow(dth,2)*(26812*pow(Omega,2)*pow(dr,10) + \
+305100*pow(dr,8)*pow(dth,2) - \
+331520*pow(Omega,2)*pow(rp,4)*pow(dr,6)*pow(dth,4) + \
+578740*pow(Omega,2)*pow(rp,6)*pow(dr,4)*pow(dth,6) + \
+1564212*pow(Omega,2)*pow(rp,8)*pow(dr,2)*pow(dth,8) + 7*(-1693741 + \
+35220*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dth,10)) - \
+4*pow(M,8)*pow(Omega,2)*rp*(-9024*pow(dr,12) - \
+53184*pow(rp,2)*pow(dr,10)*pow(dth,2) + \
+15144240*pow(rp,4)*pow(dr,8)*pow(dth,4) - 640*(-120683 + \
+3195*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(32895607 - \
+10290348*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 12*(357369 + \
+1987076*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 7*(21048755 + \
+3405716*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+2*pow(M,5)*pow(Omega,2)*pow(rp,4)*(-15360*pow(dr,12) + 4608*(-21 + \
+20*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 48*(-43259 + \
+21616*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 32*(421769 + \
+103364*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 34*(-24697 + \
+1244868*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 24*(-4416071 + \
+5775384*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-122334333 + \
+186897844*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+pow(M,6)*pow(Omega,2)*pow(rp,3)*(38400*pow(dr,12) + 1024*(-2854 + \
+45*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 1920*(-4937 + \
+2048*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 960*(21769 + \
+21324*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 48*(1354911 + \
+506776*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 48*(-6133679 + \
+4247124*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-575553931 + \
+512589804*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+8*pow(M,9)*(18176*pow(Omega,2)*pow(dr,12) + 32*(6954 + \
+3349*pow(Omega,2)*pow(rp,2))*pow(dr,10)*pow(dth,2) - \
+635160*pow(Omega,2)*pow(rp,4)*pow(dr,8)*pow(dth,4) - \
+34458000*pow(Omega,2)*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(-38965201 + \
+1069284*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,4)*pow(dth,8) - 15*(-821303 + \
+32420*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dr,2)*pow(dth,10) + 7*(978191 - \
+3984060*pow(m,2))*pow(Omega,2)*pow(rp,12)*pow(dth,12)) + pow(M,7)*(256*(-1587 \
++ 10*pow(Omega,2)*pow(rp,2))*pow(dr,12) + \
+4973824*pow(Omega,2)*pow(rp,4)*pow(dr,10)*pow(dth,2) - 480*(-108689 + \
+2224*pow(m,2))*pow(Omega,2)*pow(rp,6)*pow(dr,8)*pow(dth,4) - 320*(-306421 + \
+117108*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,6)*pow(dth,6) - 64*(321914 + \
+878349*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dr,4)*pow(dth,8) + 38364*(5263 + \
+1556*pow(m,2))*pow(Omega,2)*pow(rp,12)*pow(dr,2)*pow(dth,10) + (792765529 - \
+297108644*pow(m,2))*pow(Omega,2)*pow(rp,14)*pow(dth,12))) + \
+4*pow(a,11)*M*(184320*pow(M,15)*pow(Omega,2)*pow(rp,9)*pow(dth,12) + \
+6144*pow(M,14)*pow(Omega,2)*pow(rp,8)*pow(dth,10)*(332*pow(dr,2) + \
+887*pow(rp,2)*pow(dth,2)) - \
+1024*pow(M,13)*pow(Omega,2)*pow(rp,7)*pow(dth,8)*(4980*pow(dr,4) - \
+15836*pow(rp,2)*pow(dr,2)*pow(dth,2) + 51667*pow(rp,4)*pow(dth,4)) - \
+320*pow(M,12)*pow(Omega,2)*pow(rp,6)*pow(dth,6)*(-14496*pow(dr,6) + \
+138784*pow(rp,2)*pow(dr,4)*pow(dth,2) + 491584*pow(rp,4)*pow(dr,2)*pow(dth,4) \
++ (-289367 + 14076*pow(m,2))*pow(rp,6)*pow(dth,6)) + 20*(-1 + \
+4*pow(m,2))*pow(Omega,2)*pow(rp,16)*pow(dth,4)*(120*pow(dr,8) + \
+4880*pow(rp,2)*pow(dr,6)*pow(dth,2) + 5640*pow(rp,4)*pow(dr,4)*pow(dth,4) + \
+9564*pow(rp,6)*pow(dr,2)*pow(dth,6) + 5943*pow(rp,8)*pow(dth,8)) + \
+64*pow(M,11)*pow(Omega,2)*pow(rp,5)*pow(dth,4)*(-31740*pow(dr,8) + \
+572480*pow(rp,2)*pow(dr,6)*pow(dth,2) + \
+6218800*pow(rp,4)*pow(dr,4)*pow(dth,4) + 2*(2094701 - \
+37596*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (2761211 + \
+581492*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+2*M*pow(Omega,2)*pow(rp,13)*pow(dth,2)*(192*(-17 + 52*pow(m,2))*pow(dr,10) + \
+8*(-54247 + 214188*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 16*(24713 - \
+101292*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) - 400*(-2055 + \
+8224*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + (-298311 + \
+1234300*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 3*(-17433 + \
+77572*pow(m,2))*pow(rp,10)*pow(dth,10)) - \
+16*pow(M,9)*pow(Omega,2)*pow(rp,5)*pow(dth,2)*(-147376*pow(dr,10) - \
+6670300*pow(rp,2)*pow(dr,8)*pow(dth,2) + 6*(-3832589 + \
+99676*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 5*(4542787 + \
+808196*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) - 64*(-316465 + \
+76489*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 21*(-3374109 + \
+689380*pow(m,2))*pow(rp,10)*pow(dth,10)) + \
+pow(M,2)*pow(Omega,2)*pow(rp,10)*(-10752*pow(dr,12) + 8*(-97003 + \
+292716*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 16*(263897 - \
+1254418*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(2867693 - \
+13867892*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 5*(-577681 + \
+1848516*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 28*(-484719 + \
+1923764*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (8875227 - \
+35134220*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+4*pow(M,8)*pow(Omega,2)*pow(rp,4)*(-36208*pow(dr,12) - \
+4256864*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-26443181 + \
+1029684*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(38942883 + \
+8563868*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 20*(17379269 - \
+412868*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 16*(4636256 - \
+2270657*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 94*(-2130817 + \
+2338260*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+4*pow(M,4)*pow(Omega,2)*pow(rp,8)*(2*(-60153 + 7264*pow(m,2))*pow(dr,12) - \
+134*(7469 + 4828*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + (-3425849 + \
+10189556*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + (-13362349 + \
+80554596*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-9599839 + \
+64365316*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-10201039 + \
+21916124*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 4*(-7881691 + \
+22200736*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+2*pow(M,5)*pow(Omega,2)*pow(rp,7)*(-32*(8893 + 1453*pow(m,2))*pow(dr,12) - \
+16*(529743 + 135680*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 224*(-208667 \
++ 70888*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(-23829497 + \
+49484068*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 5*(-12209817 + \
+47590180*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - (19372015 + \
+133463268*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 2*(-42459141 + \
+28900100*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+2*pow(M,3)*pow(Omega,2)*pow(rp,9)*((-41036 + 70320*pow(m,2))*pow(dr,12) + \
+16*(50347 - 148392*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 4*(-386999 + \
+4132996*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 4*(-3479539 + \
+19999996*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-5236339 + \
+33705356*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-6598677 + \
+23588204*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(-8254107 + \
+30080012*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+4*pow(M,7)*pow(Omega,2)*pow(rp,5)*(-242480*pow(dr,12) + 60*(-56227 + \
+2956*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 4*(6304811 + \
+1671136*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 20*(10402229 + \
+276356*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 58*(-5332469 + \
+1916156*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (23191947 + \
+61873060*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-64129039 + \
+308963532*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+pow(M,6)*pow(Omega,2)*pow(rp,6)*(8*(-73343 + 2688*pow(m,2))*pow(dr,12) + \
+32*(415917 + 131056*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 32*(5980766 + \
+611861*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 2*(292830277 - \
+125042068*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (515670753 - \
+634992292*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-1405343 + \
+152290452*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (74177801 + \
+691303740*pow(m,2))*pow(rp,12)*pow(dth,12)) - 32*pow(M,10)*(1092*pow(dr,12) - \
+13440*pow(Omega,2)*pow(rp,4)*pow(dr,10)*pow(dth,2) + \
+428780*pow(Omega,2)*pow(rp,6)*pow(dr,8)*pow(dth,4) + \
+9567520*pow(Omega,2)*pow(rp,8)*pow(dr,6)*pow(dth,6) - 3*(-5915281 + \
+91844*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dr,4)*pow(dth,8) + (90543 - \
+356452*pow(m,2))*pow(Omega,2)*pow(rp,12)*pow(dr,2)*pow(dth,10) + 98*(255289 + \
+13676*pow(m,2))*pow(Omega,2)*pow(rp,14)*pow(dth,12))) + \
+pow(a,14)*Omega*(3334144*pow(M,15)*pow(Omega,2)*pow(rp,8)*pow(dth,12) + \
+2048*pow(M,14)*pow(Omega,2)*pow(rp,7)*pow(dth,10)*(6202*pow(dr,2) + \
+14149*pow(rp,2)*pow(dth,2)) + 8*(-1 + \
+4*pow(m,2))*pow(Omega,2)*pow(rp,19)*pow(dth,8)*(240*pow(dr,4) + \
+1358*pow(rp,2)*pow(dr,2)*pow(dth,2) + 1235*pow(rp,4)*pow(dth,4)) - \
+1024*pow(M,13)*pow(Omega,2)*pow(rp,6)*pow(dth,8)*(31910*pow(dr,4) - \
+28008*pow(rp,2)*pow(dr,2)*pow(dth,2) + 293785*pow(rp,4)*pow(dth,4)) - \
+1024*pow(M,12)*pow(Omega,2)*pow(rp,5)*pow(dth,6)*(-26020*pow(dr,6) + \
+96210*pow(rp,2)*pow(dr,4)*pow(dth,2) + 318140*pow(rp,4)*pow(dr,2)*pow(dth,4) \
++ 3*(-239833 + 6860*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+M*pow(Omega,2)*pow(rp,16)*pow(dth,6)*(63360*(-1 + 4*pow(m,2))*pow(dr,6) + \
+480*(-1845 + 7372*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) + 112*(-11287 + \
+44956*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + 3*(-274013 + \
+1088372*pow(m,2))*pow(rp,6)*pow(dth,6)) - \
+6*pow(M,2)*pow(Omega,2)*pow(rp,13)*pow(dth,4)*(-160*(-107 + \
+204*pow(m,2))*pow(dr,8) - 2240*(-151 + \
+572*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + 12*(-24771 + \
+68164*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + (-962089 + \
+2838244*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 2*(-462275 + \
+1533916*pow(m,2))*pow(rp,8)*pow(dth,8)) - \
+16*pow(M,10)*pow(Omega,2)*pow(rp,5)*pow(dth,4)*(1372680*pow(dr,8) + \
+41101120*pow(rp,2)*pow(dr,6)*pow(dth,2) + 8*(12006271 - \
+300684*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) - 9*(-2356091 + \
+204052*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 7*(2907023 + \
+2811492*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+2*pow(M,3)*pow(Omega,2)*pow(rp,10)*pow(dth,2)*(-96*(835 + \
+244*pow(m,2))*pow(dr,10) + 4*(100309 - \
+919476*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) - 16*(-7589 + \
+103236*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + (1637437 - \
+6889908*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + (1567341 - \
+20436340*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (-4166061 + \
+1383188*pow(m,2))*pow(rp,10)*pow(dth,10)) + \
+4*pow(M,4)*pow(Omega,2)*pow(rp,7)*(5376*pow(dr,12) - 192*(-2033 + \
+2376*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 16*(81763 + \
+381353*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 8*(806773 + \
+60508*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 120*(-14127 + \
+43606*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 59*(-382115 + \
+1244828*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 2*(-5758843 + \
+27217100*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+2*pow(M,6)*pow(Omega,2)*pow(rp,5)*(32*(-7739 + 156*pow(m,2))*pow(dr,12) + \
+256*(-5008 + 3633*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 80*(169963 + \
+191154*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 320*(372697 + \
+106128*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 4*(-46025849 + \
+8782596*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-312619681 + \
+434685380*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 16*(-30349619 + \
+47125202*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+2*pow(M,7)*pow(Omega,2)*pow(rp,4)*(-431040*pow(dr,12) + 384*(-24449 + \
+650*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 48*(-583983 + \
+371842*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 16*(3940073 + \
+5239308*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 5*(-56500543 + \
+5248092*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-301451497 + \
+228994468*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 4*(-223585185 + \
+209847772*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+4*pow(M,8)*pow(Omega,2)*pow(rp,3)*(8928*pow(dr,12) - \
+5639840*pow(rp,2)*pow(dr,10)*pow(dth,2) + 40*(-1280077 + \
+45036*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 8*(-11276203 + \
+4897452*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 4*(9946993 + \
+11771748*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 4*(20061491 + \
+8968920*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-519575387 + \
+230292972*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+pow(M,5)*pow(Omega,2)*pow(rp,6)*(192*(-101 + 212*pow(m,2))*pow(dr,12) - \
+192*(-12393 + 4492*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 8*(3584293 + \
+2220708*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 128*(924743 + \
+393048*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 8*(-12900659 + \
+9179436*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-83993147 + \
+170002044*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-315867797 + \
+796378452*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+16*pow(M,11)*(8736*pow(Omega,2)*pow(dr,12) + 321744*pow(dr,10)*pow(dth,2) - \
+622240*pow(Omega,2)*pow(rp,4)*pow(dr,8)*pow(dth,4) + \
+4501120*pow(Omega,2)*pow(rp,6)*pow(dr,6)*pow(dth,6) + \
+60767680*pow(Omega,2)*pow(rp,8)*pow(dr,4)*pow(dth,8) + 16*(1998847 - \
+56388*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dr,2)*pow(dth,10) + 7*(-5585909 + \
+1394964*pow(m,2))*pow(Omega,2)*pow(rp,12)*pow(dth,12)) - 4*pow(M,9)*(96*(1136 \
++ 277*pow(Omega,2)*pow(rp,2))*pow(dr,12) - \
+703296*pow(Omega,2)*pow(rp,4)*pow(dr,10)*pow(dth,2) - \
+46733200*pow(Omega,2)*pow(rp,6)*pow(dr,8)*pow(dth,4) + 48*(-4627823 + \
+147092*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,6)*pow(dth,6) + (-206622133 + \
+54045732*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dr,4)*pow(dth,8) - 10*(5203439 \
++ 3335964*pow(m,2))*pow(Omega,2)*pow(rp,12)*pow(dr,2)*pow(dth,10) - \
+7*(52692541 + 972876*pow(m,2))*pow(Omega,2)*pow(rp,14)*pow(dth,12))) - \
+2*pow(a,13)*M*(1667072*pow(M,14)*pow(Omega,2)*pow(rp,8)*pow(dth,12) + \
+14336*pow(M,13)*pow(Omega,2)*pow(rp,7)*pow(dth,10)*(443*pow(dr,2) + \
+1238*pow(rp,2)*pow(dth,2)) - \
+1024*pow(M,12)*pow(Omega,2)*pow(rp,6)*pow(dth,8)*(15955*pow(dr,4) - \
+19047*pow(rp,2)*pow(dr,2)*pow(dth,2) + 187275*pow(rp,4)*pow(dth,4)) - 20*(-1 \
++ 4*pow(m,2))*pow(Omega,2)*pow(rp,16)*pow(dth,6)*(480*pow(dr,6) + \
+6755*pow(rp,2)*pow(dr,4)*pow(dth,2) + 10048*pow(rp,4)*pow(dr,2)*pow(dth,4) + \
+6790*pow(rp,6)*pow(dth,6)) - \
+512*pow(M,11)*pow(Omega,2)*pow(rp,5)*pow(dth,6)*(-26020*pow(dr,6) + \
+124500*pow(rp,2)*pow(dr,4)*pow(dth,2) + 425534*pow(rp,4)*pow(dr,2)*pow(dth,4) \
++ 7*(-114229 + 2940*pow(m,2))*pow(rp,6)*pow(dth,6)) - \
+16*pow(M,9)*pow(Omega,2)*pow(rp,5)*pow(dth,4)*(885840*pow(dr,8) + \
+27271200*pow(rp,2)*pow(dr,6)*pow(dth,2) + 4*(13867511 - \
+300684*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + (4867821 - \
+963820*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 7*(11382223 + \
+1208324*pow(m,2))*pow(rp,8)*pow(dth,8)) - \
+2*M*pow(Omega,2)*pow(rp,13)*pow(dth,4)*(3840*(-7 + 26*pow(m,2))*pow(dr,8) + \
+5120*(-197 + 785*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + 96*(-8407 + \
+34248*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 320*(-3790 + \
+15629*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + (-594709 + \
+2462612*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+pow(M,2)*pow(Omega,2)*pow(rp,10)*pow(dth,2)*(-192*(-521 + \
+292*pow(m,2))*pow(dr,10) + 4*(782399 - \
+2470716*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 64*(-96441 + \
+453284*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + (-15774841 + \
+61173924*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 2*(-11033207 + \
+40288412*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (-15933121 + \
+60103236*pow(m,2))*pow(rp,10)*pow(dth,10)) + \
+4*pow(M,7)*pow(Omega,2)*pow(rp,5)*pow(dth,2)*(-3811200*pow(dr,10) + \
+20*(-1483543 + 45036*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 16*(2455189 + \
+1347184*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 2*(119121923 + \
+7808628*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) - (88689931 + \
+16624180*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (-314554011 + \
+247427884*pow(m,2))*pow(rp,10)*pow(dth,10)) - \
+4*pow(M,3)*pow(Omega,2)*pow(rp,7)*(-13440*pow(dr,12) + 16*(-14657 + \
+21060*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 2*(671343 - \
+2292172*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 40*(34823 + \
+48884*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-7898671 + \
+30778364*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-13543573 + \
+30677236*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 56*(-263189 + \
+758756*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+2*pow(M,4)*pow(Omega,2)*pow(rp,6)*(-16*(3641 + 740*pow(m,2))*pow(dr,12) + \
+32*(-83341 + 8520*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 2*(6173481 + \
+1109836*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 32*(-355253 + \
+76992*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-10945459 + \
+43305036*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 2*(6458765 + \
+51762748*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-47166325 + \
+15621716*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+2*pow(M,5)*pow(Omega,2)*pow(rp,5)*(16*(-9517 + 156*pow(m,2))*pow(dr,12) + \
+64*(39689 + 8592*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 32*(1362713 + \
+237278*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 16*(-7737837 + \
+840188*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 10*(7647713 - \
+7419684*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 4*(-15632177 + \
+84825764*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (186837 + \
+334434668*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+pow(M,6)*pow(Omega,2)*pow(rp,4)*(-589824*pow(dr,12) + 64*(-172853 + \
+3900*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 16*(2993331 + \
+1250456*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 32*(15613967 + \
+2328932*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 5*(128388141 - \
+36661556*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-164588741 + \
+227149972*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-423911987 + \
+1302706700*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+16*pow(M,10)*(13104*pow(Omega,2)*pow(dr,12) + 53624*pow(dr,10)*pow(dth,2) - \
+311120*pow(Omega,2)*pow(rp,4)*pow(dr,8)*pow(dth,4) + \
+2899520*pow(Omega,2)*pow(rp,6)*pow(dr,6)*pow(dth,6) + \
+40120800*pow(Omega,2)*pow(rp,8)*pow(dr,4)*pow(dth,8) - 8*(-2406931 + \
+56388*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dr,2)*pow(dth,10) + 7*(600773 + \
+753644*pow(m,2))*pow(Omega,2)*pow(rp,12)*pow(dth,12)) - 4*pow(M,8)*(16*(1136 \
++ 831*pow(Omega,2)*pow(rp,2))*pow(dr,12) - \
+457104*pow(Omega,2)*pow(rp,4)*pow(dr,10)*pow(dth,2) - \
+31259120*pow(Omega,2)*pow(rp,6)*pow(dr,8)*pow(dth,4) + 8*(-16001309 + \
+441276*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,6)*pow(dth,6) + (36952853 + \
+29528988*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dr,4)*pow(dth,8) - 2*(13829213 \
++ 10752180*pow(m,2))*pow(Omega,2)*pow(rp,12)*pow(dr,2)*pow(dth,10) + \
+14*(-33108957 + 3748628*pow(m,2))*pow(Omega,2)*pow(rp,14)*pow(dth,12))) + \
+4*pow(a,15)*M*(1676288*pow(M,13)*pow(Omega,2)*pow(rp,7)*pow(dth,12) + \
+512*pow(M,12)*pow(Omega,2)*pow(rp,6)*pow(dth,10)*(5154*pow(dr,2) + \
+15283*pow(rp,2)*pow(dth,2)) + 20*(-1 + \
+4*pow(m,2))*pow(Omega,2)*pow(rp,16)*pow(dth,8)*(240*pow(dr,4) + \
+1358*pow(rp,2)*pow(dr,2)*pow(dth,2) + 1235*pow(rp,4)*pow(dth,4)) - \
+512*pow(M,11)*pow(Omega,2)*pow(rp,5)*pow(dth,8)*(14470*pow(dr,4) - \
+5142*pow(rp,2)*pow(dr,2)*pow(dth,2) + 197687*pow(rp,4)*pow(dth,4)) + \
+8*M*pow(Omega,2)*pow(rp,13)*pow(dth,6)*(6240*(-1 + 4*pow(m,2))*pow(dr,6) + \
+10*(-8493 + 34436*pow(m,2))*pow(rp,2)*pow(dr,4)*pow(dth,2) + 2*(-54581 + \
+225196*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + 5*(-12697 + \
+52700*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+8*pow(M,9)*pow(Omega,2)*pow(rp,5)*pow(dth,6)*(1021760*pow(dr,6) + \
+19976000*pow(rp,2)*pow(dr,4)*pow(dth,2) + 10*(98135 - \
+14628*pow(m,2))*pow(rp,4)*pow(dr,2)*pow(dth,4) + 7*(-1283593 + \
+540900*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+pow(M,2)*pow(Omega,2)*pow(rp,10)*pow(dth,4)*(480*(-185 + \
+292*pow(m,2))*pow(dr,8) + 320*(-4669 + \
+17428*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) - 4*(-323431 + \
+753444*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) - 17*(-254201 + \
+706468*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 16*(244669 - \
+799042*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+4*pow(M,3)*pow(Omega,2)*pow(rp,7)*pow(dth,2)*(336*(-81 + \
+4*pow(m,2))*pow(dr,10) + 2*(-106663 + \
+161532*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 16*(44317 - \
+158728*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 2*(663787 - \
+2939748*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) - (668727 + \
+5735636*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (-2280463 + \
+1395692*pow(m,2))*pow(rp,10)*pow(dth,10)) - \
+2*pow(M,5)*pow(Omega,2)*pow(rp,5)*pow(dth,2)*(160*(-2891 + \
+36*pow(m,2))*pow(dr,10) + 240*(8495 + \
+2426*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) + 80*(276299 + \
+30812*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) - 160*(-91703 + \
+8744*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 114*(-441971 + \
+470348*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + (-39314309 + \
+107245556*pow(m,2))*pow(rp,10)*pow(dth,10)) - \
+16*pow(M,10)*pow(dth,2)*(80436*pow(Omega,2)*pow(dr,10) + \
+101700*pow(dr,8)*pow(dth,2) - \
+331520*pow(Omega,2)*pow(rp,4)*pow(dr,6)*pow(dth,4) + \
+833440*pow(Omega,2)*pow(rp,6)*pow(dr,4)*pow(dth,6) + \
+2216832*pow(Omega,2)*pow(rp,8)*pow(dr,2)*pow(dth,8) + 35*(-400817 + \
+7044*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dth,10)) + \
+2*pow(M,7)*pow(Omega,2)*rp*(-4512*pow(dr,12) + \
+10326720*pow(rp,4)*pow(dr,8)*pow(dth,4) - 80*(-583519 + \
+12780*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 8*(1122373 + \
+1434268*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 12*(3789725 + \
+1087764*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 7*(33314291 - \
+1746988*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+2*pow(M,4)*pow(Omega,2)*pow(rp,4)*(-5376*pow(dr,12) + 256*(452 + \
+105*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 12*(215139 - \
+26416*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 32*(-181261 + \
+6544*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 16*(-310059 + \
+968581*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-13113015 + \
+57433964*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-673969 + \
+44347204*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+4*pow(M,8)*(27264*pow(Omega,2)*pow(dr,12) + 16*(2318 + \
+3349*pow(Omega,2)*pow(rp,2))*pow(dr,10)*pow(dth,2) - \
+465240*pow(Omega,2)*pow(rp,4)*pow(dr,8)*pow(dth,4) - \
+23307840*pow(Omega,2)*pow(rp,6)*pow(dr,6)*pow(dth,6) + 3*(-15612527 + \
+356428*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,4)*pow(dth,8) + (5777553 - \
+220124*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dr,2)*pow(dth,10) - 56*(1429391 \
++ 235028*pow(m,2))*pow(Omega,2)*pow(rp,12)*pow(dth,12)) + pow(M,6)*(-64*(-529 \
++ 28*pow(Omega,2)*pow(rp,2))*pow(dr,12) - \
+1713728*pow(Omega,2)*pow(rp,4)*pow(dr,10)*pow(dth,2) + 40*(-399703 + \
+6672*pow(m,2))*pow(Omega,2)*pow(rp,6)*pow(dr,8)*pow(dth,4) + 160*(103533 + \
+66388*pow(m,2))*pow(Omega,2)*pow(rp,8)*pow(dr,6)*pow(dth,6) + 32*(3064623 + \
+378188*pow(m,2))*pow(Omega,2)*pow(rp,10)*pow(dr,4)*pow(dth,8) - (165068543 + \
+3309060*pow(m,2))*pow(Omega,2)*pow(rp,12)*pow(dr,2)*pow(dth,10) + \
+2*(-139431221 + 91083396*pow(m,2))*pow(Omega,2)*pow(rp,14)*pow(dth,12))) + \
+pow(a,12)*(-737280*pow(M,16)*pow(Omega,3)*pow(rp,9)*pow(dth,12) - \
+12288*pow(M,15)*pow(Omega,3)*pow(rp,8)*pow(dth,10)*(664*pow(dr,2) + \
+1511*pow(rp,2)*pow(dth,2)) + \
+2048*pow(M,14)*pow(Omega,3)*pow(rp,7)*pow(dth,8)*(9960*pow(dr,4) - \
+25633*pow(rp,2)*pow(dr,2)*pow(dth,2) + 82482*pow(rp,4)*pow(dth,4)) + 4*(-1 + \
+4*pow(m,2))*pow(Omega,3)*pow(rp,19)*pow(dth,6)*(480*pow(dr,6) + \
+6755*pow(rp,2)*pow(dr,4)*pow(dth,2) + 10048*pow(rp,4)*pow(dr,2)*pow(dth,4) + \
+6790*pow(rp,6)*pow(dth,6)) + \
+256*pow(M,13)*pow(Omega,3)*pow(rp,6)*pow(dth,6)*(-72480*pow(dr,6) + \
+569660*pow(rp,2)*pow(dr,4)*pow(dth,2) + \
+1896588*pow(rp,4)*pow(dr,2)*pow(dth,4) + 3*(-500797 + \
+23460*pow(m,2))*pow(rp,6)*pow(dth,6)) + \
+M*pow(Omega,3)*pow(rp,16)*pow(dth,4)*(31680*(-1 + 4*pow(m,2))*pow(dr,8) + \
+1282560*(-1 + 4*pow(m,2))*pow(rp,2)*pow(dr,6)*pow(dth,2) + 12*(-110363 + \
+439772*pow(m,2))*pow(rp,4)*pow(dr,4)*pow(dth,4) + 2*(-1103461 + \
+4381300*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 63*(-20767 + \
+82300*pow(m,2))*pow(rp,8)*pow(dth,8)) - \
+256*pow(M,12)*pow(Omega,3)*pow(rp,5)*pow(dth,4)*(-31740*pow(dr,8) + \
+471080*pow(rp,2)*pow(dr,6)*pow(dth,2) + \
+4805180*pow(rp,4)*pow(dr,4)*pow(dth,4) + 2*(1858613 - \
+37596*pow(m,2))*pow(rp,6)*pow(dr,2)*pow(dth,6) + 3*(-186815 + \
+180692*pow(m,2))*pow(rp,8)*pow(dth,8)) + \
+pow(M,2)*pow(Omega,3)*pow(rp,13)*pow(dth,2)*(192*(-275 + \
+204*pow(m,2))*pow(dr,10) + 12*(-170351 + \
+567804*pow(m,2))*pow(rp,2)*pow(dr,8)*pow(dth,2) - 384*(-12553 + \
+56512*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 3*(3764921 - \
+14681124*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) + 2*(8233585 - \
+30116164*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 5*(2519779 - \
+9403084*pow(m,2))*pow(rp,10)*pow(dth,10)) + \
+16*pow(M,10)*pow(Omega,3)*pow(rp,5)*pow(dth,2)*(-484696*pow(dr,10) - \
+20336880*pow(rp,2)*pow(dr,8)*pow(dth,2) + 8*(-10833467 + \
+299028*pow(m,2))*pow(rp,4)*pow(dr,6)*pow(dth,4) + 2*(-32780539 + \
+7400796*pow(m,2))*pow(rp,6)*pow(dr,4)*pow(dth,6) - 12*(472811 + \
+1095060*pow(m,2))*pow(rp,8)*pow(dr,2)*pow(dth,8) + 21*(-6903073 + \
+732228*pow(m,2))*pow(rp,10)*pow(dth,10)) + \
+2*pow(M,4)*pow(Omega,3)*pow(rp,9)*(-48*(-3347 + 3892*pow(m,2))*pow(dr,12) + \
+48*(23077 + 138524*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 34*(-645311 + \
+926444*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 160*(-415563 + \
+1167052*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (44644883 - \
+146828172*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 20*(-459071 + \
+5249540*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(6730609 + \
+998268*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+pow(M,3)*pow(Omega,3)*pow(rp,10)*(-43008*pow(dr,12) - 32*(-7103 + \
+102492*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 4*(-1021571 + \
+3208764*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 8*(-2005187 + \
+8999548*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (-30830453 + \
+119036372*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-18014725 + \
+46609748*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-42023347 + \
+128704780*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+4*pow(M,9)*pow(Omega,3)*pow(rp,4)*(-118768*pow(dr,12) - \
+12852688*pow(rp,2)*pow(dr,10)*pow(dth,2) + 4*(-25029281 + \
+1029684*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 12*(-10116443 + \
+5266052*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 4*(65103301 + \
+3643596*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) - 8*(-9725953 + \
+12654780*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-859100863 + \
+462127036*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+pow(M,6)*pow(Omega,3)*pow(rp,7)*(1024*(-37 + 306*pow(m,2))*pow(dr,12) + \
+11936*(1127 + 1452*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 16*(13780199 + \
+218064*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 160*(-6417681 + \
+4853324*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 5*(-245510011 + \
+293750636*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-304494243 + \
+826944332*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 5*(-179345741 + \
+476348276*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+pow(M,5)*pow(Omega,3)*pow(rp,8)*(-96*(-5165 + 1896*pow(m,2))*pow(dr,12) + \
+320*(35699 + 43308*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) - 20*(-6597009 + \
+2331748*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 128*(-3877147 + \
+6280403*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + 2*(201632507 - \
+429618348*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-128671557 + \
+489032500*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-174008417 + \
+843334148*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+4*pow(M,8)*pow(Omega,3)*pow(rp,5)*(-723536*pow(dr,12) + 96*(-132573 + \
+7390*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 2*(-11759923 + \
+12256092*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) + 8*(21883241 + \
+6653076*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) + (610397933 - \
+201665412*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + (-21410837 + \
+114309220*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + (-847752649 + \
+876125764*pow(m,2))*pow(rp,12)*pow(dth,12)) - \
+pow(M,7)*pow(Omega,3)*pow(rp,6)*(32*(-67759 + 2688*pow(m,2))*pow(dr,12) + \
+32*(-221863 + 473268*pow(m,2))*pow(rp,2)*pow(dr,10)*pow(dth,2) + 48*(3395737 \
++ 2135792*pow(m,2))*pow(rp,4)*pow(dr,8)*pow(dth,4) - 8*(-157807463 + \
+42133452*pow(m,2))*pow(rp,6)*pow(dr,6)*pow(dth,6) - 15*(-151369503 + \
+95284796*pow(m,2))*pow(rp,8)*pow(dr,4)*pow(dth,8) + 2*(-319530365 + \
+761418356*pow(m,2))*pow(rp,10)*pow(dr,2)*pow(dth,10) + 3*(-734168421 + \
+1223735252*pow(m,2))*pow(rp,12)*pow(dth,12)) + \
+64*pow(M,11)*(6552*Omega*pow(dr,12) - \
+26880*pow(Omega,3)*pow(rp,4)*pow(dr,10)*pow(dth,2) + \
+705820*pow(Omega,3)*pow(rp,6)*pow(dr,8)*pow(dth,4) + \
+14700880*pow(Omega,3)*pow(rp,8)*pow(dr,6)*pow(dth,6) - 6*(-5503421 + \
+91844*pow(m,2))*pow(Omega,3)*pow(rp,10)*pow(dr,4)*pow(dth,8) + (11776019 - \
+721332*pow(m,2))*pow(Omega,3)*pow(rp,12)*pow(dr,2)*pow(dth,10) + 3*(4573437 + \
+1316332*pow(m,2))*pow(Omega,3)*pow(rp,14)*pow(dth,12)))))/(192.*(-1 + \
+4*pow(m,2))*pow(M,3)*pow(rp,8)*pow(-2*a*M + 2*pow(a,2)*M*Omega + Omega*(3*M - \
+rp)*pow(rp,2),2)*pow(pow(a,2) + rp*(-2*M + rp),3)*sqrt(((-2*a*M + \
+pow(a,2)*M*Omega - Omega*pow(rp,3))*(pow(a,2) + rp*(-2*M + rp)))/(-2*a*M + \
+2*pow(a,2)*M*Omega + Omega*(3*M - rp)*pow(rp,2)))*pow(pow(dr,2) + (pow(a,2) + \
+rp*(-2*M + rp))*pow(dth,2),5)) + \
+(pow(Omega,6)*(32*pow(a,12)*pow(M,3)*pow(dth,2) - (224*pow(a,11)*pow(M,3)*(-1 \
++ a*Omega)*pow(dth,2))/Omega + 16*pow(a,10)*pow(M,2)*(6*M*pow(dr,2) + \
+pow(M,3)*pow(dth,2) - 14*pow(M,2)*rp*pow(dth,2) + 7*M*pow(rp,2)*pow(dth,2) + \
+39*pow(rp,3)*pow(dth,2)) - (8*pow(a,9)*pow(M,2)*(-1 + \
+a*Omega)*(76*M*pow(dr,2) + 12*pow(M,3)*pow(dth,2) - \
+190*pow(M,2)*rp*pow(dth,2) + 97*M*pow(rp,2)*pow(dth,2) + \
+112*pow(rp,3)*pow(dth,2)))/Omega + (12*a*M*(1 - \
+a*Omega)*pow(rp,6)*(111*pow(rp,4)*pow(dr,2) + 12*pow(M,5)*rp*pow(dth,2) + \
+34*pow(rp,6)*pow(dth,2) + pow(M,4)*(450*pow(dr,2) - 32*pow(rp,2)*pow(dth,2)) \
+- pow(M,3)*(1029*rp*pow(dr,2) + 229*pow(rp,3)*pow(dth,2)) + \
+5*pow(M,2)*(174*pow(rp,2)*pow(dr,2) + 77*pow(rp,4)*pow(dth,2)) - \
+200*M*(2*pow(rp,3)*pow(dr,2) + pow(rp,5)*pow(dth,2))))/Omega + \
+(2*pow(a,7)*M*(-1 + a*Omega)*(36*pow(M,6)*pow(dth,2) + \
+48*pow(M,5)*rp*pow(dth,2) - 144*pow(rp,6)*pow(dth,2) + \
+3*pow(M,4)*(864*pow(dr,2) - 529*pow(rp,2)*pow(dth,2)) + \
+2*pow(M,3)*(-2060*rp*pow(dr,2) + 747*pow(rp,3)*pow(dth,2)) + \
+pow(M,2)*(2372*pow(rp,2)*pow(dr,2) + 2553*pow(rp,4)*pow(dth,2)) - \
+64*M*(17*pow(rp,3)*pow(dr,2) + 24*pow(rp,5)*pow(dth,2))))/Omega - \
+4*pow(a,8)*M*(3*pow(M,6)*pow(dth,2) + 4*pow(M,5)*rp*pow(dth,2) - \
+176*pow(rp,6)*pow(dth,2) + 2*pow(M,4)*(108*pow(dr,2) - \
+59*pow(rp,2)*pow(dth,2)) + pow(M,3)*(-336*rp*pow(dr,2) + \
+62*pow(rp,3)*pow(dth,2)) + 4*pow(M,2)*(48*pow(rp,2)*pow(dr,2) + \
+253*pow(rp,4)*pow(dth,2)) - 3*M*(132*pow(rp,3)*pow(dr,2) + \
+179*pow(rp,5)*pow(dth,2))) + pow(rp,9)*(222*pow(rp,4)*pow(dr,2) + \
+24*pow(M,5)*rp*pow(dth,2) + 68*pow(rp,6)*pow(dth,2) + pow(M,4)*(900*pow(dr,2) \
+- 74*pow(rp,2)*pow(dth,2)) - pow(M,3)*(2151*rp*pow(dr,2) + \
+509*pow(rp,3)*pow(dth,2)) + 4*pow(M,2)*(467*pow(rp,2)*pow(dr,2) + \
+208*pow(rp,4)*pow(dth,2)) - M*(907*pow(rp,3)*pow(dr,2) + \
+417*pow(rp,5)*pow(dth,2))) + (4*pow(a,3)*pow(M,2)*pow(1 - \
+a*Omega,3)*(120*pow(M,6)*rp*pow(dth,2) + 250*pow(M,5)*(18*pow(dr,2) - \
+pow(rp,2)*pow(dth,2)) + 6*pow(rp,5)*(-209*pow(dr,2) + \
+46*pow(rp,2)*pow(dth,2)) - 51*pow(M,4)*(189*rp*pow(dr,2) + \
+37*pow(rp,3)*pow(dth,2)) + pow(M,3)*(7802*pow(rp,2)*pow(dr,2) + \
+3245*pow(rp,4)*pow(dth,2)) - pow(M,2)*(4558*pow(rp,3)*pow(dr,2) + \
+691*pow(rp,5)*pow(dth,2)) + M*(3563*pow(rp,4)*pow(dr,2) - \
+773*pow(rp,6)*pow(dth,2))))/pow(Omega,3) + \
+pow(a,2)*pow(rp,6)*(-836*pow(rp,5)*pow(dr,2) + 360*pow(M,6)*rp*pow(dth,2) + \
+184*pow(rp,7)*pow(dth,2) + 60*pow(M,5)*(225*pow(dr,2) - \
+14*pow(rp,2)*pow(dth,2)) - 2*pow(M,4)*(14877*rp*pow(dr,2) + \
+3112*pow(rp,3)*pow(dth,2)) + pow(M,3)*(24571*pow(rp,2)*pow(dr,2) + \
+10646*pow(rp,4)*pow(dth,2)) - 4*pow(M,2)*(2897*pow(rp,3)*pow(dr,2) + \
+1230*pow(rp,5)*pow(dth,2)) + 3*M*(1689*pow(rp,4)*pow(dr,2) + \
+82*pow(rp,6)*pow(dth,2))) + (2*pow(a,5)*M*(1 - \
+a*Omega)*(336*pow(rp,6)*pow(dr,2) + 72*pow(M,7)*rp*pow(dth,2) + \
+492*pow(rp,8)*pow(dth,2) + 12*pow(M,6)*(225*pow(dr,2) - \
+11*pow(rp,2)*pow(dth,2)) - 2*pow(M,5)*(2808*rp*pow(dr,2) + \
+503*pow(rp,3)*pow(dth,2)) + pow(M,4)*(4421*pow(rp,2)*pow(dr,2) + \
+1469*pow(rp,4)*pow(dth,2)) + 2*pow(M,3)*(-5213*pow(rp,3)*pow(dr,2) + \
+2712*pow(rp,5)*pow(dth,2)) + pow(M,2)*(15421*pow(rp,4)*pow(dr,2) - \
+6333*pow(rp,6)*pow(dth,2)) + M*(-8224*pow(rp,5)*pow(dr,2) + \
+742*pow(rp,7)*pow(dth,2))))/Omega + \
+pow(a,4)*pow(rp,3)*(360*pow(M,7)*rp*pow(dth,2) + 30*pow(M,6)*(450*pow(dr,2) - \
+23*pow(rp,2)*pow(dth,2)) + 4*pow(rp,6)*(28*pow(dr,2) + \
+41*pow(rp,2)*pow(dth,2)) - 3*pow(M,5)*(9453*rp*pow(dr,2) + \
+1733*pow(rp,3)*pow(dth,2)) + 3*pow(M,4)*(7529*pow(rp,2)*pow(dr,2) + \
+2911*pow(rp,4)*pow(dth,2)) + pow(M,3)*(-22149*pow(rp,3)*pow(dr,2) + \
+5254*pow(rp,5)*pow(dth,2)) + pow(M,2)*(26553*pow(rp,4)*pow(dr,2) - \
+9513*pow(rp,6)*pow(dth,2)) + M*(-12472*pow(rp,5)*pow(dr,2) + \
+2367*pow(rp,7)*pow(dth,2))) + pow(a,6)*(24*pow(M,8)*rp*pow(dth,2) + \
+48*pow(rp,9)*pow(dth,2) + pow(M,7)*(900*pow(dr,2) - 44*pow(rp,2)*pow(dth,2)) \
+- 4*pow(M,6)*(468*rp*pow(dr,2) + 109*pow(rp,3)*pow(dth,2)) + \
+pow(M,5)*(1464*pow(rp,2)*pow(dr,2) + 247*pow(rp,4)*pow(dth,2)) + \
+3*pow(M,4)*(-4520*pow(rp,3)*pow(dr,2) + 2823*pow(rp,5)*pow(dth,2)) + \
+pow(M,3)*(21480*pow(rp,4)*pow(dr,2) - 8811*pow(rp,6)*pow(dth,2)) - \
+pow(M,2)*(12132*pow(rp,5)*pow(dr,2) + 2317*pow(rp,7)*pow(dth,2)) + \
+8*M*(208*pow(rp,6)*pow(dr,2) + \
+301*pow(rp,8)*pow(dth,2))))*HarmonicNumber(-0.5 - \
+m))/(32.*pow(M,3)*pow(rp,2)*pow(pow(a,2) + rp*(-2*M + rp),3)*sqrt(((2*a*M - \
+pow(a,2)*M*Omega + Omega*pow(rp,3))*(pow(a,2) + rp*(-2*M + rp)))/(2*a*M - \
+2*pow(a,2)*M*Omega + Omega*pow(rp,2)*(-3*M + rp)))) - \
+(pow(Omega,5)*(-128*pow(a,13)*pow(M,4)*(3*M - 8*rp)*pow(dth,2) + \
+128*pow(a,14)*pow(M,4)*Omega*(3*M - 7*rp)*pow(dth,2) - \
+32*pow(a,11)*pow(M,3)*(6*pow(M,4)*pow(dth,2) - 98*pow(M,3)*rp*pow(dth,2) - \
+197*pow(rp,4)*pow(dth,2) + pow(M,2)*(36*pow(dr,2) + 197*pow(rp,2)*pow(dth,2)) \
++ 11*M*(-8*rp*pow(dr,2) + 15*pow(rp,3)*pow(dth,2))) + \
+32*pow(a,12)*pow(M,3)*Omega*(6*pow(M,4)*pow(dth,2) - \
+96*pow(M,3)*rp*pow(dth,2) - 90*pow(rp,4)*pow(dth,2) + \
+2*pow(M,2)*(18*pow(dr,2) + 89*pow(rp,2)*pow(dth,2)) + M*(-76*rp*pow(dr,2) + \
+89*pow(rp,3)*pow(dth,2))) + Omega*pow(rp,11)*pow(-3*M + \
+rp,2)*(222*pow(rp,4)*pow(dr,2) + 24*pow(M,5)*rp*pow(dth,2) + \
+68*pow(rp,6)*pow(dth,2) + pow(M,4)*(900*pow(dr,2) - 74*pow(rp,2)*pow(dth,2)) \
+- pow(M,3)*(2151*rp*pow(dr,2) + 509*pow(rp,3)*pow(dth,2)) + \
+4*pow(M,2)*(467*pow(rp,2)*pow(dr,2) + 208*pow(rp,4)*pow(dth,2)) - \
+M*(907*pow(rp,3)*pow(dr,2) + 417*pow(rp,5)*pow(dth,2))) + \
+8*pow(a,9)*pow(M,2)*(18*pow(M,7)*pow(dth,2) - 18*pow(M,6)*rp*pow(dth,2) + \
+608*pow(rp,7)*pow(dth,2) + 16*pow(M,5)*(81*pow(dr,2) - \
+41*pow(rp,2)*pow(dth,2)) + 7*pow(M,4)*(-720*rp*pow(dr,2) + \
+59*pow(rp,3)*pow(dth,2)) + pow(M,3)*(6628*pow(rp,2)*pow(dr,2) + \
+6479*pow(rp,4)*pow(dth,2)) - pow(M,2)*(5588*pow(rp,3)*pow(dr,2) + \
+7563*pow(rp,5)*pow(dth,2)) + M*(1956*pow(rp,4)*pow(dr,2) + \
+979*pow(rp,6)*pow(dth,2))) - \
+8*pow(a,10)*pow(M,2)*Omega*(18*pow(M,7)*pow(dth,2) - \
+12*pow(M,6)*rp*pow(dth,2) - 270*pow(rp,7)*pow(dth,2) + \
+18*pow(M,5)*(72*pow(dr,2) - 37*pow(rp,2)*pow(dth,2)) + \
+9*pow(M,4)*(-512*rp*pow(dr,2) + 65*pow(rp,3)*pow(dth,2)) + \
+pow(M,3)*(5848*pow(rp,2)*pow(dr,2) + 3979*pow(rp,4)*pow(dth,2)) - \
+5*pow(M,2)*(844*pow(rp,3)*pow(dr,2) + 841*pow(rp,5)*pow(dth,2)) + \
+M*(848*pow(rp,4)*pow(dr,2) + 1315*pow(rp,6)*pow(dth,2))) + 4*a*M*(3*M - \
+rp)*pow(rp,8)*(108*pow(M,6)*rp*pow(dth,2) + 6*pow(M,5)*(675*pow(dr,2) - \
+58*pow(rp,2)*pow(dth,2)) - 5*pow(rp,5)*(111*pow(dr,2) + \
+34*pow(rp,2)*pow(dth,2)) - pow(M,4)*(11511*rp*pow(dr,2) + \
+1891*pow(rp,3)*pow(dth,2)) + pow(M,3)*(13068*pow(rp,2)*pow(dr,2) + \
+4661*pow(rp,4)*pow(dth,2)) - 7*pow(M,2)*(1154*pow(rp,3)*pow(dr,2) + \
+541*pow(rp,5)*pow(dth,2)) + M*(3106*pow(rp,4)*pow(dr,2) + \
+1323*pow(rp,6)*pow(dth,2))) + \
+4*pow(a,3)*M*pow(rp,5)*(-2090*pow(rp,7)*pow(dr,2) + \
+1080*pow(M,8)*rp*pow(dth,2) + 460*pow(rp,9)*pow(dth,2) + \
+4050*pow(M,7)*(10*pow(dr,2) - pow(rp,2)*pow(dth,2)) - \
+27*pow(M,6)*(5713*rp*pow(dr,2) + 457*pow(rp,3)*pow(dth,2)) + \
+pow(M,5)*(240714*pow(rp,2)*pow(dr,2) + 57725*pow(rp,4)*pow(dth,2)) - \
+2*pow(M,4)*(106644*pow(rp,3)*pow(dr,2) + 34243*pow(rp,5)*pow(dth,2)) + \
+4*pow(M,3)*(34248*pow(rp,4)*pow(dr,2) + 7615*pow(rp,6)*pow(dth,2)) - \
+pow(M,2)*(68811*pow(rp,5)*pow(dr,2) + 1627*pow(rp,7)*pow(dth,2)) + \
+M*(19994*pow(rp,6)*pow(dr,2) - 2327*pow(rp,8)*pow(dth,2))) + \
+pow(a,2)*Omega*pow(rp,8)*(-836*pow(rp,7)*pow(dr,2) + \
+1944*pow(M,8)*rp*pow(dth,2) + 184*pow(rp,9)*pow(dth,2) + \
+180*pow(M,7)*(405*pow(dr,2) - 38*pow(rp,2)*pow(dth,2)) - \
+6*pow(M,6)*(43209*rp*pow(dr,2) + 4006*pow(rp,3)*pow(dth,2)) + \
+pow(M,5)*(383679*pow(rp,2)*pow(dr,2) + 99966*pow(rp,4)*pow(dth,2)) - \
+20*pow(M,4)*(15777*pow(rp,3)*pow(dr,2) + 5938*pow(rp,5)*pow(dth,2)) + \
+2*pow(M,3)*(88475*pow(rp,4)*pow(dr,2) + 30982*pow(rp,6)*pow(dth,2)) - \
+2*pow(M,2)*(34621*pow(rp,5)*pow(dr,2) + 6786*pow(rp,7)*pow(dth,2)) + \
+3*M*(4693*pow(rp,6)*pow(dr,2) + 122*pow(rp,8)*pow(dth,2))) - \
+2*pow(a,7)*M*(144*pow(M,9)*rp*pow(dth,2) - 240*pow(rp,10)*pow(dth,2) + \
+12*pow(M,8)*(450*pow(dr,2) - 23*pow(rp,2)*pow(dth,2)) - \
+8*pow(M,7)*(2979*rp*pow(dr,2) + 223*pow(rp,3)*pow(dth,2)) + \
+pow(M,6)*(58320*pow(rp,2)*pow(dr,2) - 8157*pow(rp,4)*pow(dth,2)) + \
+4*pow(M,5)*(-38651*pow(rp,3)*pow(dr,2) + 16865*pow(rp,5)*pow(dth,2)) + \
+pow(M,4)*(246364*pow(rp,4)*pow(dr,2) - 79074*pow(rp,6)*pow(dth,2)) + \
+4*pow(M,3)*(-51395*pow(rp,5)*pow(dr,2) + 351*pow(rp,7)*pow(dth,2)) + \
+pow(M,2)*(76044*pow(rp,6)*pow(dr,2) + 26587*pow(rp,8)*pow(dth,2)) - \
+128*M*(45*pow(rp,7)*pow(dr,2) + 56*pow(rp,9)*pow(dth,2))) + \
+2*pow(a,8)*M*Omega*(144*pow(M,9)*rp*pow(dth,2) + 784*pow(rp,10)*pow(dth,2) + \
+6*pow(M,8)*(900*pow(dr,2) - 47*pow(rp,2)*pow(dth,2)) - \
+36*pow(M,7)*(612*rp*pow(dr,2) + 41*pow(rp,3)*pow(dth,2)) + \
+pow(M,6)*(50688*pow(rp,2)*pow(dr,2) - 6431*pow(rp,4)*pow(dth,2)) + \
+2*pow(M,5)*(-55966*pow(rp,3)*pow(dr,2) + 23089*pow(rp,5)*pow(dth,2)) + \
+pow(M,4)*(151516*pow(rp,4)*pow(dr,2) - 55096*pow(rp,6)*pow(dth,2)) + \
+4*pow(M,3)*(-26893*pow(rp,5)*pow(dr,2) + 7532*pow(rp,7)*pow(dth,2)) + \
+pow(M,2)*(24100*pow(rp,6)*pow(dr,2) - 11991*pow(rp,8)*pow(dth,2)) + \
+6*M*(452*pow(rp,7)*pow(dr,2) + 171*pow(rp,9)*pow(dth,2))) + \
+2*pow(a,5)*M*pow(rp,2)*(648*pow(M,9)*rp*pow(dth,2) + \
+540*pow(M,8)*(45*pow(dr,2) - 7*pow(rp,2)*pow(dth,2)) + \
+20*pow(rp,8)*(28*pow(dr,2) + 41*pow(rp,2)*pow(dth,2)) - \
+6*pow(M,7)*(24624*rp*pow(dr,2) + 395*pow(rp,3)*pow(dth,2)) + \
+pow(M,6)*(309339*pow(rp,2)*pow(dr,2) + 46939*pow(rp,4)*pow(dth,2)) - \
+16*pow(M,5)*(24708*pow(rp,3)*pow(dr,2) + 2431*pow(rp,5)*pow(dth,2)) + \
+pow(M,4)*(446250*pow(rp,4)*pow(dr,2) - 76170*pow(rp,6)*pow(dth,2)) + \
+6*pow(M,3)*(-69508*pow(rp,5)*pow(dr,2) + 18693*pow(rp,7)*pow(dth,2)) + \
+pow(M,2)*(224231*pow(rp,6)*pow(dr,2) - 45769*pow(rp,8)*pow(dth,2)) + \
+4*M*(-11472*pow(rp,7)*pow(dr,2) + 937*pow(rp,9)*pow(dth,2))) + \
+pow(a,4)*Omega*pow(rp,5)*(-1080*pow(M,9)*rp*pow(dth,2) - \
+90*pow(M,8)*(450*pow(dr,2) - 23*pow(rp,2)*pow(dth,2)) + \
+4*pow(rp,8)*(28*pow(dr,2) + 41*pow(rp,2)*pow(dth,2)) + \
+3*pow(M,7)*(21591*rp*pow(dr,2) + 7475*pow(rp,3)*pow(dth,2)) - \
+9*pow(M,6)*(-1417*pow(rp,2)*pow(dr,2) + 4287*pow(rp,4)*pow(dth,2)) + \
+9*pow(M,5)*(-17534*pow(rp,3)*pow(dr,2) + 5865*pow(rp,5)*pow(dth,2)) - \
+6*pow(M,4)*(-48065*pow(rp,4)*pow(dr,2) + 17096*pow(rp,6)*pow(dth,2)) + \
+pow(M,3)*(-308775*pow(rp,5)*pow(dr,2) + 96511*pow(rp,7)*pow(dth,2)) - \
+57*pow(M,2)*(-2805*pow(rp,6)*pow(dr,2) + 659*pow(rp,8)*pow(dth,2)) + \
+M*(-28192*pow(rp,7)*pow(dr,2) + 4695*pow(rp,9)*pow(dth,2))) + \
+pow(a,6)*Omega*pow(rp,2)*(-1080*pow(M,10)*rp*pow(dth,2) + \
+48*pow(rp,11)*pow(dth,2) - 108*pow(M,9)*(375*pow(dr,2) - \
+49*pow(rp,2)*pow(dth,2)) + 16*M*pow(rp,8)*(230*pow(dr,2) + \
+317*pow(rp,2)*pow(dth,2)) + 24*pow(M,8)*(8685*rp*pow(dr,2) + \
+262*pow(rp,3)*pow(dth,2)) - pow(M,7)*(382986*pow(rp,2)*pow(dr,2) + \
+68755*pow(rp,4)*pow(dth,2)) + pow(M,6)*(393492*pow(rp,3)*pow(dr,2) + \
+87995*pow(rp,5)*pow(dth,2)) - 2*pow(M,5)*(120208*pow(rp,4)*pow(dr,2) + \
+30509*pow(rp,6)*pow(dth,2)) + pow(M,4)*(40360*pow(rp,5)*pow(dr,2) + \
+32566*pow(rp,7)*pow(dth,2)) + pow(M,3)*(87742*pow(rp,6)*pow(dr,2) + \
+11777*pow(rp,8)*pow(dth,2)) - pow(M,2)*(54084*pow(rp,7)*pow(dr,2) + \
+20233*pow(rp,9)*pow(dth,2))))*log(2*sqrt(-((M*(pow(a,2) + rp*(-2*M + \
+rp)))/(Omega*(-2*a*M + 2*pow(a,2)*M*Omega + Omega*(3*M - \
+rp)*pow(rp,2)))))))/(32.*pow(M,3)*pow(-2*pow(a,2)*M + (2*a*M)/Omega + \
+pow(rp,2)*(-3*M + rp),2)*pow(pow(a,2) + rp*(-2*M + rp),3)*sqrt(((2*a*M - \
+pow(a,2)*M*Omega + Omega*pow(rp,3))*(pow(a,2) + rp*(-2*M + rp)))/(2*a*M - \
+2*pow(a,2)*M*Omega + Omega*pow(rp,2)*(-3*M + rp)))) + \
+(pow(Omega,6)*((128*pow(a,13)*pow(M,4)*(-1 + a*Omega)*(3*M - \
+8*rp)*pow(dth,2))/Omega + 128*pow(a,14)*pow(M,4)*rp*pow(dth,2) + \
+32*pow(a,12)*pow(M,3)*rp*(12*M*pow(dr,2) + 2*pow(M,3)*pow(dth,2) - \
+19*pow(M,2)*rp*pow(dth,2) - 76*M*pow(rp,2)*pow(dth,2) + \
+107*pow(rp,3)*pow(dth,2)) + (32*pow(a,11)*pow(M,3)*(-1 + \
+a*Omega)*(6*pow(M,4)*pow(dth,2) - 98*pow(M,3)*rp*pow(dth,2) - \
+197*pow(rp,4)*pow(dth,2) + pow(M,2)*(36*pow(dr,2) + 197*pow(rp,2)*pow(dth,2)) \
++ 11*M*(-8*rp*pow(dr,2) + 15*pow(rp,3)*pow(dth,2))))/Omega - \
+16*pow(a,10)*pow(M,2)*rp*(3*pow(M,6)*pow(dth,2) - 5*pow(M,5)*rp*pow(dth,2) - \
+439*pow(rp,6)*pow(dth,2) + pow(M,4)*(216*pow(dr,2) + 86*pow(rp,2)*pow(dth,2)) \
+- 10*pow(M,3)*(39*rp*pow(dr,2) + 125*pow(rp,3)*pow(dth,2)) + \
+pow(M,2)*(684*pow(rp,2)*pow(dr,2) + 1679*pow(rp,4)*pow(dth,2)) + \
+2*M*(-277*pow(rp,3)*pow(dr,2) + 84*pow(rp,5)*pow(dth,2))) + \
+pow(rp,11)*pow(-3*M + rp,2)*(222*pow(rp,4)*pow(dr,2) + \
+24*pow(M,5)*rp*pow(dth,2) + 68*pow(rp,6)*pow(dth,2) + pow(M,4)*(900*pow(dr,2) \
+- 74*pow(rp,2)*pow(dth,2)) - pow(M,3)*(2151*rp*pow(dr,2) + \
+509*pow(rp,3)*pow(dth,2)) + 4*pow(M,2)*(467*pow(rp,2)*pow(dr,2) + \
+208*pow(rp,4)*pow(dth,2)) - M*(907*pow(rp,3)*pow(dr,2) + \
+417*pow(rp,5)*pow(dth,2))) + (8*pow(a,9)*pow(M,2)*(1 - \
+a*Omega)*(18*pow(M,7)*pow(dth,2) - 18*pow(M,6)*rp*pow(dth,2) + \
+608*pow(rp,7)*pow(dth,2) + 16*pow(M,5)*(81*pow(dr,2) - \
+41*pow(rp,2)*pow(dth,2)) + 7*pow(M,4)*(-720*rp*pow(dr,2) + \
+59*pow(rp,3)*pow(dth,2)) + pow(M,3)*(6628*pow(rp,2)*pow(dr,2) + \
+6479*pow(rp,4)*pow(dth,2)) - pow(M,2)*(5588*pow(rp,3)*pow(dr,2) + \
+7563*pow(rp,5)*pow(dth,2)) + M*(1956*pow(rp,4)*pow(dr,2) + \
+979*pow(rp,6)*pow(dth,2))))/Omega + (4*a*M*(1 - a*Omega)*pow(rp,8)*(-3*M + \
+rp)*(555*pow(rp,5)*pow(dr,2) - 108*pow(M,6)*rp*pow(dth,2) + \
+170*pow(rp,7)*pow(dth,2) - 6*pow(M,5)*(675*pow(dr,2) - \
+58*pow(rp,2)*pow(dth,2)) + pow(M,4)*(11511*rp*pow(dr,2) + \
+1891*pow(rp,3)*pow(dth,2)) - pow(M,3)*(13068*pow(rp,2)*pow(dr,2) + \
+4661*pow(rp,4)*pow(dth,2)) + 7*pow(M,2)*(1154*pow(rp,3)*pow(dr,2) + \
+541*pow(rp,5)*pow(dth,2)) - M*(3106*pow(rp,4)*pow(dr,2) + \
+1323*pow(rp,6)*pow(dth,2))))/Omega + (4*pow(a,3)*M*(1 - \
+a*Omega)*pow(rp,5)*(-2090*pow(rp,7)*pow(dr,2) + 1080*pow(M,8)*rp*pow(dth,2) + \
+460*pow(rp,9)*pow(dth,2) + 4050*pow(M,7)*(10*pow(dr,2) - \
+pow(rp,2)*pow(dth,2)) - 27*pow(M,6)*(5713*rp*pow(dr,2) + \
+457*pow(rp,3)*pow(dth,2)) + pow(M,5)*(240714*pow(rp,2)*pow(dr,2) + \
+57725*pow(rp,4)*pow(dth,2)) - 2*pow(M,4)*(106644*pow(rp,3)*pow(dr,2) + \
+34243*pow(rp,5)*pow(dth,2)) + 4*pow(M,3)*(34248*pow(rp,4)*pow(dr,2) + \
+7615*pow(rp,6)*pow(dth,2)) - pow(M,2)*(68811*pow(rp,5)*pow(dr,2) + \
+1627*pow(rp,7)*pow(dth,2)) + M*(19994*pow(rp,6)*pow(dr,2) - \
+2327*pow(rp,8)*pow(dth,2))))/Omega + \
+pow(a,2)*pow(rp,8)*(-836*pow(rp,7)*pow(dr,2) + 3240*pow(M,8)*rp*pow(dth,2) + \
+184*pow(rp,9)*pow(dth,2) + 108*pow(M,7)*(1125*pow(dr,2) - \
+106*pow(rp,2)*pow(dth,2)) - 6*pow(M,6)*(68931*rp*pow(dr,2) + \
+7556*pow(rp,3)*pow(dth,2)) + pow(M,5)*(586539*pow(rp,2)*pow(dr,2) + \
+163462*pow(rp,4)*pow(dth,2)) - 4*pow(M,4)*(116187*pow(rp,3)*pow(dr,2) + \
+45712*pow(rp,5)*pow(dth,2)) + 6*pow(M,3)*(41089*pow(rp,4)*pow(dr,2) + \
+15498*pow(rp,6)*pow(dth,2)) - 6*pow(M,2)*(14721*pow(rp,5)*pow(dr,2) + \
+3484*pow(rp,7)*pow(dth,2)) + M*(16299*pow(rp,6)*pow(dr,2) + \
+1046*pow(rp,8)*pow(dth,2))) - 4*pow(a,8)*M*rp*(3*pow(M,8)*rp*pow(dth,2) - \
+512*pow(rp,9)*pow(dth,2) - 2*pow(M,7)*(450*pow(dr,2) + \
+77*pow(rp,2)*pow(dth,2)) + pow(M,6)*(3816*rp*pow(dr,2) - \
+863*pow(rp,3)*pow(dth,2)) + 3*pow(M,5)*(-7112*pow(rp,2)*pow(dr,2) + \
+3547*pow(rp,4)*pow(dth,2)) - 19*pow(M,4)*(-2496*pow(rp,3)*pow(dr,2) + \
+631*pow(rp,5)*pow(dth,2)) - 2*pow(M,3)*(24502*pow(rp,4)*pow(dr,2) + \
+7181*pow(rp,6)*pow(dth,2)) + pow(M,2)*(25972*pow(rp,5)*pow(dr,2) + \
+19289*pow(rp,7)*pow(dth,2)) - M*(4236*pow(rp,6)*pow(dr,2) + \
+4097*pow(rp,8)*pow(dth,2))) + (2*pow(a,7)*M*(-1 + \
+a*Omega)*(144*pow(M,9)*rp*pow(dth,2) - 240*pow(rp,10)*pow(dth,2) + \
+12*pow(M,8)*(450*pow(dr,2) - 23*pow(rp,2)*pow(dth,2)) - \
+8*pow(M,7)*(2979*rp*pow(dr,2) + 223*pow(rp,3)*pow(dth,2)) + \
+pow(M,6)*(58320*pow(rp,2)*pow(dr,2) - 8157*pow(rp,4)*pow(dth,2)) + \
+4*pow(M,5)*(-38651*pow(rp,3)*pow(dr,2) + 16865*pow(rp,5)*pow(dth,2)) + \
+pow(M,4)*(246364*pow(rp,4)*pow(dr,2) - 79074*pow(rp,6)*pow(dth,2)) + \
+4*pow(M,3)*(-51395*pow(rp,5)*pow(dr,2) + 351*pow(rp,7)*pow(dth,2)) + \
+pow(M,2)*(76044*pow(rp,6)*pow(dr,2) + 26587*pow(rp,8)*pow(dth,2)) - \
+128*M*(45*pow(rp,7)*pow(dr,2) + 56*pow(rp,9)*pow(dth,2))))/Omega + \
+(2*pow(a,5)*M*(1 - a*Omega)*pow(rp,2)*(648*pow(M,9)*rp*pow(dth,2) + \
+540*pow(M,8)*(45*pow(dr,2) - 7*pow(rp,2)*pow(dth,2)) + \
+20*pow(rp,8)*(28*pow(dr,2) + 41*pow(rp,2)*pow(dth,2)) - \
+6*pow(M,7)*(24624*rp*pow(dr,2) + 395*pow(rp,3)*pow(dth,2)) + \
+pow(M,6)*(309339*pow(rp,2)*pow(dr,2) + 46939*pow(rp,4)*pow(dth,2)) - \
+16*pow(M,5)*(24708*pow(rp,3)*pow(dr,2) + 2431*pow(rp,5)*pow(dth,2)) + \
+pow(M,4)*(446250*pow(rp,4)*pow(dr,2) - 76170*pow(rp,6)*pow(dth,2)) + \
+6*pow(M,3)*(-69508*pow(rp,5)*pow(dr,2) + 18693*pow(rp,7)*pow(dth,2)) + \
+pow(M,2)*(224231*pow(rp,6)*pow(dr,2) - 45769*pow(rp,8)*pow(dth,2)) + \
+4*M*(-11472*pow(rp,7)*pow(dr,2) + 937*pow(rp,9)*pow(dth,2))))/Omega + \
+pow(a,4)*pow(rp,5)*(3240*pow(M,9)*rp*pow(dth,2) + 90*pow(M,8)*(1350*pow(dr,2) \
+- 157*pow(rp,2)*pow(dth,2)) + 4*pow(rp,8)*(28*pow(dr,2) + \
+41*pow(rp,2)*pow(dth,2)) - 3*pow(M,7)*(184077*rp*pow(dr,2) + \
+8977*pow(rp,3)*pow(dth,2)) + pow(M,6)*(975609*pow(rp,2)*pow(dr,2) + \
+192317*pow(rp,4)*pow(dth,2)) - pow(M,5)*(1010958*pow(rp,3)*pow(dr,2) + \
+221159*pow(rp,5)*pow(dth,2)) + 2*pow(M,4)*(418179*pow(rp,4)*pow(dr,2) + \
+9632*pow(rp,6)*pow(dth,2)) + pow(M,3)*(-584019*pow(rp,5)*pow(dr,2) + \
+90003*pow(rp,7)*pow(dth,2)) + pow(M,2)*(239861*pow(rp,6)*pow(dr,2) - \
+46871*pow(rp,8)*pow(dth,2)) + M*(-36552*pow(rp,7)*pow(dr,2) + \
+6535*pow(rp,9)*pow(dth,2))) + pow(a,6)*pow(rp,2)*(216*pow(M,10)*rp*pow(dth,2) \
++ 48*pow(rp,11)*pow(dth,2) + 324*pow(M,9)*(25*pow(dr,2) - \
+7*pow(rp,2)*pow(dth,2)) + 8*M*pow(rp,8)*(600*pow(dr,2) + \
+839*pow(rp,2)*pow(dth,2)) + 36*pow(M,8)*(-2418*rp*pow(dr,2) + \
+43*pow(rp,3)*pow(dth,2)) + pow(M,7)*(235692*pow(rp,2)*pow(dr,2) + \
+25123*pow(rp,4)*pow(dth,2)) + 3*pow(M,6)*(-132388*pow(rp,3)*pow(dr,2) + \
+3401*pow(rp,5)*pow(dth,2)) + pow(M,5)*(652084*pow(rp,4)*pow(dr,2) - \
+213358*pow(rp,6)*pow(dth,2)) + pow(M,4)*(-793736*pow(rp,5)*pow(dr,2) + \
+256882*pow(rp,7)*pow(dth,2)) + pow(M,3)*(536204*pow(rp,6)*pow(dr,2) - \
+79761*pow(rp,8)*pow(dth,2)) - pow(M,2)*(145860*pow(rp,7)*pow(dr,2) + \
+12737*pow(rp,9)*pow(dth,2))))*log(pow(rp,2)*(pow(dr,2)/(pow(a,2) - 2*M*rp + \
+pow(rp,2)) + pow(dth,2))))/(64.*pow(M,3)*pow(-2*pow(a,2)*M + (2*a*M)/Omega + \
+pow(rp,2)*(-3*M + rp),2)*pow(pow(a,2) + rp*(-2*M + rp),3)*sqrt(((2*a*M - \
+pow(a,2)*M*Omega + Omega*pow(rp,3))*(pow(a,2) + rp*(-2*M + rp)))/(2*a*M - \
+2*pow(a,2)*M*Omega + Omega*pow(rp,2)*(-3*M + rp))))\"\>"], "Output",
+ CellChangeTimes->{3.984331434542075*^9},
+ CellLabel->
+  "Out[780]=",ExpressionUUID->"0f8bcd4b-1ecc-4c45-a8ac-a6bc026d4380"]
 }, Open  ]]
-}, Closed]]
-}, Closed]]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1585, 1222},
-WindowMargins->{{1693, Automatic}, {Automatic, -1299}},
+Evaluator->"Local 4",
+WindowSize->{1585, 1118},
+WindowMargins->{{160, Automatic}, {Automatic, 0}},
 PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
 ShowSelection->True,
 FrontEndVersion->"14.3 for Mac OS X x86 (64-bit) (July 8, 2025)",
@@ -27883,91 +30394,97 @@ Cell[CellGroupData[{
 Cell[977802, 24223, 235, 4, 53, "Subsection",ExpressionUUID->"009379e4-6882-49aa-9cee-58ee9a73279d"],
 Cell[CellGroupData[{
 Cell[978062, 24231, 601, 17, 32, "Input",ExpressionUUID->"409b27d0-044d-4e3d-96fd-bd1d00af3faa"],
-Cell[978666, 24250, 1663, 52, 42, "Output",ExpressionUUID->"55d650e7-9962-4446-8e58-89f17b466e86"]
+Cell[978666, 24250, 1663, 52, 46, "Output",ExpressionUUID->"55d650e7-9962-4446-8e58-89f17b466e86"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[980366, 24307, 3333, 93, 116, "Input",ExpressionUUID->"63e86c43-983f-4ffa-acbb-bc965d42be3c"],
-Cell[983702, 24402, 7167, 229, 55, "Output",ExpressionUUID->"0aa42ea8-c060-491f-96ae-ab350427abdf"]
+Cell[980366, 24307, 3333, 93, 117, "Input",ExpressionUUID->"63e86c43-983f-4ffa-acbb-bc965d42be3c"],
+Cell[983702, 24402, 7167, 229, 59, "Output",ExpressionUUID->"0aa42ea8-c060-491f-96ae-ab350427abdf"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[990906, 24636, 1277, 35, 29, "Input",ExpressionUUID->"7cfd4c21-ad32-40ef-86f8-d6b017f82918"],
-Cell[992186, 24673, 19896, 696, 98, "Output",ExpressionUUID->"ab913985-4d06-4cdc-8fb0-f958634f2a11"]
+Cell[992186, 24673, 19896, 696, 106, "Output",ExpressionUUID->"ab913985-4d06-4cdc-8fb0-f958634f2a11"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1012119, 25374, 1407, 37, 29, "Input",ExpressionUUID->"87bd9a0e-1185-4ac7-bec4-6585520dfe89"],
-Cell[1013529, 25413, 15076, 517, 95, "Output",ExpressionUUID->"193daddb-f26c-40f3-9f8a-9389797a6643"]
+Cell[1013529, 25413, 15076, 517, 56, "Output",ExpressionUUID->"193daddb-f26c-40f3-9f8a-9389797a6643"]
 }, Open  ]],
-Cell[1028620, 25933, 3180, 78, 92, "Input",ExpressionUUID->"bd2ea4ef-1aba-4ec1-b425-2df8fe7beca3"],
+Cell[1028620, 25933, 3180, 78, 71, "Input",ExpressionUUID->"bd2ea4ef-1aba-4ec1-b425-2df8fe7beca3"],
 Cell[CellGroupData[{
-Cell[1031825, 26015, 1888, 42, 76, "Input",ExpressionUUID->"807a4db3-2613-4aa8-8903-4623abfee030"],
+Cell[1031825, 26015, 1888, 42, 53, "Input",ExpressionUUID->"807a4db3-2613-4aa8-8903-4623abfee030"],
 Cell[1033716, 26059, 470, 7, 33, "Output",ExpressionUUID->"7bafd054-c127-4fb2-9dca-2441b89f3220"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1034223, 26071, 2515, 60, 130, "Input",ExpressionUUID->"22b0d2b5-75c7-4878-aadb-baf2af0e172d"],
+Cell[1034223, 26071, 2515, 60, 85, "Input",ExpressionUUID->"22b0d2b5-75c7-4878-aadb-baf2af0e172d"],
 Cell[1036741, 26133, 205, 4, 33, "Output",ExpressionUUID->"71410643-ce2c-49c6-aedd-d864f303b2e6"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1036983, 26142, 2517, 60, 130, "Input",ExpressionUUID->"542cf3d0-373f-4822-a2aa-8be6cd9af3b7"],
+Cell[1036983, 26142, 2517, 60, 85, "Input",ExpressionUUID->"542cf3d0-373f-4822-a2aa-8be6cd9af3b7"],
 Cell[1039503, 26204, 177, 3, 33, "Output",ExpressionUUID->"74778c15-7952-4ded-a35f-1b823553f8c3"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1039717, 26212, 2499, 60, 130, "Input",ExpressionUUID->"facc6ea3-99df-41ed-a606-af96fd64ea92"],
+Cell[1039717, 26212, 2499, 60, 85, "Input",ExpressionUUID->"facc6ea3-99df-41ed-a606-af96fd64ea92"],
 Cell[1042219, 26274, 175, 3, 33, "Output",ExpressionUUID->"8b413ab9-c3b6-4bae-970c-0b31e7eff818"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[1042443, 26283, 192, 3, 35, "Subsection",ExpressionUUID->"291e0de8-9a21-4016-90f9-4a9fa1ffd4c4"],
+Cell[1042443, 26283, 192, 3, 37, "Subsection",ExpressionUUID->"291e0de8-9a21-4016-90f9-4a9fa1ffd4c4"],
 Cell[1042638, 26288, 230, 4, 29, "Input",ExpressionUUID->"e3de2ef1-dc0b-4cc6-bd65-05a212b764e2"],
 Cell[CellGroupData[{
 Cell[1042893, 26296, 808, 22, 35, "Input",ExpressionUUID->"16993de6-db77-464a-b998-b407db46799a"],
-Cell[1043704, 26320, 3393, 112, 57, "Output",ExpressionUUID->"0a6c4314-4beb-4f9d-9e10-8aa68c5b14fb"]
+Cell[1043704, 26320, 3393, 112, 61, "Output",ExpressionUUID->"0a6c4314-4beb-4f9d-9e10-8aa68c5b14fb"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1047134, 26437, 810, 23, 35, "Input",ExpressionUUID->"2056e336-ddf6-4d91-bd5f-e549225aa36d"],
-Cell[1047947, 26462, 1572, 56, 52, "Output",ExpressionUUID->"195a701f-12cb-4503-8045-ca405d95d54e"]
+Cell[1047947, 26462, 1572, 56, 56, "Output",ExpressionUUID->"195a701f-12cb-4503-8045-ca405d95d54e"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1049556, 26523, 297, 6, 29, "Input",ExpressionUUID->"afd95a3d-f178-488e-a9c0-49688c3f854d"],
-Cell[1049856, 26531, 198, 4, 42, "Output",ExpressionUUID->"88e64707-430d-4311-9efa-6b23dc646c17"]
+Cell[1049856, 26531, 198, 4, 46, "Output",ExpressionUUID->"88e64707-430d-4311-9efa-6b23dc646c17"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1050091, 26540, 377, 8, 29, "Input",ExpressionUUID->"f4be2895-8275-45de-b738-42d1a24775e4"],
-Cell[1050471, 26550, 294, 8, 43, "Output",ExpressionUUID->"90a9a834-e7da-419d-beae-ec898e1a1f2a"]
+Cell[1050471, 26550, 294, 8, 46, "Output",ExpressionUUID->"90a9a834-e7da-419d-beae-ec898e1a1f2a"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1050802, 26563, 377, 8, 29, "Input",ExpressionUUID->"7801b652-f18d-43c6-863f-9c3d7dbb1325"],
-Cell[1051182, 26573, 353, 10, 43, "Output",ExpressionUUID->"211c4131-2c4d-4ba1-b9f5-43a7de3e001a"]
+Cell[1051182, 26573, 353, 10, 46, "Output",ExpressionUUID->"211c4131-2c4d-4ba1-b9f5-43a7de3e001a"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1051572, 26588, 377, 8, 29, "Input",ExpressionUUID->"5b0340f2-9fdd-448e-8afb-bf536f606d89"],
-Cell[1051952, 26598, 388, 12, 43, "Output",ExpressionUUID->"4380da0d-b168-47ed-9290-cbc94e4c17b0"]
+Cell[1051952, 26598, 388, 12, 46, "Output",ExpressionUUID->"4380da0d-b168-47ed-9290-cbc94e4c17b0"]
 }, Open  ]],
-Cell[1052355, 26613, 8603, 269, 293, "Input",ExpressionUUID->"7e55faca-e991-4a2e-b4e2-8944bbe76051"],
-Cell[1060961, 26884, 582, 15, 29, "Input",ExpressionUUID->"637b55e0-f23a-44de-af07-f8a55407b54c"],
-Cell[1061546, 26901, 864, 21, 31, "Input",ExpressionUUID->"173a18bb-e433-4472-9b60-2c255aaf43ad"],
-Cell[1062413, 26924, 1767, 51, 29, "Input",ExpressionUUID->"cbd4da9c-8c29-4f4f-a4b6-506f6d361030"],
-Cell[1064183, 26977, 901, 21, 29, "Input",ExpressionUUID->"32e41e69-bb64-4bbd-95cb-7ff8b3483d17"],
-Cell[1065087, 27000, 1518, 49, 42, "Input",ExpressionUUID->"bcd812f5-25a7-4a43-a176-f0bfa0e6d3df"],
+Cell[1052355, 26613, 21641, 644, 474, "Input",ExpressionUUID->"7e55faca-e991-4a2e-b4e2-8944bbe76051"],
+Cell[1073999, 27259, 604, 15, 29, "Input",ExpressionUUID->"637b55e0-f23a-44de-af07-f8a55407b54c"],
+Cell[1074606, 27276, 864, 21, 31, "Input",ExpressionUUID->"173a18bb-e433-4472-9b60-2c255aaf43ad"],
+Cell[1075473, 27299, 1767, 51, 29, "Input",ExpressionUUID->"cbd4da9c-8c29-4f4f-a4b6-506f6d361030"],
+Cell[1077243, 27352, 1005, 23, 29, "Input",ExpressionUUID->"32e41e69-bb64-4bbd-95cb-7ff8b3483d17"],
+Cell[1078251, 27377, 1518, 49, 43, "Input",ExpressionUUID->"bcd812f5-25a7-4a43-a176-f0bfa0e6d3df"],
 Cell[CellGroupData[{
-Cell[1066630, 27053, 527, 9, 29, "Input",ExpressionUUID->"39b11b6b-458f-4cba-bdd3-e05a15893f4b"],
-Cell[1067160, 27064, 319, 5, 33, "Output",ExpressionUUID->"f79444dd-52f7-4b0b-8206-5f745c7a8986"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1067516, 27074, 785, 19, 54, "Input",ExpressionUUID->"a784972c-8406-43d2-8252-111d294fcc21"],
-Cell[1068304, 27095, 398, 7, 33, "Output",ExpressionUUID->"2bfb81aa-9247-4778-bb55-5512f225c5c1"]
-}, Open  ]],
-Cell[1068717, 27105, 2047, 50, 128, "Input",ExpressionUUID->"e0518967-367c-4d42-a968-07510cc821ce"],
-Cell[1070767, 27157, 2095, 50, 128, "Input",ExpressionUUID->"52fcb3e2-137d-44a7-9a9d-24688753e978"],
-Cell[CellGroupData[{
-Cell[1072887, 27211, 785, 20, 29, "Input",ExpressionUUID->"f0c7fcd3-9695-4e3e-b197-af4308d18255"],
-Cell[1073675, 27233, 2181, 31, 278, "Output",ExpressionUUID->"4ded07a4-7256-4c07-96d7-4cdb82dceddd"]
+Cell[1079794, 27430, 527, 9, 29, "Input",ExpressionUUID->"39b11b6b-458f-4cba-bdd3-e05a15893f4b"],
+Cell[1080324, 27441, 346, 6, 33, "Output",ExpressionUUID->"c277153e-41cf-44e4-9783-fe5d409278d8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1075893, 27269, 897, 21, 29, "Input",ExpressionUUID->"b76e9a07-bf37-45d8-adb5-4ca2a25bb232"],
-Cell[1076793, 27292, 3336, 48, 441, "Output",ExpressionUUID->"9ed2b774-21d2-479f-945b-c1749d156cac"]
+Cell[1080707, 27452, 785, 19, 54, "Input",ExpressionUUID->"a784972c-8406-43d2-8252-111d294fcc21"],
+Cell[1081495, 27473, 420, 7, 33, "Output",ExpressionUUID->"d46ef862-daea-4f42-832e-a135f3a9e9cb"]
+}, Open  ]],
+Cell[1081930, 27483, 2047, 50, 60, "Input",ExpressionUUID->"e0518967-367c-4d42-a968-07510cc821ce"],
+Cell[1083980, 27535, 2095, 50, 60, "Input",ExpressionUUID->"52fcb3e2-137d-44a7-9a9d-24688753e978"],
+Cell[1086078, 27587, 2147, 51, 60, "Input",ExpressionUUID->"088dc0ef-761f-4e91-b1fb-abbf02b39c1b"],
+Cell[1088228, 27640, 643, 17, 29, "Input",ExpressionUUID->"870627e1-04fc-48a1-aa35-aa63461275d6"],
+Cell[CellGroupData[{
+Cell[1088896, 27661, 785, 20, 29, "Input",ExpressionUUID->"f0c7fcd3-9695-4e3e-b197-af4308d18255"],
+Cell[1089684, 27683, 2207, 32, 258, "Output",ExpressionUUID->"8225a635-0b5d-4c62-90e7-290ca17faf9c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1091928, 27720, 897, 21, 29, "Input",ExpressionUUID->"b76e9a07-bf37-45d8-adb5-4ca2a25bb232"],
+Cell[1092828, 27743, 3361, 49, 401, "Output",ExpressionUUID->"e878a6d1-f17d-4dbd-acfd-8e62164d83d9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1096226, 27797, 1139, 25, 29, "Input",ExpressionUUID->"588e924f-88f8-48f3-ad3a-fbf056ff1f53"],
+Cell[1097368, 27824, 129090, 2026, 16047, "Output",ExpressionUUID->"0f8bcd4b-1ecc-4c45-a8ac-a6bc026d4380"]
 }, Open  ]]
-}, Closed]]
-}, Closed]]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }
 ]
